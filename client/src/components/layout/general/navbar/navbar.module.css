@@ -1,0 +1,7 @@
+.input-wrapper {
+    max-width: 200px;
+}
+
+.input-wrapper:has(input:focus) {
+    max-width: 300px;
+}

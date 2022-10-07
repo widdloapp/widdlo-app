@@ -1,13 +1,20 @@
 import style from "./navbar.module.css";
-import {Button, Divider, Icon, IconButton, Tooltip} from "@chakra-ui/react";
+import {IconButton, Input, InputGroup, InputLeftElement, Tooltip} from "@chakra-ui/react";
 
 export default function Navbar() {
 
     return (
-        <div className={style["content-wrapper"]}>
+        <div className={style["wrapper"]}>
             <Tooltip label="Aplicación móvil">
-                <IconButton className="icon" icon={<i className="fa-light fa-mobile"></i>} />
+                <IconButton icon={<i className="fa-light fa-mobile"></i>} />
             </Tooltip>
+            <Tooltip label="Centro de recursos">
+                <IconButton icon={<i className="fa-light fa-book"></i>} />
+            </Tooltip>
+            <InputGroup className={style["input-wrapper"]}>
+                <InputLeftElement pointerEvents='none' children={<i className="fa-light fa-book"></i>} />
+                <Input className={style["search-bar"]} variant='filled' autoComplete="false" type="text" placeholder='Búsqueda...' />
+            </InputGroup>
         </div>
     );
 }
