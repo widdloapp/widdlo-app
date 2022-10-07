@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+}
+
+* {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    outline: none;
+
+    font-family: 'Rubik', sans-serif;
+}
+
+Button.selection {
+    width: 100%;
+    margin: 5px;
+    background: none;
+    color: white;
+    border-radius: 3px;
+}
+
+Button.selection:hover {
+    background: #28282d;
+}
+
+.icon {
+    background: #28282d;
+}
