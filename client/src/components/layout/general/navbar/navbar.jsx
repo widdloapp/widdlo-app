@@ -11,10 +11,6 @@ export default function Navbar() {
             <Tooltip label="Centro de recursos">
                 <IconButton icon={<i className="fa-light fa-book"></i>} />
             </Tooltip>
-            <InputGroup className={style["input-wrapper"]}>
-                <InputLeftElement pointerEvents='none' children={<i className="fa-light fa-book"></i>} />
-                <Input className={style["search-bar"]} variant='filled' autoComplete="false" type="text" placeholder='Búsqueda...' />
-            </InputGroup>
         </div>
     );
 }

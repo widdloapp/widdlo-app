@@ -1,3 +1,13 @@
+.wrapper {
+    background: #1f1f1f;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.wrapper > * {
+    display: inline-block;
+}
+
 .input-wrapper {
     max-width: 200px;
 }
