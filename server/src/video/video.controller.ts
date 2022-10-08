@@ -29,7 +29,7 @@ export class VideoController {
         try {
             const videos = await this.videoService.getAllVideos();
             return response.status(HttpStatus.OK).json({
-                message: 'All videos data found successfully', videos
+                message: 'Videos data found successfully', videos
             });
         } catch (err) {
             return response.status(err.status).json(err.response);
