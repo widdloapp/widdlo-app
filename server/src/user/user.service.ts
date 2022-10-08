@@ -13,6 +13,15 @@ const bcrypt = require('bcrypt');
 export class UserService {
     constructor(@InjectModel('User') private userModel: Model<User>) { }
 
+    async login(loginRequestDto: LoginRequestDto) {
+        const user = await this.userModel.findOne({email: loginRequestDto.email});
+
+        if (!user || !await bcrypt.compare(loginRequestDto.password, user.password)) {
+            throw new HttpException('Invalid credentials.', HttpStatus.UNAUTHORIZED);
+        }
+        return jwt.sign(user._id.toString(), process.env.JWT_TOKEN);
+    }
+
     async createUser(createUserDto: CreateUserDto): Promise<User> {
         return await this.userModel.create({
             username: createUserDto.username,
@@ -21,6 +30,7 @@ export class UserService {
             password: await bcrypt.hash(createUserDto.password, 10)
         });
     }
+
     async getById(@Param('id') id: string) {
         const user = await this.userModel.findById(id);
 
@@ -31,13 +41,5 @@ export class UserService {
         }
 
         return data;
-    }
-    async login(loginRequestDto: LoginRequestDto) {
-        const user = await this.userModel.findOne({email: loginRequestDto.email});
-
-        if (!user || !await bcrypt.compare(user.password, loginRequestDto.password)) {
-            throw new HttpException('Invalid credentials.', HttpStatus.UNAUTHORIZED);
-        }
-        return jwt.sign(user._id.toString(), process.env.JWT_TOKEN);
     }
 }
