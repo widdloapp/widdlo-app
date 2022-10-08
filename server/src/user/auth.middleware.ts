@@ -10,9 +10,9 @@ export class AuthMiddleware implements NestMiddleware {
 
     async use(req: Request, res: Response, next: NextFunction) {
         const authHeader = req.headers.authorization;
-        const splitHeader = (authHeader as string).split(' ');
 
-        if (authHeader && splitHeader.length > 0) {
+        if (authHeader && (authHeader as string).split(' ').length > 0) {
+            const splitHeader = (authHeader as string).split(' ');
             const token = splitHeader[1];
 
             try {

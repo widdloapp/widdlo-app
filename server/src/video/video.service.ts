@@ -8,8 +8,8 @@ import {CreateVideoDto} from "../dto/create-video.dto";
 export class VideoService {
     constructor(@InjectModel('Video') private videoModel: Model<Video>) { }
     async createVideo(createVideoDto: CreateVideoDto): Promise<Video> {
-        const newUser = await new this.videoModel(createVideoDto);
-        return newUser.save();
+        const user = await new this.videoModel(createVideoDto);
+        return user.save();
     }
 
     async getAllVideos(): Promise<Video[]> {
