@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 
 export type VideoDocument = Video & Document;
 
-@Schema({toJSON: {virtuals: true, versionKey :false, transform: function (doc, ret) { delete ret._id }}})
+@Schema({toJSON: {virtuals: true, versionKey: false, transform: function (doc, ret) { delete ret._id }}})
 export class Video {
     @Prop()
     title: string;
@@ -12,7 +12,7 @@ export class Video {
     @Prop()
     description: string;
 
-    @Prop()
+    @Prop({default: 0})
     views: number;
 
     @Prop()
@@ -24,7 +24,7 @@ export class Video {
 
 const VideoSchema = SchemaFactory.createForClass(Video);
 
-VideoSchema.virtual('aaa').get(function (this: VideoDocument) {
+VideoSchema.virtual('likes').get(function (this: VideoDocument) {
     return "eeeeeeee";
 });
 
