@@ -27,8 +27,8 @@ const VideoSchema = SchemaFactory.createForClass(Video);
 
 VideoSchema.virtual('likes', {
     ref: 'Like',
-    localField: 'likes',
-    foreignField: 'id',
+    localField: '_id',
+    foreignField: 'video',
     count: true
 });
 
