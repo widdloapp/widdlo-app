@@ -12,7 +12,7 @@ export class Video {
     @Prop()
     description: string;
 
-    @Prop({default: 0})
+    @Prop( {default: 0} )
     views: number;
 
     @Prop()
@@ -24,7 +24,7 @@ export class Video {
 
 const VideoSchema = SchemaFactory.createForClass(Video);
 
-VideoSchema.virtual('likes').get(function (this: VideoDocument) {
+SchemaFactory.createForClass(Video).virtual('likes').get(function (this: VideoDocument) {
     return "eeeeeeee";
 });
 

@@ -1,6 +1,6 @@
 import {Prop, Schema, SchemaFactory} from "@nestjs/mongoose"
 
-@Schema()
+@Schema({toJSON: {virtuals: true, versionKey: false, transform: function (doc, ret) { delete ret._id }}})
 export class User {
     @Prop()
     name: string;

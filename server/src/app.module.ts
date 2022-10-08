@@ -12,14 +12,22 @@ import {AuthMiddleware} from "./user/auth.middleware";
 import {UserController} from "./user/user.controller";
 import {UserService} from "./user/user.service";
 import {UserSchema} from "./user/user.schema";
+import {LikeService} from "./like/like.service";
+import {LikeSchema} from "./like/like.schema";
+import {LikeController} from "./like/like.controller";
 
 require('dotenv').config()
 
 @Module({
   imports: [MongooseModule.forRoot(process.env.MONGO_URI),
-    MongooseModule.forFeature([{ name: 'Video', schema: VideoSchema }, { name: 'User', schema: UserSchema }])],
-  controllers: [AppController, VideoController, UserController],
-  providers: [AppService, VideoService, UserService]
+    MongooseModule.forFeature(
+        [
+            { name: 'Video', schema: VideoSchema },
+          { name: 'User', schema: UserSchema },
+          { name: 'Like', schema: LikeSchema }
+        ])],
+  controllers: [AppController, VideoController, UserController, LikeController],
+  providers: [AppService, VideoService, UserService, LikeService]
 })
 export class AppModule implements NestModule {
   configure(middlewareConsumer: MiddlewareConsumer) {
