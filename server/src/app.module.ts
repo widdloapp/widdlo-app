@@ -2,7 +2,7 @@ import {Module} from '@nestjs/common';
 import {MongooseModule} from "@nestjs/mongoose";
 import {AppController} from "./app/app.controller";
 import {AppService} from "./app/app.service";
-import {VideoSchema} from "./schema/video.schema";
+import {VideoSchema} from "./video/video.schema";
 import {VideoService} from './video/video.service';
 import {VideoController} from './video/video.controller';
 

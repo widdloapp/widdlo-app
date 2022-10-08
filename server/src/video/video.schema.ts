@@ -1,5 +1,5 @@
 import {Prop, Schema, SchemaFactory} from "@nestjs/mongoose"
-import {User, UserSchema} from './user.schema';
+import {User, UserSchema} from '../user/user.schema';
 import {Type} from "class-transformer";
 
 @Schema()
