@@ -1,6 +1,5 @@
 import {Prop, Schema, SchemaFactory} from "@nestjs/mongoose"
-import {User, UserSchema} from '../user/user.schema';
-import {Type} from "class-transformer";
+import {User} from '../user/user.schema';
 
 @Schema()
 export class Video {
@@ -16,9 +15,8 @@ export class Video {
     @Prop()
     tags: string[];
 
-    @Prop({ type: UserSchema })
-    @Type(() => User)
-    author: User;
+    @Prop()
+    author: string;
 }
 
 export const VideoSchema = SchemaFactory.createForClass(Video);

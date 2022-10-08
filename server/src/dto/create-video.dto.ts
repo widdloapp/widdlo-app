@@ -10,4 +10,6 @@ export class CreateVideoDto {
     @MaxLength(300)
     @IsNotEmpty()
     readonly description: string;
+
+    author: string;
 }

@@ -3,9 +3,9 @@ import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {User} from "./user.schema";
 import {CreateUserDto} from "../dto/create-user.dto";
-import * as jwt from 'jsonwebtoken';
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
 import {LoginRequestDto} from "../dto/login-request.dto";
+import * as jwt from 'jsonwebtoken';
 
 const bcrypt = require('bcrypt');
 
