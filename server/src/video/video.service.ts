@@ -8,12 +8,13 @@ import {CreateVideoDto} from "../dto/create-video.dto";
 export class VideoService {
     constructor(@InjectModel('Video') private videoModel: Model<Video>) { }
     async createVideo(createVideoDto: CreateVideoDto): Promise<Video> {
-        const newStudent = await new this.videoModel(createVideoDto);
-        return newStudent.save();
+        const newUser = await new this.videoModel(createVideoDto);
+        return newUser.save();
     }
 
     async getAllVideos(): Promise<Video[]> {
         const videoData = await this.videoModel.find();
+
         if (!videoData || videoData.length == 0) {
             throw new NotFoundException('Videos data not found!');
         }
