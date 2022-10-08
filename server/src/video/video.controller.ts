@@ -9,7 +9,7 @@ export class VideoController {
     @Post()
     async createVideo(@Res() response, @Body() createVideoDto: CreateVideoDto) {
         try {
-            const newStudent = await this.videoService.createStudent(createVideoDto);
+            const newStudent = await this.videoService.createVideo(createVideoDto);
             return response.status(HttpStatus.CREATED).json({
                 message: 'Video has been created successfully', newStudent
             });
