@@ -12,10 +12,14 @@ const bcrypt = require('bcrypt');
 @Injectable()
 export class UserService {
     constructor(@InjectModel('User') private userModel: Model<User>) { }
-    async createUser(createUserDto: CreateUserDto): Promise<User> {
-        const newUser = await new this.userModel(createUserDto);
 
-        return newUser.save();
+    async createUser(createUserDto: CreateUserDto): Promise<User> {
+        return await this.userModel.create({
+            username: createUserDto.username,
+            name: createUserDto.name,
+            email: createUserDto.email,
+            password: await bcrypt.hash(createUserDto.password, 10)
+        });
     }
     async getById(@Param('id') id: string) {
         const user = await this.userModel.findById(id);
