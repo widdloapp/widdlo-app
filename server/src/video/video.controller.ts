@@ -8,14 +8,14 @@ export class VideoController {
 
     @Post()
     async createVideo(@Res() response, @Body() createVideoDto: CreateVideoDto) {
-        createVideoDto.author = response.locals.user
+        createVideoDto.author = response.locals.user;
 
         try {
             const video = await this.videoService.createVideo(createVideoDto);
             return response.status(HttpStatus.CREATED).json({
                 message: 'Video has been uploaded successfully', video
             });
-        } catch (err) {
+        } catch (error) {
             return response.status(HttpStatus.BAD_REQUEST).json({
                 statusCode: 400,
                 message: 'Error: Video could not be created!',

@@ -8,7 +8,7 @@ export class LikeController {
 
     @Post()
     async loginAccount(@Res() response, @Body() likeVideoDto: LikeVideoDto) {
-        likeVideoDto.author = response.locals.user
+        likeVideoDto.author = response.locals.user;
 
         await this.likeService.likeVideo(likeVideoDto);
 

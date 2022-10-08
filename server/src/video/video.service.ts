@@ -1,6 +1,6 @@
 import {Injectable, NotFoundException} from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
-import mongoose, {Model} from "mongoose";
+import {Model} from "mongoose";
 import {Video} from "./video.schema";
 import {CreateVideoDto} from "../dto/create-video.dto";
 
@@ -13,7 +13,8 @@ export class VideoService {
     }
 
     async getAllVideos(): Promise<Video[]> {
-        const videoData = await this.videoModel.find().select(["title", "description", "views", "likes"]).populate('author', ["username"]);
+        const videoData = await this.videoModel.find().select(["title", "description", "views", "likes"])
+            .populate('author', ["username"]).populate('likes');
         if (!videoData || videoData.length == 0) {
             throw new NotFoundException('Videos data not found!');
         }

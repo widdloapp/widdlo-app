@@ -6,10 +6,10 @@ import {Like} from "./like.schema";
 
 @Injectable()
 export class LikeService {
-    constructor(@InjectModel('Like') private videoModel: Model<Like>) { }
+    constructor(@InjectModel('Like') private likeModel: Model<Like>) { }
 
     async likeVideo(likeVideoDto: LikeVideoDto): Promise<Like> {
-        const user = await new this.videoModel(likeVideoDto);
+        const user = await new this.likeModel(likeVideoDto);
         return user.save();
     }
 }

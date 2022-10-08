@@ -1,10 +1,11 @@
 import {Prop, Schema, SchemaFactory} from "@nestjs/mongoose"
 import {User} from "../user/user.schema";
 import mongoose from "mongoose";
+import {Like} from "../like/like.schema";
 
 export type VideoDocument = Video & Document;
 
-@Schema({toJSON: {virtuals: true, versionKey: false, transform: function (doc, ret) { delete ret._id }}})
+@Schema({toJSON: {virtuals: true, versionKey: false, transform: function (doc, ret) { delete ret._id }} })
 export class Video {
     @Prop()
     title: string;
@@ -24,8 +25,11 @@ export class Video {
 
 const VideoSchema = SchemaFactory.createForClass(Video);
 
-SchemaFactory.createForClass(Video).virtual('likes').get(function (this: VideoDocument) {
-    return "eeeeeeee";
+VideoSchema.virtual('likes', {
+    ref: 'Like',
+    localField: 'likes',
+    foreignField: 'id',
+    count: true
 });
 
 export { VideoSchema };
