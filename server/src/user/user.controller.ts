@@ -6,19 +6,20 @@ import {CreateUserDto} from "../dto/create-user.dto";
 export class UserController {
     constructor(private readonly userService: UserService) { }
 
-    @Post()
-    async createVideo(@Res() response, @Body() createUserDto: CreateUserDto) {
-        try {
-            const newStudent = await this.userService.createUser(createUserDto);
-            return response.status(HttpStatus.CREATED).json({
-                message: 'User registered successfully', newStudent
-            });
-        } catch (err) {
-            return response.status(HttpStatus.BAD_REQUEST).json({
-                statusCode: 400,
-                message: 'Error: User could not be created!',
-                error: 'Bad Request'
-            });
-        }
+    @Post("login")
+    async loginAccount(@Res() response, @Body() body) {
+        const user = await this.userService.login(response, body);
+
+        return response.status(HttpStatus.CREATED).json({
+            message: 'Logged successfully', user
+        });
+    }
+    @Post("register")
+    async registerAccount(@Res() response, @Body() createUserDto: CreateUserDto) {
+        const user = await this.userService.createUser(createUserDto);
+
+        return response.status(HttpStatus.CREATED).json({
+            message: 'Logged successfully', user
+        });
     }
 }

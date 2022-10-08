@@ -9,9 +9,9 @@ export class VideoController {
     @Post()
     async createVideo(@Res() response, @Body() createVideoDto: CreateVideoDto) {
         try {
-            const newStudent = await this.videoService.createVideo(createVideoDto);
+            const newVideo = await this.videoService.createVideo(createVideoDto);
             return response.status(HttpStatus.CREATED).json({
-                message: 'Video has been uploaded successfully', newStudent
+                message: 'Video has been uploaded successfully', newVideo
             });
         } catch (err) {
             return response.status(HttpStatus.BAD_REQUEST).json({

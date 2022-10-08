@@ -1,8 +1,8 @@
 import {HttpException} from '@nestjs/common/exceptions/http.exception';
 import {NestMiddleware, HttpStatus, Injectable} from '@nestjs/common';
 import {Request, Response, NextFunction} from 'express';
-import * as jwt from 'jsonwebtoken';
 import {UserService} from './user.service';
+import * as jwt from 'jsonwebtoken';
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
@@ -13,7 +13,7 @@ export class AuthMiddleware implements NestMiddleware {
 
         if (authHeaders && (authHeaders as string).split(' ')[1]) {
             const token = (authHeaders as string).split(' ')[1];
-            const decoded: any = jwt.verify(token, process.env.JWT_TOKEN);
+            const decoded: any = await jwt.verify(token, process.env.JWT_TOKEN);
             const user = await this.userService.getById(decoded.id);
 
             if (!user) {

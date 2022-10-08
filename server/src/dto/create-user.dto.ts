@@ -17,9 +17,8 @@ export class CreateUserDto {
     readonly email: string;
 
     @IsString()
-    @MinLength(40)
+    @MinLength(6)
     @MaxLength(80)
     @IsNotEmpty()
-    @Matches(/((?=.\d)|(?=.\W+))(?![.\n])(?=.[A-Z])(?=.[a-z]).*$/, {message: 'password too weak'})
     readonly password: string;
 }
