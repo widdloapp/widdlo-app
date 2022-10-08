@@ -27,9 +27,9 @@ export class VideoController {
     @Get()
     async getVideos(@Res() response) {
         try {
-            const videoData = await this.videoService.getAllVideos();
+            const videos = await this.videoService.getAllVideos();
             return response.status(HttpStatus.OK).json({
-                message: 'All videos data found successfully', videoData
+                message: 'All videos data found successfully', videos
             });
         } catch (err) {
             return response.status(err.status).json(err.response);
