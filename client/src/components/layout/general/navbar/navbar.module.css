@@ -1,7 +1,6 @@
 .wrapper {
     background: #1f1f1f;
     padding: 20px;
-    box-sizing: border-box;
 }
 
 .wrapper > * {
