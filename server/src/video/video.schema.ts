@@ -2,7 +2,9 @@ import {Prop, Schema, SchemaFactory} from "@nestjs/mongoose"
 import {User} from "../user/user.schema";
 import mongoose from "mongoose";
 
-@Schema()
+export type VideoDocument = Video & Document;
+
+@Schema({toJSON: {virtuals: true, versionKey :false, transform: function (doc, ret) { delete ret._id }}})
 export class Video {
     @Prop()
     title: string;
@@ -20,4 +22,10 @@ export class Video {
     author: User;
 }
 
-export const VideoSchema = SchemaFactory.createForClass(Video);
+const VideoSchema = SchemaFactory.createForClass(Video);
+
+VideoSchema.virtual('aaa').get(function (this: VideoDocument) {
+    return "eeeeeeee";
+});
+
+export { VideoSchema };

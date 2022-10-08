@@ -25,7 +25,7 @@ export class AuthMiddleware implements NestMiddleware {
 
                 res.locals.user = user.id.toString();
                 next();
-            } catch (err) {
+            } catch (error) {
                 throw new HttpException('Invalid token.', HttpStatus.UNPROCESSABLE_ENTITY);
             }
         } else {
