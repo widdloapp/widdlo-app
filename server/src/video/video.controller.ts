@@ -11,7 +11,8 @@ export class VideoController {
         try {
             const newStudent = await this.videoService.createStudent(createVideoDto);
             return response.status(HttpStatus.CREATED).json({
-                message: 'Video has been created successfully', newStudent});
+                message: 'Video has been created successfully', newStudent
+            });
         } catch (err) {
             return response.status(HttpStatus.BAD_REQUEST).json({
                 statusCode: 400,
@@ -26,7 +27,8 @@ export class VideoController {
         try {
             const videoData = await this.videoService.getAllVideos();
             return response.status(HttpStatus.OK).json({
-                message: 'All students data found successfully', videoData});
+                message: 'All videos data found successfully', videoData
+            });
         } catch (err) {
             return response.status(err.status).json(err.response);
         }

@@ -7,7 +7,7 @@ import { VideoService } from './video/video.service';
 import { VideoController } from './video/video.controller';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost:27017/widdlo'),
+  imports: [MongooseModule.forRoot('mongodb+srv://admin:s63deoM3V4jObECN@dev.gdbizyp.mongodb.net/?retryWrites=true&w=majority'),
     MongooseModule.forFeature([{ name: 'Video', schema: VideoSchema }])],
   controllers: [AppController, VideoController],
   providers: [AppService, VideoService],
