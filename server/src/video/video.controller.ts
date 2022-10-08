@@ -16,7 +16,6 @@ export class VideoController {
                 message: 'Video has been uploaded successfully', video
             });
         } catch (err) {
-            console.log(err)
             return response.status(HttpStatus.BAD_REQUEST).json({
                 statusCode: 400,
                 message: 'Error: Video could not be created!',

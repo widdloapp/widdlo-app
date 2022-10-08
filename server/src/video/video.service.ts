@@ -13,7 +13,7 @@ export class VideoService {
     }
 
     async getAllVideos(): Promise<Video[]> {
-        const videoData = await this.videoModel.find();
+        const videoData = await this.videoModel.find().select(["title", "description"]).populate('author', ["username"]);
 
         if (!videoData || videoData.length == 0) {
             throw new NotFoundException('Videos data not found!');
