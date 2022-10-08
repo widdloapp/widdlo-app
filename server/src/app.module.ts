@@ -1,5 +1,3 @@
-import * as dotenv from 'dotenv'
-
 import {MiddlewareConsumer, Module, NestModule, RequestMethod} from '@nestjs/common';
 import {MongooseModule} from "@nestjs/mongoose";
 import {AppController} from "./app/app.controller";
@@ -31,6 +29,9 @@ require('dotenv').config()
 })
 export class AppModule implements NestModule {
   configure(middlewareConsumer: MiddlewareConsumer) {
-    middlewareConsumer.apply(AuthMiddleware).forRoutes({ path: 'video', method: RequestMethod.POST });
+    middlewareConsumer.apply(AuthMiddleware).forRoutes(
+        { path: 'video', method: RequestMethod.POST },
+        { path: 'like', method: RequestMethod.POST }
+    );
   }
 }

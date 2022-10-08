@@ -8,6 +8,8 @@ export class LikeController {
 
     @Post()
     async loginAccount(@Res() response, @Body() likeVideoDto: LikeVideoDto) {
+        likeVideoDto.author = response.locals.user
+
         await this.likeService.likeVideo(likeVideoDto);
 
         return response.status(HttpStatus.OK).json({
