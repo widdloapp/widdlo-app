@@ -18,6 +18,6 @@ import {UserSchema} from "./user/user.schema";
 })
 export class AppModule implements NestModule {
   configure(middlewareConsumer: MiddlewareConsumer) {
-    middlewareConsumer.apply(AuthMiddleware).forRoutes({ path: 'videos', method: RequestMethod.POST });
+    middlewareConsumer.apply(AuthMiddleware).forRoutes({ path: 'video', method: RequestMethod.POST });
   }
 }
