@@ -11,12 +11,12 @@ export class VideoController {
         try {
             const newStudent = await this.videoService.createVideo(createVideoDto);
             return response.status(HttpStatus.CREATED).json({
-                message: 'Video has been created successfully', newStudent
+                message: 'Video has been uploaded successfully', newStudent
             });
         } catch (err) {
             return response.status(HttpStatus.BAD_REQUEST).json({
                 statusCode: 400,
-                message: 'Error: Video not created!',
+                message: 'Error: Video could not be created!',
                 error: 'Bad Request'
             });
         }

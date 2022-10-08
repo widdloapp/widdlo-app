@@ -1,4 +1,4 @@
-import {IsEmail, IsNotEmpty, IsString, Matches, MaxLength, MinLength} from "class-validator";
+import {IsNotEmpty, IsString, Matches, MaxLength} from "class-validator";
 
 export class CreateVideoDto {
     @IsString()
