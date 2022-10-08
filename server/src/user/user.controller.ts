@@ -19,7 +19,7 @@ export class UserController {
         const user = await this.userService.createUser(createUserDto);
 
         return response.status(HttpStatus.CREATED).json({
-            message: 'Logged successfully', user
+            message: 'Registered successfully', user
         });
     }
 }
