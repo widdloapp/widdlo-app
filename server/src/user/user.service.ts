@@ -5,6 +5,7 @@ import {User} from "./user.schema";
 import {CreateUserDto} from "../dto/create-user.dto";
 import * as jwt from 'jsonwebtoken';
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
+import {LoginRequestDto} from "../dto/login-request.dto";
 
 @Injectable()
 export class UserService {
@@ -25,13 +26,13 @@ export class UserService {
 
         return data;
     }
-    async login(@Res() response, @Body() body) {
-        const user = await this.userModel.findById(body.id);
+    async login(loginRequestDto: LoginRequestDto) {
+        const user = await this.userModel.findOne({email: loginRequestDto.email});
 
         if (!user) {
             throw new HttpException('User not found.', HttpStatus.UNAUTHORIZED);
         }
 
-        return jwt.sign(body.id, process.env.JWT_TOKEN);
+        return jwt.sign(user._id.toString(), process.env.JWT_TOKEN);
     }
 }
