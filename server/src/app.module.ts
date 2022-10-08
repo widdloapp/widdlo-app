@@ -1,6 +1,9 @@
+import * as dotenv from 'dotenv'
+
 import {MiddlewareConsumer, Module, NestModule, RequestMethod} from '@nestjs/common';
 import {MongooseModule} from "@nestjs/mongoose";
 import {AppController} from "./app/app.controller";
+
 import {AppService} from "./app/app.service";
 import {VideoSchema} from "./video/video.schema";
 import {VideoService} from './video/video.service';
@@ -10,8 +13,10 @@ import {UserController} from "./user/user.controller";
 import {UserService} from "./user/user.service";
 import {UserSchema} from "./user/user.schema";
 
+require('dotenv').config()
+
 @Module({
-  imports: [MongooseModule.forRoot('mongodb+srv://admin:s63deoM3V4jObECN@dev.gdbizyp.mongodb.net/?retryWrites=true&w=majority'),
+  imports: [MongooseModule.forRoot(process.env.MONGO_URI),
     MongooseModule.forFeature([{ name: 'Video', schema: VideoSchema }, { name: 'User', schema: UserSchema }])],
   controllers: [AppController, VideoController, UserController],
   providers: [AppService, VideoService, UserService]

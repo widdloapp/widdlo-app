@@ -1,5 +1,3 @@
-const dotenv = require('dotenv').config();
-
 import {HttpException} from '@nestjs/common/exceptions/http.exception';
 import {NestMiddleware, HttpStatus, Injectable} from '@nestjs/common';
 import {Request, Response, NextFunction} from 'express';
@@ -15,8 +13,7 @@ export class AuthMiddleware implements NestMiddleware {
 
         if (authHeaders && (authHeaders as string).split(' ')[1]) {
             const token = (authHeaders as string).split(' ')[1];
-            console.log(dotenv.JWT_TOKEN);
-            const decoded: any = jwt.verify(token, dotenv.JWT_TOKEN);
+            const decoded: any = jwt.verify(token, process.env.JWT_TOKEN);
             const user = await this.userService.getById(decoded.id);
 
             if (!user) {
