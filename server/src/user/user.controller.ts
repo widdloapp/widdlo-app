@@ -19,9 +19,9 @@ export class UserController {
 
     @Post("register")
     async registerAccount(@Res() response, @Body() createUserDto: CreateUserDto) {
-        await this.userService.createUser(createUserDto);
+        const user = await this.userService.createUser(createUserDto);
 
-        const token = await this.userService.login(createUserDto);
+        const token = await this.userService.createToken(user._id.toString());
 
         return response.status(HttpStatus.CREATED).json({
             message: 'Registered successfully', token

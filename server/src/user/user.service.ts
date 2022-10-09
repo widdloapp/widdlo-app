@@ -20,14 +20,16 @@ export class UserService {
         if (!user || !await bcrypt.compare(loginRequestDto.password, user.password)) {
             throw new HttpException('Invalid credentials.', HttpStatus.UNAUTHORIZED);
         }
-        return jwt.sign(user._id.toString(), process.env.JWT_TOKEN/*, { expiresIn: '365d' }*/);
+        return await this.createToken(user._id.toString());
+    }
+
+    async createToken(user: string) {
+        return jwt.sign(user.toString(), process.env.JWT_TOKEN/*, { expiresIn: '365d' }*/);
     }
 
     async createUser(createUserDto: CreateUserDto) {
         try {
             return await this.userModel.create(createUserDto);
-
-
         } catch (error) {
             throw new HttpException("An account with that email already exists.", HttpStatus.CONFLICT);
         }
