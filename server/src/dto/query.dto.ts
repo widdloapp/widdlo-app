@@ -1,9 +1,8 @@
-import {IsNumber, IsOptional} from "class-validator";
-import {Type} from "class-transformer";
+import {Transform} from "class-transformer";
+import {IsNumber} from "class-validator";
 
 export class QueryDto {
     @IsNumber()
-    @Type(() => Number)
-    @IsOptional()
+    @Transform(value => Number(value.value))
     readonly page: number;
 }
