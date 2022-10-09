@@ -1,24 +1,22 @@
-import {
-    Body,
-    Controller,
-    Get,
-    HttpStatus,
-    Param,
-    Post,
-    Res,
-    Response,
-    Query,
-    InternalServerErrorException, BadRequestException
-} from '@nestjs/common';
 import {CreateVideoDto} from "../dto/create-video.dto";
 import {VideoService} from 'src/video/video.service';
 import {VideoFeedDto} from "../dto/video-feed.dto";
 import {GetVideoDto} from "../dto/get-video.dto";
-import {ViewService} from "../view/view.service";
+import {
+    BadRequestException,
+    Body,
+    Controller,
+    Get,
+    HttpStatus,
+    InternalServerErrorException, Param,
+    Post,
+    Query,
+    Res, Response
+} from "@nestjs/common";
 
 @Controller('video')
 export class VideoController {
-    constructor(private readonly videoService: VideoService, private readonly viewService: ViewService) { }
+    constructor(private readonly videoService: VideoService) { }
 
     @Post()
     async createVideo(@Res() response, @Body() createVideoDto: CreateVideoDto) {
@@ -49,8 +47,6 @@ export class VideoController {
     @Get(":id")
     async getVideo(@Response() response, @Param() getVideoDto: GetVideoDto) {
         const video = await this.videoService.getVideo(getVideoDto);
-
-        await this.viewService.registerView(getVideoDto.id);
 
         return response.status(HttpStatus.OK).json({
             message: 'Video data found successfully', video,

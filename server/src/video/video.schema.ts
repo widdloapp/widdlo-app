@@ -11,6 +11,9 @@ export class Video {
     @Prop()
     description: string;
 
+    @Prop( {default: 0} )
+    views: number;
+
     @Prop()
     tags: string[];
 

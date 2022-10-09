@@ -31,6 +31,8 @@ export class VideoService {
             throw new NotFoundException('Unknown video!');
         }
 
+        await video.update({views: video.views + 1})
+
         return video;
     }
 }
