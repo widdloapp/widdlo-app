@@ -25,12 +25,7 @@ export class UserService {
 
     async createUser(createUserDto: CreateUserDto) {
         try {
-            return await this.userModel.create({
-                username: createUserDto.username,
-                name: createUserDto.name,
-                email: createUserDto.email,
-                password: await bcrypt.hash(createUserDto.password, 10)
-            });
+            return await this.userModel.create(createUserDto);
 
 
         } catch (error) {
