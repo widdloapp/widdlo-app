@@ -1,4 +1,4 @@
-import {IsNotEmpty, IsString, MaxLength} from "class-validator";
+import {IsMongoId, IsNotEmpty, IsString, MaxLength} from "class-validator";
 
 export class CreateChatDto {
     @IsString()
@@ -6,5 +6,7 @@ export class CreateChatDto {
     @IsNotEmpty()
     readonly name: string;
 
-    channel: string;
+    @IsMongoId()
+    @IsNotEmpty()
+    readonly id: string;
 }
