@@ -37,7 +37,12 @@ export class UserService {
     }
 
     async getPublicData(userInfoDto: UserInfoDto) {
-        const user = await this.userModel.findById(userInfoDto.id).select(["name", "username"]).populate("channels", ["name"]);
+        const user = await this.userModel.findById(userInfoDto.id).select(["name", "username"]);
+
+        return user;
+    }
+    async getData(id: string) {
+        const user = await this.userModel.findById(id).select(["name", "username"]).populate("channels", ["name"]);
 
         return user;
     }

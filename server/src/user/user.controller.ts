@@ -40,4 +40,16 @@ export class UserController {
             message: 'User data retrieved successfully.', user
         });
     }
+    @Get()
+    async getUser(@Res() response) {
+        const user = await this.userService.getData(response.locals.user);
+
+        if (!user) {
+            throw new NotFoundException('User could not found!');
+        }
+
+        return response.status(HttpStatus.OK).json({
+            message: 'User data retrieved successfully.', user
+        });
+    }
 }
