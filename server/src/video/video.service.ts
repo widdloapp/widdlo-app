@@ -4,6 +4,7 @@ import {Model} from "mongoose";
 import {Video} from "./video.schema";
 import {CreateVideoDto} from "../dto/create-video.dto";
 import {VideoFeedDto} from "../dto/video-feed.dto";
+import {GetVideoDto} from "../dto/get-video.dto";
 
 @Injectable()
 export class VideoService {
@@ -21,5 +22,15 @@ export class VideoService {
         }
 
         return videos;
+    }
+
+    async getVideo(getVideoDto: GetVideoDto): Promise<Video> {
+        const video = await this.videoModel.findById(getVideoDto.id).select(["title", "description", "views", "likes"])
+            .populate('author', ["username"]).populate('likes');
+        if (!video) {
+            throw new NotFoundException('Unknown video!');
+        }
+
+        return video;
     }
 }

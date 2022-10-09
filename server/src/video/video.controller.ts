@@ -13,6 +13,7 @@ import {
 import {CreateVideoDto} from "../dto/create-video.dto";
 import {VideoService} from 'src/video/video.service';
 import {VideoFeedDto} from "../dto/video-feed.dto";
+import {GetVideoDto} from "../dto/get-video.dto";
 
 @Controller('video')
 export class VideoController {
@@ -42,5 +43,14 @@ export class VideoController {
         } catch (error) {
             throw new InternalServerErrorException("Could not get video feed.");
         }
+    }
+
+    @Get(":id")
+    async getVideo(@Response() response, @Param() getVideoDto: GetVideoDto) {
+        const video = await this.videoService.getVideo(getVideoDto);
+
+        return response.status(HttpStatus.OK).json({
+            message: 'Video data found successfully', video,
+        });
     }
 }
