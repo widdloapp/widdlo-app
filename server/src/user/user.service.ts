@@ -6,6 +6,7 @@ import {CreateUserDto} from "../dto/create-user.dto";
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
 import {LoginRequestDto} from "../dto/login-request.dto";
 import * as jwt from 'jsonwebtoken';
+import {UserInfoDto} from "../dto/user-info.dto";
 
 const bcrypt = require('bcrypt');
 
@@ -35,15 +36,9 @@ export class UserService {
         }
     }
 
-    async getById(@Param('id') id: string) {
-        const user = await this.userModel.findById(id);
+    async getPublicData(userInfoDto: UserInfoDto) {
+        const user = await this.userModel.findById(userInfoDto.id).select(["name", "username"]).populate("channels", ["name"]);
 
-        const data = {
-            id: user._id,
-            username: user.username,
-            email: user.email
-        }
-
-        return data;
+        return user;
     }
 }

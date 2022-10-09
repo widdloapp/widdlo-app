@@ -1,7 +1,8 @@
-import {Body, Controller, HttpCode, HttpStatus, Post, Res} from '@nestjs/common';
+import {Body, Controller, Get, HttpCode, HttpStatus, NotFoundException, Param, Post, Res} from '@nestjs/common';
 import {UserService} from "./user.service";
 import {CreateUserDto} from "../dto/create-user.dto";
 import {LoginRequestDto} from "../dto/login-request.dto";
+import {UserInfoDto} from "../dto/user-info.dto";
 
 @Controller('user')
 export class UserController {
@@ -15,6 +16,7 @@ export class UserController {
             message: 'Logged successfully', user
         });
     }
+
     @Post("register")
     async registerAccount(@Res() response, @Body() createUserDto: CreateUserDto) {
         await this.userService.createUser(createUserDto);
@@ -23,6 +25,19 @@ export class UserController {
 
         return response.status(HttpStatus.CREATED).json({
             message: 'Registered successfully', token
+        });
+    }
+
+    @Get(":id")
+    async getPublicUser(@Res() response, @Param() userInfoDto: UserInfoDto) {
+        const user = await this.userService.getPublicData(userInfoDto);
+
+        if (!user) {
+            throw new NotFoundException('Channel could not found!');
+        }
+
+        return response.status(HttpStatus.OK).json({
+            message: 'User data retrieved successfully.', user
         });
     }
 }

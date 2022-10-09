@@ -15,4 +15,12 @@ export class User {
     password: string;
 }
 
-export const UserSchema = SchemaFactory.createForClass(User).index({email: 1}, {unique: true});
+const UserSchema = SchemaFactory.createForClass(User).index({email: 1}, {unique: true});
+
+UserSchema.virtual('channels', {
+    ref: 'Channel',
+    localField: '_id',
+    foreignField: 'user'
+});
+
+export { UserSchema };
