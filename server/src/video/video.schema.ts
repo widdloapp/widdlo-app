@@ -3,8 +3,6 @@ import {User} from "../user/user.schema";
 import mongoose from "mongoose";
 import {Like} from "../like/like.schema";
 
-export type VideoDocument = Video & Document;
-
 @Schema({toJSON: {virtuals: true, versionKey: false, transform: function (doc, ret) { delete ret._id }} })
 export class Video {
     @Prop()

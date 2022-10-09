@@ -22,13 +22,17 @@ export class UserService {
         return jwt.sign(user._id.toString(), process.env.JWT_TOKEN);
     }
 
-    async createUser(createUserDto: CreateUserDto): Promise<User> {
-        return await this.userModel.create({
-            username: createUserDto.username,
-            name: createUserDto.name,
-            email: createUserDto.email,
-            password: await bcrypt.hash(createUserDto.password, 10)
-        });
+    async createUser(createUserDto: CreateUserDto) {
+        try {
+            return await this.userModel.create({
+                username: createUserDto.username,
+                name: createUserDto.name,
+                email: createUserDto.email,
+                password: await bcrypt.hash(createUserDto.password, 10)
+            });
+        } catch (error) {
+            throw new HttpException("An account with that email already exists.", HttpStatus.CONFLICT);
+        }
     }
 
     async getById(@Param('id') id: string) {
