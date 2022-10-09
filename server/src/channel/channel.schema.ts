@@ -31,4 +31,10 @@ ChannelSchema.virtual('stream', {
     foreignField: 'user'
 });
 
+ChannelSchema.virtual('chats', {
+    ref: 'Chat',
+    localField: '_id',
+    foreignField: 'channel'
+});
+
 export { ChannelSchema };
