@@ -20,7 +20,6 @@ export class UserController {
     @Post("register")
     async registerAccount(@Res() response, @Body() createUserDto: CreateUserDto) {
         const user = await this.userService.createUser(createUserDto);
-
         const token = await this.userService.createToken(user._id.toString());
 
         return response.status(HttpStatus.CREATED).json({

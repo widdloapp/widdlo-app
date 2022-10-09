@@ -10,4 +10,7 @@ export class ChatService {
     async createChat(createChatDto: CreateChatDto) {
         return await this.chatModel.create(createChatDto);
     }
+    async checkExists(chat: string) {
+        return this.chatModel.exists({_id: chat});
+    }
 }
