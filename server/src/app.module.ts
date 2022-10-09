@@ -19,6 +19,9 @@ import {ChannelSchema} from "./channel/channel.schema";
 import {CommentSchema} from "./comment/comment.schema";
 import {CommentController} from "./comment/comment.controller";
 import {CommentService} from "./comment/comment.service";
+import {StreamService} from "./stream/stream.service";
+import {StreamController} from "./stream/stream.controller";
+import {StreamSchema} from "./stream/stream.schema";
 
 require('dotenv').config()
 
@@ -30,10 +33,11 @@ require('dotenv').config()
             { name: 'User', schema: UserSchema },
             { name: 'Like', schema: LikeSchema },
             { name: 'Channel', schema: ChannelSchema },
-            { name: 'Comment', schema: CommentSchema }
+            { name: 'Comment', schema: CommentSchema },
+            { name: 'Stream', schema: StreamSchema }
         ])],
-  controllers: [AppController, VideoController, UserController, LikeController, ChannelController, CommentController],
-  providers: [AppService, VideoService, UserService, LikeService, ChannelService, CommentService]
+  controllers: [AppController, VideoController, UserController, LikeController, ChannelController, CommentController, StreamController],
+  providers: [AppService, VideoService, UserService, LikeService, ChannelService, CommentService, StreamService]
 })
 export class AppModule implements NestModule {
   configure(middlewareConsumer: MiddlewareConsumer) {
@@ -42,7 +46,8 @@ export class AppModule implements NestModule {
         { path: 'like', method: RequestMethod.POST },
         { path: 'channel', method: RequestMethod.POST },
         { path: 'user', method: RequestMethod.GET },
-        { path: 'comment', method: RequestMethod.POST }
+        { path: 'comment', method: RequestMethod.POST },
+        { path: 'stream', method: RequestMethod.GET }
     );
   }
 }

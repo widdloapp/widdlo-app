@@ -15,7 +15,7 @@ export class CommentService {
     }
 
     async getComments(getCommentsDto: GetCommentsDto): Promise<Comment[]> {
-        const comments = await this.commentModel.find({target: getCommentsDto.target});
+        const comments = await this.commentModel.find({target: getCommentsDto.target}).limit(20).skip(getCommentsDto.page * 20);
         return comments;
     }
 }
