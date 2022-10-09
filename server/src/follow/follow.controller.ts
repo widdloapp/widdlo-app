@@ -1,4 +1,14 @@
-import {BadRequestException, Body, ConflictException, Controller, Delete, HttpStatus, Post, Res} from '@nestjs/common';
+import {
+    BadRequestException,
+    Body,
+    ConflictException,
+    Controller,
+    Delete,
+    Get,
+    HttpStatus,
+    Post,
+    Res
+} from '@nestjs/common';
 import {FollowService} from "./follow.service";
 import {FollowChannelDto} from "../dto/follow-channel.dto";
 import {ChannelService} from "../channel/channel.service";
@@ -6,6 +16,15 @@ import {ChannelService} from "../channel/channel.service";
 @Controller('follow')
 export class FollowController {
     constructor(private readonly followService: FollowService, private readonly channelService: ChannelService) { }
+
+    @Get()
+    async following(@Res() response) {
+        const following = await this.followService.getFollowing(response.locals.user);
+
+        return response.status(HttpStatus.OK).json({
+            message: 'Successfully retrieved following list.', following
+        });
+    }
 
     @Post()
     async followChannel(@Res() response, @Body() followChannelDto: FollowChannelDto) {
