@@ -7,7 +7,7 @@ import {Stream} from "stream";
 export class StreamService {
     constructor(@InjectModel('Stream') private streamModel: Model<Stream>) { }
     async getUserStream(user: string): Promise<Stream> {
-        const stream = await this.streamModel.findOne({user: user}).select("user");
+        const stream = await this.streamModel.findOne({user: user}).select("key");
 
         return stream;
     }
