@@ -2,6 +2,7 @@ import {Body, Controller, Get, HttpStatus, Param, Post, Res} from '@nestjs/commo
 import {ChannelService} from "./channel.service";
 import {CreateChannelDto} from "../dto/create-channel.dto";
 import {ChannelInfoDto} from "../dto/channel-info.dto";
+import {HttpException} from "@nestjs/common/exceptions/http.exception";
 
 @Controller('channel')
 export class ChannelController {
@@ -11,11 +12,15 @@ export class ChannelController {
     async createChannel(@Res() response, @Body() createChannelDto: CreateChannelDto) {
         createChannelDto.user = response.locals.user;
 
-        const user = await this.channelService.createChannel(createChannelDto);
+        try {
+            const channel = await this.channelService.createChannel(createChannelDto);
 
-        return response.status(HttpStatus.OK).json({
-            message: 'User created successfully', user
-        });
+            return response.status(HttpStatus.OK).json({
+                message: 'Channel successfully created.', channel
+            });
+        } catch (error) {
+            throw new HttpException("A channel for this user already exists.", HttpStatus.CONFLICT);
+        }
     }
 
     @Get(":id")

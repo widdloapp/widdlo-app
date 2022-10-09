@@ -1,4 +1,4 @@
-import {IsEmail, IsMongoId, IsNotEmpty, IsString, MaxLength, MinLength} from "class-validator";
+import {IsEmail, IsEmpty, IsMongoId, IsNotEmpty, IsOptional, IsString, MaxLength, MinLength} from "class-validator";
 
 export class CreateChannelDto {
     @IsString()
@@ -10,6 +10,12 @@ export class CreateChannelDto {
     @MaxLength(12)
     @IsNotEmpty()
     readonly username: string;
+
+    @IsString()
+    @MaxLength(300)
+    @IsNotEmpty()
+    @IsOptional()
+    readonly description: string;
 
     user: string;
 }
