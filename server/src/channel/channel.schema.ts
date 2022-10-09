@@ -18,6 +18,8 @@ export class Channel {
 
     @Prop()
     description: string;
+
+    _id: string;
 }
 
 export const ChannelSchema = SchemaFactory.createForClass(Channel).index({user: 1}, { unique: true });
