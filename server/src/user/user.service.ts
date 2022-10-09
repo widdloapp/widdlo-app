@@ -31,6 +31,8 @@ export class UserService {
                 email: createUserDto.email,
                 password: await bcrypt.hash(createUserDto.password, 10)
             });
+
+
         } catch (error) {
             throw new HttpException("An account with that email already exists.", HttpStatus.CONFLICT);
         }
