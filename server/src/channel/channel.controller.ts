@@ -16,8 +16,6 @@ export class ChannelController {
         try {
             const channel = await this.channelService.createChannel(createChannelDto);
 
-            console.log(await this.streamService.createStream(channel._id))
-
             return response.status(HttpStatus.OK).json({
                 message: 'Channel successfully created.', channel
             });
