@@ -12,7 +12,7 @@ export class StreamService {
         return stream;
     }
     async getStreamKey(path: string): Promise<Stream> {
-        const stream = await this.streamModel.findOne({path: path}).select(["key"]);
+        const stream = await this.streamModel.findOne({user: path}).select(["key"]);
 
         return stream;
     }
@@ -20,6 +20,7 @@ export class StreamService {
     async createStream(id: string) {
         return await this.streamModel.create({
             user: id,
+            key: "b",
         });
     }
 }

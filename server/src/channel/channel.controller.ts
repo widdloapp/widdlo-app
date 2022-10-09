@@ -16,13 +16,12 @@ export class ChannelController {
         try {
             const channel = await this.channelService.createChannel(createChannelDto);
 
-            await this.streamService.createStream(channel._id)
+            console.log(await this.streamService.createStream(channel._id))
 
             return response.status(HttpStatus.OK).json({
                 message: 'Channel successfully created.', channel
             });
         } catch (error) {
-            console.log(error)
             throw new HttpException("A channel for this user already exists.", HttpStatus.CONFLICT);
         }
     }
