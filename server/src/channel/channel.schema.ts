@@ -11,6 +11,9 @@ export class Channel {
     user: User;
 
     @Prop()
+    username: string;
+
+    @Prop()
     name: string;
 
     @Prop()
