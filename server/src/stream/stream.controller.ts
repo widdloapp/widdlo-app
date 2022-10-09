@@ -1,19 +1,7 @@
-import {
-    Body,
-    Controller,
-    Get,
-    HttpStatus,
-    Res,
-    Response,
-    Query,
-    NotFoundException,
-    Post,
-    HttpCode
-} from '@nestjs/common';
-import {VideoFeedDto} from "../dto/video-feed.dto";
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
 import {StreamService} from "./stream.service";
 import {CheckStreamDto} from "../dto/check-stream.dto";
+import {Body, Controller, Get, HttpStatus, NotFoundException, Post, Res, Response} from "@nestjs/common";
 
 @Controller('stream')
 export class StreamController {
