@@ -23,4 +23,7 @@ export class ChannelService {
 
         return channel;
     }
+    async checkExists(channel: string) {
+        return this.channelModel.exists({_id: channel});
+    }
 }

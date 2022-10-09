@@ -28,6 +28,9 @@ import {ChatController} from "./chat/chat.controller";
 import {MessageSchema} from "./message/message.schema";
 import {MessageController} from "./message/message.controller";
 import {MessageService} from "./message/message.service";
+import {FollowSchema} from "./follow/follow.schema";
+import {FollowController} from "./follow/follow.controller";
+import {FollowService} from "./follow/follow.service";
 
 require('dotenv').config()
 
@@ -42,12 +45,13 @@ require('dotenv').config()
             { name: 'Comment', schema: CommentSchema },
             { name: 'Stream', schema: StreamSchema },
             { name: 'Chat', schema: ChatSchema },
-            { name: 'Message', schema: MessageSchema }
+            { name: 'Message', schema: MessageSchema },
+            { name: 'Follow', schema: FollowSchema }
         ])],
   controllers: [AppController, VideoController, UserController, LikeController, ChannelController, CommentController, StreamController, ChatController,
-  MessageController],
+  MessageController, FollowController],
   providers: [AppService, VideoService, UserService, LikeService, ChannelService, CommentService, StreamService, ChatService,
-  MessageService]
+  MessageService, FollowService]
 })
 export class AppModule implements NestModule {
   configure(middlewareConsumer: MiddlewareConsumer) {
@@ -59,7 +63,9 @@ export class AppModule implements NestModule {
         { path: 'comment', method: RequestMethod.POST },
         { path: 'stream', method: RequestMethod.GET },
         { path: 'chat', method: RequestMethod.POST },
-        { path: 'message', method: RequestMethod.POST }
+        { path: 'message', method: RequestMethod.POST },
+        { path: 'follow', method: RequestMethod.POST },
+        { path: 'follow', method: RequestMethod.DELETE }
     );
   }
 }

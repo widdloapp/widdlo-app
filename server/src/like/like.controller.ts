@@ -7,7 +7,7 @@ export class LikeController {
     constructor(private readonly likeService: LikeService) { }
 
     @Post()
-    async loginAccount(@Res() response, @Body() likeVideoDto: LikeVideoDto) {
+    async likeVideo(@Res() response, @Body() likeVideoDto: LikeVideoDto) {
         likeVideoDto.author = response.locals.user;
 
         try {
