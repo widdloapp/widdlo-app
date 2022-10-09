@@ -1,4 +1,4 @@
-import {BadRequestException, Body, ConflictException, Controller, HttpStatus, Post, Res} from '@nestjs/common';
+import {BadRequestException, Body, ConflictException, Controller, Delete, HttpStatus, Post, Res} from '@nestjs/common';
 import {FollowService} from "./follow.service";
 import {FollowChannelDto} from "../dto/follow-channel.dto";
 import {ChannelService} from "../channel/channel.service";
@@ -8,7 +8,7 @@ export class FollowController {
     constructor(private readonly followService: FollowService, private readonly channelService: ChannelService) { }
 
     @Post()
-    async likeVideo(@Res() response, @Body() followChannelDto: FollowChannelDto) {
+    async followChannel(@Res() response, @Body() followChannelDto: FollowChannelDto) {
         followChannelDto.user = response.locals.user;
 
         if (await this.channelService.checkExists(followChannelDto.channel) == null) {
@@ -23,6 +23,20 @@ export class FollowController {
 
         return response.status(HttpStatus.OK).json({
             message: 'Successfully followed.'
+        });
+    }
+    @Delete()
+    async unfollowChannel(@Res() response, @Body() followChannelDto: FollowChannelDto) {
+        followChannelDto.user = response.locals.user;
+
+        if (await this.followService.checkExists(followChannelDto) == null) {
+            throw new ConflictException("You don't follow this channel.")
+        }
+
+        await this.followService.unfollowChannel(followChannelDto);
+
+        return response.status(HttpStatus.OK).json({
+            message: 'Successfully unfollowed.'
         });
     }
 }

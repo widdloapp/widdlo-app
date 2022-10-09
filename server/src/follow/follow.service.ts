@@ -12,4 +12,10 @@ export class FollowService {
         const like = await new this.followModel(followChannelDto);
         return like.save();
     }
+    async checkExists(followChannelDto: FollowChannelDto) {
+        return this.followModel.exists({channel: followChannelDto.channel});
+    }
+    async unfollowChannel(followChannelDto: FollowChannelDto) {
+        return this.followModel.deleteOne({channel: followChannelDto.channel});
+    }
 }
