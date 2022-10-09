@@ -23,7 +23,7 @@ export class Channel {
     _id: string;
 }
 
-const ChannelSchema = SchemaFactory.createForClass(Channel).index({user: 1}, { unique: true });
+const ChannelSchema = SchemaFactory.createForClass(Channel).index({user: 1, username: 1}, { unique: true });
 
 ChannelSchema.virtual('stream', {
     ref: 'Stream',

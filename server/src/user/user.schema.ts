@@ -18,7 +18,7 @@ export class User {
     password: string;
 }
 
-const UserSchema = SchemaFactory.createForClass(User).index({email: 1}, {unique: true});
+const UserSchema = SchemaFactory.createForClass(User).index({email: 1, username: 1}, {unique: true});
 
 UserSchema.virtual('channels', {
     ref: 'Channel',

@@ -24,14 +24,14 @@ export class UserService {
     }
 
     async createToken(user: string) {
-        return jwt.sign(user.toString(), process.env.JWT_TOKEN/*, { expiresIn: '365d' }*/);
+        return jwt.sign({id: user.toString()}, process.env.JWT_TOKEN, { expiresIn: '365d' });
     }
 
     async createUser(createUserDto: CreateUserDto) {
         try {
             return await this.userModel.create(createUserDto);
         } catch (error) {
-            throw new HttpException("An account with that email already exists.", HttpStatus.CONFLICT);
+            throw new HttpException("An account with that username or email already exists.", HttpStatus.CONFLICT);
         }
     }
 

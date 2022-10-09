@@ -23,7 +23,7 @@ export class UserController {
         const token = await this.userService.createToken(user._id.toString());
 
         return response.status(HttpStatus.CREATED).json({
-            message: 'Registered successfully', token
+            message: 'Registered successfully.', token
         });
     }
 

@@ -21,7 +21,7 @@ export class ChannelController {
                 message: 'Channel successfully created.', channel
             });
         } catch (error) {
-            throw new ConflictException("A channel for this user already exists.");
+            throw new ConflictException("This username is already in use or a channel for this user already exists.");
         }
     }
 
