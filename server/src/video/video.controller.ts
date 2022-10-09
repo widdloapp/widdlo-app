@@ -37,7 +37,7 @@ export class VideoController {
         try {
             const videos = await this.videoService.getVideoFeed(videoFeedDto);
             return response.status(HttpStatus.OK).json({
-                message: 'Videos data found successfully', videos, pages: {current: videoFeedDto.page},
+                message: 'Videos data found successfully', videos, pages: {current: videoFeedDto.page || 0},
             });
         } catch (error) {
             throw new InternalServerErrorException("Could not get video feed.");
