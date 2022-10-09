@@ -32,7 +32,7 @@ export class ChannelController {
         const channel = await this.channelService.getChannelInfo(createChannelDto);
 
         return response.status(HttpStatus.OK).json({
-            message: 'Channel found successfully', channel
+            message: 'Channel found successfully.', channel
         });
     }
 }

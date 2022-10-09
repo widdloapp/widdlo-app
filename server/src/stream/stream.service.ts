@@ -6,8 +6,13 @@ import {Stream} from "stream";
 @Injectable()
 export class StreamService {
     constructor(@InjectModel('Stream') private streamModel: Model<Stream>) { }
-    async getStreamKey(user: string): Promise<Stream> {
-        const stream = await this.streamModel.findOne({user: user}).select(["key"]);
+    async getUserStream(user: string): Promise<Stream> {
+        const stream = await this.streamModel.findOne({user: user});
+
+        return stream;
+    }
+    async getStreamKey(path: string): Promise<Stream> {
+        const stream = await this.streamModel.findOne({path: path}).select(["key"]);
 
         return stream;
     }

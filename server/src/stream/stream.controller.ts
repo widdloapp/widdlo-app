@@ -1,4 +1,15 @@
-import {Body, Controller, Get, HttpStatus, Res, Response, Query, NotFoundException, Post} from '@nestjs/common';
+import {
+    Body,
+    Controller,
+    Get,
+    HttpStatus,
+    Res,
+    Response,
+    Query,
+    NotFoundException,
+    Post,
+    HttpCode
+} from '@nestjs/common';
 import {VideoFeedDto} from "../dto/video-feed.dto";
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
 import {StreamService} from "./stream.service";
@@ -12,7 +23,7 @@ export class StreamController {
     async getStreamKey(@Res() response, @Body() user: string) {
         user = response.locals.user;
 
-        const stream = await this.streamService.getStreamKey(user);
+        const stream = await this.streamService.getUserStream(user);
 
         if (!stream) {
             throw new NotFoundException('Stream could not found!');
@@ -24,13 +35,20 @@ export class StreamController {
     }
 
     @Post()
-    async checkStreamKey(@Response() response, @Query() checkStreamDto: CheckStreamDto) {
+    async checkStreamKey(@Response() response, @Body() checkStreamDto: CheckStreamDto) {
         const stream = await this.streamService.getStreamKey(checkStreamDto.path);
 
         if (!stream) {
             throw new NotFoundException('Stream could not found!');
         }
 
-        console.log(stream);
+        // @ts-ignore
+        if (stream.key == checkStreamDto.password) {
+            return response.status(HttpStatus.OK).json({
+                message: 'Valid stream key.', stream
+            });
+        }
+
+        throw new HttpException("Invalid key.", HttpStatus.BAD_REQUEST);
     }
 }
