@@ -20,7 +20,7 @@ export class UserService {
         if (!user || !await bcrypt.compare(loginRequestDto.password, user.password)) {
             throw new HttpException('Invalid credentials.', HttpStatus.UNAUTHORIZED);
         }
-        return jwt.sign(user._id.toString(), process.env.JWT_TOKEN, { expiresIn: '365d' });
+        return jwt.sign(user._id.toString(), process.env.JWT_TOKEN/*, { expiresIn: '365d' }*/);
     }
 
     async createUser(createUserDto: CreateUserDto) {
