@@ -13,6 +13,7 @@ import {
     Query,
     Res, Response
 } from "@nestjs/common";
+import {QueryDto} from "../dto/query.dto";
 
 @Controller('video')
 export class VideoController {
@@ -33,11 +34,11 @@ export class VideoController {
     }
 
     @Get()
-    async getVideos(@Response() response, @Query() videoFeedDto: VideoFeedDto) {
+    async getVideos(@Response() response, @Query() videoFeedDto: VideoFeedDto, @Query() queryDto: QueryDto) {
         try {
-            const videos = await this.videoService.getVideoFeed(videoFeedDto);
+            const videos = await this.videoService.getVideoFeed(videoFeedDto, queryDto);
             return response.status(HttpStatus.OK).json({
-                message: 'Videos data found successfully.', videos, pages: {current: videoFeedDto.page || 0},
+                message: 'Videos data found successfully.', videos, pages: {current: queryDto.page || 0},
             });
         } catch (error) {
             throw new InternalServerErrorException("Could not get video feed.");

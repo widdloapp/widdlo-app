@@ -5,6 +5,7 @@ import {Video} from "./video.schema";
 import {CreateVideoDto} from "../dto/create-video.dto";
 import {VideoFeedDto} from "../dto/video-feed.dto";
 import {GetVideoDto} from "../dto/get-video.dto";
+import {QueryDto} from "../dto/query.dto";
 
 @Injectable()
 export class VideoService {
@@ -14,9 +15,9 @@ export class VideoService {
         return user.save();
     }
 
-    async getVideoFeed(videoFeedDto: VideoFeedDto): Promise<Video[]> {
+    async getVideoFeed(videoFeedDto: VideoFeedDto, queryDto: QueryDto): Promise<Video[]> {
         const videos = await this.videoModel.find().select(["title", "description", "views", "likes"])
-            .populate('author', ["username"]).populate('likes').limit(20).skip(videoFeedDto.page * 20);
+            .populate('author', ["username"]).populate('likes').limit(20).skip(queryDto.page * 20);
         if (!videos || videos.length == 0) {
             throw new NotFoundException('Videos data not found!');
         }

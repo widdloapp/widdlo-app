@@ -1,9 +1,10 @@
-import {Injectable} from '@nestjs/common';
+import {Injectable, NotFoundException} from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {Message} from "./message.schema";
 import {CreateMessageDto} from "../dto/create-message.dto";
 import {MessageQueryDto} from "../dto/message-query.dto";
+import {QueryDto} from "../dto/query.dto";
 
 @Injectable()
 export class MessageService {
@@ -14,9 +15,13 @@ export class MessageService {
         return like.save();
     }
 
-    async getMessages(messageQueryDto: MessageQueryDto): Promise<Message[]> {
+    async getMessages(messageQueryDto: MessageQueryDto, queryDto: QueryDto): Promise<Message[]> {
         const messages = await this.messageModel.find({chat: messageQueryDto.chat}).populate('author', ["username"])
-            .limit(20).skip(messageQueryDto.page * 20);;
+            .limit(20).skip(queryDto.page * 20);;
+
+        if (!messages || messages.length == 0) {
+            throw new NotFoundException('Messages not found!');
+        }
 
         return messages;
     }
