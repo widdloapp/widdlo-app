@@ -1,8 +1,18 @@
-import {Body, Controller, Get, HttpStatus, Param, Post, Res, Response, Query} from '@nestjs/common';
+import {
+    Body,
+    Controller,
+    Get,
+    HttpStatus,
+    Param,
+    Post,
+    Res,
+    Response,
+    Query,
+    InternalServerErrorException, BadRequestException
+} from '@nestjs/common';
 import {CreateVideoDto} from "../dto/create-video.dto";
 import {VideoService} from 'src/video/video.service';
 import {VideoFeedDto} from "../dto/video-feed.dto";
-import {HttpException} from "@nestjs/common/exceptions/http.exception";
 
 @Controller('video')
 export class VideoController {
@@ -18,11 +28,7 @@ export class VideoController {
                 message: 'Video has been uploaded successfully', video
             });
         } catch (error) {
-            return response.status(HttpStatus.BAD_REQUEST).json({
-                statusCode: 400,
-                message: 'Error: Video could not be created!',
-                error: 'Bad Request'
-            });
+            throw new BadRequestException("Error: Video could not be created!");
         }
     }
 
@@ -34,7 +40,7 @@ export class VideoController {
                 message: 'Videos data found successfully', videos, pages: {current: videoFeedDto.page},
             });
         } catch (error) {
-            throw new HttpException("Could not get video feed.", HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new InternalServerErrorException("Could not get video feed.");
         }
     }
 }

@@ -1,7 +1,17 @@
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
 import {StreamService} from "./stream.service";
 import {CheckStreamDto} from "../dto/check-stream.dto";
-import {Body, Controller, Get, HttpStatus, NotFoundException, Post, Res, Response} from "@nestjs/common";
+import {
+    BadRequestException,
+    Body,
+    Controller,
+    Get,
+    HttpStatus,
+    NotFoundException,
+    Post,
+    Res,
+    Response
+} from "@nestjs/common";
 
 @Controller('stream')
 export class StreamController {
@@ -37,6 +47,6 @@ export class StreamController {
             });
         }
 
-        throw new HttpException("Invalid key.", HttpStatus.BAD_REQUEST);
+        throw new BadRequestException("Invalid key.");
     }
 }

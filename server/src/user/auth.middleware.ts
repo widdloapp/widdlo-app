@@ -1,8 +1,7 @@
-import {HttpException} from '@nestjs/common/exceptions/http.exception';
-import {NestMiddleware, HttpStatus, Injectable} from '@nestjs/common';
 import {Request, Response, NextFunction} from 'express';
 import {UserService} from './user.service';
 import * as jwt from 'jsonwebtoken';
+import {Injectable, NestMiddleware, UnauthorizedException, UnprocessableEntityException} from "@nestjs/common";
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
@@ -20,16 +19,16 @@ export class AuthMiddleware implements NestMiddleware {
                 const user = await this.userService.getData(decoded);
 
                 if (!user) {
-                    throw new HttpException('User not found.', HttpStatus.UNAUTHORIZED);
+                    throw new UnauthorizedException('User not found.');
                 }
 
                 res.locals.user = user.id.toString();
                 next();
             } catch (error) {
-                throw new HttpException('Invalid token.', HttpStatus.UNPROCESSABLE_ENTITY);
+                throw new UnprocessableEntityException('Invalid token.');
             }
         } else {
-            throw new HttpException('Not authorized.', HttpStatus.UNAUTHORIZED);
+            throw new UnauthorizedException('Not authorized.');
         }
     }
 }
