@@ -28,7 +28,7 @@ export class MessageController {
         const messages = await this.messageService.getMessages(messageQueryDto);
 
         return response.status(HttpStatus.OK).json({
-            message: 'Messages found.', messages
+            message: 'Messages found.', messages, pages: {current: messageQueryDto.page || 0}
         });
     }
 }
