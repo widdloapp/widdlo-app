@@ -1,6 +1,7 @@
 import {Prop, Schema, SchemaFactory} from "@nestjs/mongoose"
 import {User} from "../user/user.schema";
 import mongoose from "mongoose";
+import {Video} from "../video/video.schema";
 
 @Schema({toJSON: {virtuals: true, versionKey: false, transform: function (doc, ret) { delete ret._id }}})
 export class Channel {
@@ -22,4 +23,12 @@ export class Channel {
     _id: string;
 }
 
-export const ChannelSchema = SchemaFactory.createForClass(Channel).index({user: 1}, { unique: true });
+const ChannelSchema = SchemaFactory.createForClass(Video).index({user: 1}, { unique: true });
+
+ChannelSchema.virtual('stream', {
+    ref: 'Stream',
+    localField: '_id',
+    foreignField: 'user'
+});
+
+export { ChannelSchema };

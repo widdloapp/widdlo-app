@@ -14,7 +14,7 @@ export class ChannelService {
     }
 
     async getChannelInfo(channelInfoDto: ChannelInfoDto): Promise<Channel> {
-        const channel = await this.channelModel.findById(channelInfoDto.id).select(["user", "name", "description"]);
+        const channel = await this.channelModel.findById(channelInfoDto.id).select(["user", "name", "description"]).populate("stream");
 
         if (!channel) {
             throw new NotFoundException('Channel could not found!');
