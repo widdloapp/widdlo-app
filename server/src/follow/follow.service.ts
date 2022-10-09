@@ -19,6 +19,6 @@ export class FollowService {
         return this.followModel.deleteOne({channel: followChannelDto.channel});
     }
     async getFollowing(user: string) {
-        return this.followModel.find({user: user}).select(["channel"]).populate("channel", ["username"]);
+        return this.followModel.find({user: user}).select(["channel"]).populate({path: 'channel', select: ["name"], populate: {path: 'stream'}})
     }
 }
