@@ -13,6 +13,9 @@ import {UserSchema} from "./user/user.schema";
 import {LikeService} from "./like/like.service";
 import {LikeSchema} from "./like/like.schema";
 import {LikeController} from "./like/like.controller";
+import {ChannelService} from "./channel/channel.service";
+import {ChannelController} from "./channel/channel.controller";
+import {ChannelSchema} from "./channel/channel.schema";
 
 require('dotenv').config()
 
@@ -22,10 +25,11 @@ require('dotenv').config()
         [
             { name: 'Video', schema: VideoSchema },
           { name: 'User', schema: UserSchema },
-          { name: 'Like', schema: LikeSchema }
+          { name: 'Like', schema: LikeSchema },
+            { name: 'Channel', schema: ChannelSchema }
         ])],
-  controllers: [AppController, VideoController, UserController, LikeController],
-  providers: [AppService, VideoService, UserService, LikeService]
+  controllers: [AppController, VideoController, UserController, LikeController, ChannelController],
+  providers: [AppService, VideoService, UserService, LikeService, ChannelService]
 })
 export class AppModule implements NestModule {
   configure(middlewareConsumer: MiddlewareConsumer) {

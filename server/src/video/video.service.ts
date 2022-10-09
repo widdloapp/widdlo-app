@@ -3,6 +3,7 @@ import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {Video} from "./video.schema";
 import {CreateVideoDto} from "../dto/create-video.dto";
+import {VideoFeedDto} from "../dto/video-feed.dto";
 
 @Injectable()
 export class VideoService {
@@ -12,9 +13,9 @@ export class VideoService {
         return user.save();
     }
 
-    async getAllVideos(): Promise<Video[]> {
+    async getVideoFeed(videoFeedDto: VideoFeedDto): Promise<Video[]> {
         const videos = await this.videoModel.find().select(["title", "description", "views", "likes"])
-            .populate('author', ["username"]).populate('likes');
+            .populate('author', ["username"]).populate('likes').limit(20).skip(videoFeedDto.page * 20);
         if (!videos || videos.length == 0) {
             throw new NotFoundException('Videos data not found!');
         }

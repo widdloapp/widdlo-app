@@ -1,6 +1,8 @@
-import {Body, Controller, Get, HttpStatus, Post, Res} from '@nestjs/common';
+import {Body, Controller, Get, HttpStatus, Param, Post, Res, Response, Query} from '@nestjs/common';
 import {CreateVideoDto} from "../dto/create-video.dto";
 import {VideoService} from 'src/video/video.service';
+import {VideoFeedDto} from "../dto/video-feed.dto";
+import {HttpException} from "@nestjs/common/exceptions/http.exception";
 
 @Controller('video')
 export class VideoController {
@@ -25,14 +27,14 @@ export class VideoController {
     }
 
     @Get()
-    async getVideos(@Res() response) {
+    async getVideos(@Response() response, @Query() videoFeedDto: VideoFeedDto) {
         try {
-            const videos = await this.videoService.getAllVideos();
+            const videos = await this.videoService.getVideoFeed(videoFeedDto);
             return response.status(HttpStatus.OK).json({
-                message: 'Videos data found successfully', videos
+                message: 'Videos data found successfully', videos, pages: {current: videoFeedDto.page},
             });
-        } catch (err) {
-            return response.status(err.status).json(err.response);
+        } catch (error) {
+            throw new HttpException("Could not get video feed.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
