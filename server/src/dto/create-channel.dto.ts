@@ -1,4 +1,4 @@
-import {IsNotEmpty, IsOptional, IsString, MaxLength} from "class-validator";
+import {IsLowercase, IsNotEmpty, IsOptional, IsString, MaxLength} from "class-validator";
 
 export class CreateChannelDto {
     @IsString()
@@ -9,6 +9,7 @@ export class CreateChannelDto {
     @IsString()
     @MaxLength(12)
     @IsNotEmpty()
+    @IsLowercase()
     readonly username: string;
 
     @IsString()

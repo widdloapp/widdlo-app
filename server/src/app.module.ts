@@ -16,6 +16,9 @@ import {LikeController} from "./like/like.controller";
 import {ChannelService} from "./channel/channel.service";
 import {ChannelController} from "./channel/channel.controller";
 import {ChannelSchema} from "./channel/channel.schema";
+import {CommentSchema} from "./comment/comment.schema";
+import {CommentController} from "./comment/comment.controller";
+import {CommentService} from "./comment/comment.service";
 
 require('dotenv').config()
 
@@ -24,12 +27,13 @@ require('dotenv').config()
     MongooseModule.forFeature(
         [
             { name: 'Video', schema: VideoSchema },
-          { name: 'User', schema: UserSchema },
-          { name: 'Like', schema: LikeSchema },
-            { name: 'Channel', schema: ChannelSchema }
+            { name: 'User', schema: UserSchema },
+            { name: 'Like', schema: LikeSchema },
+            { name: 'Channel', schema: ChannelSchema },
+            { name: 'Comment', schema: CommentSchema }
         ])],
-  controllers: [AppController, VideoController, UserController, LikeController, ChannelController],
-  providers: [AppService, VideoService, UserService, LikeService, ChannelService]
+  controllers: [AppController, VideoController, UserController, LikeController, ChannelController, CommentController],
+  providers: [AppService, VideoService, UserService, LikeService, ChannelService, CommentService]
 })
 export class AppModule implements NestModule {
   configure(middlewareConsumer: MiddlewareConsumer) {
@@ -37,7 +41,8 @@ export class AppModule implements NestModule {
         { path: 'video', method: RequestMethod.POST },
         { path: 'like', method: RequestMethod.POST },
         { path: 'channel', method: RequestMethod.POST },
-        { path: 'user', method: RequestMethod.GET }
+        { path: 'user', method: RequestMethod.GET },
+        { path: 'comment', method: RequestMethod.POST }
     );
   }
 }

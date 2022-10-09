@@ -4,4 +4,6 @@ export class ChannelInfoDto {
     @IsMongoId({message: "invalid id"})
     @IsNotEmpty()
     readonly id: string;
+
+    author: string;
 }
