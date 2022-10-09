@@ -1,6 +1,4 @@
-import {IsEnum, IsIn, IsNotEmpty, IsNumber, Matches} from "class-validator";
-
-const short = {"newer": {createdAt: -1}};
+import {IsNotEmpty, IsNumber} from "class-validator";
 
 export class VideoFeedDto {
     @IsNotEmpty()

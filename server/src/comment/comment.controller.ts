@@ -1,7 +1,8 @@
-import {Body, Controller, HttpStatus, Post, Res} from '@nestjs/common';
+import {Body, Controller, Get, HttpStatus, Param, Post, Res} from '@nestjs/common';
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
 import {CreateCommentDto} from "../dto/create-comment-dto";
 import {CommentService} from "./comment.service";
+import {GetCommentsDto} from "../dto/get-comments.dto";
 
 @Controller('comment')
 export class CommentController {
@@ -20,5 +21,17 @@ export class CommentController {
         return response.status(HttpStatus.OK).json({
             message: 'Successfully posted.'
         });
+    }
+
+    @Get(":target")
+    async getComments(@Res() response, @Param() getCommentsDto: GetCommentsDto) {
+        try {
+            const comments = await this.commentService.getComments(getCommentsDto);
+            return response.status(HttpStatus.OK).json({
+                message: 'Comments found successfully', comments, pages: {current: getCommentsDto.page},
+            });
+        } catch (error) {
+            throw new HttpException("Could not get video feed.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
