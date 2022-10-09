@@ -15,4 +15,4 @@ export class Like {
     video: Video;
 }
 
-export const LikeSchema = SchemaFactory.createForClass(Like);
+export const LikeSchema = SchemaFactory.createForClass(Like).index({author: 1, video: 1}, { unique: true });
