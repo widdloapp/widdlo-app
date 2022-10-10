@@ -19,4 +19,6 @@ export class CreateChannelDto {
     readonly description: string;
 
     user: string;
+
+    id: string;
 }

@@ -39,8 +39,8 @@ export class ChannelController {
     }
 
     @Patch()
-    async updateChannel(@Res() response, @Body() updateChannelDto: UpdateChannelDto) {
-        const channel = await this.channelService.updateChannel(response.locals.user, updateChannelDto);
+    async updateChannel(@Res() response, @Body() createChannelDto: Partial<CreateChannelDto>) {
+        const channel = await this.channelService.updateChannel(response.locals.user, createChannelDto);
 
         return response.status(HttpStatus.OK).json({
             message: 'Successfully edited.', channel
