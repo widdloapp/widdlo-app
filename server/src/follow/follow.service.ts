@@ -14,11 +14,14 @@ export class FollowService {
         const like = await new this.followModel(followChannelDto);
         return like.save();
     }
-    async checkExists(followChannelDto: FollowChannelDto) {
-        return this.followModel.exists({channel: followChannelDto.channel});
-    }
     async unfollowChannel(followChannelDto: FollowChannelDto) {
-        return this.followModel.deleteOne({channel: followChannelDto.channel});
+        const unfollow = await this.followModel.findOneAndDelete({channel: followChannelDto.channel});
+
+        if (!unfollow) {
+            throw new NotFoundException("No follow found.")
+        }
+
+        return unfollow;
     }
     async getFollowing(user: string) {
         return this.followModel.find({user: user}).select(["channel"]).populate({path: 'channel', select: ["name"], populate: {path: 'stream'}})
@@ -27,7 +30,7 @@ export class FollowService {
         const follow = await this.followModel.findOne({user: userInfoDto.id, channel: getFollowDto.channel}).select(["channel", "date"]);
 
         if (!follow) {
-            throw new NotFoundException("This user is not following this channel.");
+            throw new NotFoundException("No follow found.");
         }
 
         return follow;

@@ -56,13 +56,10 @@ export class FollowController {
             message: 'Successfully followed.'
         });
     }
+
     @Delete()
     async unfollowChannel(@Res() response, @Body() followChannelDto: FollowChannelDto) {
         followChannelDto.user = response.locals.user;
-
-        if (await this.followService.checkExists(followChannelDto) == null) {
-            throw new ConflictException("You did not follow this channel.")
-        }
 
         await this.followService.unfollowChannel(followChannelDto);
 
