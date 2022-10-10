@@ -66,11 +66,12 @@ export class AppModule implements NestModule {
         { path: 'chat', method: RequestMethod.POST },
         { path: 'message', method: RequestMethod.POST },
         { path: 'message', method: RequestMethod.PATCH },
+        { path: 'message', method: RequestMethod.DELETE },
         { path: 'follow', method: RequestMethod.GET },
         { path: 'follow', method: RequestMethod.POST },
         { path: 'follow', method: RequestMethod.DELETE },
         { path: 'video', method: RequestMethod.POST },
-        { path: 'video', method: RequestMethod.DELETE },
+        { path: 'video', method: RequestMethod.DELETE }
     );
   }
 }

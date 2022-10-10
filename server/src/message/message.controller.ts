@@ -1,7 +1,7 @@
 import {
     BadRequestException,
     Body,
-    Controller,
+    Controller, Delete,
     Get,
     HttpStatus,
     NotFoundException,
@@ -17,6 +17,8 @@ import {ChatService} from "../chat/chat.service";
 import {MessageQueryDto} from "../dto/create/message-query.dto";
 import {QueryDto} from "../dto/create/query.dto";
 import {UpdateMessageDto} from "../dto/update/update-message.dto";
+import {GetVideoDto} from "../dto/create/get-video.dto";
+import {GetMessageDto} from "../dto/create/get-message.dto";
 
 @Controller('message')
 export class MessageController {
@@ -56,6 +58,15 @@ export class MessageController {
 
         return response.status(HttpStatus.OK).json({
             message: 'Successfully edited.', editedMessage
+        });
+    }
+
+    @Delete()
+    async deleteMessage(@Res() response, @Body() getMessageDto: GetMessageDto) {
+        const deletedMessage = await this.messageService.deleteMessage(response.locals.user, getMessageDto);
+
+        return response.status(HttpStatus.OK).json({
+            message: 'Successfully deleted.', deletedMessage
         });
     }
 }

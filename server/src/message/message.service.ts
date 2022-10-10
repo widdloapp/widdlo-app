@@ -6,6 +6,8 @@ import {CreateMessageDto} from "../dto/create/create-message.dto";
 import {MessageQueryDto} from "../dto/create/message-query.dto";
 import {QueryDto} from "../dto/create/query.dto";
 import {UpdateMessageDto} from "../dto/update/update-message.dto";
+import {GetVideoDto} from "../dto/create/get-video.dto";
+import {GetMessageDto} from "../dto/create/get-message.dto";
 
 @Injectable()
 export class MessageService {
@@ -34,5 +36,12 @@ export class MessageService {
         }
 
         return message;
+    }
+    async deleteMessage(user: string, getMessageDto: GetMessageDto) {
+        const message = await this.messageModel.findOneAndDelete({_id: getMessageDto.id, author: user});
+
+        if (!message) {
+            throw new NotFoundException('Unknown message or invalid authentication.');
+        }
     }
 }
