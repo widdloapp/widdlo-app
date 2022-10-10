@@ -36,7 +36,6 @@ export class MessageController {
 
     @Patch()
     async updateMessage(@Res() response, @Body() updateMessageDto: UpdateMessageDto) {
-        console.log(updateMessageDto)
         const editedMessage = await this.messageService.updateMessage(response.locals.user, updateMessageDto);
 
         return response.status(HttpStatus.OK).json({

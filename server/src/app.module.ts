@@ -59,6 +59,7 @@ export class AppModule implements NestModule {
         { path: 'like', method: RequestMethod.POST },
         { path: 'like', method: RequestMethod.DELETE },
         { path: 'channel', method: RequestMethod.POST },
+        { path: 'channel', method: RequestMethod.PATCH },
         { path: 'user', method: RequestMethod.GET },
         { path: 'comment', method: RequestMethod.POST },
         { path: 'stream', method: RequestMethod.GET },
