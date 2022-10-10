@@ -70,7 +70,7 @@ export class AppModule implements NestModule {
         { path: 'follow', method: RequestMethod.POST },
         { path: 'follow', method: RequestMethod.DELETE },
         { path: 'video', method: RequestMethod.POST },
-        { path: 'video/:id', method: RequestMethod.DELETE },
+        { path: 'video', method: RequestMethod.DELETE },
     );
   }
 }

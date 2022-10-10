@@ -63,8 +63,8 @@ export class VideoController {
         });
     }
 
-    @Delete(":id")
-    async deleteVideo(@Res() response, @Param() getVideoDto: GetVideoDto) {
+    @Delete()
+    async deleteVideo(@Res() response, @Body() getVideoDto: GetVideoDto) {
         const video = await this.videoService.deleteVideo(response.locals.user, getVideoDto);
 
         return response.status(HttpStatus.OK).json({
