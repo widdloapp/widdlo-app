@@ -41,15 +41,11 @@ export class MessageController {
 
     @Get(":chat")
     async getMessages(@Res() response, @Param() messageQueryDto: MessageQueryDto, @Query() queryDto: QueryDto) {
-        try {
-            const messages = await this.messageService.getMessages(messageQueryDto, queryDto);
+        const messages = await this.messageService.getMessages(messageQueryDto, queryDto);
 
-            return response.status(HttpStatus.OK).json({
-                message: 'Messages found.', messages, pages: {current: queryDto.page || 0}
-            });
-        } catch (error) {
-            throw new NotFoundException("No messages found.");
-        }
+        return response.status(HttpStatus.OK).json({
+            message: 'Messages found.', messages, pages: {current: queryDto.page || 0}
+        });
     }
 
     @Patch()

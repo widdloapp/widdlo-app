@@ -26,13 +26,9 @@ export class CommentController {
 
     @Get(":target")
     async getComments(@Res() response, @Param() getCommentsDto: GetCommentsDto, @Query() queryDto: QueryDto) {
-        try {
-            const comments = await this.commentService.getComments(getCommentsDto, queryDto);
-            return response.status(HttpStatus.OK).json({
-                message: 'Comments successfully found.', comments, pages: {current: queryDto.page},
-            });
-        } catch (error) {
-            throw new NotFoundException("No comments found.");
-        }
+        const comments = await this.commentService.getComments(getCommentsDto, queryDto);
+        return response.status(HttpStatus.OK).json({
+            message: 'Comments successfully found.', comments, pages: {current: queryDto.page},
+        });
     }
 }

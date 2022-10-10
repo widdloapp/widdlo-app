@@ -35,14 +35,10 @@ export class VideoController {
 
     @Get()
     async getVideos(@Response() response, @Query() videoFeedDto: VideoFeedDto, @Query() queryDto: QueryDto) {
-        try {
-            const videos = await this.videoService.getVideoFeed(videoFeedDto, queryDto);
-            return response.status(HttpStatus.OK).json({
-                message: 'Videos data found successfully.', videos, pages: {current: queryDto.page},
-            });
-        } catch (error) {
-            throw new NotFoundException("No videos found.");
-        }
+        const videos = await this.videoService.getVideoFeed(videoFeedDto, queryDto);
+        return response.status(HttpStatus.OK).json({
+            message: 'Videos data found successfully.', videos, pages: {current: queryDto.page},
+        });
     }
 
     @Get(":id")

@@ -20,7 +20,7 @@ export class VideoService {
         const videos = await this.videoModel.find({hidden: false, deleted: false}).select(["title", "description", "views", "likes"])
             .populate('author', ["username"]).populate('likes').limit(20).skip(queryDto.page * 20);
         if (!videos || videos.length == 0) {
-            throw new NotFoundException();
+            throw new NotFoundException("No videos found.");
         }
 
         return videos;

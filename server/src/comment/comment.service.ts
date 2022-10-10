@@ -19,7 +19,7 @@ export class CommentService {
         const comments = await this.commentModel.find({target: getCommentsDto.target}).populate("author", ["name"]).limit(20).skip(queryDto.page * 20);
 
         if (!comments || comments.length == 0) {
-            throw new NotFoundException();
+            throw new NotFoundException("No comments found.");
         }
         return comments;
     }
