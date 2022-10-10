@@ -21,7 +21,7 @@ export class MessageService {
             .limit(20).skip(queryDto.page * 20);
 
         if (!messages || messages.length == 0) {
-            throw new NotFoundException('Messages not found!');
+            throw new NotFoundException();
         }
 
         return messages;

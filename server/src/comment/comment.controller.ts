@@ -29,10 +29,10 @@ export class CommentController {
         try {
             const comments = await this.commentService.getComments(getCommentsDto, queryDto);
             return response.status(HttpStatus.OK).json({
-                message: 'Comments found successfully', comments, pages: {current: queryDto.page},
+                message: 'Comments successfully found.', comments, pages: {current: queryDto.page},
             });
         } catch (error) {
-            throw new NotFoundException("No data found.");
+            throw new NotFoundException("No comments found.");
         }
     }
 }

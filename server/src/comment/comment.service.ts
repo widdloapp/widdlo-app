@@ -1,4 +1,4 @@
-import {Injectable} from '@nestjs/common';
+import {Injectable, NotFoundException} from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {CreateCommentDto} from "../dto/create/create-comment.dto";
@@ -17,6 +17,10 @@ export class CommentService {
 
     async getComments(getCommentsDto: GetCommentsDto, queryDto: QueryDto): Promise<Comment[]> {
         const comments = await this.commentModel.find({target: getCommentsDto.target}).populate("author", ["name"]).limit(20).skip(queryDto.page * 20);
+
+        if (!comments || comments.length == 0) {
+            throw new NotFoundException();
+        }
         return comments;
     }
 }

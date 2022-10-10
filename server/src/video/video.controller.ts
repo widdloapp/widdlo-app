@@ -7,8 +7,7 @@ import {
     Body,
     Controller, Delete,
     Get,
-    HttpStatus,
-    InternalServerErrorException, NotFoundException, Param, Patch,
+    HttpStatus, NotFoundException, Param, Patch,
     Post,
     Query,
     Res, Response
@@ -42,7 +41,7 @@ export class VideoController {
                 message: 'Videos data found successfully.', videos, pages: {current: queryDto.page},
             });
         } catch (error) {
-            throw new NotFoundException("No data found.");
+            throw new NotFoundException("No videos found.");
         }
     }
 

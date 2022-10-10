@@ -1,4 +1,16 @@
-import {BadRequestException, Body, Controller, Get, HttpStatus, Param, Patch, Post, Query, Res} from '@nestjs/common';
+import {
+    BadRequestException,
+    Body,
+    Controller,
+    Get,
+    HttpStatus,
+    NotFoundException,
+    Param,
+    Patch,
+    Post,
+    Query,
+    Res
+} from '@nestjs/common';
 import {CreateMessageDto} from "../dto/create/create-message.dto";
 import {MessageService} from "./message.service";
 import {ChatService} from "../chat/chat.service";
@@ -27,11 +39,15 @@ export class MessageController {
 
     @Get(":chat")
     async getMessages(@Res() response, @Param() messageQueryDto: MessageQueryDto, @Query() queryDto: QueryDto) {
-        const messages = await this.messageService.getMessages(messageQueryDto, queryDto);
+        try {
+            const messages = await this.messageService.getMessages(messageQueryDto, queryDto);
 
-        return response.status(HttpStatus.OK).json({
-            message: 'Messages found.', messages, pages: {current: queryDto.page || 0}
-        });
+            return response.status(HttpStatus.OK).json({
+                message: 'Messages found.', messages, pages: {current: queryDto.page || 0}
+            });
+        } catch (error) {
+            throw new NotFoundException("No messages found.");
+        }
     }
 
     @Patch()
