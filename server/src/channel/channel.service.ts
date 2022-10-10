@@ -4,7 +4,6 @@ import {Model} from "mongoose";
 import {Channel} from "./channel.schema";
 import {CreateChannelDto} from "../dto/create/create-channel.dto";
 import {ChannelInfoDto} from "../dto/create/channel-info.dto";
-import {UpdateMessageDto} from "../dto/update/update-message.dto";
 import {UpdateChannelDto} from "../dto/update/update-channel.dto";
 
 @Injectable()
@@ -16,12 +15,14 @@ export class ChannelService {
     }
 
     async getChannelInfo(channelInfoDto: ChannelInfoDto): Promise<Channel> {
-        const channel = await this.channelModel.findById(channelInfoDto.id).select(["user", "name", "description"])
+        const channel = await this.channelModel.findById(channelInfoDto.id).select(["user", "name", "description", "views"])
             .populate("stream").populate("chats", ["name"]);
 
         if (!channel) {
             throw new NotFoundException('Channel could not found!');
         }
+
+        await channel.update({views: channel.views + 1});
 
         return channel;
     }

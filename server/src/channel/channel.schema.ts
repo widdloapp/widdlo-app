@@ -17,6 +17,9 @@ export class Channel {
     @Prop()
     name: string;
 
+    @Prop({default: 0})
+    views: number;
+
     @Prop()
     description: string;
 
