@@ -21,12 +21,13 @@ export class LikeController {
             message: 'Successfully liked.'
         });
     }
+
     @Delete()
     async unlikeVideo(@Res() response, @Body() likeVideoDto: LikeVideoDto) {
         likeVideoDto.author = response.locals.user;
 
         if (await this.likeService.checkExists(likeVideoDto) == null) {
-            throw new ConflictException("You don't liked this video.")
+            throw new ConflictException("You did not liked this video.")
         }
 
         await this.likeService.unlikeVideo(likeVideoDto);

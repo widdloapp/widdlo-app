@@ -49,7 +49,7 @@ export class FollowController {
         followChannelDto.user = response.locals.user;
 
         if (await this.followService.checkExists(followChannelDto) == null) {
-            throw new ConflictException("You don't follow this channel.")
+            throw new ConflictException("You did not follow this channel.")
         }
 
         await this.followService.unfollowChannel(followChannelDto);
