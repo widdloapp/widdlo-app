@@ -1,8 +1,8 @@
 import {IsMongoId, IsNotEmpty} from "class-validator";
-import {PickType} from "@nestjs/swagger";
 import {CreateChannelDto} from "../create/create-channel.dto";
+import {PartialType, PickType} from "@nestjs/swagger";
 
-export class UpdateChannelDto extends PickType(CreateChannelDto, ['name', 'description']) {
+export class UpdateChannelDto extends PartialType(CreateChannelDto) {
     @IsNotEmpty()
     @IsMongoId({message: "invalid id"})
     id: string;

@@ -1,4 +1,4 @@
-import {IsBoolean, IsBooleanString, IsNotEmpty, IsOptional, IsString, MaxLength} from "class-validator";
+import {IsBooleanString, IsNotEmpty, IsOptional, IsString, MaxLength} from "class-validator";
 
 export class CreateVideoDto {
     @IsString()

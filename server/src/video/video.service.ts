@@ -6,6 +6,7 @@ import {CreateVideoDto} from "../dto/create/create-video.dto";
 import {VideoFeedDto} from "../dto/create/video-feed.dto";
 import {GetVideoDto} from "../dto/create/get-video.dto";
 import {QueryDto} from "../dto/create/query.dto";
+import {UpdateVideoDto} from "../dto/update/update-video.dto";
 
 @Injectable()
 export class VideoService {
@@ -16,7 +17,7 @@ export class VideoService {
     }
 
     async getVideoFeed(videoFeedDto: VideoFeedDto, queryDto: QueryDto): Promise<Video[]> {
-        const videos = await this.videoModel.find().select(["title", "description", "views", "likes"])
+        const videos = await this.videoModel.find({hidden: false}).select(["title", "description", "views", "likes"])
             .populate('author', ["username"]).populate('likes').limit(20).skip(queryDto.page * 20);
         if (!videos || videos.length == 0) {
             throw new NotFoundException('Videos data not found!');
@@ -35,5 +36,14 @@ export class VideoService {
         await video.update({views: video.views + 1})
 
         return video;
+    }
+    async updateVideo(user: string, updateVideoDto: UpdateVideoDto) {
+        const message = await this.videoModel.findOneAndUpdate({_id: updateVideoDto.id, author: user}, updateVideoDto, {new: true});
+
+        if (!message) {
+            throw new NotFoundException("Unknown video or invalid authentication.");
+        }
+
+        return message;
     }
 }

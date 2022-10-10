@@ -8,12 +8,13 @@ import {
     Controller,
     Get,
     HttpStatus,
-    InternalServerErrorException, Param,
+    InternalServerErrorException, Param, Patch,
     Post,
     Query,
     Res, Response, UseGuards
 } from "@nestjs/common";
 import {QueryDto} from "../dto/create/query.dto";
+import {UpdateVideoDto} from "../dto/update/update-video.dto";
 
 @Controller('video')
 export class VideoController {
@@ -51,6 +52,15 @@ export class VideoController {
 
         return response.status(HttpStatus.OK).json({
             message: 'Video data found successfully.', video,
+        });
+    }
+
+    @Patch()
+    async updateVideo(@Res() response, @Body() updateVideoDto: UpdateVideoDto) {
+        const video = await this.videoService.updateVideo(response.locals.user, updateVideoDto);
+
+        return response.status(HttpStatus.OK).json({
+            message: 'Successfully edited.', video
         });
     }
 }
