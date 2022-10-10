@@ -27,6 +27,12 @@ export class MessageService {
         return messages;
     }
     async updateMessage(user: string, updateMessageDto: UpdateMessageDto) {
-        return await this.messageModel.findByIdAndUpdate(updateMessageDto.id, updateMessageDto).catch(() => console.log("e"));
+        const message = await this.messageModel.findByIdAndUpdate(updateMessageDto.id, updateMessageDto);
+
+        if (!message) {
+            throw new NotFoundException("Unknown message.");
+        }
+
+        return message;
     }
 }
