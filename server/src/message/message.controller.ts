@@ -1,9 +1,10 @@
-import {BadRequestException, Body, Controller, Get, HttpStatus, Param, Post, Query, Res} from '@nestjs/common';
+import {BadRequestException, Body, Controller, Get, HttpStatus, Param, Patch, Post, Query, Res} from '@nestjs/common';
 import {CreateMessageDto} from "../dto/create-message.dto";
 import {MessageService} from "./message.service";
 import {ChatService} from "../chat/chat.service";
 import {MessageQueryDto} from "../dto/message-query.dto";
 import {QueryDto} from "../dto/query.dto";
+import {UpdateMessageDto} from "../dto/update-message.dto";
 
 @Controller('message')
 export class MessageController {
@@ -30,6 +31,15 @@ export class MessageController {
 
         return response.status(HttpStatus.OK).json({
             message: 'Messages found.', messages, pages: {current: queryDto.page || 0}
+        });
+    }
+
+    @Patch()
+    async updateMessage(@Res() response, @Body() updateMessageDto: UpdateMessageDto) {
+        const editedMessage = await this.messageService.updateMessage(response.locals.user, updateMessageDto);
+
+        return response.status(HttpStatus.OK).json({
+            message: 'Successfully edited.', editedMessage
         });
     }
 }
