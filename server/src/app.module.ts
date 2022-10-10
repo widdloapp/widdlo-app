@@ -57,6 +57,7 @@ export class AppModule implements NestModule {
   configure(middlewareConsumer: MiddlewareConsumer) {
     middlewareConsumer.apply(AuthMiddleware).forRoutes(
         { path: 'like', method: RequestMethod.POST },
+        { path: 'like', method: RequestMethod.DELETE },
         { path: 'channel', method: RequestMethod.POST },
         { path: 'user', method: RequestMethod.GET },
         { path: 'comment', method: RequestMethod.POST },
