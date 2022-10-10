@@ -46,4 +46,11 @@ export class VideoService {
 
         return message;
     }
+    async deleteVideo(user: string, getVideoDto: GetVideoDto) {
+        const video = await this.videoModel.findOneAndUpdate({_id: getVideoDto.id, author: user, deleted: false}, {deleted: true});
+
+        if (!video) {
+            throw new NotFoundException('Unknown video or invalid authentication.');
+        }
+    }
 }

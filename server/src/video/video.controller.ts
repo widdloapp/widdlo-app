@@ -5,7 +5,7 @@ import {GetVideoDto} from "../dto/create/get-video.dto";
 import {
     BadRequestException,
     Body,
-    Controller,
+    Controller, Delete,
     Get,
     HttpStatus,
     InternalServerErrorException, Param, Patch,
@@ -61,6 +61,15 @@ export class VideoController {
 
         return response.status(HttpStatus.OK).json({
             message: 'Successfully edited.', video
+        });
+    }
+
+    @Delete(":id")
+    async deleteVideo(@Res() response, @Param() getVideoDto: GetVideoDto) {
+        const video = await this.videoService.deleteVideo(response.locals.user, getVideoDto);
+
+        return response.status(HttpStatus.OK).json({
+            message: 'Successfully deleted.', video
         });
     }
 }

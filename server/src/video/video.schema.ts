@@ -19,6 +19,9 @@ export class Video {
 
     @Prop({ default: false })
     hidden: boolean;
+
+    @Prop({ default: false })
+    deleted: boolean;
 }
 
 const VideoSchema = SchemaFactory.createForClass(Video);
