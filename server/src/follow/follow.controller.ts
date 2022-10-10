@@ -5,13 +5,16 @@ import {
     Controller,
     Delete,
     Get,
-    HttpStatus,
-    Post,
+    HttpStatus, Param,
+    Post, Query,
     Res
 } from '@nestjs/common';
 import {FollowService} from "./follow.service";
 import {FollowChannelDto} from "../dto/create/follow-channel.dto";
 import {ChannelService} from "../channel/channel.service";
+import {GetFollowDto} from "../dto/get/get-follow.dto";
+import {QueryDto} from "../dto/create/query.dto";
+import {UserInfoDto} from "../dto/get/user-info.dto";
 
 @Controller('follow')
 export class FollowController {
@@ -23,6 +26,15 @@ export class FollowController {
 
         return response.status(HttpStatus.OK).json({
             message: 'Successfully retrieved following list.', following
+        });
+    }
+
+    @Get(":id")
+    async getFollow(@Res() response, @Param() userInfoDto: UserInfoDto, @Query() getFollowDto: GetFollowDto) {
+        const follow = await this.followService.getFollow(userInfoDto, getFollowDto);
+
+        return response.status(HttpStatus.OK).json({
+            message: 'Successfully retrieved follow.', follow
         });
     }
 

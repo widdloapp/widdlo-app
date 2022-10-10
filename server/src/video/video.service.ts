@@ -4,7 +4,7 @@ import {Model} from "mongoose";
 import {Video} from "./video.schema";
 import {CreateVideoDto} from "../dto/create/create-video.dto";
 import {VideoFeedDto} from "../dto/create/video-feed.dto";
-import {GetVideoDto} from "../dto/create/get-video.dto";
+import {GetVideoDto} from "../dto/get/get-video.dto";
 import {QueryDto} from "../dto/create/query.dto";
 import {UpdateVideoDto} from "../dto/update/update-video.dto";
 

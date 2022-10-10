@@ -2,7 +2,7 @@ import {Body, Controller, Get, HttpStatus, NotFoundException, Param, Post, Query
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
 import {CreateCommentDto} from "../dto/create/create-comment.dto";
 import {CommentService} from "./comment.service";
-import {GetCommentsDto} from "../dto/create/get-comments.dto";
+import {GetCommentsDto} from "../dto/get/get-comments.dto";
 import {QueryDto} from "../dto/create/query.dto";
 
 @Controller('comment')

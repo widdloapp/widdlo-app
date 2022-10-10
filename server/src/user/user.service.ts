@@ -6,7 +6,7 @@ import {CreateUserDto} from "../dto/create/create-user.dto";
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
 import {LoginRequestDto} from "../dto/create/login-request.dto";
 import * as jwt from 'jsonwebtoken';
-import {UserInfoDto} from "../dto/create/user-info.dto";
+import {UserInfoDto} from "../dto/get/user-info.dto";
 
 const bcrypt = require('bcrypt');
 

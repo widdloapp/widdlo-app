@@ -1,8 +1,10 @@
-import {Injectable} from '@nestjs/common';
+import {Injectable, NotFoundException} from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {Follow} from "./follow.schema";
 import {FollowChannelDto} from "../dto/create/follow-channel.dto";
+import {GetFollowDto} from "../dto/get/get-follow.dto";
+import {UserInfoDto} from "../dto/get/user-info.dto";
 
 @Injectable()
 export class FollowService {
@@ -20,5 +22,14 @@ export class FollowService {
     }
     async getFollowing(user: string) {
         return this.followModel.find({user: user}).select(["channel"]).populate({path: 'channel', select: ["name"], populate: {path: 'stream'}})
+    }
+    async getFollow(userInfoDto: UserInfoDto, getFollowDto: GetFollowDto) {
+        const follow = await this.followModel.findOne({user: userInfoDto.id, channel: getFollowDto.channel}).select(["channel", "date"]);
+
+        if (!follow) {
+            throw new NotFoundException("This user is not following this channel.");
+        }
+
+        return follow;
     }
 }

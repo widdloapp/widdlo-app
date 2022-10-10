@@ -6,8 +6,8 @@ import {CreateMessageDto} from "../dto/create/create-message.dto";
 import {MessageQueryDto} from "../dto/create/message-query.dto";
 import {QueryDto} from "../dto/create/query.dto";
 import {UpdateMessageDto} from "../dto/update/update-message.dto";
-import {GetVideoDto} from "../dto/create/get-video.dto";
-import {GetMessageDto} from "../dto/create/get-message.dto";
+import {GetVideoDto} from "../dto/get/get-video.dto";
+import {GetMessageDto} from "../dto/get/get-message.dto";
 
 @Injectable()
 export class MessageService {

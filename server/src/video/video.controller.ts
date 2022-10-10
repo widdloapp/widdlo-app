@@ -1,7 +1,7 @@
 import {CreateVideoDto} from "../dto/create/create-video.dto";
 import {VideoService} from 'src/video/video.service';
 import {VideoFeedDto} from "../dto/create/video-feed.dto";
-import {GetVideoDto} from "../dto/create/get-video.dto";
+import {GetVideoDto} from "../dto/get/get-video.dto";
 import {
     BadRequestException,
     Body,
