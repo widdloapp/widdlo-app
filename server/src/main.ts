@@ -11,6 +11,8 @@ async function start() {
 
   const config = new DocumentBuilder()
       .setTitle('Widdlo API')
+      .setBasePath('api/v1')
+      .addBearerAuth()
       .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('doc', app, document);

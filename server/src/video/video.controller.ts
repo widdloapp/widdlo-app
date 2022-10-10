@@ -11,7 +11,7 @@ import {
     InternalServerErrorException, Param,
     Post,
     Query,
-    Res, Response
+    Res, Response, UseGuards
 } from "@nestjs/common";
 import {QueryDto} from "../dto/query.dto";
 
