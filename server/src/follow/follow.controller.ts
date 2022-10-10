@@ -10,7 +10,7 @@ import {
     Res
 } from '@nestjs/common';
 import {FollowService} from "./follow.service";
-import {FollowChannelDto} from "../dto/follow-channel.dto";
+import {FollowChannelDto} from "../dto/create/follow-channel.dto";
 import {ChannelService} from "../channel/channel.service";
 
 @Controller('follow')

@@ -1,8 +1,8 @@
 import {Body, Controller, ForbiddenException, HttpStatus, Post, Response} from "@nestjs/common";
-import {CreateChatDto} from "../dto/create-chat.dto";
+import {CreateChatDto} from "../dto/create/create-chat.dto";
 import {ChatService} from "./chat.service";
 import {ChannelService} from "../channel/channel.service";
-import {ChannelInfoDto} from "../dto/channel-info.dto";
+import {ChannelInfoDto} from "../dto/create/channel-info.dto";
 
 @Controller('chat')
 export class ChatController {

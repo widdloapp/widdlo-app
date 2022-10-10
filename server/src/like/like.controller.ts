@@ -1,7 +1,6 @@
 import {Body, ConflictException, Controller, Delete, HttpStatus, Post, Res} from '@nestjs/common';
-import {LikeVideoDto} from "../dto/like-video.dto";
+import {LikeVideoDto} from "../dto/create/like-video.dto";
 import {LikeService} from "./like.service";
-import {FollowChannelDto} from "../dto/follow-channel.dto";
 
 @Controller('like')
 export class LikeController {

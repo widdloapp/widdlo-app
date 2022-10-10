@@ -1,6 +1,6 @@
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
 import {StreamService} from "./stream.service";
-import {CheckStreamDto} from "../dto/check-stream.dto";
+import {CheckStreamDto} from "../dto/create/check-stream.dto";
 import {
     BadRequestException,
     Body,

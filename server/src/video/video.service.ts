@@ -2,10 +2,10 @@ import {Injectable, NotFoundException} from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {Video} from "./video.schema";
-import {CreateVideoDto} from "../dto/create-video.dto";
-import {VideoFeedDto} from "../dto/video-feed.dto";
-import {GetVideoDto} from "../dto/get-video.dto";
-import {QueryDto} from "../dto/query.dto";
+import {CreateVideoDto} from "../dto/create/create-video.dto";
+import {VideoFeedDto} from "../dto/create/video-feed.dto";
+import {GetVideoDto} from "../dto/create/get-video.dto";
+import {QueryDto} from "../dto/create/query.dto";
 
 @Injectable()
 export class VideoService {

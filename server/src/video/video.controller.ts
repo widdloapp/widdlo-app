@@ -1,7 +1,7 @@
-import {CreateVideoDto} from "../dto/create-video.dto";
+import {CreateVideoDto} from "../dto/create/create-video.dto";
 import {VideoService} from 'src/video/video.service';
-import {VideoFeedDto} from "../dto/video-feed.dto";
-import {GetVideoDto} from "../dto/get-video.dto";
+import {VideoFeedDto} from "../dto/create/video-feed.dto";
+import {GetVideoDto} from "../dto/create/get-video.dto";
 import {
     BadRequestException,
     Body,
@@ -13,7 +13,7 @@ import {
     Query,
     Res, Response, UseGuards
 } from "@nestjs/common";
-import {QueryDto} from "../dto/query.dto";
+import {QueryDto} from "../dto/create/query.dto";
 
 @Controller('video')
 export class VideoController {

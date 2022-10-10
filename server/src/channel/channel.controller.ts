@@ -1,7 +1,7 @@
 import {Body, ConflictException, Controller, Get, HttpStatus, Param, Post, Res} from '@nestjs/common';
 import {ChannelService} from "./channel.service";
-import {CreateChannelDto} from "../dto/create-channel.dto";
-import {ChannelInfoDto} from "../dto/channel-info.dto";
+import {CreateChannelDto} from "../dto/create/create-channel.dto";
+import {ChannelInfoDto} from "../dto/create/channel-info.dto";
 import {StreamService} from "../stream/stream.service";
 
 @Controller('channel')

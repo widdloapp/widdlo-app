@@ -1,7 +1,7 @@
 import {UserService} from "./user.service";
-import {CreateUserDto} from "../dto/create-user.dto";
-import {LoginRequestDto} from "../dto/login-request.dto";
-import {UserInfoDto} from "../dto/user-info.dto";
+import {CreateUserDto} from "../dto/create/create-user.dto";
+import {LoginRequestDto} from "../dto/create/login-request.dto";
+import {UserInfoDto} from "../dto/create/user-info.dto";
 import {Body, Controller, Get, HttpStatus, NotFoundException, Param, Post, Res} from "@nestjs/common";
 
 @Controller('user')

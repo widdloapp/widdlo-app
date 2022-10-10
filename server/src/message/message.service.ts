@@ -2,10 +2,10 @@ import {Injectable, NotFoundException} from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {Message} from "./message.schema";
-import {CreateMessageDto} from "../dto/create-message.dto";
-import {MessageQueryDto} from "../dto/message-query.dto";
-import {QueryDto} from "../dto/query.dto";
-import {UpdateMessageDto} from "../dto/update-message.dto";
+import {CreateMessageDto} from "../dto/create/create-message.dto";
+import {MessageQueryDto} from "../dto/create/message-query.dto";
+import {QueryDto} from "../dto/create/query.dto";
+import {UpdateMessageDto} from "../dto/update/update-message.dto";
 
 @Injectable()
 export class MessageService {

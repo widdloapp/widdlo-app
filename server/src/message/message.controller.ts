@@ -1,10 +1,10 @@
 import {BadRequestException, Body, Controller, Get, HttpStatus, Param, Patch, Post, Query, Res} from '@nestjs/common';
-import {CreateMessageDto} from "../dto/create-message.dto";
+import {CreateMessageDto} from "../dto/create/create-message.dto";
 import {MessageService} from "./message.service";
 import {ChatService} from "../chat/chat.service";
-import {MessageQueryDto} from "../dto/message-query.dto";
-import {QueryDto} from "../dto/query.dto";
-import {UpdateMessageDto} from "../dto/update-message.dto";
+import {MessageQueryDto} from "../dto/create/message-query.dto";
+import {QueryDto} from "../dto/create/query.dto";
+import {UpdateMessageDto} from "../dto/update/update-message.dto";
 
 @Controller('message')
 export class MessageController {
@@ -36,6 +36,7 @@ export class MessageController {
 
     @Patch()
     async updateMessage(@Res() response, @Body() updateMessageDto: UpdateMessageDto) {
+        console.log(updateMessageDto)
         const editedMessage = await this.messageService.updateMessage(response.locals.user, updateMessageDto);
 
         return response.status(HttpStatus.OK).json({

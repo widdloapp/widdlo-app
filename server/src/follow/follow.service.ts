@@ -2,7 +2,7 @@ import {Injectable} from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {Follow} from "./follow.schema";
-import {FollowChannelDto} from "../dto/follow-channel.dto";
+import {FollowChannelDto} from "../dto/create/follow-channel.dto";
 
 @Injectable()
 export class FollowService {

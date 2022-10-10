@@ -1,8 +1,8 @@
 import {Body, Controller, Get, HttpStatus, Param, Post, Res} from '@nestjs/common';
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
-import {CreateCommentDto} from "../dto/create-comment-dto";
+import {CreateCommentDto} from "../dto/create/create-comment-dto";
 import {CommentService} from "./comment.service";
-import {GetCommentsDto} from "../dto/get-comments.dto";
+import {GetCommentsDto} from "../dto/create/get-comments.dto";
 
 @Controller('comment')
 export class CommentController {

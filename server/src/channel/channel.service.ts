@@ -2,8 +2,8 @@ import {Injectable, NotFoundException} from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {Channel} from "./channel.schema";
-import {CreateChannelDto} from "../dto/create-channel.dto";
-import {ChannelInfoDto} from "../dto/channel-info.dto";
+import {CreateChannelDto} from "../dto/create/create-channel.dto";
+import {ChannelInfoDto} from "../dto/create/channel-info.dto";
 
 @Injectable()
 export class ChannelService {

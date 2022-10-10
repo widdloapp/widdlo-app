@@ -2,11 +2,11 @@ import {HttpStatus, Injectable, Param} from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {User} from "./user.schema";
-import {CreateUserDto} from "../dto/create-user.dto";
+import {CreateUserDto} from "../dto/create/create-user.dto";
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
-import {LoginRequestDto} from "../dto/login-request.dto";
+import {LoginRequestDto} from "../dto/create/login-request.dto";
 import * as jwt from 'jsonwebtoken';
-import {UserInfoDto} from "../dto/user-info.dto";
+import {UserInfoDto} from "../dto/create/user-info.dto";
 
 const bcrypt = require('bcrypt');
 
