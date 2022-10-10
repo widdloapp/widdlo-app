@@ -2,7 +2,7 @@ import {IsBooleanString, IsNotEmpty, IsOptional, IsString, MaxLength} from "clas
 
 export class CreateVideoDto {
     @IsString()
-    @MaxLength(30)
+    @MaxLength(16)
     @IsNotEmpty()
     readonly title: string;
 
