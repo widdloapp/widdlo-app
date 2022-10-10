@@ -28,8 +28,8 @@ export class ChannelService {
     async checkExists(channel: string) {
         return this.channelModel.exists({_id: channel});
     }
-    async updateChannel(user: string, createChannelDto: Partial<CreateChannelDto>) {
-        const channel = await this.channelModel.findOneAndUpdate({_id: createChannelDto.id, user: user}, createChannelDto, {new: true});
+    async updateChannel(user: string, updateChannelDto: UpdateChannelDto) {
+        const channel = await this.channelModel.findOneAndUpdate({_id: updateChannelDto.id, user: user}, updateChannelDto, {new: true});
 
         if (!channel) {
             throw new NotFoundException("Unknown channel or invalid authentication.");
