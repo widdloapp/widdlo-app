@@ -27,10 +27,10 @@ export class MessageService {
         return messages;
     }
     async updateMessage(user: string, updateMessageDto: UpdateMessageDto) {
-        const message = await this.messageModel.findByIdAndUpdate(updateMessageDto.id, updateMessageDto);
+        const message = await this.messageModel.findOneAndUpdate({_id: updateMessageDto.id, author: user}, updateMessageDto, {new: true});
 
         if (!message) {
-            throw new NotFoundException("Unknown message.");
+            throw new NotFoundException("Unknown message or invalid authentication.");
         }
 
         return message;
