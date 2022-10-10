@@ -8,10 +8,10 @@ import {
     Controller, Delete,
     Get,
     HttpStatus,
-    InternalServerErrorException, Param, Patch,
+    InternalServerErrorException, NotFoundException, Param, Patch,
     Post,
     Query,
-    Res, Response, UseGuards
+    Res, Response
 } from "@nestjs/common";
 import {QueryDto} from "../dto/create/query.dto";
 import {UpdateVideoDto} from "../dto/update/update-video.dto";
@@ -39,10 +39,10 @@ export class VideoController {
         try {
             const videos = await this.videoService.getVideoFeed(videoFeedDto, queryDto);
             return response.status(HttpStatus.OK).json({
-                message: 'Videos data found successfully.', videos, pages: {current: queryDto.page || 0},
+                message: 'Videos data found successfully.', videos, pages: {current: queryDto.page},
             });
         } catch (error) {
-            throw new InternalServerErrorException("Could not get video feed.");
+            throw new NotFoundException("No data found.");
         }
     }
 

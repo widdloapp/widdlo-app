@@ -4,6 +4,7 @@ import {Model} from "mongoose";
 import {CreateCommentDto} from "../dto/create/create-comment.dto";
 import {Comment} from "./comment.schema";
 import {GetCommentsDto} from "../dto/create/get-comments.dto";
+import {QueryDto} from "../dto/create/query.dto";
 
 @Injectable()
 export class CommentService {
@@ -14,8 +15,8 @@ export class CommentService {
         return comment.save();
     }
 
-    async getComments(getCommentsDto: GetCommentsDto): Promise<Comment[]> {
-        const comments = await this.commentModel.find({target: getCommentsDto.target}).populate("author", ["name"]).limit(20).skip(getCommentsDto.page * 20);
+    async getComments(getCommentsDto: GetCommentsDto, queryDto: QueryDto): Promise<Comment[]> {
+        const comments = await this.commentModel.find({target: getCommentsDto.target}).populate("author", ["name"]).limit(20).skip(queryDto.page * 20);
         return comments;
     }
 }

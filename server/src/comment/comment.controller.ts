@@ -1,8 +1,9 @@
-import {Body, Controller, Get, HttpStatus, Param, Post, Res} from '@nestjs/common';
+import {Body, Controller, Get, HttpStatus, NotFoundException, Param, Post, Query, Res} from '@nestjs/common';
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
 import {CreateCommentDto} from "../dto/create/create-comment.dto";
 import {CommentService} from "./comment.service";
 import {GetCommentsDto} from "../dto/create/get-comments.dto";
+import {QueryDto} from "../dto/create/query.dto";
 
 @Controller('comment')
 export class CommentController {
@@ -24,14 +25,14 @@ export class CommentController {
     }
 
     @Get(":target")
-    async getComments(@Res() response, @Param() getCommentsDto: GetCommentsDto) {
+    async getComments(@Res() response, @Param() getCommentsDto: GetCommentsDto, @Query() queryDto: QueryDto) {
         try {
-            const comments = await this.commentService.getComments(getCommentsDto);
+            const comments = await this.commentService.getComments(getCommentsDto, queryDto);
             return response.status(HttpStatus.OK).json({
-                message: 'Comments found successfully', comments, pages: {current: getCommentsDto.page},
+                message: 'Comments found successfully', comments, pages: {current: queryDto.page},
             });
         } catch (error) {
-            throw new HttpException("Could not get video feed.", HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new NotFoundException("No data found.");
         }
     }
 }

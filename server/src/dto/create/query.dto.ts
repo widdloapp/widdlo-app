@@ -5,5 +5,5 @@ export class QueryDto {
     @IsOptional()
     @IsNumber()
     @Transform(value => Number(value.value))
-    readonly page: number;
+    readonly page: number = 0;
 }
