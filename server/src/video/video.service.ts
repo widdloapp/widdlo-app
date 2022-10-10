@@ -17,7 +17,7 @@ export class VideoService {
     }
 
     async getVideoFeed(videoFeedDto: VideoFeedDto, queryDto: QueryDto): Promise<Video[]> {
-        const videos = await this.videoModel.find({hidden: false}).select(["title", "description", "views", "likes"])
+        const videos = await this.videoModel.find({hidden: false, deleted: false}).select(["title", "description", "views", "likes"])
             .populate('author', ["username"]).populate('likes').limit(20).skip(queryDto.page * 20);
         if (!videos || videos.length == 0) {
             throw new NotFoundException('Videos data not found!');
@@ -27,7 +27,7 @@ export class VideoService {
     }
 
     async getVideo(getVideoDto: GetVideoDto): Promise<Video> {
-        const video = await this.videoModel.findById(getVideoDto.id).select(["title", "description", "views", "likes"])
+        const video = await this.videoModel.findOne({_id: getVideoDto.id, deleted: false}).select(["title", "description", "views", "likes"])
             .populate('author', ["username"]).populate('likes');
         if (!video) {
             throw new NotFoundException('Unknown video!');
