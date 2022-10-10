@@ -14,11 +14,11 @@ export class Video {
     @Prop( {default: 0} )
     views: number;
 
-    @Prop()
-    tags: string[];
-
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
     author: User;
+
+    @Prop({ default: false })
+    hidden: boolean;
 }
 
 const VideoSchema = SchemaFactory.createForClass(Video);

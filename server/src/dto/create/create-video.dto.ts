@@ -1,4 +1,4 @@
-import {IsNotEmpty, IsString, MaxLength} from "class-validator";
+import {IsBoolean, IsBooleanString, IsNotEmpty, IsOptional, IsString, MaxLength} from "class-validator";
 
 export class CreateVideoDto {
     @IsString()
@@ -10,6 +10,10 @@ export class CreateVideoDto {
     @MaxLength(300)
     @IsNotEmpty()
     readonly description: string;
+
+    @IsOptional()
+    @IsBooleanString()
+    readonly hidden: boolean;
 
     author: string;
 }
