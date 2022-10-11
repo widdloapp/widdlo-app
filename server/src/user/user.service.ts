@@ -37,7 +37,7 @@ export class UserService {
 
     async getPublicData(userInfoDto: UserInfoDto) {
         const user = await this.userModel.findById(userInfoDto.id).select(["date", "name", "username"])
-            .populate("badges");
+            .populate({path: 'badges', populate: {path: 'badge'}});
 
         return user;
     }
