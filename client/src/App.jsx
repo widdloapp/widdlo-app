@@ -1,22 +1,14 @@
-import Bar from "./components/layout/bar/bar";
-import SidebarLayout from "./components/layout/bar/sidebar-layout";
+import Layout from "./components/layout/layout";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {
     return (
         <div className="App">
-            <div className="grid">
-                <header>
-                    header
-                </header>
-
-                <aside className="sidebar-left">
-                    left sidebar
-                </aside>
-
-                <body className="content">
-                <SidebarLayout/>
-                </body>
-            </div>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Layout path="/" sidebar={<h1>a</h1>} body={<h1>b</h1>} />}/>
+                </Routes>
+            </BrowserRouter>
         </div>
     )
 }

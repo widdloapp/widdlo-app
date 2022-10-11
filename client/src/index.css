@@ -24,13 +24,9 @@ html {
 
 .grid {
   display: grid;
-  grid-template-rows: 50px 1fr;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 70px 250px auto;
+  grid-template-rows: 70px auto;
   height: 100vh;
-}
-
-body {
-  width: 100%;
 }
 
 header {
@@ -52,12 +48,6 @@ aside.sidebar {
   grid-column: 2 / 3;
 }
 
-body.content {
+div.content {
   background: lime;
-}
-
-footer {
-  grid-row: 3;
-  grid-column: 1 / 4;
-  background: yellow;
 }
