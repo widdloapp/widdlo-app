@@ -81,7 +81,9 @@ export class AppModule implements NestModule {
         { path: 'video', method: RequestMethod.DELETE },
         { path: 'playlist', method: RequestMethod.GET },
         { path: 'playlist', method: RequestMethod.POST },
-        { path: 'playlist', method: RequestMethod.DELETE }
+        { path: 'playlist', method: RequestMethod.DELETE },
+        { path: 'playlist/video', method: RequestMethod.POST },
+        { path: 'playlist/video', method: RequestMethod.DELETE }
     );
   }
 }

@@ -54,7 +54,7 @@ export class PlaylistController {
         });
     }
 
-    @Post(":id")
+    @Post("video")
     async addVideoPlaylist(@Res() response, @Body() createVideoPlaylistDto: CreateVideoPlaylistDto) {
         const videoPlaylist = await this.playlistService.addVideoPlaylist(response.locals.user, createVideoPlaylistDto);
 
@@ -63,16 +63,20 @@ export class PlaylistController {
         });
     }
 
-    @Delete(":id")
-    async deleteVideoPlaylist(@Res() response, getPlaylistDto: GetPlaylistDto) {
-        const playlist = await this.playlistService.deletePlaylist(response.locals.user, getPlaylistDto);
+    @Delete("video")
+    async deleteVideoPlaylist(@Res() response, @Body() createVideoPlaylistDto: CreateVideoPlaylistDto) {
+        try {
+            const playlist = await this.playlistService.deleteVideoPlaylist(response.locals.user, createVideoPlaylistDto);
 
-        if (!playlist) {
-            throw new NotFoundException('Playlist could not found!');
+            if (!playlist) {
+                throw new NotFoundException('Playlist could not found!');
+            }
+
+            return response.status(HttpStatus.OK).json({
+                message: 'Playlist removed successfully.', playlist
+            });
+        } catch (error) {
+            throw new NotFoundException("No video found in that playlist.")
         }
-
-        return response.status(HttpStatus.OK).json({
-            message: 'Playlist removed successfully.', playlist
-        });
     }
 }

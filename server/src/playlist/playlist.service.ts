@@ -27,6 +27,12 @@ export class PlaylistService {
         return playlist;
     }
 
+    async deletePlaylist(id: string, getPlaylistDto: GetPlaylistDto) {
+        const playlist = await this.playlistModel.findOneAndDelete({_id: getPlaylistDto.id, user: id});
+
+        return playlist;
+    }
+
     async addVideoPlaylist(id: string, createVideoPlaylistDto: CreateVideoPlaylistDto) {
 
         const playlist = await this.playlistModel.findOne({_id: createVideoPlaylistDto.playlist, user: id}).lean();
@@ -37,9 +43,13 @@ export class PlaylistService {
 
         return await this.playlistVideoModel.create(createVideoPlaylistDto);
     }
+    async deleteVideoPlaylist(id: string, createVideoPlaylistDto: CreateVideoPlaylistDto) {
 
-    async deletePlaylist(id: string, getPlaylistDto: GetPlaylistDto) {
-        const playlist = await this.playlistModel.findOneAndDelete({_id: getPlaylistDto.id, user: id});
+        const playlist = await this.playlistModel.findOneAndDelete({_id: createVideoPlaylistDto.playlist, user: id}).lean();
+
+        if (playlist.user != id) {
+            throw new UnauthorizedException("You must be the owner of the playlist.")
+        }
 
         return playlist;
     }
