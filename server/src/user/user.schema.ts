@@ -16,12 +16,21 @@ export class User {
 
     @Prop()
     password: string;
+
+    @Prop({default: false})
+    verified: boolean;
 }
 
 const UserSchema = SchemaFactory.createForClass(User).index({email: 1, username: 1}, {unique: true});
 
 UserSchema.virtual('channels', {
     ref: 'Channel',
+    localField: '_id',
+    foreignField: 'user'
+});
+
+UserSchema.virtual('badges', {
+    ref: 'UserBadge',
     localField: '_id',
     foreignField: 'user'
 });

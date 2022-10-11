@@ -35,6 +35,8 @@ import {PlaylistService} from "./playlist/playlist.service";
 import {PlaylistController} from "./playlist/playlist.controller";
 import {PlaylistVideo, PlaylistVideoSchema} from "./playlist/video-playlist.schema";
 import {PlaylistSchema} from "./playlist/playlist.schema";
+import {BadgeSchema} from "./badge/badge.schema";
+import {UserBadgeSchema} from "./badge/user-badge.schema";
 
 require('dotenv').config()
 
@@ -52,7 +54,9 @@ require('dotenv').config()
             { name: 'Message', schema: MessageSchema },
             { name: 'Follow', schema: FollowSchema },
             { name: 'Playlist', schema: PlaylistSchema },
-            { name: 'PlaylistVideo', schema: PlaylistVideoSchema }
+            { name: 'PlaylistVideo', schema: PlaylistVideoSchema },
+            { name: 'Badge', schema: BadgeSchema },
+            { name: 'UserBadge', schema: UserBadgeSchema }
         ])],
   controllers: [AppController, VideoController, UserController, LikeController, ChannelController, CommentController, StreamController, ChatController,
   MessageController, FollowController, PlaylistController],

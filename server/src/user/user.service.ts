@@ -36,7 +36,8 @@ export class UserService {
     }
 
     async getPublicData(userInfoDto: UserInfoDto) {
-        const user = await this.userModel.findById(userInfoDto.id).select(["date", "name", "username"]);
+        const user = await this.userModel.findById(userInfoDto.id).select(["date", "name", "username"])
+            .populate("badges");
 
         return user;
     }
