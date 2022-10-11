@@ -10,10 +10,10 @@ export class UserController {
 
     @Post("login")
     async loginAccount(@Res() response, @Body() loginRequestDto: LoginRequestDto) {
-        const user = await this.userService.login(loginRequestDto);
+        const token = await this.userService.login(loginRequestDto);
 
         return response.status(HttpStatus.OK).json({
-            message: 'Logged successfully.', user
+            message: 'Logged successfully.', token
         });
     }
 
