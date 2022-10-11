@@ -29,8 +29,8 @@ export class PlaylistController {
     }
 
     @Delete()
-    async deletePlaylist(@Res() response, @Param() getPlaylistDto: GetPlaylistDto) {
-        const playlist = await this.playlistService.deletePlaylist(response.iternals.user, getPlaylistDto);
+    async deletePlaylist(@Res() response, @Body() getPlaylistDto: GetPlaylistDto) {
+        const playlist = await this.playlistService.deletePlaylist(response.locals.user, getPlaylistDto);
 
         if (!playlist) {
             throw new NotFoundException("No playlist found or invalid authentication.")
@@ -43,7 +43,7 @@ export class PlaylistController {
 
     @Get(":id")
     async getPublicPlaylist(@Res() response, @Param() getPlaylistDto: GetPlaylistDto) {
-        const user = await this.playlistService.getPlaylist(response.iternals.user, getPlaylistDto);
+        const user = await this.playlistService.getPlaylist(response.locals.user, getPlaylistDto);
 
         if (!user) {
             throw new NotFoundException('Playlist could not found!');
