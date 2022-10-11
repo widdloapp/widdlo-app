@@ -43,27 +43,27 @@ export class PlaylistController {
 
     @Get(":id")
     async getPublicPlaylist(@Res() response, @Param() getPlaylistDto: GetPlaylistDto) {
-        const user = await this.playlistService.getPublicPlaylist(getPlaylistDto);
+        const playlist = await this.playlistService.getPublicPlaylist(getPlaylistDto);
 
-        if (!user) {
+        if (!playlist) {
             throw new NotFoundException('Playlist could not found!');
         }
 
         return response.status(HttpStatus.OK).json({
-            message: 'Playlist data retrieved successfully.', user
+            message: 'Playlist data retrieved successfully.', playlist
         });
     }
 
     @Get(":id")
     async getPlaylist(@Res() response, @Param() getPlaylistDto: GetPlaylistDto) {
-        const user = await this.playlistService.getPlaylist(response.locals.user, getPlaylistDto);
+        const playlist = await this.playlistService.getPlaylist(response.locals.user, getPlaylistDto);
 
-        if (!user) {
+        if (!playlist) {
             throw new NotFoundException('Playlist could not found!');
         }
 
         return response.status(HttpStatus.OK).json({
-            message: 'Playlist data retrieved successfully.', user
+            message: 'Playlist data retrieved successfully.', playlist
         });
     }
 
