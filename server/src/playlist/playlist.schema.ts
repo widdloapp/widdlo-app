@@ -12,7 +12,7 @@ export class Playlist {
     @Prop()
     description: string;
 
-    @Prop()
+    @Prop({default: false})
     hidden: boolean;
 
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
@@ -20,5 +20,11 @@ export class Playlist {
 }
 
 const PlaylistSchema = SchemaFactory.createForClass(Playlist);
+
+PlaylistSchema.virtual('videos', {
+    ref: 'PlaylistVideo',
+    localField: '_id',
+    foreignField: 'playlist'
+});
 
 export { PlaylistSchema };

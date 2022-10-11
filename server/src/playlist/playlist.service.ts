@@ -28,7 +28,8 @@ export class PlaylistService {
     }
 
     async getPublicPlaylist(getPlaylistDto: GetPlaylistDto) {
-        const playlist = await this.playlistModel.findOne({_id: getPlaylistDto.id, hidden: false}).select(["date", "title", "description"]);
+        const playlist = await this.playlistModel.findOne({_id: getPlaylistDto.id, hidden: false}).select(["date", "title", "description"])
+            .populate("videos");
 
         return playlist;
     }
