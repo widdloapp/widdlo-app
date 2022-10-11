@@ -1,4 +1,5 @@
 import Bar from "./components/layout/bar/bar";
+import SidebarLayout from "./components/layout/bar/sidebar-layout";
 
 function App() {
     return (
@@ -13,7 +14,7 @@ function App() {
                 </aside>
 
                 <body className="content">
-                content
+                <SidebarLayout/>
                 </body>
             </div>
         </div>
