@@ -8,21 +8,17 @@ function App() {
                 header
             </header>
 
-            <aside>
+            <aside className="sidebar-left">
                 left sidebar
             </aside>
 
-            <aside>
+            <aside className="sidebar">
                 sidebar
             </aside>
 
-            <body>
+            <body className="content">
             content
             </body>
-
-            <footer>
-                footer
-            </footer>
         </div>
     </div>
   )
