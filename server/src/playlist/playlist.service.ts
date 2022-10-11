@@ -1,4 +1,4 @@
-import {Injectable, UnauthorizedException} from '@nestjs/common';
+import {Injectable, NotFoundException, UnauthorizedException} from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {Playlist} from "./playlist.schema";
@@ -22,7 +22,13 @@ export class PlaylistService {
     }
 
     async getPlaylist(id: string, getPlaylistDto: GetPlaylistDto) {
-        const playlist = await this.playlistModel.findOne({_id: getPlaylistDto.id, user: id}).select(["date", "title", "description"]);
+        const playlist = await this.playlistModel.findOne({_id: getPlaylistDto.id, hidden: false}).select(["date", "title", "description"]);
+
+        return playlist;
+    }
+
+    async getPublicPlaylist(getPlaylistDto: GetPlaylistDto) {
+        const playlist = await this.playlistModel.findOne({_id: getPlaylistDto.id, hidden: false}).select(["date", "title", "description"]);
 
         return playlist;
     }
@@ -34,8 +40,11 @@ export class PlaylistService {
     }
 
     async addVideoPlaylist(id: string, createVideoPlaylistDto: CreateVideoPlaylistDto) {
+        const playlist = await this.playlistModel.findOne({_id: createVideoPlaylistDto.playlist, user: id});
 
-        const playlist = await this.playlistModel.findOne({_id: createVideoPlaylistDto.playlist, user: id}).lean();
+        if (!playlist) {
+            throw new NotFoundException("No playlist found.")
+        }
 
         if (playlist.user != id) {
             throw new UnauthorizedException("You must be the owner of the playlist.")

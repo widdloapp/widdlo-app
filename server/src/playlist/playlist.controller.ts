@@ -9,7 +9,7 @@ export class PlaylistController {
     constructor(private readonly playlistService: PlaylistService) { }
 
     @Get()
-    async getPlaylist(@Res() response) {
+    async getPlaylistList(@Res() response) {
         const playlist = await this.playlistService.getPlaylistList(response.locals.user);
 
         return response.status(HttpStatus.OK).json({
@@ -43,6 +43,19 @@ export class PlaylistController {
 
     @Get(":id")
     async getPublicPlaylist(@Res() response, @Param() getPlaylistDto: GetPlaylistDto) {
+        const user = await this.playlistService.getPublicPlaylist(getPlaylistDto);
+
+        if (!user) {
+            throw new NotFoundException('Playlist could not found!');
+        }
+
+        return response.status(HttpStatus.OK).json({
+            message: 'Playlist data retrieved successfully.', user
+        });
+    }
+
+    @Get(":id")
+    async getPlaylist(@Res() response, @Param() getPlaylistDto: GetPlaylistDto) {
         const user = await this.playlistService.getPlaylist(response.locals.user, getPlaylistDto);
 
         if (!user) {
@@ -56,11 +69,15 @@ export class PlaylistController {
 
     @Post("video")
     async addVideoPlaylist(@Res() response, @Body() createVideoPlaylistDto: CreateVideoPlaylistDto) {
-        const videoPlaylist = await this.playlistService.addVideoPlaylist(response.locals.user, createVideoPlaylistDto);
+        try {
+            const videoPlaylist = await this.playlistService.addVideoPlaylist(response.locals.user, createVideoPlaylistDto);
 
-        return response.status(HttpStatus.OK).json({
-            message: 'Video added to the playlist successfully.', videoPlaylist
-        });
+            return response.status(HttpStatus.OK).json({
+                message: 'Video added to the playlist successfully.', videoPlaylist
+            });
+        } catch (error) {
+            throw new NotFoundException("Video was already added to that playlist.")
+        }
     }
 
     @Delete("video")
