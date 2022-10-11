@@ -13,7 +13,6 @@ import {FollowService} from "./follow.service";
 import {FollowChannelDto} from "../dto/create/follow-channel.dto";
 import {ChannelService} from "../channel/channel.service";
 import {GetFollowDto} from "../dto/get/get-follow.dto";
-import {QueryDto} from "../dto/create/query.dto";
 import {UserInfoDto} from "../dto/get/user-info.dto";
 
 @Controller('follow')

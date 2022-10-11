@@ -5,6 +5,8 @@ import {CreateCommentDto} from "../dto/create/create-comment.dto";
 import {Comment} from "./comment.schema";
 import {GetCommentsDto} from "../dto/get/get-comments.dto";
 import {QueryDto} from "../dto/create/query.dto";
+import {UpdateMessageDto} from "../dto/update/update-message.dto";
+import {UpdateCommentDto} from "../dto/update/update-comment.dto";
 
 @Injectable()
 export class CommentService {
@@ -22,5 +24,14 @@ export class CommentService {
             throw new NotFoundException("No comments found.");
         }
         return comments;
+    }
+    async updateComment(user: string, updateCommentDto: UpdateCommentDto) {
+        const comment = await this.commentModel.findOneAndUpdate({_id: updateCommentDto.id, author: user}, updateCommentDto, {new: true});
+
+        if (!comment) {
+            throw new NotFoundException("Unknown comment or invalid authentication.");
+        }
+
+        return comment;
     }
 }
