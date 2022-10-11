@@ -22,15 +22,15 @@ export class PlaylistService {
     }
 
     async getPlaylist(id: string, getPlaylistDto: GetPlaylistDto) {
-        const playlist = await this.playlistModel.findOne({_id: getPlaylistDto.id}).select(["date", "title", "description"])
+        const playlist = await this.playlistModel.findOne({_id: getPlaylistDto.id}).select(["date", "name", "description"])
             .populate({path: 'videos', populate: {path: 'video', populate: {path: 'author', select: ['name']}}});
 
         return playlist;
     }
 
     async getPublicPlaylist(getPlaylistDto: GetPlaylistDto) {
-        const playlist = await this.playlistModel.findOne({_id: getPlaylistDto.id, hidden: false}).select(["date", "title", "description"])
-            .populate({path: 'videos', populate: {path: 'video', select: ['date', 'title', 'description', 'views'], populate: {path: 'author', select: ['name']}}});
+        const playlist = await this.playlistModel.findOne({_id: getPlaylistDto.id, hidden: false}).select(["date", "name", "description"])
+            .populate({path: 'videos', populate: {path: 'video', select: ['date', 'name', 'description', 'views'], populate: {path: 'author', select: ['name']}}});
 
         return playlist;
     }

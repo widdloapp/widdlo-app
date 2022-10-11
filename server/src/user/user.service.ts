@@ -42,7 +42,8 @@ export class UserService {
         return user;
     }
     async getData(id: string) {
-        const user = await this.userModel.findById(id).select(["date", "name", "username"]).populate("channels", ["date", "name", "username"]);
+        const user = await this.userModel.findById(id).select(["date", "name", "username"]).populate("channels", ["date", "name", "username"])
+            .populate({path: 'badges', populate: {path: 'badge'}});
 
         return user;
     }
