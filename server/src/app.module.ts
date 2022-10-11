@@ -31,6 +31,10 @@ import {MessageService} from "./message/message.service";
 import {FollowSchema} from "./follow/follow.schema";
 import {FollowController} from "./follow/follow.controller";
 import {FollowService} from "./follow/follow.service";
+import {PlaylistService} from "./playlist/playlist.service";
+import {PlaylistController} from "./playlist/playlist.controller";
+import {PlaylistVideo, PlaylistVideoSchema} from "./playlist/video-playlist.schema";
+import {PlaylistSchema} from "./playlist/playlist.schema";
 
 require('dotenv').config()
 
@@ -46,12 +50,14 @@ require('dotenv').config()
             { name: 'Stream', schema: StreamSchema },
             { name: 'Chat', schema: ChatSchema },
             { name: 'Message', schema: MessageSchema },
-            { name: 'Follow', schema: FollowSchema }
+            { name: 'Follow', schema: FollowSchema },
+            { name: 'Playlist', schema: PlaylistSchema },
+            { name: 'PlaylistVideo', schema: PlaylistVideoSchema }
         ])],
   controllers: [AppController, VideoController, UserController, LikeController, ChannelController, CommentController, StreamController, ChatController,
-  MessageController, FollowController],
+  MessageController, FollowController, PlaylistController],
   providers: [AppService, VideoService, UserService, LikeService, ChannelService, CommentService, StreamService, ChatService,
-  MessageService, FollowService]
+  MessageService, FollowService, PlaylistService]
 })
 export class AppModule implements NestModule {
   configure(middlewareConsumer: MiddlewareConsumer) {
@@ -72,7 +78,9 @@ export class AppModule implements NestModule {
         { path: 'follow', method: RequestMethod.POST },
         { path: 'follow', method: RequestMethod.DELETE },
         { path: 'video', method: RequestMethod.POST },
-        { path: 'video', method: RequestMethod.DELETE }
+        { path: 'video', method: RequestMethod.DELETE },
+        { path: 'playlist', method: RequestMethod.GET },
+        { path: 'playlist', method: RequestMethod.POST }
     );
   }
 }

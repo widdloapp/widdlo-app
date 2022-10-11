@@ -13,7 +13,7 @@ export class UserController {
         const user = await this.userService.login(loginRequestDto);
 
         return response.status(HttpStatus.OK).json({
-            message: 'Logged successfully', user
+            message: 'Logged successfully.', user
         });
     }
 
