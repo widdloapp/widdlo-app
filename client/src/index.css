@@ -42,3 +42,9 @@ Button.main {
 Button.main:hover {
   background: #474747;
 }
+
+Button.section {
+  background: var(--theme-main-dark);
+  width: 100%;
+  box-sizing: border-box;
+}

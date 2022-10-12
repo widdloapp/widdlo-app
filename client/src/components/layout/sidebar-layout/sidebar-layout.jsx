@@ -8,9 +8,7 @@ export default function SidebarLayout(props) {
 
     return (
         <Layout>
-            <Sider className={style["slider"]}>Sider</Sider>
-            {props.content}
-            <h1>a</h1>
+            <Sider className={style["slider"]}>{props.sidebar}</Sider>
         </Layout>
     );
 }
