@@ -1,0 +1,9 @@
+.header {
+    min-height: 40px;
+    background: purple;
+}
+
+.slider {
+    background: blue;
+    min-width: 250px;
+}

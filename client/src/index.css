@@ -13,6 +13,18 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#root {
+  height: 100vh;
+}
+
+div {
+  height: 100vh;
+}
+
+.components-layout-demo {
+  height: 100vh;
+}
+
 * {
   margin: 0;
 }
@@ -26,6 +38,10 @@ html {
   display: grid;
   grid-template-columns: 70px 250px auto;
   grid-template-rows: 70px auto;
+  height: 100vh;
+}
+
+body {
   height: 100vh;
 }
 
@@ -50,4 +66,12 @@ aside.sidebar {
 
 div.content {
   background: lime;
+}
+
+.b {
+  background: lime;
+}
+
+.a {
+  background: blue;
 }
