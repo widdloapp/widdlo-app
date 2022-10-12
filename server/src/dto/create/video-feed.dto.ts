@@ -1,7 +1,7 @@
-import {IsNotEmpty, IsOptional} from "class-validator";
+import {IsOptional} from "class-validator";
 
 export class VideoFeedDto {
-    @IsNotEmpty()
+    @IsOptional()
     readonly sort: string;
 
     @IsOptional()
