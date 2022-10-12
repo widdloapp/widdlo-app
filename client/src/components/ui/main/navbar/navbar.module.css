@@ -1,3 +1,9 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .navbar > * {
     display: inline-block;
 }

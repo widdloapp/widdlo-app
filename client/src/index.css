@@ -32,3 +32,13 @@ html {
 .semi-input-prefix > i {
   margin-right: 10px;
 }
+
+Button.main {
+  background: #3a3a3a;
+  border-radius: 3px;
+  margin: 5px;
+}
+
+Button.main:hover {
+  background: #474747;
+}
