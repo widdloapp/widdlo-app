@@ -7,7 +7,8 @@ function App() {
     return (
         <div className="App">
             <Routes>
-                <Route path="/" element={<MainLayout content={<SidebarLayout content={<Home />} />} />} />
+                <Route path="/" element={<MainLayout content={<Home />} />} />} />
+                <Route path="/a" element={<MainLayout content={<SidebarLayout content={<Home />} />} />} />
             </Routes>
         </div>
     )

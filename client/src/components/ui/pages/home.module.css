@@ -1,0 +1,8 @@
+.box {
+    background: black;
+}
+
+.box > p {
+    color: white;
+    background: red;
+}
