@@ -7,7 +7,7 @@ export default function MainLayout(props) {
     const { Header, Sider } = Layout;
 
     return (
-        <Layout className='components-layout-demo'>
+        <Layout className={style["full-layout"]}>
             <Header className={style["header"]}>Header</Header>
             <Layout >
                 <Sider className={style["slider"]}>Sider</Sider>
