@@ -1,8 +1,18 @@
+.wrapper {
+    text-align: center;
+}
+
 .video-card {
-    background: var(--theme-main-dark);
     display: inline-block;
     margin: 5px;
     border-radius: 3px;
+    background: none;
+    text-align: left;
+    border: none;
+}
+
+.video-card:hover {
+    background: var(--theme-main-medium);
 }
 
 .box > p {

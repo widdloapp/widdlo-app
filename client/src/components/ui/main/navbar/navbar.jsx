@@ -17,7 +17,6 @@ export default function Navbar() {
                     <Button className="main" icon={<i className="fa-light fa-book" />} aria-label="Help"/>
                 </Tooltip>
                 <Button className="main">Iniciar sesión</Button>
-                <Button className="main">Iniciar sesión</Button>
             </div>
         </div>
     );

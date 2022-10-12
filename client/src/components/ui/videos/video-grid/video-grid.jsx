@@ -18,7 +18,7 @@ export default function VideoGrid() {
 
     if (loaded) {
         return (
-            <div>
+            <div className={style["wrapper"]}>
                 {
                     videos.videos.map((video, key) =>
                         <Card key={key} className={style["video-card"]}>

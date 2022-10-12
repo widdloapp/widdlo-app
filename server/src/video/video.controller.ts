@@ -7,7 +7,7 @@ import {
     Body,
     Controller, Delete,
     Get,
-    HttpStatus, NotFoundException, Param, Patch,
+    HttpStatus, Param, Patch,
     Post,
     Query,
     Res, Response
