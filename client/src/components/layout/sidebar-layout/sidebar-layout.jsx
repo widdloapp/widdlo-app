@@ -10,6 +10,7 @@ export default function SidebarLayout(props) {
         <Layout>
             <Sider className={style["slider"]}>Sider</Sider>
             {props.content}
+            <h1>a</h1>
         </Layout>
     );
 }

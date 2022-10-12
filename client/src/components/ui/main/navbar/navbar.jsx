@@ -1,10 +1,14 @@
-import {Input} from "@douyinfe/semi-ui";
+import SearchBar from "../../input/search-bar";
+import {Button} from "@douyinfe/semi-ui";
+
+import style from "./navbar.module.css";
 
 export default function Navbar() {
 
     return (
-        <div>
-            <Input prefix={<i className="fa-light fa-magnifying-glass" />} showClear></Input>
+        <div className={style["navbar"]}>
+            <SearchBar />
+            <Button>Iniciar sesión</Button>
         </div>
     );
 }

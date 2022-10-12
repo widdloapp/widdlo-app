@@ -1,0 +1,10 @@
+.video-card {
+    background: var(--theme-main-dark);
+    display: inline-block;
+    margin: 5px;
+    border-radius: 3px;
+}
+
+.box > p {
+    color: white;
+}

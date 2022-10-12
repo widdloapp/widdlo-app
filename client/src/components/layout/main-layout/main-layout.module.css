@@ -4,10 +4,11 @@
 
 .header {
     min-height: 40px;
-    background: purple;
+    background: var(--theme-main-light);
+    border: solid 1px black;
 }
 
 .slider {
-    background: blue;
+    background: var(--theme-main-dark);
     min-width: 70px;
 }

@@ -14,8 +14,21 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --theme-main-dark: #141414;
+  --theme-main-medium: #1f1f1f;
+  --theme-main-light: #252525;
+  --theme-main: #212121;
+}
+
+html {
+  background: var(--theme-main);
 }
 
 * {
   margin: 0;
+}
+
+.semi-input-prefix > i {
+  margin-right: 10px;
 }
