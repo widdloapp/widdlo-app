@@ -10,13 +10,9 @@ const defaults = {
 }
 
 export const api = async (method, url) => {
-    console.log(await fetch(defaults.base + url, {
+    const request = await fetch(defaults.base + url, {
         method: method,
         headers: {'Content-Type': 'application/json'},
-    }))
-    return await fetch(defaults.base + url, {
-        method: method,
-        headers: {'Content-Type': 'application/json'},
-        //body: 'Bearer' + getStoredToken(),
     })
+    return request.json();
 }

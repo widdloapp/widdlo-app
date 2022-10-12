@@ -6,19 +6,17 @@ export default function Home() {
     const [loaded, setLoaded] = useState(false);
     const [videos, setVideos] = useState([]);
 
-    useEffect(async () => {
-        setVideos(await api('GET', 'video'));
-        setLoaded(true)
+    useEffect(() => {
+        setVideos(api('GET', 'video').then(res => {
+            setVideos(res);
+            setLoaded(true);
+        }))
     }, []);
 
     if (loaded) {
         return (
             <div>
-                {
-                    videos.videos.map((video, key) =>
-                        <h1>{JSON.stringify(video)}</h1>
-                    )
-                }
+                <p>{JSON.stringify(videos)}</p>
             </div>
         );
     }
