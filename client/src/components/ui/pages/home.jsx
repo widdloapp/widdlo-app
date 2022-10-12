@@ -16,7 +16,15 @@ export default function Home() {
     if (loaded) {
         return (
             <div>
-                <p>{JSON.stringify(videos)}</p>
+                {
+                    videos.videos.map((video, key) =>
+                        <div key={key}>
+                            <p>{video.title}</p>
+                            <p>{video.description}</p>
+                            <p>{video.views}</p>
+                        </div>
+                    )
+                }
             </div>
         );
     }
