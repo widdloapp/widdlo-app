@@ -1,19 +1,21 @@
 import style from "./sidebar-layout.module.css";
+import ChannelList from "../../ui/main/channel-list/channel-list.jsx";
+import Navbar from "../../ui/main/navbar/navbar.jsx";
 
 export default function SidebarLayout(props) {
 
     return (
         <div className={style["grid"]}>
             <header className={style["header"]}>
-                {props.navbar}
+                <Navbar />
             </header>
 
             <aside className="sidebar-left">
-                1
+                <ChannelList />
             </aside>
 
             <aside className="sidebar">
-                p
+                {props.sidebar}
             </aside>
 
             <div className={style["content"]}>

@@ -1,15 +1,17 @@
 import style from "./main-layout.module.css";
+import Navbar from "../../ui/main/navbar/navbar.jsx";
+import ChannelList from "../../ui/main/channel-list/channel-list";
 
 export default function MainLayout(props) {
 
     return (
         <div className={style["grid"]}>
             <header className={style["header"]}>
-                {props.navbar}
+                <Navbar />
             </header>
 
             <aside className="sidebar-left">
-                1
+                <ChannelList />
             </aside>
 
             <div className={style["content"]}>

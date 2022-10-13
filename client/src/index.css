@@ -17,8 +17,10 @@
 
 * {
   font-family: 'Rubik', sans-serif;
-  
+
   margin: 0;
+  box-sizing: border-box;
+  text-align: left;
 }
 
 header {
@@ -34,6 +36,7 @@ header {
 }
 
 .sidebar {
+  padding: 5px;
   background: var(--theme-main-medium);
 }
 
@@ -43,7 +46,7 @@ button {
 
 button.main {
   background: #3a3a3a;
-  border-radius: 3px;
+  border-radius: 2px;
   margin: 2px;
   padding: 10px;
   border: none;
@@ -54,7 +57,12 @@ button.main:hover {
 }
 
 button.section {
-  background: var(--theme-main-dark);
+  background: var(--theme-main-light);
   width: 100%;
   box-sizing: border-box;
+  border: none;
+  padding: 8px;
+  color: white;
+  border-radius: 2px;
+  font-size: 14px;
 }
