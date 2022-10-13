@@ -16,3 +16,20 @@
 .search-bar:has(input:focus) {
     width: 700px;
 }
+
+.search-bar > input {
+    color: white;
+    position: absolute;
+    top: 0;
+    width: 90%;
+    height: 100%;
+    background: none;
+    border: none;
+    margin-left: 10px;
+    outline: none;
+}
+
+.search-bar > i {
+    color: white;
+    vertical-align: center;
+}

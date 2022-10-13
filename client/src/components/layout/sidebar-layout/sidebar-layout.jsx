@@ -5,7 +5,7 @@ export default function SidebarLayout(props) {
     return (
         <div className={style["grid"]}>
             <header className={style["header"]}>
-                header
+                {props.navbar}
             </header>
 
             <aside>
@@ -13,7 +13,7 @@ export default function SidebarLayout(props) {
             </aside>
 
             <aside className="sidebar">
-                1
+
             </aside>
 
             <div className="container">

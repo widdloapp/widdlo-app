@@ -3,8 +3,9 @@ import style from "./search-bar.module.css";
 export default function SearchBar() {
 
     return (
-        <div>
-            <input className={style["search-bar"]} placeholder="Búsqueda..." prefix={<i className="fa-light fa-magnifying-glass" />} showClear></input>
+        <div className={style["search-bar"]}>
+            <i className="fa-light fa-magnifying-glass"></i>
+            <input placeholder="Búsqueda..."/>
         </div>
     );
 }
