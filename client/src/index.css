@@ -21,41 +21,8 @@
   margin: 0;
 }
 
-.App, #root, .grid {
+.App, #root, html {
   height: 100vh;
-}
-
-html {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 70px 250px auto;
-  grid-template-rows: 100px auto;
-}
-
-body {
-  width: 100%;
-}
-
-header {
-  background: red;
-  grid-row: 1;
-  grid-column: 1 / 4;
-}
-
-.sidebar-left {
-  background: purple;
-  grid-row: 2;
-  grid-column: 1 / 2;
-}
-
-.container {
-  grid-row: 2;
-  grid-column: 2 / 3;
 }
 
 * {
@@ -78,4 +45,30 @@ button.section {
   background: var(--theme-main-dark);
   width: 100%;
   box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 70px auto;
+  grid-template-rows: 100px auto;
+
+  height: 100%;
+}
+
+header {
+  background: green;
+  grid-row: 1;
+  grid-column: 1 / 3;
+
+  border: solid 1px black;
+}
+
+.sidebar-left {
+  background: blue;
+}
+
+.container {
+  background: purple;
+  grid-row: 2;
+  grid-column: 2;
 }

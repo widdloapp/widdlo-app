@@ -3,12 +3,16 @@ import style from "./main-layout.module.css";
 export default function MainLayout(props) {
 
     return (
-        <div className={style["full-layout"]}>
-            <aside className={style["sidebar-left"]}>
-                ae
+        <div className="grid">
+            <header>
+                header
+            </header>
+
+            <aside>
+                1
             </aside>
-            <div className={style["container"]}>
-                {props.content}
+
+            <div className="container">
             </div>
         </div>
     );
