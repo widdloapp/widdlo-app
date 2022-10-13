@@ -8,7 +8,7 @@ function App() {
                     header
                 </header>
 
-                <aside>
+                <aside className="sidebar-left">
                     left sidebar
                 </aside>
 

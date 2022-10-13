@@ -1,6 +1,10 @@
 .full-layout {
     background: pink;
     height: 100vh;
+
+    display: flex;
+    flex-flow: column;
+    height: 100%;
 }
 
 .header {

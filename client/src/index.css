@@ -42,6 +42,10 @@
   margin: 0;
 }
 
+.App, #root, .grid {
+  height: 100vh;
+}
+
 html {
   display: flex;
   flex-direction: row;
@@ -51,7 +55,7 @@ html {
 .grid {
   display: grid;
   grid-template-columns: 70px 250px auto;
-  grid-template-rows: repeat(3, 100px);
+  grid-template-rows: 100px auto;
 }
 
 body {
