@@ -21,7 +21,7 @@ export default function VideoGrid() {
                 {
                     videos.videos.map((video, key) =>
                         <div key={key} className={style["video-card"]}>
-                            <img width={250} height={150} preview={false}
+                            <img width={250} height={150}
                                 src={`https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/abstract-big.png`} />
                             <div className={style["box"]}>
                                 <p>{video.title}</p>

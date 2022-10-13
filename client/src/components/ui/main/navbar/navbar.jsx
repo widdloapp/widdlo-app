@@ -6,7 +6,7 @@ export default function Navbar() {
 
     return (
         <div className={style["navbar"]}>
-            <h1>Widdlo</h1>
+            <a href="/">Widdlo</a>
             <SearchBar />
             <div>
                 <button className="main">Ayuda</button>

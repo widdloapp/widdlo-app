@@ -1,5 +1,5 @@
 .slider {
     max-width: 250px;
-    background: hotpink;
+    background: var(--theme-main-medium);
     height: 100vh;
 }
