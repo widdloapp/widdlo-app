@@ -29,30 +29,20 @@ html {
   margin: 0;
 }
 
-.semi-input-prefix > i {
-  margin-right: 10px;
-}
-
-Button.main {
+button.main {
   background: #3a3a3a;
   border-radius: 3px;
   margin: 5px;
+  padding: 10px;
+  border: none;
 }
 
-Button.main:hover {
+button.main:hover {
   background: #474747;
 }
 
-Button.section {
+button.section {
   background: var(--theme-main-dark);
   width: 100%;
   box-sizing: border-box;
-}
-
-.semi-card-body {
-  padding: 10px;
-}
-
-.semi-image-img {
-  border-radius: 3px;
 }

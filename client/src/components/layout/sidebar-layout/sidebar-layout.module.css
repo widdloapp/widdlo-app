@@ -1,4 +1,5 @@
 .slider {
-    min-width: 250px;
+    max-width: 250px;
     background: hotpink;
+    height: 100vh;
 }
