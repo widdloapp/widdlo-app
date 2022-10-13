@@ -1,0 +1,6 @@
+.channel-header {
+    background: var(--theme-main-dark);
+    position: flex;
+    right: 0;
+    left: 0;
+}

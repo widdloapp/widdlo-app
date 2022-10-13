@@ -1,0 +1,21 @@
+.wrapper {
+    text-align: center;
+}
+
+.video-card {
+    display: inline-block;
+    margin: 5px;
+    border-radius: 3px;
+    background: none;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+}
+
+.video-card:hover {
+    background: var(--theme-main-dark);
+}
+
+.box > p {
+    color: white;
+}

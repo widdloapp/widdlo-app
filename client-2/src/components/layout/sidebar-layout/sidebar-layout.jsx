@@ -1,14 +1,26 @@
-import {Layout} from "@douyinfe/semi-ui";
-
 import style from "./sidebar-layout.module.css";
+import ChannelList from "../../ui/main/channel-list/channel-list.jsx";
+import Navbar from "../../ui/main/navbar/navbar.jsx";
 
 export default function SidebarLayout(props) {
 
-    const { Sider } = Layout;
-
     return (
-        <Layout>
-            <Sider className={style["slider"]}>{props.sidebar}</Sider>
-        </Layout>
+        <div className={style["grid"]}>
+            <header className={style["header"]}>
+                <Navbar />
+            </header>
+
+            <aside className="sidebar-left">
+                <ChannelList />
+            </aside>
+
+            <aside className="sidebar">
+                {props.sidebar}
+            </aside>
+
+            <div className={style["content"]}>
+                {props.content}
+            </div>
+        </div>
     );
 }

@@ -15,6 +15,10 @@
   --theme-schema-main: #4298f5;
 }
 
+html, body, .App, #root {
+  height: 100vh;
+}
+
 * {
   font-family: 'Rubik', sans-serif;
 

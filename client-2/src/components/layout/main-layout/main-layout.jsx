@@ -1,19 +1,22 @@
-import {Layout} from "@douyinfe/semi-ui";
-
 import style from "./main-layout.module.css";
-import Navbar from "../../ui/main/navbar/navbar";
+import Navbar from "../../ui/main/navbar/navbar.jsx";
+import ChannelList from "../../ui/main/channel-list/channel-list";
 
 export default function MainLayout(props) {
 
-    const { Header, Sider } = Layout;
-
     return (
-        <Layout className={style["full-layout"]}>
-            <Header className={style["header"]}><Navbar /></Header>
-            <Layout>
-                <Sider className={style["slider"]} />
+        <div className={style["grid"]}>
+            <header className={style["header"]}>
+                <Navbar />
+            </header>
+
+            <aside className="sidebar-left">
+                <ChannelList />
+            </aside>
+
+            <div className={style["content"]}>
                 {props.content}
-            </Layout>
-        </Layout>
+            </div>
+        </div>
     );
 }

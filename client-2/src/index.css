@@ -1,19 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-@font-face {
-  font-family: "Rubik";
-  src: url("https://sf6-cdn-tos.douyinstatic.com/obj/eden-cn/slepweh7nupqpognuhbo/Inter-Bold.ttf") format("ttf");
-}
-
 :root {
-  font-family: 'Rubik', sans-serif !important;
-
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color-scheme: dark;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,40 +11,58 @@
   --theme-main-medium: #1f1f1f;
   --theme-main-light: #252525;
   --theme-main: #212121;
-}
 
-html {
-  background: var(--theme-main);
+  --theme-schema-main: #4298f5;
 }
 
 * {
+  font-family: 'Rubik', sans-serif;
+
   margin: 0;
+  box-sizing: border-box;
+  text-align: left;
 }
 
-.semi-input-prefix > i {
-  margin-right: 10px;
+header {
+  background: var(--theme-main-medium);
+  grid-row: 1;
+  grid-column: 1 / 3;
+
+  border-bottom: solid 1px black;
 }
 
-Button.main {
+.sidebar-left {
+  background: var(--theme-main-dark);
+}
+
+.sidebar {
+  padding: 5px;
+  background: var(--theme-main-medium);
+}
+
+button {
+  cursor: pointer;
+}
+
+button.main {
   background: #3a3a3a;
-  border-radius: 3px;
-  margin: 5px;
+  border-radius: 2px;
+  margin: 2px;
+  padding: 10px;
+  border: none;
 }
 
-Button.main:hover {
+button.main:hover {
   background: #474747;
 }
 
-Button.section {
-  background: var(--theme-main-dark);
+button.section {
+  background: var(--theme-main-light);
   width: 100%;
   box-sizing: border-box;
-}
-
-.semi-card-body {
-  padding: 10px;
-}
-
-.semi-image-img {
-  border-radius: 3px;
+  border: none;
+  padding: 8px;
+  color: white;
+  border-radius: 2px;
+  font-size: 14px;
 }
