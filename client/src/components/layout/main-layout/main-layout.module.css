@@ -11,7 +11,7 @@ header.header {
 }
 
 .content {
-    background: var(--theme-main-medium);
+    background: var(--theme-main-light);
     grid-row: 2;
     grid-column: 2;
 }

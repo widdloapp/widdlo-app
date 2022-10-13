@@ -4,8 +4,10 @@
 
 .video-card {
     display: inline-block;
-    margin: 5px;
+
+    padding: 8px;
     border-radius: 3px;
+
     background: none;
     text-align: left;
     border: none;
@@ -18,4 +20,8 @@
 
 .box > p {
     color: white;
+}
+
+.video-card > img {
+    border-radius: 3px;
 }
