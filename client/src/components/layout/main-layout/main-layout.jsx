@@ -13,6 +13,7 @@ export default function MainLayout(props) {
             </aside>
 
             <div className="container">
+                1
             </div>
         </div>
     );
