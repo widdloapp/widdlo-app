@@ -3,6 +3,7 @@
     grid-template-columns: auto 1fr auto;
     place-items: center;
     white-space: nowrap;
+    margin: 0px 10px 0px 10px;
 }
 
 .navbar > a {
@@ -14,8 +15,4 @@
 
 .navbar > * {
     display: inline-block;
-}
-
-.search-bar-wrapper {
-
 }

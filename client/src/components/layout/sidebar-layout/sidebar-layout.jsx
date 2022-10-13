@@ -8,16 +8,16 @@ export default function SidebarLayout(props) {
                 {props.navbar}
             </header>
 
-            <aside>
+            <aside className="sidebar-left">
                 1
             </aside>
 
             <aside className="sidebar">
-
+                p
             </aside>
 
-            <div className="container">
-                1
+            <div className={style["content"]}>
+                {props.content}
             </div>
         </div>
     );

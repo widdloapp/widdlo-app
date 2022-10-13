@@ -1,7 +1,17 @@
 .grid {
     display: grid;
-    grid-template-columns: 70px auto;
-    grid-template-rows: 100px auto;
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: 50px auto;
 
     height: 100%;
+}
+
+header.header {
+    grid-column: 1 / 4;
+}
+
+.content {
+    background: var(--theme-main-medium);
+    grid-row: 2;
+    grid-column: 2;
 }

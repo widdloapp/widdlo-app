@@ -9,3 +9,9 @@
 header.header {
     grid-column: 1 / 4;
 }
+
+.content {
+    background: var(--theme-main-medium);
+    grid-row: 2;
+    grid-column: 3;
+}
