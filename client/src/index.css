@@ -1,13 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-  font-family: 'Rubik', sans-serif !important;
-
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color-scheme: dark;
+  font-family: 'Rubik', sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,21 +15,6 @@
   --theme-main: #212121;
 
   --theme-schema-main: #4298f5;
-}
-
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color-scheme: dark;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
 * {
@@ -74,18 +53,9 @@ header {
   grid-column: 1 / 2;
 }
 
-article {
-  /* Start on Row 2 */
+.container {
   grid-row: 2;
-  /* Start on the second column line and stop at the third column line */
   grid-column: 2 / 3;
-}
-
-.sidebar-right {
-  /* Start on Row 2 */
-  grid-row: 2;
-  /* Start on the third column line and stop at the last column line */
-  grid-column: 3 / 4;
 }
 
 * {

@@ -12,9 +12,9 @@ function App() {
                     left sidebar
                 </aside>
 
-                <body>
-                <MainLayout />
-                </body>
+                <div className="container">
+                    <MainLayout content={<h1>a</h1>} />
+                </div>
             </div>
         </div>
     )

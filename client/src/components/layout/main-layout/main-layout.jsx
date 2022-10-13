@@ -7,7 +7,9 @@ export default function MainLayout(props) {
             <aside className={style["sidebar-left"]}>
                 ae
             </aside>
-            {props.content}
+            <div className={style["container"]}>
+                {props.content}
+            </div>
         </div>
     );
 }
