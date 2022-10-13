@@ -1,5 +1,11 @@
-.slider {
-    max-width: 250px;
-    background: var(--theme-main-medium);
-    height: 100vh;
+.grid {
+    display: grid;
+    grid-template-columns: 70px 200px auto;
+    grid-template-rows: 100px auto;
+
+    height: 100%;
+}
+
+header.header {
+    grid-column: 1 / 4;
 }

@@ -3,7 +3,7 @@ import style from "./main-layout.module.css";
 export default function MainLayout(props) {
 
     return (
-        <div className="grid">
+        <div className={style["grid"]}>
             <header>
                 header
             </header>

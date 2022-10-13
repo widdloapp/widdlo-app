@@ -47,14 +47,6 @@ button.section {
   box-sizing: border-box;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 70px auto;
-  grid-template-rows: 100px auto;
-
-  height: 100%;
-}
-
 header {
   background: green;
   grid-row: 1;
@@ -64,6 +56,10 @@ header {
 }
 
 .sidebar-left {
+  background: blue;
+}
+
+.sidebar {
   background: blue;
 }
 
