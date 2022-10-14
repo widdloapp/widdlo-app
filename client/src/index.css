@@ -38,6 +38,10 @@ h1, h2, h3, p, a {
   color: white;
 }
 
+a {
+  color: white !important;
+}
+
 header {
   background: var(--theme-main-medium);
   grid-row: 1;

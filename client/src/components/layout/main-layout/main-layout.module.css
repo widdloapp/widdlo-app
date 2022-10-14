@@ -1,7 +1,7 @@
 .grid {
     display: grid;
     grid-template-columns: 70px 1fr;
-    grid-template-rows: 50px auto;
+    grid-template-rows: min-content;
 
     height: 100%;
 }

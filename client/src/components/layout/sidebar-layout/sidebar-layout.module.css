@@ -1,8 +1,9 @@
 .grid {
     display: grid;
     grid-template-columns: 70px 240px 1fr;
-    grid-template-rows: 50px 1fr;
-    height: 100vh;
+    grid-template-rows: min-content;
+
+    height: 100%;
 }
 
 .grid > * {
@@ -11,12 +12,10 @@
 
 header.header {
     grid-column: 1 / 4;
-    grid-row: 1;
 }
 
 .content {
     background: var(--theme-main-light);
     grid-row: 2;
     grid-column: 3;
-    overflow-y: scroll;
 }

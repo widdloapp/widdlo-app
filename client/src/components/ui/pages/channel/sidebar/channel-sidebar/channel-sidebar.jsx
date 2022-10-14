@@ -12,10 +12,10 @@ export default function ChannelSidebar() {
                     </AccordionButton>
                     <AccordionPanel>
                         <button className="section">Destacado</button>
+                        <button className="section">Reciente</button>
                     </AccordionPanel>
                 </AccordionItem>
             </Accordion>
-            <button className="section">Reciente</button>
         </div>
     );
 }

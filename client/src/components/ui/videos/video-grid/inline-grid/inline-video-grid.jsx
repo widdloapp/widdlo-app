@@ -24,14 +24,12 @@ export default function InlineVideoGrid() {
                     videos.videos.map((video, key) =>
                         <Link to={"/watch/" + video.id}>
                             <div key={key} className={style["video-card"]}>
-                                <img width={150} height={100}
-                                     src={`https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/abstract-big.png`} />
+                                <img className="undraggable" width={150} height={100} src={`https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/abstract-big.png`} />
                                 <div className={style["container"]}>
                                     <div className={style["wrapper"]}>
                                         <p>{video.title}</p>
                                         <p>{video.views} views</p>
                                         <p>{video.channel.name}</p>
-                                        <p>{video.channel.followers} followers</p>
                                     </div>
                                 </div>
                             </div>
