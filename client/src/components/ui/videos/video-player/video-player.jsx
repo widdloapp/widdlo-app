@@ -3,12 +3,9 @@ import {useState, useEffect} from "react";
 import Plyr from 'plyr';
 import style from "./video-player.module.css";
 import {api} from "../../../../shared/utils/token/api.js";
-import {Link, useParams} from "react-router-dom";
 import ChannelCard from "../../pages/channel/channel-card/channel-card";
 
-export default function VideoPlayer() {
-
-    const { id } = useParams();
+export default function VideoPlayer(props) {
 
     const [loaded, setLoaded] = useState(false);
     const [video, setVideo] = useState([]);
@@ -17,7 +14,7 @@ export default function VideoPlayer() {
 
     useEffect(() => {
 
-        api('GET', 'video/' + id).then(res => {
+        api('GET', 'video/' + props.id).then(res => {
             setVideo(res.video);
             setLoaded(true);
         })
