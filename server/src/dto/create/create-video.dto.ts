@@ -16,5 +16,5 @@ export class CreateVideoDto {
     readonly hidden: boolean;
 
     @IsNotEmpty()
-    readonly author: string;
+    readonly channel: string;
 }

@@ -16,7 +16,7 @@ export class Video {
     views: number;
 
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Channel' })
-    author: Channel;
+    channel: Channel;
 
     @Prop({ default: false })
     hidden: boolean;
