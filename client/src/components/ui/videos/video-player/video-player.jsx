@@ -10,15 +10,14 @@ export default function VideoPlayer(props) {
     const [loaded, setLoaded] = useState(false);
     const [video, setVideo] = useState([]);
 
-    new Plyr('.video-player');
-
     useEffect(() => {
-
         api('GET', 'video/' + props.id).then(res => {
             setVideo(res.video);
             setLoaded(true);
         })
     }, []);
+
+    new Plyr('.video-player');
 
     if (loaded) {
         return (
@@ -34,7 +33,9 @@ export default function VideoPlayer(props) {
                             <p>{video.description}</p>
                         </div>
                         <div className={style["right"]}>
-                            <button className="main">Like</button>
+                            <button className="icon">
+                                <i className="fa-duotone fa-thumbs-up"></i>
+                            </button>
                         </div>
                     </div>
                     <ChannelCard name={video.channel.name} followers={video.channel.followers} />

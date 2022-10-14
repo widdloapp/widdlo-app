@@ -18,10 +18,6 @@
     background: var(--theme-main-dark);
 }
 
-.box > p {
-    color: white;
-}
-
 .video-card > img {
     border-radius: 3px;
 }
