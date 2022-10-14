@@ -15,5 +15,6 @@ export class CreateVideoDto {
     @IsBooleanString()
     readonly hidden: boolean;
 
-    author: string;
+    @IsNotEmpty()
+    readonly author: string;
 }

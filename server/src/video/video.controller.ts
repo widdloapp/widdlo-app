@@ -21,7 +21,6 @@ export class VideoController {
 
     @Post()
     async createVideo(@Res() response, @Body() createVideoDto: CreateVideoDto) {
-        createVideoDto.author = response.locals.user;
 
         try {
             const video = await this.videoService.createVideo(createVideoDto);
