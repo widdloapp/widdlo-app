@@ -17,7 +17,6 @@
 
 html, body, .App, #root {
   height: 100vh;
-  overflow-y: hidden;
 }
 
 * {
@@ -26,6 +25,8 @@ html, body, .App, #root {
   margin: 0;
   box-sizing: border-box;
   text-align: left;
+
+  overflow-x: hidden;
 }
 
 header {
@@ -70,4 +71,23 @@ button.section {
   color: white;
   border-radius: 2px;
   font-size: 14px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  margin: 20px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #636363;
+  border-radius: 10px;
+}
+
+::selection {
+  background-color: var(--theme-schema-main);
+  -webkit-text-fill-color: white;
 }

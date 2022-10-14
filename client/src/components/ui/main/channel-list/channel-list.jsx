@@ -20,7 +20,7 @@ export default function ChannelList() {
             <div className={style["wrapper"]}>
                 {
                     videos.videos.map((video, key) =>
-                        <div key={key} className={style["video-card"]}>
+                        <div key={key} className={style["channel-wrap"]}>
                             <img width={50} height={50}
                                  src={`https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/abstract-big.png`} />
                         </div>

@@ -1,6 +1,12 @@
 .wrapper {
+    margin-top: 10px;
 }
 
-.video-card > img {
+.channel-wrap {
+    margin: 6px;
+    text-align: center;
+}
+
+.channel-wrap > img {
     border-radius: 50px;
 }
