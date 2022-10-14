@@ -4,6 +4,7 @@ import Plyr from 'plyr';
 import style from "./video-player.module.css";
 import {api} from "../../../../shared/utils/token/api.js";
 import ChannelCard from "../../pages/channel/channel-card/channel-card";
+import CommentBox from "../comments/comment-box/comment-box";
 
 export default function VideoPlayer(props) {
 
@@ -40,6 +41,7 @@ export default function VideoPlayer(props) {
                     </div>
                     <ChannelCard name={video.channel.name} followers={video.channel.followers} />
                 </div>
+                <CommentBox id={props.id} logged={false} />
             </div>
         );
     }

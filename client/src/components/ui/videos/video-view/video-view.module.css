@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .container {
+    .wrapper {
         grid-template-columns: 1fr;
     }
 }

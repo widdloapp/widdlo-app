@@ -1,10 +1,9 @@
-import {Body, Controller, Get, HttpStatus, NotFoundException, Param, Patch, Post, Query, Res} from '@nestjs/common';
+import {Body, Controller, Get, HttpStatus, Param, Patch, Post, Query, Res} from '@nestjs/common';
 import {HttpException} from "@nestjs/common/exceptions/http.exception";
 import {CreateCommentDto} from "../dto/create/create-comment.dto";
 import {CommentService} from "./comment.service";
 import {GetCommentsDto} from "../dto/get/get-comments.dto";
 import {QueryDto} from "../dto/create/query.dto";
-import {UpdateChannelDto} from "../dto/update/update-channel.dto";
 import {UpdateCommentDto} from "../dto/update/update-comment.dto";
 
 @Controller('comment')

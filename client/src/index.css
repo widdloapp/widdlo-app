@@ -15,6 +15,11 @@
   --theme-schema-main: #4298f5;
 }
 
+.App {
+  min-width: 500px;
+  overflow-x: hidden;
+}
+
 html, body, .App, #root {
   height: 100vh;
 }
