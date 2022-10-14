@@ -123,3 +123,16 @@ button.icon > i {
 :-webkit-any-link {
   text-decoration: none;
 }
+
+hr.spaced {
+  margin: 20px 0px 20px 0px;
+  color: rgba(255, 255, 255, 0.20);
+}
+
+.undraggable {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}

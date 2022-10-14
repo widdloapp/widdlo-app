@@ -6,6 +6,7 @@ import VideoGrid from "./components/ui/videos/video-grid/grid/video-grid.jsx";
 import HomeSidebar from "./components/ui/pages/home/sidebar/home-sidebar.jsx";
 import VideoView from "./components/ui/videos/video-view/video-view";
 import NotFound from "./components/ui/general/error/not-found/not-found";
+import MainChannel from "./components/ui/pages/channel/main/main-channel.jsx";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                 <Route path="/" element={<SidebarLayout navbar={<Navbar />} sidebar={<HomeSidebar />} content={<VideoGrid />} />} />
                 <Route path="/channel" element={<SidebarLayout />} />
                 <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
+                <Route path="/channel/:id" element={<MainLayout content={<MainChannel />} />} />
                 <Route path="*" element={<MainLayout content={<NotFound />} />} />
             </Routes>
         </div>

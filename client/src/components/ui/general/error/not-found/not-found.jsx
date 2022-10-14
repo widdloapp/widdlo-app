@@ -6,6 +6,7 @@ export default function NotFound() {
         <div className={style["container"]}>
             <div className={style["box"]}>
                 <h1>¡Nada por aquí!</h1>
+                <hr className="spaced" />
                 <p>Hemos buscado por todas partes, de esquina a esquina, incluso por debajo de los sofás, pero no hemos encontrado nada.</p>
             </div>
         </div>

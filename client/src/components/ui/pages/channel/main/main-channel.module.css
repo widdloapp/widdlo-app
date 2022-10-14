@@ -1,6 +1,19 @@
-.channel-header {
+.header > .container {
     background: var(--theme-main-dark);
-    position: flex;
     right: 0;
     left: 0;
+    padding: 60px;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.header > img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.buttons-wrapper > * {
+    display: inline-block;
 }
