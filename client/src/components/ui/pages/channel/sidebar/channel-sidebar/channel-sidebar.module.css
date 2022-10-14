@@ -1,8 +1,4 @@
-.container {
+.wrapper {
     display: grid;
-    margin: 5px;
-}
-
-.container > * {
-    margin-bottom: 5px;
+    grid-gap: 5px;
 }
