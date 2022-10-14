@@ -8,8 +8,7 @@
 }
 
 .grid > * {
-    height: calc(100vh - 50px);
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 header.header {
