@@ -15,7 +15,7 @@ function App() {
                 <Route path="/" element={<SidebarLayout navbar={<Navbar />} sidebar={<HomeSidebar />} content={<VideoGrid />} />} />
                 <Route path="/channel" element={<SidebarLayout />} />
                 <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
-                <Route path="/channel/:id" element={<MainLayout content={<MainChannel />} />} />
+                <Route path="/channel/:id" element={<SidebarLayout content={<MainChannel />} />} />
                 <Route path="*" element={<MainLayout content={<NotFound />} />} />
             </Routes>
         </div>
