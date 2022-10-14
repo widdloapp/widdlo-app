@@ -1,4 +1,5 @@
 import style from "./main-channel.module.css";
+import VideoGrid from "../../../videos/video-grid/grid/video-grid.jsx";
 
 export default function MainChannel() {
 
@@ -16,6 +17,7 @@ export default function MainChannel() {
                     <button className="main">Reportar</button>
                 </div>
             </div>
+            <VideoGrid />
         </div>
     );
 }
