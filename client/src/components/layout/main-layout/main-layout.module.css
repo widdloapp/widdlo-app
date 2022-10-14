@@ -6,6 +6,10 @@
     height: 100%;
 }
 
+.grid > * {
+    overflow-y: auto;
+}
+
 header.header {
     grid-column: 1 / 4;
 }

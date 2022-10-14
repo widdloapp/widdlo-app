@@ -3,8 +3,6 @@
     grid-template-columns: 70px 200px 1fr;
     grid-template-rows: 50px 1fr;
     height: 100vh;
-
-    overflow-y: hidden;
 }
 
 .grid > * {
