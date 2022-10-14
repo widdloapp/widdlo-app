@@ -10,8 +10,10 @@ export default function VideoView() {
     return (
         <div>
             <div className={style["container"]}>
-                <VideoPlayer id={id} />
-                <VideoGrid />
+                <div className={style["wrapper"]}>
+                    <VideoPlayer id={id} />
+                    <VideoGrid />
+                </div>
             </div>
         </div>
     );
