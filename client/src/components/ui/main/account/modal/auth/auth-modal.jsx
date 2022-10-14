@@ -7,16 +7,17 @@ import {
     ModalOverlay,
     useDisclosure
 } from "@chakra-ui/react";
+import {Fragment} from "react";
 
-export default function Auth() {
+export default function AuthModal() {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
-        <>
+        <Fragment>
             <button className="main" onClick={onOpen}>Inicia sesión o regístrate</button>
 
-            <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
+            <Modal bg={"gray"} closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
                     <h1>Comienza tu aventura.</h1>
@@ -30,6 +31,6 @@ export default function Auth() {
                     </ModalFooter>
                 </ModalContent>
             </Modal>
-        </>
+        </Fragment>
     )
 }
