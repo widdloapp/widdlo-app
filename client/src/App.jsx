@@ -10,6 +10,7 @@ import MainChannel from "./components/ui/pages/channel/main/main-channel.jsx";
 import ChannelSidebar from "./components/ui/pages/channel/sidebar/channel-sidebar/channel-sidebar.jsx";
 import StreamLayout from "./components/layout/stream-layout/stream-layout";
 import LiveChat from "./components/ui/pages/channel/stream/live-chat/live.chat";
+import StreamView from "./components/ui/pages/channel/stream/stream-view/stream-view";
 
 function App() {
     return (
@@ -19,7 +20,7 @@ function App() {
                 <Route path="/channel" element={<SidebarLayout />} />
                 <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
                 <Route path="/channel/:id" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChannel />} />} />
-                <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<h1>a</h1>} />} />
+                <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<StreamView />} />} />
                 <Route path="*" element={<MainLayout content={<NotFound />} />} />
             </Routes>
         </div>

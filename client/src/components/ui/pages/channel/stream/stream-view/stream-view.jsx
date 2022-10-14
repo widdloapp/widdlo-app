@@ -1,21 +1,17 @@
 import style from "./stream-view.module.css";
-import {Accordion, AccordionButton, AccordionItem, AccordionPanel} from "@chakra-ui/react";
+import Plyr from "plyr";
 
 export default function StreamView() {
 
+    new Plyr('.video-player');
+
     return (
         <div className={style["wrapper"]}>
-            <Accordion defaultIndex={[0]} allowMultiple>
-                <AccordionItem>
-                    <AccordionButton>
-                        <h1>Inicio</h1>
-                    </AccordionButton>
-                    <AccordionPanel>
-                        <button className="section">Destacado</button>
-                        <button className="section">Reciente</button>
-                    </AccordionPanel>
-                </AccordionItem>
-            </Accordion>
+            <div className={style["video-wrapper"]}>
+                <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css"/>
+                <video className="video-player" autoPlay playsInline controls src=""/>
+            </div>
+            <h1>aaaa</h1>
         </div>
     );
 }
