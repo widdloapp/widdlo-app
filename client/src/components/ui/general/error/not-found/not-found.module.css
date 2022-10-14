@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+}
+
+.box {
+    border-radius: 3px;
+    background: var(--theme-main-dark);
+    max-width: 550px;
+    padding: 20px;
+    margin: 60px;
+}
+
+.box > * {
+    text-align: center;
+}
