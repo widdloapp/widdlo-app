@@ -1,13 +1,20 @@
 .grid {
     display: grid;
-    grid-template-columns: 70px 200px auto;
-
+    grid-template-columns: 70px 200px 1fr;
+    grid-template-rows: 50px 1fr;
     height: 100vh;
+
+    overflow-y: hidden;
+}
+
+.grid > * {
+    height: calc(100vh - 50px);
     overflow-y: scroll;
 }
 
 header.header {
     grid-column: 1 / 4;
+    grid-row: 1;
 }
 
 .content {
@@ -15,5 +22,4 @@ header.header {
     grid-row: 2;
     grid-column: 3;
     overflow-y: scroll;
-    height: 100vh;
 }

@@ -1,6 +1,4 @@
 .wrapper {
-    overflow-y: scroll;
-    height: 100vh;
 }
 
 .video-card > img {

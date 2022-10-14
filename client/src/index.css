@@ -17,6 +17,7 @@
 
 html, body, .App, #root {
   height: 100vh;
+  overflow-y: hidden;
 }
 
 * {
