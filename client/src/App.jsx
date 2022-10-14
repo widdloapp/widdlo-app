@@ -8,6 +8,7 @@ import VideoView from "./components/ui/videos/video-view/video-view";
 import NotFound from "./components/ui/general/error/not-found/not-found";
 import MainChannel from "./components/ui/pages/channel/main/main-channel.jsx";
 import ChannelSidebar from "./components/ui/pages/channel/sidebar/channel-sidebar/channel-sidebar.jsx";
+import StreamLayout from "./components/layout/stream-layout/stream-layout";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/channel" element={<SidebarLayout />} />
                 <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
                 <Route path="/channel/:id" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChannel />} />} />
+                <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<h1>a</h1>} content={<h1>a</h1>} />} />
                 <Route path="*" element={<MainLayout content={<NotFound />} />} />
             </Routes>
         </div>

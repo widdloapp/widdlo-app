@@ -1,0 +1,21 @@
+.grid {
+    display: grid;
+    grid-template-columns: 70px 1fr 340px;
+    grid-template-rows: min-content;
+
+    height: 100%;
+}
+
+.grid > * {
+    overflow-y: auto;
+}
+
+header.header {
+    grid-column: 1 / 4;
+}
+
+.content {
+    background: var(--theme-main-light);
+    grid-row: 2;
+    grid-column: 3;
+}
