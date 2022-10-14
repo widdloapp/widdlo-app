@@ -5,8 +5,8 @@ export default function ChannelCard(props) {
     return (
         <div className={style["wrapper"]}>
             <div className={style["left"]}>
-                <p>{props.name}</p>
-                <p>{props.followers} seguidores</p>
+                <a href={"/channel/" + props.channel.id}>{props.channel.name}</a>
+                <p>{props.channel.followers} seguidores</p>
             </div>
             <div className={style["right"]}>
                 <button className="main">Seguir</button>

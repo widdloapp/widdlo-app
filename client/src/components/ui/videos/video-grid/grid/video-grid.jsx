@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 
 import style from "./video-grid.module.css";
-import {api} from "../../../../shared/utils/token/api.js";
+import {api} from "../../../../../shared/utils/token/api.js";
 import {Link} from "react-router-dom";
 
 export default function VideoGrid() {

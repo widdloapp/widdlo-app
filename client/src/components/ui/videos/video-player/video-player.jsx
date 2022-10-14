@@ -31,7 +31,7 @@ export default function VideoPlayer(props) {
                     <div className={style["wrapper"]}>
                         <div className={style["left"]}>
                             <h3>{video.title}</h3>
-                            <p>{video.description}</p>
+                            <p>{video.views} visualizaciones • hace 1 día</p>
                         </div>
                         <div className={style["right"]}>
                             <button className="icon">
@@ -39,7 +39,7 @@ export default function VideoPlayer(props) {
                             </button>
                         </div>
                     </div>
-                    <ChannelCard name={video.channel.name} followers={video.channel.followers} />
+                    <ChannelCard channel={video.channel} />
                 </div>
                 <CommentBox id={props.id} logged={false} />
             </div>

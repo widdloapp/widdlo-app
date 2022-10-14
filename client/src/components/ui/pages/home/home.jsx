@@ -1,4 +1,4 @@
-import VideoGrid from "../../videos/video-grid/video-grid.jsx";
+import VideoGrid from "../../videos/video-grid/grid/video-grid.jsx";
 
 import style from "./home.module.css";
 

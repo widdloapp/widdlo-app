@@ -1,0 +1,27 @@
+.video-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    width: 400px;
+}
+
+.video-card:hover {
+    background: var(--theme-main-dark);
+}
+
+.video-card > img {
+    border-radius: 3px;
+
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+
+.video-card > .container {
+    display: flex;
+    align-items: center;
+}
