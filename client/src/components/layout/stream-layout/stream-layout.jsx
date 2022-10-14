@@ -14,12 +14,12 @@ export default function StreamLayout(props) {
                 <ChannelList />
             </aside>
 
-            <div className={style["content"]}>
-                {props.content}
+            <div className={style["sidebar"]}>
+                {props.sidebar}
             </div>
 
-            <aside className="sidebar">
-                {props.sidebar}
+            <aside className={style["content"]}>
+                {props.content}
             </aside>
         </div>
     );

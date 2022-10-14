@@ -1,0 +1,6 @@
+.wrapper {
+    padding: 5px;
+
+    display: grid;
+    grid-template-rows: 1fr auto;
+}

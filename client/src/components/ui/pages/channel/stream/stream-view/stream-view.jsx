@@ -1,4 +1,5 @@
 import style from "./stream-view.module.css";
+import {Accordion, AccordionButton, AccordionItem, AccordionPanel} from "@chakra-ui/react";
 
 export default function StreamView() {
 

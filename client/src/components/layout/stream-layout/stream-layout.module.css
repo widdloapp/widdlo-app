@@ -14,8 +14,12 @@ header.header {
     grid-column: 1 / 4;
 }
 
-.content {
+.sidebar {
     background: var(--theme-main-light);
     grid-row: 2;
     grid-column: 3;
+}
+
+.content {
+    background: var(--theme-main-medium);
 }
