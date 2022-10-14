@@ -5,7 +5,7 @@ export default function MainChannel() {
 
     return (
         <div className={style["header"]}>
-            <img className="undraggable" src={`https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/abstract-big.png`} />
+            <img className={"undraggable unselectable"} src={`https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/abstract-big.png`} />
             <div className={style["container"]}>
                 <div>
                     <p>Ailakks</p>
@@ -17,7 +17,9 @@ export default function MainChannel() {
                     <button className="main">Reportar</button>
                 </div>
             </div>
-            <VideoGrid />
+            <div className={style["content"]}>
+                <VideoGrid />
+            </div>
         </div>
     );
 }

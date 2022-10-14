@@ -6,7 +6,7 @@ export default function Navbar() {
 
     return (
         <div className={style["navbar"]}>
-            <a href="/">Widdlo</a>
+            <a href="/" className="unselectable">Widdlo</a>
             <div className={style["search-bar-wrapper"]}>
                 <SearchBar />
             </div>

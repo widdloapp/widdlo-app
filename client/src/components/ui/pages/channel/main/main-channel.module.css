@@ -17,3 +17,7 @@
 .buttons-wrapper > * {
     display: inline-block;
 }
+
+.content {
+    margin-top: 10px;
+}

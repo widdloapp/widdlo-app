@@ -133,6 +133,14 @@ hr.spaced {
   color: rgba(255, 255, 255, 0.20);
 }
 
+.unselectable {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
 .undraggable {
   -webkit-user-drag: none;
   -khtml-user-drag: none;
