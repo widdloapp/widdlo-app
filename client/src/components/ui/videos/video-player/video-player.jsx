@@ -41,6 +41,7 @@ export default function VideoPlayer(props) {
                     </div>
                     <ChannelCard channel={video.channel} />
                 </div>
+                <hr className="spaced" />
                 <CommentBox id={props.id} logged={false} />
             </div>
         );

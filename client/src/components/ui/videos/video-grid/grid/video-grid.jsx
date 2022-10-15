@@ -11,7 +11,7 @@ export default function VideoGrid() {
 
     useEffect(() => {
         api('GET', 'video').then(res => {
-            setVideos(res);
+            setVideos(res.videos);
             setLoaded(true);
         })
     }, []);
@@ -20,7 +20,7 @@ export default function VideoGrid() {
         return (
             <div className={style["wrapper"]}>
                 {
-                    videos.videos.map((video, key) =>
+                    videos.map((video, key) =>
                         <Link key={key} to={"/watch/" + video.id}>
                             <div className={style["video-card"]}>
                                 <img className="undraggable" width={250} height={150} src={`https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/abstract-big.png`} />

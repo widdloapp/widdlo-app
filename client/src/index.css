@@ -69,6 +69,7 @@ button.main {
   margin: 2px;
   padding: 10px;
   border: none;
+  color: white;
 }
 
 button.main:hover {
@@ -80,9 +81,9 @@ button.section {
   width: 100%;
   box-sizing: border-box;
   border: none;
-  padding: 8px;
+  padding: 12px;
   color: white;
-  border-radius: 2px;
+  border-radius: 3px;
   font-size: 14px;
 }
 
@@ -130,7 +131,7 @@ button.icon > i {
 
 hr.spaced {
   margin: 20px 0 20px 0;
-  color: rgba(255, 255, 255, 0.20);
+  border-color: rgba(255, 255, 255, 0.20);
 }
 
 .unselectable {

@@ -16,10 +16,8 @@ export default function ChannelSidebar() {
             } />
             <AccordionWrapper title="Chat" content={
                 <Fragment>
-                    <button className="section">Destacado</button>
-                    <button className="section">Reciente</button>
-                    <button className="section">Antiguo</button>
-                    <button className="section">Más visto</button>
+                    <button className="section">Novedades</button>
+                    <button className="section">General</button>
                 </Fragment>
             } />
             <AccordionWrapper title="Widdlo Studio" content={
