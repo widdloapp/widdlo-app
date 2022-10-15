@@ -19,7 +19,7 @@ export default function Navbar() {
             </div>
             <div className={style["buttons-wrapper"]}>
                 <button className="main">Ayuda</button>
-                <Tooltip label='Obtener aplicación' placement='auto-start'>
+                <Tooltip label='Obtener aplicación' placement='bottom'>
                     <button className="main">App</button>
                 </Tooltip>
                 {account ? <AccountBar /> : <Auth/>}
