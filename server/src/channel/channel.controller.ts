@@ -1,11 +1,8 @@
-import {Body, ConflictException, Controller, Get, HttpStatus, Param, Patch, Post, Query, Res} from '@nestjs/common';
+import {Body, ConflictException, Controller, Get, HttpStatus, Param, Patch, Post, Res} from '@nestjs/common';
 import {ChannelService} from "./channel.service";
 import {CreateChannelDto} from "../dto/create/create-channel.dto";
 import {ChannelInfoDto} from "../dto/create/channel-info.dto";
 import {StreamService} from "../stream/stream.service";
-import {MessageQueryDto} from "../dto/create/message-query.dto";
-import {QueryDto} from "../dto/create/query.dto";
-import {UpdateMessageDto} from "../dto/update/update-message.dto";
 import {UpdateChannelDto} from "../dto/update/update-channel.dto";
 
 @Controller('channel')
@@ -29,7 +26,7 @@ export class ChannelController {
         }
     }
 
-    @Get(":id")
+    @Get(":channel")
     async getChannelInfo(@Res() response, @Param() createChannelDto: ChannelInfoDto) {
         const channel = await this.channelService.getChannelInfo(createChannelDto);
 

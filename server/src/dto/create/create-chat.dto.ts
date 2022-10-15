@@ -8,5 +8,5 @@ export class CreateChatDto {
 
     @IsMongoId()
     @IsNotEmpty()
-    readonly id: string;
+    readonly channel: string;
 }

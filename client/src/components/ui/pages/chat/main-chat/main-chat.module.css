@@ -12,7 +12,7 @@
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: 12px;
-    padding: 5px 20px 5px 20px;
+    padding: 5px 20px;
     margin-bottom: 5px;
 }
 

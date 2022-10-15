@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import RequiredAccountBar from "../../../../main/account/required-account-bar/required-account-bar";
 
 import style from "./live-chat.module.css";
@@ -17,7 +17,8 @@ export default function LiveChat(props) {
                     <p>Ningún mensaje aún</p>
                 </div>
                 <div className={style["message-wrapper"]} id="chat">
-                    {chat.map((message, key) =>
+                    {
+                        chat.map((message, key) =>
                         <div key={key} className={style["message"]}>
                             <div key={key} className={style["message"]}>
 
@@ -29,7 +30,8 @@ export default function LiveChat(props) {
                                 <p>: {message.body}</p>
                             </div>
                         </div>
-                    )}
+                        )
+                    }
                 </div>
             </div>
             <div>

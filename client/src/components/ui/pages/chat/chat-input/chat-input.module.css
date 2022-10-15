@@ -7,12 +7,21 @@
 
 .wrapper > textarea {
     color: white;
-    resize: vertical;
-    max-height: 200px;
+    resize: none;
     width: 100%;
     background: none;
 }
 
 .wrapper > textarea:focus {
     outline: none;
+}
+
+.buttons-wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.buttons-wrapper > * {
+    display: inline-block;
+    align-self: flex-end;
 }

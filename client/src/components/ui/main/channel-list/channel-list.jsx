@@ -9,10 +9,10 @@ export default function ChannelList() {
     const [videos, setVideos] = useState([]);
 
     useEffect(() => {
-        setVideos(api('GET', 'video').then(res => {
+        api('GET', 'video').then(res => {
             setVideos(res);
             setLoaded(true);
-        }))
+        })
     }, []);
 
     if (loaded) {
@@ -21,7 +21,7 @@ export default function ChannelList() {
                 {
                     videos.videos.map((video, key) =>
                         <div key={key} className={style["channel-wrap"]}>
-                            <img className="undraggable unselectable" width={50} height={50} src={`https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/abstract-big.png`} />
+                            <img className="undraggable unselectable" src={`https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/abstract-big.png`} />
                         </div>
                     )
                 }

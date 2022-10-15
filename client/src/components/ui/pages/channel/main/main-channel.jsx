@@ -3,9 +3,9 @@ import VideoGrid from "../../../videos/video-grid/grid/video-grid.jsx";
 import StreamButton from "../stream/stream-button/stream-button";
 import {useParams} from "react-router-dom";
 
-export default function MainChannel(props) {
+export default function MainChannel() {
 
-    let { id } = useParams();
+    const { id } = useParams();
 
     return (
         <div className={style["header"]}>

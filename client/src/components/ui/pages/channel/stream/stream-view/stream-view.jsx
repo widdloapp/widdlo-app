@@ -4,7 +4,6 @@ import {api} from "../../../../../../shared/utils/token/api.js";
 
 import style from "./stream-view.module.css";
 
-
 export default function StreamView() {
 
     useEffect(() => {

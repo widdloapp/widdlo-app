@@ -26,7 +26,7 @@ export default function MainChat() {
                         {
                             messages.map((message, key) =>
                                 <div className={style["message"]} key={key}>
-                                    <img src={message.author.avatar} />
+                                    <img className="undraggable unselectable" src={message.author.avatar} />
                                     <div>
                                         <p>{message.author.name}</p>
                                         <p>{message.body}</p>
