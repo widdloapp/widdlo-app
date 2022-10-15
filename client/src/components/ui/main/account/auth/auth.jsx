@@ -29,10 +29,10 @@ export default function Auth() {
                         </TabList>
 
                         <TabPanels>
-                            <TabPanel>
+                            <TabPanel className={style["tab-panel"]}>
                                 <Login />
                             </TabPanel>
-                            <TabPanel>
+                            <TabPanel className={style["tab-panel"]}>
                                 <p>two!</p>
                             </TabPanel>
                         </TabPanels>

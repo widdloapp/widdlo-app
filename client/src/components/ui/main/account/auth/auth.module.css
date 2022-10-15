@@ -1,3 +1,7 @@
 .tab {
     color: white !important;
 }
+
+.tab-panel {
+    padding: 0 !important;
+}
