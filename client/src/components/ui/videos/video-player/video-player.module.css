@@ -5,7 +5,7 @@
 .wrapper {
     display: grid;
     grid-template-columns: 1fr min-content;
-    padding: 8px;
+    padding: 12px;
 }
 
 .left {

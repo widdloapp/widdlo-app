@@ -1,7 +1,10 @@
 import {getStoredToken} from "./token.js";
 
 const defaults = {
-    base: "http://localhost:3004/api/v1/",
+    endpoints: {
+        api: "http://localhost:3004/api/v1/",
+        streams: "http://localhost:8888/"
+    },
     headers: () => ({
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
@@ -10,9 +13,14 @@ const defaults = {
 }
 
 export const api = async (method, url) => {
-    const request = await fetch(defaults.base + url, {
+    const request = await fetch(defaults.endpoints.api + url, {
         method: method,
-        headers: {'Content-Type': 'application/json'},
+        headers: defaults.headers,
     })
+    return request.json();
+}
+
+export const stream = async (url) => {
+    const request = await fetch(defaults.endpoints.streams + url)
     return request.json();
 }

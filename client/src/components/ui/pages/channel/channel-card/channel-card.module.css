@@ -3,7 +3,7 @@
     grid-template-columns: 1fr min-content;
     background: var(--theme-main-medium);
     border-radius: 3px;
-    padding: 8px;
+    padding: 12px;
 }
 
 .left {

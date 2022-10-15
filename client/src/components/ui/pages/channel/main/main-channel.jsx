@@ -1,7 +1,11 @@
 import style from "./main-channel.module.css";
 import VideoGrid from "../../../videos/video-grid/grid/video-grid.jsx";
+import StreamButton from "../stream/stream-button/stream-button";
+import {useParams} from "react-router-dom";
 
-export default function MainChannel() {
+export default function MainChannel(props) {
+
+    let { id } = useParams();
 
     return (
         <div className={style["header"]}>
@@ -12,6 +16,7 @@ export default function MainChannel() {
                     <p>0 seguidores</p>
                 </div>
                 <div className={style["buttons-wrapper"]}>
+                    <StreamButton id={id} />
                     <button className="main">Seguir</button>
                     <button className="main">Apoyar</button>
                     <button className="main">Reportar</button>

@@ -2,3 +2,25 @@
     display: grid;
     grid-gap: 5px;
 }
+
+.accordion {
+    border: none;
+}
+
+.accordion-panel {
+    display: grid;
+    grid-gap: 5px;
+}
+
+.accordion-button > * {
+    display: grid;
+    grid-template-columns: 100vw auto !important;
+}
+
+.accordion-button, .accordion-panel {
+    padding: 5px !important;
+}
+
+.accordion-icon > * {
+    color: white;
+}

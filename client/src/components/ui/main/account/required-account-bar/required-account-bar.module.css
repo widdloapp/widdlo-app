@@ -1,7 +1,7 @@
 .wrapper {
     background: var(--theme-main-medium);
     border-radius: 3px;
-    padding: 10px;
+    padding: 12px;
 
     display: grid;
     grid-template-columns: 1fr auto;
