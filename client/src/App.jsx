@@ -7,10 +7,10 @@ import HomeSidebar from "./components/ui/pages/home/sidebar/home-sidebar.jsx";
 import VideoView from "./components/ui/videos/video-view/video-view";
 import NotFound from "./components/ui/general/error/not-found/not-found";
 import MainChannel from "./components/ui/pages/channel/main/main-channel.jsx";
-import ChannelSidebar from "./components/ui/pages/channel/sidebar/channel-sidebar/channel-sidebar.jsx";
 import StreamLayout from "./components/layout/stream-layout/stream-layout";
 import LiveChat from "./components/ui/pages/channel/stream/live-chat/live-chat.jsx";
 import StreamView from "./components/ui/pages/channel/stream/stream-view/stream-view";
+import ChannelSidebar from "./components/ui/pages/channel/channel-sidebar/channel-sidebar.jsx";
 
 function App() {
     return (

@@ -1,19 +1,18 @@
-import style from "./channel-sidebar.module.css";
+import style from "./accordion-wrapper.module.css";
 import {Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel} from "@chakra-ui/react";
 
-export default function ChannelSidebar() {
+export default function AccordionWrapper(props) {
 
     return (
         <div className={style["wrapper"]}>
             <Accordion defaultIndex={[0]} allowMultiple>
                 <AccordionItem className={style["accordion"]}>
                     <AccordionButton className={style["accordion-button"]}>
-                        <h1>Inicio</h1>
+                        <h1>{props.title}</h1>
                         <AccordionIcon className={style["accordion-icon"]} />
                     </AccordionButton>
                     <AccordionPanel className={style["accordion-panel"]}>
-                        <button className="section">Destacado</button>
-                        <button className="section">Reciente</button>
+                        {props.content}
                     </AccordionPanel>
                 </AccordionItem>
             </Accordion>
