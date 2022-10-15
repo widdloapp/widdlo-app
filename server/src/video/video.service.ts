@@ -28,7 +28,7 @@ export class VideoService {
 
     async getVideo(getVideoDto: GetVideoDto): Promise<Video> {
         const video = await this.videoModel.findOne({_id: getVideoDto.id, deleted: false}).select(["title", "description", "views", "likes"])
-            .populate({path: 'channel', select: ['name'], populate: {path: 'followers'}}).populate('likes');
+            .populate({path: 'channel', select: ['name', 'avatar'], populate: {path: 'followers'}}).populate('likes');
         if (!video) {
             throw new NotFoundException('Unknown video!');
         }

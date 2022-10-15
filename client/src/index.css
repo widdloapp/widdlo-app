@@ -175,3 +175,9 @@ input.main {
 input.main:focus {
   outline: solid var(--theme-schema-main) 1px;
 }
+
+img.avatar {
+  border-radius: 50px;
+  height: 40px;
+  width: 40px;
+}

@@ -4,11 +4,12 @@ export default function ChannelCard(props) {
 
     return (
         <div className={style["wrapper"]}>
-            <div className={style["left"]}>
+            <img className="avatar unselectable undraggable" src={props.channel.avatar} />
+            <div>
                 <a href={"/channel/" + props.channel.id}>{props.channel.name}</a>
                 <p>{props.channel.followers} seguidores</p>
             </div>
-            <div className={style["right"]}>
+            <div>
                 <button className="main">Seguir</button>
             </div>
         </div>

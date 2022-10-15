@@ -1,15 +1,10 @@
 .wrapper {
     display: grid;
-    grid-template-columns: 1fr min-content;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 10px;
+
     background: var(--theme-main-medium);
     border-radius: 3px;
-    padding: 12px;
-}
-
-.left {
-    grid-column: 1;
-}
-
-.right {
-    grid-column: 2;
+    padding: 8px;
+    align-items: center;
 }
