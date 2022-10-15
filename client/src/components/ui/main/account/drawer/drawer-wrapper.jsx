@@ -6,13 +6,15 @@ import {
 } from "@chakra-ui/react";
 import {Fragment} from "react";
 
+import style from "./drawer-wrapper.module.css";
+
 export default function DrawerWrapper(props) {
 
     return (
         <Fragment>
-            <DrawerOverlay />
-            <DrawerContent>
-                <DrawerCloseButton />
+            <DrawerOverlay className={style["drawer-overlay"]} />
+            <DrawerContent className={style["drawer-content"]}>
+                <DrawerCloseButton className={style["drawer-close-button"]} />
 
                 <DrawerBody>
                     {props.content}

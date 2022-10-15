@@ -7,9 +7,10 @@ import {
     Tabs, useDisclosure
 } from "@chakra-ui/react";
 import {Fragment} from "react";
+import DrawerWrapper from "../drawer/drawer-wrapper.jsx";
 
 import style from "./auth.module.css";
-import DrawerWrapper from "../drawer/drawer-wrapper.jsx";
+import Login from "./forms/login";
 
 export default function Auth() {
 
@@ -24,12 +25,12 @@ export default function Auth() {
                     <Tabs>
                         <TabList>
                             <Tab className={style["tab"]}>Inciar sesión</Tab>
-                            <Tab>Regístrate</Tab>
+                            <Tab className={style["tab"]}>Regístrate</Tab>
                         </TabList>
 
                         <TabPanels>
                             <TabPanel>
-                                <p>one!</p>
+                                <Login />
                             </TabPanel>
                             <TabPanel>
                                 <p>two!</p>

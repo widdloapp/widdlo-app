@@ -1,0 +1,11 @@
+.drawer-overlay {
+    background: rgba(0, 0, 0, 0.85) !important;
+}
+
+.drawer-content {
+    background: var(--theme-main-medium) !important;
+}
+
+.drawer-close-button {
+    color: white;
+}

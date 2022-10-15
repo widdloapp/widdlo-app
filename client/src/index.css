@@ -159,3 +159,19 @@ hr.spaced {
   padding: 8px 20px;
   color: white;
 }
+
+input.main {
+  background: var(--theme-main-light);
+  padding: 12px;
+  width: 100%;
+  border-radius: var(--theme-props-border-radius);
+  outline: 1px solid transparent;
+  font-size: 15px;
+  color: white;
+
+  transition: outline .2s ease;
+}
+
+input.main:focus {
+  outline: solid var(--theme-schema-main) 1px;
+}
