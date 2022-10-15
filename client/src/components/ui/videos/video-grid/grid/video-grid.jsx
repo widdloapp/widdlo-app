@@ -4,7 +4,7 @@ import style from "./video-grid.module.css";
 import {api} from "../../../../../shared/utils/token/api.js";
 import {Link} from "react-router-dom";
 
-export default function VideoGrid() {
+export default function VideoGrid(props) {
 
     const [loaded, setLoaded] = useState(false);
     const [videos, setVideos] = useState([]);
@@ -27,8 +27,10 @@ export default function VideoGrid() {
                                 <div className={style["box"]}>
                                     <p>{video.title}</p>
                                     <p>{video.views} views</p>
-                                    <p>{video.channel.name}</p>
-                                    <p>{video.channel.followers} followers</p>
+                                    <div hidden={!props.detailed}>
+                                        <p>{video.channel.name}</p>
+                                        <p>{video.channel.followers} followers</p>
+                                    </div>
                                 </div>
                             </div>
                         </Link>

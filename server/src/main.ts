@@ -5,7 +5,7 @@ import {ValidationPipe} from "@nestjs/common";
 import {NestExpressApplication} from "@nestjs/platform-express";
 
 async function start() {
-  const app = await NestFactory.create<NestExpressApplication>(AppModule, { cors: true });
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, { bodyParser: true, cors: true });
   app.setGlobalPrefix('api/v1');
   app.disable('x-powered-by')
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));

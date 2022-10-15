@@ -36,7 +36,7 @@ export default function MainChannel() {
                 </div>
             </div>
             <div className={style["content"]}>
-                <VideoGrid />
+                <VideoGrid detailed={false} />
             </div>
         </div>
     );

@@ -37,7 +37,9 @@ export default function MainChat(props) {
                         }
                     </div>
                 </div>
-                {props.logged ? <ChatInput/> : <RequiredAccountBar />}
+                <div className={style["footer-wrapper"]}>
+                    {props.logged ? <ChatInput/> : <RequiredAccountBar value="¡Inicia sesión o regístrate para participar!" />}
+                </div>
             </div>
         );
     }

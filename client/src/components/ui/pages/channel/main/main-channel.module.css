@@ -16,10 +16,6 @@
     object-fit: cover;
 }
 
-.buttons-wrapper > * {
-    display: inline-block;
-}
-
 .content {
     margin-top: 10px;
 }

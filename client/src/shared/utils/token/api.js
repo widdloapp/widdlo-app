@@ -12,10 +12,11 @@ const defaults = {
     })
 }
 
-export const api = async (method, url) => {
+export const api = async (method, url, body) => {
     const request = await fetch(defaults.endpoints.api + url, {
         method: method,
         headers: defaults.headers,
+        body: body,
     })
     return request.json();
 }
