@@ -1,7 +1,7 @@
 import SearchBar from "../../input/search-bar";
+import AuthModal from "../account/modal/auth/auth-modal.jsx";
 
 import style from "./navbar.module.css";
-import AuthModal from "../account/modal/auth/auth-modal.jsx";
 
 export default function Navbar() {
 

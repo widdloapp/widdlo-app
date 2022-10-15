@@ -1,0 +1,4 @@
+.modal-overlay {
+    border-radius: 3px !important;
+    background: var(--theme-main-medium) !important;
+}
