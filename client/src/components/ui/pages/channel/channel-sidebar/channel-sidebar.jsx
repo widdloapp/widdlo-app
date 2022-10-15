@@ -23,7 +23,7 @@ export default function ChannelSidebar(props) {
             <div className={style["wrapper"]}>
                 <AccordionWrapper title="Inicio" content={
                     <Fragment>
-                        <button className="section">Destacado</button>
+                        <Link to={"/channel/" + id}><button className="section">Destacado</button></Link>
                         <button className="section">Reciente</button>
                         <button className="section">Antiguo</button>
                         <button className="section">Más visto</button>
@@ -33,7 +33,7 @@ export default function ChannelSidebar(props) {
                     <Fragment>
                         {
                             data.chats.map((chat, key) =>
-                                <Link key={key}>
+                                <Link key={key} to={"/channel/" + id + "/" + chat.id}>
                                     <button className="section">{chat.name}</button>
                                 </Link>
                             )
