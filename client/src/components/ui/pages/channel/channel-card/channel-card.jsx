@@ -1,10 +1,13 @@
 import style from "./channel-card.module.css";
+import {Link} from "react-router-dom";
 
 export default function ChannelCard(props) {
 
     return (
         <div className={style["wrapper"]}>
-            <img className="avatar unselectable undraggable" src={props.channel.avatar} />
+            <Link to={"/channel/" + props.channel.id}>
+                <img className="avatar unselectable undraggable" src={props.channel.avatar} />
+            </Link>
             <div>
                 <a href={"/channel/" + props.channel.id}>{props.channel.name}</a>
                 <p>{props.channel.followers} seguidores</p>

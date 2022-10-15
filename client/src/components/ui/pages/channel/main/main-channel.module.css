@@ -5,7 +5,9 @@
     padding: 60px;
 
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 20px;
+    align-items: center;
 }
 
 .header > img {
@@ -20,4 +22,9 @@
 
 .content {
     margin-top: 10px;
+}
+
+.container > img {
+    width: 100px !important;
+    height: 100px !important;
 }
