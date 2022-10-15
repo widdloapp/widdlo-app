@@ -24,7 +24,7 @@ export class FollowService {
         return unfollow;
     }
     async getFollowing(user: string) {
-        return this.followModel.find({user: user}).select(["channel"]).populate({path: 'channel', select: ["name"], populate: {path: 'stream'}})
+        return this.followModel.find({user: user}).select(["channel"]).populate({path: 'channel', select: ["name", "avatar"], populate: {path: 'stream'}})
     }
     async getFollow(userInfoDto: UserInfoDto, getFollowDto: GetFollowDto) {
         const follow = await this.followModel.findOne({user: userInfoDto.id, channel: getFollowDto.channel}).select(["channel", "date"]);

@@ -1,13 +1,16 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 
 import style from "./main-chat.module.css";
 import {api} from "../../../../../shared/utils/token/api.js";
 import {useParams} from "react-router-dom";
 import ChatInput from "../chat-input/chat-input";
 import RequiredAccountBar from "../../../main/account/required-account-bar/required-account-bar";
+import {AccountContext} from "../../../../../App.jsx";
 
-export default function MainChat(props) {
+export default function MainChat() {
     let { chat } = useParams();
+
+    const account = useContext(AccountContext).user;
 
     const [loaded, setLoaded] = useState(false);
     const [messages, setMessages] = useState([]);
@@ -38,7 +41,7 @@ export default function MainChat(props) {
                     </div>
                 </div>
                 <div className={style["footer-wrapper"]}>
-                    {props.logged ? <ChatInput/> : <RequiredAccountBar value="¡Inicia sesión o regístrate para participar!" />}
+                    {account ? <ChatInput/> : <RequiredAccountBar value="¡Inicia sesión o regístrate para participar!" />}
                 </div>
             </div>
         );

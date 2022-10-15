@@ -13,6 +13,7 @@ import ChannelSidebar from "./components/ui/pages/channel/channel-sidebar/channe
 import MainChat from "./components/ui/pages/chat/main-chat/main-chat";
 import {api} from "./shared/utils/token/api.js";
 import {createContext, useState} from "react";
+import LiveChat from "./components/ui/pages/channel/stream/live-chat/live-chat";
 
 export const AccountContext = createContext();
 
@@ -36,7 +37,7 @@ function App() {
                         <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
                         <Route path="/channel/:id" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChannel />} />} />
                         <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
-                        <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<MainChat />} content={<StreamView />} />} />
+                        <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<StreamView />} />} />
                         <Route path="*" element={<MainLayout content={<NotFound />} />} />
                     </Routes>
                 </AccountContext.Provider>

@@ -10,7 +10,7 @@ export default function ChatInput() {
                     <p>200 caracteres máximo.</p>
                 </div>
                 <div>
-                    <button className="util">Enviar</button>
+                    <button className="main">Enviar</button>
                 </div>
             </div>
         </div>

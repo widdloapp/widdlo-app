@@ -5,6 +5,7 @@ import style from "./navbar.module.css";
 import {AccountContext} from "../../../../App.jsx";
 import {useContext} from "react";
 import AccountBar from "../account/auth/account-bar/account-bar";
+import {Tooltip} from "@chakra-ui/react";
 
 export default function Navbar() {
 
@@ -18,7 +19,9 @@ export default function Navbar() {
             </div>
             <div className={style["buttons-wrapper"]}>
                 <button className="main">Ayuda</button>
-                <button className="main">App</button>
+                <Tooltip label='Obtener aplicación' placement='auto-start'>
+                    <button className="main">App</button>
+                </Tooltip>
                 {account ? <AccountBar /> : <Auth/>}
             </div>
         </div>

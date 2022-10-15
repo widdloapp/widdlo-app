@@ -1,11 +1,15 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 
 import {api} from "../../../../../shared/utils/token/api.js";
 
 import style from "./comment-box.module.css";
 import RequiredAccountBar from "../../../main/account/required-account-bar/required-account-bar";
+import {AccountContext} from "../../../../../App.jsx";
+import ChatInput from "../../../pages/chat/chat-input/chat-input";
 
 export default function CommentBox(props) {
+
+    const account = useContext(AccountContext).user;
 
     const [loaded, setLoaded] = useState(false);
     const [comments, setComments] = useState([]);
@@ -39,11 +43,10 @@ export default function CommentBox(props) {
 
     return (
         <div className={style["comment-wrapper"]}>
-            <h1>Comentarios (0)</h1>
-            {props.logged ? <form onSubmit={postComment} autoComplete="off">
-                <textarea className="main" name="body" placeholder="Añadir un comentario..."/>
-                <input className="main" value="Publicar" type="submit"/>
-            </form> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
+            <div className={style["header"]}>
+                <h1>0 comentarios</h1>
+            </div>
+            {account ? <ChatInput /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
             {
                 comments.map((comment, key) =>
                     <div key={key}>
