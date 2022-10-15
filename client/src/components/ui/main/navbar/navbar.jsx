@@ -2,8 +2,12 @@ import SearchBar from "../../input/search-bar";
 import Auth from "../account/auth/auth.jsx";
 
 import style from "./navbar.module.css";
+import {AccountContext} from "../../../../App.jsx";
+import {useContext} from "react";
 
 export default function Navbar() {
+
+    const context = useContext(AccountContext);
 
     return (
         <div className={style["navbar"]}>
@@ -13,7 +17,7 @@ export default function Navbar() {
             </div>
             <div className={style["buttons-wrapper"]}>
                 <button className="main">Ayuda</button>
-                <button className="main">App</button>
+                <button className="main">{JSON.stringify(context)}</button>
                 <Auth />
             </div>
         </div>

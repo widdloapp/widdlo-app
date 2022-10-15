@@ -11,21 +11,38 @@ import StreamLayout from "./components/layout/stream-layout/stream-layout";
 import StreamView from "./components/ui/pages/channel/stream/stream-view/stream-view";
 import ChannelSidebar from "./components/ui/pages/channel/channel-sidebar/channel-sidebar.jsx";
 import MainChat from "./components/ui/pages/chat/main-chat/main-chat";
+import {api} from "./shared/utils/token/api.js";
+import {createContext, useState} from "react";
+
+export const AccountContext = createContext();
 
 function App() {
-    return (
-        <div className="App">
-            <Routes>
-                <Route path="/" element={<SidebarLayout navbar={<Navbar />} sidebar={<HomeSidebar />} content={<VideoGrid detailed={true} />} />} />
-                <Route path="/channel" element={<SidebarLayout />} />
-                <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
-                <Route path="/channel/:id" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChannel />} />} />
-                <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
-                <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<MainChat />} content={<StreamView />} />} />
-                <Route path="*" element={<MainLayout content={<NotFound />} />} />
-            </Routes>
-        </div>
-    )
+
+    const [loaded, setLoaded] = useState(false);
+    const [data, setData] = useState({});
+
+    api('GET', 'user').then(res => {
+        setData(res);
+        setLoaded(true);
+    })
+
+    if (loaded) {
+        return (
+            <div className="App">
+                <AccountContext.Provider value={data}>
+                    <Routes>
+                        <Route path="/" element={<SidebarLayout navbar={<Navbar />} sidebar={<HomeSidebar />} content={<VideoGrid detailed={true} />} />} />
+                        <Route path="/channel" element={<SidebarLayout />} />
+                        <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
+                        <Route path="/channel/:id" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChannel />} />} />
+                        <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
+                        <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<MainChat />} content={<StreamView />} />} />
+                        <Route path="*" element={<MainLayout content={<NotFound />} />} />
+                    </Routes>
+                </AccountContext.Provider>
+            </div>
+        )
+    }
 }
 
 export default App

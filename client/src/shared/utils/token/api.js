@@ -1,21 +1,20 @@
 import {getStoredToken} from "./token.js";
 
+const headers = new Headers();
+headers.append("authorization", getStoredToken() ? 'Bearer ' + getStoredToken() : undefined);
+
 const defaults = {
     endpoints: {
         api: "http://localhost:3004/api/v1/",
         streams: "http://localhost:8888/"
-    },
-    headers: () => ({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        Authorization: getStoredToken() ? 'Bearer ' + getStoredToken() : undefined,
-    })
+    }
 }
 
 export const api = async (method, url, body) => {
+
     const request = await fetch(defaults.endpoints.api + url, {
         method: method,
-        headers: defaults.headers,
+        headers: headers,
         body: body,
     })
     return request.json();
