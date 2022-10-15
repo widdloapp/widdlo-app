@@ -22,8 +22,12 @@ export default function MainChat() {
             <div className={style["wrapper"]}>
                 {
                     messages.map((message, key) =>
-                        <div key={key}>
-                            <p>{message.body}</p>
+                        <div className={style["message"]} key={key}>
+                            <img width={50} height={50} src={message.author.avatar} />
+                            <div>
+                                <p>{message.author.name}</p>
+                                <p>{message.body}</p>
+                            </div>
                         </div>
                     )
                 }

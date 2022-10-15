@@ -18,7 +18,7 @@ export class MessageService {
     }
 
     async getMessages(messageQueryDto: MessageQueryDto, queryDto: QueryDto): Promise<Message[]> {
-        const messages = await this.messageModel.find({chat: messageQueryDto.chat}).populate('author', ["username"])
+        const messages = await this.messageModel.find({chat: messageQueryDto.chat}).populate('author', ["name", "avatar"])
             .limit(20).skip(queryDto.page * 20);
 
         /*if (!messages || messages.length == 0) {
