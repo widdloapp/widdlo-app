@@ -4,8 +4,9 @@ import style from "./main-chat.module.css";
 import {api} from "../../../../../shared/utils/token/api.js";
 import {useParams} from "react-router-dom";
 import ChatInput from "../chat-input/chat-input";
+import RequiredAccountBar from "../../../main/account/required-account-bar/required-account-bar";
 
-export default function MainChat() {
+export default function MainChat(props) {
     let { chat } = useParams();
 
     const [loaded, setLoaded] = useState(false);
@@ -36,7 +37,7 @@ export default function MainChat() {
                         }
                     </div>
                 </div>
-                <ChatInput />
+                {props.logged ? <ChatInput/> : <RequiredAccountBar />}
             </div>
         );
     }

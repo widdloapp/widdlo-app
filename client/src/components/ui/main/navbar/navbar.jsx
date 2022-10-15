@@ -1,5 +1,5 @@
 import SearchBar from "../../input/search-bar";
-import AuthModal from "../account/modal/auth/auth-modal.jsx";
+import Auth from "../account/auth/auth.jsx";
 
 import style from "./navbar.module.css";
 
@@ -14,7 +14,7 @@ export default function Navbar() {
             <div className={style["buttons-wrapper"]}>
                 <button className="main">Ayuda</button>
                 <button className="main">App</button>
-                <AuthModal />
+                <Auth />
             </div>
         </div>
     );

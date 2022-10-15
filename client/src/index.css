@@ -13,6 +13,8 @@
   --theme-main: #212121;
 
   --theme-schema-main: #4298f5;
+
+  --theme-props-border-radius: 3px;
 }
 
 .App {

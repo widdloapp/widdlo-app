@@ -1,0 +1,7 @@
+.tab {
+    color: white !important;
+}
+
+.tab _selected {
+    color: red !important;
+}

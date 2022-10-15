@@ -1,5 +1,5 @@
 import style from "./required-account-bar.module.css";
-import AuthModal from "../modal/auth/auth-modal.jsx";
+import Auth from "../auth/auth.jsx";
 
 export default function RequiredAccountBar(props) {
 
@@ -7,7 +7,7 @@ export default function RequiredAccountBar(props) {
         <div className={style["wrapper"]}>
             <p>{props.value}</p>
             <div className={style["content-wrapper"]}>
-                <AuthModal />
+                <Auth />
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 .wrapper {
     background: var(--theme-main-medium);
-    border-radius: 3px;
+    border-radius: var(--theme-props-border-radius);
     padding: 12px;
 
     display: grid;
