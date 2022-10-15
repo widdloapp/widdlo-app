@@ -1,0 +1,16 @@
+.wrapper {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    background: var(--theme-main-medium);
+}
+
+.wrapper > textarea {
+    resize: none;
+    width: 100%;
+    background: none;
+}
+
+.wrapper > textarea:focus {
+    outline: none;
+}

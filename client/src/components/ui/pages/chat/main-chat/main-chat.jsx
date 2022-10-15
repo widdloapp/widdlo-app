@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import style from "./main-chat.module.css";
 import {api} from "../../../../../shared/utils/token/api.js";
 import {useParams} from "react-router-dom";
+import ChatInput from "../chat-input/chat-input";
 
 export default function MainChat() {
     let { chat } = useParams();
@@ -19,18 +20,23 @@ export default function MainChat() {
 
     if (loaded) {
         return (
-            <div className={style["wrapper"]}>
-                {
-                    messages.map((message, key) =>
-                        <div className={style["message"]} key={key}>
-                            <img width={50} height={50} src={message.author.avatar} />
-                            <div>
-                                <p>{message.author.name}</p>
-                                <p>{message.body}</p>
-                            </div>
-                        </div>
-                    )
-                }
+            <div className={style["container"]}>
+                <div className={style["wrapper"]}>
+                    <div>
+                        {
+                            messages.map((message, key) =>
+                                <div className={style["message"]} key={key}>
+                                    <img src={message.author.avatar} />
+                                    <div>
+                                        <p>{message.author.name}</p>
+                                        <p>{message.body}</p>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    </div>
+                </div>
+                <ChatInput />
             </div>
         );
     }
