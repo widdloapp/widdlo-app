@@ -1,4 +1,13 @@
 .modal-overlay {
+    background: rgba(0, 0, 0, 0.90) !important;
+}
+
+.modal-content {
     border-radius: 3px !important;
     background: var(--theme-main-medium) !important;
+}
+
+.modal-close-button {
+    color: white;
+    border-radius: 3px;
 }
