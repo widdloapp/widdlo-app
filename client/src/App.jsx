@@ -24,12 +24,12 @@ function App() {
     const [data, setData] = useState({});
 
     useEffect(() => {
-        api('GET', 'user').then(res => {
-            if (getStoredToken()) {
-                setData(res);
-            }
-            setLoaded(true);
-        })
+            api('GET', 'user').then(res => {
+                if (getStoredToken()) {
+                    setData(res);
+                }
+                setLoaded(true);
+            })
     });
 
     if (loaded) {
