@@ -3,6 +3,7 @@ import {useState, useEffect, useContext, Fragment} from "react";
 import style from "./channel-list.module.css";
 import {api} from "../../../../shared/utils/token/api.js";
 import {AccountContext} from "../../../../App.jsx";
+import {Link} from "react-router-dom";
 
 export default function ChannelList() {
 
@@ -31,18 +32,18 @@ export default function ChannelList() {
                 {
                     account ? <Fragment>
                         {
-                            data.following.map((channel, key) =>
-                                <div key={key} className={style["channel-wrap"]}>
-                                    <img className="undraggable unselectable" src={channel.channel.avatar} />
-                                </div>
+                            data.following.map((follow, key) =>
+                                <Link key={key} to={"/channel/" + follow.channel.id} className={style["channel-wrap"]}>
+                                    <img className="undraggable unselectable" src={follow.channel.avatar} />
+                                </Link>
                             )
                         }
                     </Fragment> : <Fragment>
                         {
                             data.videos.map((video, key) =>
-                                <div key={key} className={style["channel-wrap"]}>
+                                <Link key={key} to={"/channel/" + video.channel.id} className={style["channel-wrap"]}>
                                     <img className="undraggable unselectable" src={video.channel.avatar} />
-                                </div>
+                                </Link>
                             )
                         }
                     </Fragment>
