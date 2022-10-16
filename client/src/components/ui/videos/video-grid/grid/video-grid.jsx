@@ -26,10 +26,10 @@ export default function VideoGrid(props) {
                                 <img className="undraggable" width={250} height={150} src={`https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/abstract-big.png`} />
                                 <div className={style["box"]}>
                                     <p>{video.title}</p>
-                                    <p>{video.views} views</p>
+                                    <p>{video.views} visualizaciones</p>
                                     <div hidden={!props.detailed}>
                                         <p>{video.channel.name}</p>
-                                        <p>{video.channel.followers} followers</p>
+                                        <p>{video.channel.followers} seguidores</p>
                                     </div>
                                 </div>
                             </div>

@@ -22,8 +22,8 @@ export default function InlineVideoGrid() {
             <div className={style["wrapper"]}>
                 {
                     videos.videos.map((video, key) =>
-                        <Link to={"/watch/" + video.id}>
-                            <div key={key} className={style["video-card"]}>
+                        <Link to={"/watch/" + video.id} key={key}>
+                            <div className={style["video-card"]}>
                                 <img className="undraggable" width={150} height={100} src={`https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/abstract-big.png`} />
                                 <div className={style["container"]}>
                                     <div className={style["wrapper"]}>

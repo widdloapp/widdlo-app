@@ -14,6 +14,7 @@ import MainChat from "./components/ui/pages/chat/main-chat/main-chat";
 import {api} from "./shared/utils/token/api.js";
 import {createContext, useState} from "react";
 import LiveChat from "./components/ui/pages/channel/stream/live-chat/live-chat";
+import {getStoredToken} from "./shared/utils/token/token.js";
 
 export const AccountContext = createContext();
 
@@ -23,7 +24,9 @@ function App() {
     const [data, setData] = useState({});
 
     api('GET', 'user').then(res => {
-        setData(res);
+        if (getStoredToken()) {
+            setData(res);
+        }
         setLoaded(true);
     })
 
