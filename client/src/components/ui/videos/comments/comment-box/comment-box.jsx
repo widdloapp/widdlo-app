@@ -33,12 +33,19 @@ export default function CommentBox(props) {
         body.append("target", props.id);
         body.append("body", event.target[0].value);
         api('POST', 'comment', body).then(res => {
-
-            if (res.status == 200) {
+            if (res.successful) {
                 toast({
-                    title: 'Correcto',
-                    description: "Has iniciado sesión correctamente.",
+                    title: 'Listo',
+                    description: "Comentario publicado.",
                     status: 'success',
+                    position: 'bottom-right',
+                    isClosable: true
+                })
+            } else {
+                toast({
+                    title: 'Error',
+                    description: "No se pudo publicar el comentario.",
+                    status: 'error',
                     position: 'bottom-right',
                     isClosable: true
                 })

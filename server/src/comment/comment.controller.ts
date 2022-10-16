@@ -18,7 +18,7 @@ export class CommentController {
             const comment = await this.commentService.createComment(createCommentDto);
 
             return response.status(HttpStatus.OK).json({
-                message: 'Successfully posted.', comment
+                successful: true, message: 'Successfully posted.', comment
             });
         } catch (error) {
             throw new HttpException("Already commented for that target.", HttpStatus.CONFLICT);
