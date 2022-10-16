@@ -12,7 +12,7 @@ import StreamView from "./components/ui/pages/channel/stream/stream-view/stream-
 import ChannelSidebar from "./components/ui/pages/channel/channel-sidebar/channel-sidebar.jsx";
 import MainChat from "./components/ui/pages/chat/main-chat/main-chat";
 import {api} from "./shared/utils/token/api.js";
-import {createContext, useState} from "react";
+import {createContext, useEffect, useState} from "react";
 import LiveChat from "./components/ui/pages/channel/stream/live-chat/live-chat";
 import {getStoredToken} from "./shared/utils/token/token.js";
 
@@ -23,12 +23,14 @@ function App() {
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState({});
 
-    api('GET', 'user').then(res => {
-        if (getStoredToken()) {
-            setData(res);
-        }
-        setLoaded(true);
-    })
+    useEffect(() => {
+        api('GET', 'user').then(res => {
+            if (getStoredToken()) {
+                setData(res);
+            }
+            setLoaded(true);
+        })
+    });
 
     if (loaded) {
         return (
