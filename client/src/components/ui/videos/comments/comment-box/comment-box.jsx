@@ -6,6 +6,7 @@ import style from "./comment-box.module.css";
 import RequiredAccountBar from "../../../main/account/required-account-bar/required-account-bar";
 import {AccountContext} from "../../../../../App.jsx";
 import ChatInput from "../../../pages/chat/chat-input/chat-input";
+import {useToast} from "@chakra-ui/react";
 
 export default function CommentBox(props) {
 
@@ -14,6 +15,8 @@ export default function CommentBox(props) {
     const [loaded, setLoaded] = useState(false);
     const [comments, setComments] = useState([]);
     const [commentsData, setCommentsData] = useState({});
+
+    const toast = useToast();
 
     useEffect(() => {
         api('GET', 'comment/' + props.id).then(res => {
@@ -26,19 +29,23 @@ export default function CommentBox(props) {
     const postComment = (event) => {
         event.preventDefault();
 
-        const body = event.target[0].value;
+        const body = new URLSearchParams();
+        body.append("target", props.id);
+        body.append("body", event.target[0].value);
+        api('POST', 'comment', body).then(res => {
 
-        /*fetch("http://localhost:3000/api/v1/videos/comment", {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({user: Cookies.get('user'), token: Cookies.get('token'), body: body, video: props.id})
-        })
-            .then(res => res.json())
-            .then(data => {
-                updateComments();
-            })
-            .catch(error => console.log(error));*/
-    }
+            if (res.status == 200) {
+                toast({
+                    title: 'Correcto',
+                    description: "Has iniciado sesión correctamente.",
+                    status: 'success',
+                    position: 'bottom-right',
+                    isClosable: true
+                })
+            }
+        }
+        )
+    };
 
 
     return (
@@ -46,7 +53,7 @@ export default function CommentBox(props) {
             <div className={style["header"]}>
                 <h1>0 comentarios</h1>
             </div>
-            {account ? <ChatInput /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
+            {account ? <ChatInput submit={postComment} /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
             {
                 comments.map((comment, key) =>
                     <div key={key}>

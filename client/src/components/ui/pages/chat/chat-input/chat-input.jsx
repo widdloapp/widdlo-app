@@ -1,18 +1,18 @@
 import style from "./chat-input.module.css";
 
-export default function ChatInput() {
+export default function ChatInput(props) {
 
     return (
-        <div className={style["wrapper"]}>
-            <textarea placeholder="¡Añade un mensaje a este chat!" />
+        <form onSubmit={props.submit} className={style["wrapper"]}>
+            <textarea name="body" placeholder="¡Añade un mensaje a este chat!" />
             <div className={style["buttons-wrapper"]}>
                 <div>
                     <p>200 caracteres máximo.</p>
                 </div>
                 <div>
-                    <button className="main">Enviar</button>
+                    <input type="submit" value="Enviar" className="main" />
                 </div>
             </div>
-        </div>
+        </form>
     );
 }

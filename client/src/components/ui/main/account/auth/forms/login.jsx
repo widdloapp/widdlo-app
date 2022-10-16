@@ -1,7 +1,7 @@
 import style from "./login.module.css";
 import {useToast} from "@chakra-ui/react";
 import {api} from "../../../../../../shared/utils/token/api.js";
-import {getStoredToken, storeToken} from "../../../../../../shared/utils/token/token.js";
+import {storeToken} from "../../../../../../shared/utils/token/token.js";
 
 export default function Login() {
 
