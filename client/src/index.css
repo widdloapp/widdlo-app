@@ -131,9 +131,12 @@ button.icon > i {
   text-decoration: none;
 }
 
+hr {
+  border-color: rgba(255, 255, 255, 0.20);
+}
+
 hr.spaced {
   margin: 20px 0;
-  border-color: rgba(255, 255, 255, 0.20);
 }
 
 .unselectable {
@@ -184,4 +187,15 @@ img.avatar {
 
 h1 {
   font-size: 25px !important;
+}
+
+mark {
+  color: var(--theme-schema-main);
+  background: none;
+}
+
+button.paper {
+  color: lightgrey;
+  font-size: 14px;
+  text-transform: uppercase;
 }

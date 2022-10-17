@@ -61,26 +61,25 @@ export default function CommentBox(props) {
                 <h1>0 comentarios</h1>
             </div>
             {account ? <ChatInput submit={postComment} /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
-            {
-                comments.map((comment, key) =>
-                    <div key={key}>
-                        <div className={style["comment-box"]}>
+            <div className={style["content"]}>
+                {
+                    comments.map((comment, key) =>
+                        <div key={key} className={style["comment-box"]}>
 
 
 
 
 
-                            <p><mark>hace 1 día</mark></p>
-                            <h1>{comment.body}</h1>
+                            <p><mark>{comment.author.name}</mark> hace 1 día</p>
+                            <p>{comment.body}</p>
                             <div className={style["button-wrapper"]}>
-                                <button className={style["minimal"]}>Responder</button>
-                                <button className={style["minimal"]}>Reportar</button>
+                                <button className="paper">Responder</button>
+                                <button className="paper">Reportar</button>
                             </div>
                         </div>
-                        <hr/>
-                    </div>
-                )
-            }
+                    )
+                }
+            </div>
         </div>
     );
 }
