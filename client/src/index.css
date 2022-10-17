@@ -13,7 +13,7 @@
   --theme-main: #212121;
 
   --theme-schema-main: #f38e5b;
-
+  --theme-btn-main: #3a3a3a;
   --theme-props-border-radius: 3px;
 
   --plyr-color-main: var(--theme-schema-main);
@@ -68,7 +68,7 @@ button {
 }
 
 button.main {
-  background: #3a3a3a;
+  background: var(--theme-btn-main);
   border-radius: 2px;
   margin: 2px;
   padding: 10px;
@@ -166,7 +166,7 @@ hr.spaced {
 }
 
 input.main {
-  background: var(--theme-main-light);
+  background: var(--theme-btn-main);
   padding: 12px;
   width: 100%;
   border-radius: var(--theme-props-border-radius);
@@ -182,7 +182,7 @@ input.main:focus {
 }
 
 ::placeholder {
-  color: lightgrey !important;
+  color: gray !important;
 }
 
 input[type='submit'] {

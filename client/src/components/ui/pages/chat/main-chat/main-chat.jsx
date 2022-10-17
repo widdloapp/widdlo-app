@@ -53,7 +53,7 @@ export default function MainChat() {
                     </div>
                 </div>
                 <div className={style["footer-wrapper"]}>
-                    {account ? <ChatInput submit={postMessage} /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para participar!" />}
+                    {account ? <ChatInput submit={postMessage} value="Enviar un mensaje..." button="Enviar" /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para participar!" />}
                 </div>
             </div>
         );

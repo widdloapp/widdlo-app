@@ -60,7 +60,7 @@ export default function CommentBox(props) {
             <div className={style["header"]}>
                 <h1>0 comentarios</h1>
             </div>
-            {account ? <ChatInput submit={postComment} /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
+            {account ? <ChatInput submit={postComment} value="Añade un comentario..." button="Comentar" /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
             <div className={style["content"]}>
                 {
                     comments.map((comment, key) =>

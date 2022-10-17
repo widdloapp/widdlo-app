@@ -11,13 +11,13 @@ export default function ChatInput(props) {
             props.submit(event)
             setBody('')
         }} className={style["wrapper"]}>
-            <textarea value={body} onChange={event => setBody(event.target.value)} type="a" name="body" placeholder="¡Añade un mensaje a este chat!" />
+            <textarea value={body} onChange={event => setBody(event.target.value)} autoComplete={false} name="body" placeholder={props.value} />
             <div className={style["buttons-wrapper"]}>
                 <div>
                     <p>200 caracteres máximo.</p>
                 </div>
                 <div>
-                    <input type="submit" value="Enviar" className="main" />
+                    <input type="submit" value={props.button} className="main" />
                 </div>
             </div>
         </form>
