@@ -33,7 +33,7 @@ export default function ChannelPopup(props) {
             </div>
             <hr className="spaced" />
             <div className={style["footer"]}>
-                <Link to={`/channel/${props.id}`} className="styled-text">
+                <Link hidden={!data.channels[0]} to={`/channel/${data.channels[0].id}`} className="styled-text">
                     <button className="main full">Ir a su canal</button>
                 </Link>
             </div>
