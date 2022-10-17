@@ -1,11 +1,7 @@
-.wrapper {
-    margin-top: 10px;
-}
-
 .channel-wrap {
     background: none;
     text-align: center;
-    margin: 5px;
+    margin: 12px 0;
 }
 
 .channel-wrap > * > img {
