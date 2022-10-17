@@ -1,13 +1,14 @@
 .container {
     display: inline-block;
-
-    margin: 20px;
     vertical-align: middle;
 }
 
 .wrapper {
     display: grid;
-    grid-gap: 10px;
     grid-template-columns: auto auto;
     place-items: center;
+}
+
+.wrapper > p {
+    margin: 10px;
 }
