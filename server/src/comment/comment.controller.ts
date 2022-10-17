@@ -27,9 +27,11 @@ export class CommentController {
 
     @Get(":target")
     async getComments(@Res() response, @Param() getCommentsDto: GetCommentsDto, @Query() queryDto: QueryDto) {
+        const amount = await this.commentService.getCommentAmount(getCommentsDto, queryDto);
         const comments = await this.commentService.getComments(getCommentsDto, queryDto);
+
         return response.status(HttpStatus.OK).json({
-            message: 'Comments successfully found.', comments, pages: {current: queryDto.page},
+            message: 'Comments successfully found.', amount, comments, pages: {current: queryDto.page},
         });
     }
     @Patch()

@@ -44,7 +44,7 @@ export default function MainChat() {
                                 <div className={style["message"]} key={key}>
                                     <img className="undraggable unselectable" src={message.author.avatar} />
                                     <div>
-                                        <p>{message.author.name}</p>
+                                        <p><mark>{message.author.name}</mark></p>
                                         <p>{message.body}</p>
                                     </div>
                                 </div>

@@ -24,6 +24,10 @@ export class CommentService {
         }*/
         return comments;
     }
+    async getCommentAmount(getCommentsDto: GetCommentsDto, queryDto: QueryDto) {
+        const amount = await this.commentModel.count({target: getCommentsDto.target});
+        return amount;
+    }
     async updateComment(user: string, updateCommentDto: UpdateCommentDto) {
         const comment = await this.commentModel.findOneAndUpdate({_id: updateCommentDto.id, author: user}, updateCommentDto, {new: true});
 
