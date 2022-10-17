@@ -70,11 +70,14 @@ export default function CommentBox(props) {
 
 
 
-                            <p><mark>{comment.author.name}</mark> hace 1 día</p>
-                            <p>{comment.body}</p>
-                            <div className={style["button-wrapper"]}>
-                                <button className="paper">Responder</button>
-                                <button className="paper">Reportar</button>
+                            <img src={comment.author.avatar} className="avatar unselectable undraggable" />
+                            <div>
+                                <p><mark>{comment.author.name}</mark> hace 1 día</p>
+                                <p>{comment.body}</p>
+                                <div className={style["button-wrapper"]}>
+                                    <button className="paper">Responder</button>
+                                    <button className="paper">Reportar</button>
+                                </div>
                             </div>
                         </div>
                     )
