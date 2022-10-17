@@ -11,7 +11,7 @@ export default function ChatInput(props) {
             props.submit(event)
             setBody('')
         }} className={style["wrapper"]}>
-            <textarea value={body} onChange={event => setBody(event.target.value)} autoComplete={false} name="body" placeholder={props.value} />
+            <textarea value={body} onChange={event => setBody(event.target.value)} autoComplete="off" name="body" placeholder={props.value} />
             <div className={style["buttons-wrapper"]}>
                 <div>
                     <p>200 caracteres máximo.</p>

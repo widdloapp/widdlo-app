@@ -138,7 +138,7 @@ hr {
 }
 
 hr.spaced {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .unselectable {
@@ -226,4 +226,9 @@ mark.minor {
   background: gray;
   color: black;
   border-radius: 15px;
+}
+
+.full {
+  width: 100%;
+  margin: 0 !important;
 }

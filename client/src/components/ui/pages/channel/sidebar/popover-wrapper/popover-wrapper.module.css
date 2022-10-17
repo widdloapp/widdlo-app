@@ -1,0 +1,10 @@
+.popover-content {
+    background: var(--theme-main-dark) !important;
+    border: none !important;
+    border-radius: 3px !important;
+    padding: 10px;
+}
+
+.popover-close-button {
+    color: white;
+}
