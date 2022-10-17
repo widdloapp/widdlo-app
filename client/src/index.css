@@ -215,3 +215,9 @@ a.title {
 .uppercased {
   text-transform: capitalize;
 }
+
+mark.minor {
+  background: gray;
+  color: black;
+  border-radius: 15px;
+}

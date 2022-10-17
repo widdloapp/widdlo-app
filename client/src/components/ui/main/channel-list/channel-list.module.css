@@ -3,11 +3,12 @@
 }
 
 .channel-wrap {
-    margin: 6px;
+    background: none;
     text-align: center;
+    margin: 5px;
 }
 
-.channel-wrap > img {
+.channel-wrap > * > img {
     margin: 0 auto;
 
     border-radius: 50px;

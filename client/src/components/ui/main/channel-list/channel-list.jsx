@@ -33,9 +33,11 @@ export default function ChannelList() {
                     account ? <Fragment>
                         {
                             data.following.map((follow, key) =>
-                                <Link key={key} to={"/channel/" + follow.channel.id} className={style["channel-wrap"]}>
-                                    <img className="undraggable unselectable" src={follow.channel.avatar} />
-                                </Link>
+                                <div className={style["channel-wrap"]}>
+                                    <Link key={key} to={"/channel/" + follow.channel.id}>
+                                        <img className="undraggable unselectable" src={follow.channel.avatar} />
+                                    </Link>
+                                </div>
                             )
                         }
                     </Fragment> : <Fragment>
