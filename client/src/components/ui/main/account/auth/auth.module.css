@@ -5,3 +5,9 @@
 .tab-panel {
     padding: 0 !important;
 }
+
+.tab-list {
+    justify-content: center !important;
+    border: none !important;
+    text-align: center;
+}

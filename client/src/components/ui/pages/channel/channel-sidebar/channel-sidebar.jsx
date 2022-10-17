@@ -34,7 +34,7 @@ export default function ChannelSidebar(props) {
                         {
                             data.chats.map((chat, key) =>
                                 <Link key={key} to={"/channel/" + id + "/" + chat.id}>
-                                    <button className="section">{chat.name}</button>
+                                    <button className="section uppercased">{chat.name}</button>
                                 </Link>
                             )
                         }

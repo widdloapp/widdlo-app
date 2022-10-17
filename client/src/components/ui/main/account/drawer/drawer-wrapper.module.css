@@ -1,8 +1,11 @@
 .drawer-overlay {
     background: rgba(0, 0, 0, 0.85) !important;
+    text-align: center;
 }
 
 .drawer-content {
+    min-width: 450px !important;
+    padding: 20px;
     background: var(--theme-main-medium) !important;
 }
 

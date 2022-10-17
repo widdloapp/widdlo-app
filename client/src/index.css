@@ -175,6 +175,10 @@ input.main {
   transition: outline .2s ease;
 }
 
+::placeholder {
+  color: lightgrey !important;
+}
+
 input.main:focus {
   outline: solid var(--theme-schema-main) 1px;
 }
@@ -206,4 +210,8 @@ button.paper:hover {
 
 a.title {
   color: var(--theme-schema-main) !important;
+}
+
+.uppercased {
+  text-transform: capitalize;
 }

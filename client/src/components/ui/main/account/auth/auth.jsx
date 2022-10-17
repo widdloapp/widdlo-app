@@ -23,7 +23,7 @@ export default function Auth() {
             <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
                 <DrawerWrapper content={
                     <Tabs>
-                        <TabList>
+                        <TabList className={style["tab-list"]}>
                             <Tab className={style["tab"]}>Inciar sesión</Tab>
                             <Tab className={style["tab"]}>Regístrate</Tab>
                         </TabList>
