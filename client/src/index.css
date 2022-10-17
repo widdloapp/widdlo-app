@@ -177,12 +177,16 @@ input.main {
   transition: outline .2s ease;
 }
 
+input.main:focus {
+  outline: solid var(--theme-schema-main) 1px;
+}
+
 ::placeholder {
   color: lightgrey !important;
 }
 
-input.main:focus {
-  outline: solid var(--theme-schema-main) 1px;
+input[type='submit'] {
+  outline: 10px solid transparent;
 }
 
 img.avatar {

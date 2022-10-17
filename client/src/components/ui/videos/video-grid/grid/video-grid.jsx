@@ -21,7 +21,7 @@ export default function VideoGrid(props) {
             <div className={style["wrapper"]}>
                 {
                     videos.map((video, key) =>
-                        <Link key={key} to={"/watch/" + video.id}>
+                        <Link key={key} to={`/watch/${video.id}`}>
                             <div className={style["video-card"]}>
                                 <div className={style["zoom-img"]}>
                                     <img className="undraggable" src={`https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/abstract-big.png`} />

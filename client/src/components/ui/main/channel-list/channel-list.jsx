@@ -34,7 +34,7 @@ export default function ChannelList() {
                         {
                             data.following.map((follow, key) =>
                                 <div key={key} className={style["channel-wrap"]}>
-                                    <Link to={"/channel/" + follow.channel.id}>
+                                    <Link to={`/channel/${follow.channel.id}`}>
                                         <img className="undraggable unselectable" src={follow.channel.avatar} />
                                     </Link>
                                 </div>
@@ -44,7 +44,7 @@ export default function ChannelList() {
                         {
                             data.videos.map((video, key) =>
                                 <div key={key} className={style["channel-wrap"]}>
-                                    <Link to={"/channel/" + video.channel.id}>
+                                    <Link to={`/channel/${video.channel.id}`}>
                                         <img className="undraggable unselectable" src={video.channel.avatar} />
                                     </Link>
                                 </div>
