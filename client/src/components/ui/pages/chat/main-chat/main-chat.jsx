@@ -22,6 +22,18 @@ export default function MainChat() {
         })
     }, []);
 
+    const postMessage = (event) => {
+        event.preventDefault();
+
+        const body = new URLSearchParams();
+        body.append("chat", chat);
+        body.append("body", event.target[0].value);
+        api('POST', 'message', body).then(res => {
+
+            }
+        )
+    };
+
     if (loaded) {
         return (
             <div className={style["container"]}>
@@ -41,7 +53,7 @@ export default function MainChat() {
                     </div>
                 </div>
                 <div className={style["footer-wrapper"]}>
-                    {account ? <ChatInput/> : <RequiredAccountBar value="¡Inicia sesión o regístrate para participar!" />}
+                    {account ? <ChatInput submit={postMessage} /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para participar!" />}
                 </div>
             </div>
         );
