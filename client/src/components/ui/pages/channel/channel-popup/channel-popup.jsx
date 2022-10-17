@@ -1,13 +1,25 @@
 import style from "./channel-popup.module.css";
 import {Link} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {api} from "../../../../../shared/utils/token/api.js";
 
 export default function ChannelPopup(props) {
 
-    return (
+    const [loaded, setLoaded] = useState(false);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        api('GET', `user/${props.id}`).then(res => {
+            setData(res.user);
+            setLoaded(true);
+        })
+    }, []);
+
+    if (loaded) {return (
         <div className={style["wrapper"]}>
             <div className={style["wrapper"]}>
-                <h1>a</h1>
-                <p>a seguidores</p>
+                <h1>{data.name}</h1>
+                <p hidden={!data.channels[0]}>{data.channels[0].followers} seguidores</p>
             </div>
             <hr className="spaced" />
             <div className={style["wrapper"]}>
@@ -17,7 +29,7 @@ export default function ChannelPopup(props) {
             <hr className="spaced" />
             <div className={style["wrapper"]}>
                 <h2>En Widdlo desde</h2>
-                <h3>a</h3>
+                <h3>{data.date}</h3>
             </div>
             <hr className="spaced" />
             <div className={style["footer"]}>
@@ -27,4 +39,6 @@ export default function ChannelPopup(props) {
             </div>
         </div>
     );
+
+    }
 }

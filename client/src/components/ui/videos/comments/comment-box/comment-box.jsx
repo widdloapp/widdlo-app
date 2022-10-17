@@ -72,7 +72,7 @@ export default function CommentBox(props) {
 
 
 
-                                <PopoverWrapper trigger={<img src={comment.author.avatar} className="avatar unselectable undraggable" />} content={<ChannelPopup />} />
+                                <PopoverWrapper trigger={<img src={comment.author.avatar} className="avatar unselectable undraggable" />} content={<ChannelPopup id={comment.author.id} />} />
                                 <div>
                                     <p><mark>{comment.author.name}</mark> hace 1 día</p>
                                     <p>{comment.body}</p>

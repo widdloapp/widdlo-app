@@ -37,12 +37,14 @@ export class UserService {
 
     async getPublicData(userInfoDto: UserInfoDto) {
         const user = await this.userModel.findById(userInfoDto.id).select(["date", "name", "username"])
+            .populate({path: 'channels', select: ["date", "name", "username", "avatar"], populate: {path: 'followers'}})
             .populate({path: 'badges', populate: {path: 'badge'}});
 
         return user;
     }
     async getData(id: string) {
-        const user = await this.userModel.findById(id).select(["date", "name", "username"]).populate("channels", ["date", "name", "username"])
+        const user = await this.userModel.findById(id).select(["date", "name", "username"])
+            .populate("channels", ["date", "name", "username", "avatar", "followers"])
             .populate({path: 'badges', populate: {path: 'badge'}});
 
         return user;
