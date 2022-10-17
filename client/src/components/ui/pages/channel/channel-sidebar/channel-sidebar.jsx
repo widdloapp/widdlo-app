@@ -40,6 +40,11 @@ export default function ChannelSidebar(props) {
                         }
                     </Fragment>
                 } />
+                <AccordionWrapper title="Comunidad" content={
+                    <Fragment>
+                        <button className="section">Publicaciones</button>
+                    </Fragment>
+                } />
                 <AccordionWrapper title="Widdlo Studio" content={
                     <Fragment>
                         <button className="section">Gestor de vídeos</button>

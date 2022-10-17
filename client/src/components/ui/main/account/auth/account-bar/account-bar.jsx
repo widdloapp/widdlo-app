@@ -8,6 +8,10 @@ export default function AccountBar() {
     const account = useContext(AccountContext).user;
 
     return (
-        <button className="main">Hola, {account.name}</button>
+        <div className={style["container"]}>
+            <div className={style["wrapper"]}>
+                <p>¡Hola, {account.name}!</p>
+            </div>
+        </div>
     )
 }

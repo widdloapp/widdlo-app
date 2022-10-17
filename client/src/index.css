@@ -12,7 +12,7 @@
   --theme-main-light: #252525;
   --theme-main: #212121;
 
-  --theme-schema-main: #4298f5;
+  --theme-schema-main: #f38e5b;
 
   --theme-props-border-radius: 3px;
 }
@@ -195,7 +195,15 @@ mark {
 }
 
 button.paper {
-  color: lightgrey;
+  color: #bebebe;
   font-size: 14px;
   text-transform: uppercase;
+}
+
+button.paper:hover {
+  color: white;
+}
+
+a.title {
+  color: var(--theme-schema-main) !important;
 }
