@@ -7,21 +7,22 @@ import RequiredAccountBar from "../../../main/account/required-account-bar/requi
 import {AccountContext} from "../../../../../App.jsx";
 import ChatInput from "../../../pages/chat/chat-input/chat-input";
 import {useToast} from "@chakra-ui/react";
+import PopoverWrapper from "../../../pages/channel/sidebar/popover-wrapper/popover-wrapper";
+import ChannelPopup from "../../../pages/channel/channel-popup/channel-popup";
 
 export default function CommentBox(props) {
 
     const account = useContext(AccountContext).user;
 
     const [loaded, setLoaded] = useState(false);
-    const [comments, setComments] = useState([]);
+    const [data, setData] = useState([]);
     const [commentsData, setCommentsData] = useState({});
 
     const toast = useToast();
 
     useEffect(() => {
         api('GET', 'comment/' + props.id).then(res => {
-            setComments()
-            setComments(res.comments);
+            setData(res);
             setLoaded(true);
         })
     }, []);
@@ -55,34 +56,36 @@ export default function CommentBox(props) {
     };
 
 
-    return (
-        <div className={style["comment-wrapper"]}>
-            <div className={style["header"]}>
-                <h1>0 comentarios</h1>
-            </div>
-            {account ? <ChatInput submit={postComment} value="Añade un comentario..." button="Comentar" /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
-            <div className={style["content"]}>
-                {
-                    comments.map((comment, key) =>
-                        <div key={key} className={style["comment-box"]}>
+    if (loaded) {
+        return (
+            <div className={style["comment-wrapper"]}>
+                <div className={style["header"]}>
+                    <h1>{data.amount} comentarios</h1>
+                </div>
+                {account ? <ChatInput submit={postComment} value="Añade un comentario..." button="Comentar" /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
+                <div className={style["content"]}>
+                    {
+                        data.comments.map((comment, key) =>
+                            <div key={key} className={style["comment-box"]}>
 
 
 
 
 
-                            <img src={comment.author.avatar} className="avatar unselectable undraggable" />
-                            <div>
-                                <p><mark>{comment.author.name}</mark> hace 1 día</p>
-                                <p>{comment.body}</p>
-                                <div className={style["button-wrapper"]}>
-                                    <button className="paper">Responder</button>
-                                    <button className="paper">Reportar</button>
+                                <PopoverWrapper trigger={<img src={comment.author.avatar} className="avatar unselectable undraggable" />} content={<ChannelPopup />} />
+                                <div>
+                                    <p><mark>{comment.author.name}</mark> hace 1 día</p>
+                                    <p>{comment.body}</p>
+                                    <div className={style["button-wrapper"]}>
+                                        <button className="paper">Responder</button>
+                                        <button className="paper">Reportar</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    )
-                }
+                        )
+                    }
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
