@@ -15,6 +15,8 @@
   --theme-schema-main: #f38e5b;
 
   --theme-props-border-radius: 3px;
+
+  --plyr-color-main: var(--theme-schema-main);
 }
 
 .App {

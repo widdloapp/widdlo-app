@@ -18,7 +18,8 @@ export default function VideoPlayer(props) {
         })
     }, []);
 
-    new Plyr('.video-player');
+    const controls = ['play', 'progress', 'current-time', 'mute', 'volume', 'pip', 'airplay', 'fullscreen'];
+    new Plyr('.video-player', { controls });
 
     if (loaded) {
         return (

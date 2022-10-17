@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns: 1fr min-content;
     grid-gap: 10px;
+    margin: 0 10px;
 }
 
 @media screen and (max-width: 1024px) {
