@@ -23,10 +23,11 @@ export default function ChannelSidebar(props) {
             <div className={style["wrapper"]}>
                 <AccordionWrapper title="Inicio" content={
                     <Fragment>
-                        <Link to={"/channel/" + id}><button className="section">Destacado</button></Link>
-                        <button className="section">Reciente</button>
-                        <button className="section">Antiguo</button>
-                        <button className="section">Más visto</button>
+                        <Link to={"/channel/" + id}><button className="section"><i className="fa-light fa-house" />Destacado</button></Link>
+                        <button className="section"><i className="fa-light fa-clock" />Reciente</button>
+                        <button className="section"><i className="fa-light fa-arrow-rotate-left" />Antiguo</button>
+                        <button className="section"><i
+                            className="fa-light fa-arrow-trend-up" />Más visto</button>
                     </Fragment>
                 } />
                 <AccordionWrapper title="Chat" content={
@@ -34,7 +35,7 @@ export default function ChannelSidebar(props) {
                         {
                             data.chats.map((chat, key) =>
                                 <Link key={key} to={"/channel/" + id + "/" + chat.id}>
-                                    <button className="section uppercased">{chat.name}</button>
+                                    <button className="section uppercased"><i className="fa-thin fa-message" />{chat.name}</button>
                                 </Link>
                             )
                         }
@@ -42,15 +43,15 @@ export default function ChannelSidebar(props) {
                 } />
                 <AccordionWrapper title="Comunidad" content={
                     <Fragment>
-                        <button className="section">Publicaciones</button>
+                        <button className="section"><i className="fa-light fa-book" />Publicaciones</button>
                     </Fragment>
                 } />
                 <AccordionWrapper title="Widdlo Studio" content={
                     <Fragment>
-                        <button className="section">Gestor de vídeos</button>
-                        <button className="section">Estadísticas</button>
-                        <button className="section">Emitir en directo</button>
-                        <button className="section">Ajustes</button>
+                        <button className="section"><i className="fa-light fa-video" /><p>Gestor de vídeos</p></button>
+                        <button className="section"><i className="fa-light fa-chart-simple" />Estadísticas</button>
+                        <button className="section"><i className="fa-light fa-signal-stream" />Emitir en directo</button>
+                        <button className="section"><i className="fa-light fa-gear" />Ajustes</button>
                     </Fragment>
                 } />
             </div>

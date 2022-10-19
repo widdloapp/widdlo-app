@@ -70,7 +70,7 @@ button {
 button.main {
   background: var(--theme-btn-main);
   border-radius: var(--theme-props-border-radius);
-  margin: 2px;
+  margin: 4px;
   padding: 10px;
   border: none;
   color: white;
@@ -81,11 +81,10 @@ button.main:hover {
 }
 
 button.section {
-  background: var(--theme-main-light);
   width: 100%;
   box-sizing: border-box;
   border: none;
-  padding: 12px;
+  padding: 6px;
   color: white;
   border-radius: var(--theme-props-border-radius);
   font-size: 14px;
@@ -230,4 +229,15 @@ mark.minor {
 .full {
   width: 100%;
   margin: 0 !important;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 15px 1fr;
+  grid-gap: 20px;
+  align-items: center;
+}
+
+.section:hover {
+  background: var(--theme-main-light);
 }
