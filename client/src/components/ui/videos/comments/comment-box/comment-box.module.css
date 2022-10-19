@@ -12,6 +12,12 @@
     background: var(--theme-main-medium);
 }
 
+.comment-box > .content {
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: 3px;
+}
+
 .header {
     margin-bottom: 20px;
 }
@@ -21,6 +27,11 @@
 }
 
 .button-wrapper {
+    background: var(--theme-main-medium);
+    width: min-content;
+    padding: 5px 15px;
+    border-radius: 3px;
+
     display: grid;
     grid-gap: 20px;
     grid-template-columns: min-content min-content;

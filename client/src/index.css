@@ -14,7 +14,7 @@
 
   --theme-schema-main: #f38e5b;
   --theme-btn-main: #3a3a3a;
-  --theme-props-border-radius: 3px;
+  --theme-props-border-radius: 5px;
 
   --plyr-color-main: var(--theme-schema-main);
 }
@@ -69,7 +69,7 @@ button {
 
 button.main {
   background: var(--theme-btn-main);
-  border-radius: 2px;
+  border-radius: var(--theme-props-border-radius);
   margin: 2px;
   padding: 10px;
   border: none;
@@ -87,7 +87,7 @@ button.section {
   border: none;
   padding: 12px;
   color: white;
-  border-radius: 3px;
+  border-radius: var(--theme-props-border-radius);
   font-size: 14px;
 }
 
@@ -206,8 +206,7 @@ mark {
 
 button.paper {
   color: #bebebe;
-  font-size: 14px;
-  text-transform: uppercase;
+  font-size: 13px;
 }
 
 button.paper:hover {

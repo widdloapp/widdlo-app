@@ -20,7 +20,7 @@
 
 .zoom-img {
     overflow: hidden;
-    border-radius: 3px;
+    border-radius: var(--theme-props-border-radius);
     width: 250px;
     height: 150px;
 

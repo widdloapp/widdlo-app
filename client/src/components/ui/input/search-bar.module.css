@@ -1,7 +1,7 @@
 .search-bar {
     position: relative;
     background: #414141;
-    border-radius: 3px;
+    border-radius: var(--theme-props-border-radius);
     width: 500px;
     padding: 10px;
     border: none;

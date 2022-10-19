@@ -1,11 +1,13 @@
-import {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 
 import style from "./main-chat.module.css";
 import {api} from "../../../../../shared/utils/token/api.js";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import ChatInput from "../chat-input/chat-input";
 import RequiredAccountBar from "../../../main/account/required-account-bar/required-account-bar";
 import {AccountContext} from "../../../../../App.jsx";
+import ChannelPopup from "../../channel/channel-popup/channel-popup.jsx";
+import PopoverWrapper from "../../channel/sidebar/popover-wrapper/popover-wrapper.jsx";
 
 export default function MainChat() {
     let { chat } = useParams();
@@ -42,7 +44,7 @@ export default function MainChat() {
                         {
                             messages.map((message, key) =>
                                 <div className={style["message"]} key={key}>
-                                    <img className="undraggable unselectable" src={message.author.avatar} />
+                                    <PopoverWrapper trigger={<Link><img src={message.author.avatar} className="avatar unselectable undraggable" /></Link>} content={<ChannelPopup id={message.author.id} />} />
                                     <div>
                                         <p><mark>{message.author.name}</mark></p>
                                         <p>{message.body}</p>

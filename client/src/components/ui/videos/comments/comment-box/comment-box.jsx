@@ -9,6 +9,7 @@ import ChatInput from "../../../pages/chat/chat-input/chat-input";
 import {useToast} from "@chakra-ui/react";
 import PopoverWrapper from "../../../pages/channel/sidebar/popover-wrapper/popover-wrapper";
 import ChannelPopup from "../../../pages/channel/channel-popup/channel-popup";
+import {Link} from "react-router-dom";
 
 export default function CommentBox(props) {
 
@@ -72,8 +73,8 @@ export default function CommentBox(props) {
 
 
 
-                                <PopoverWrapper trigger={<img src={comment.author.avatar} className="avatar unselectable undraggable" />} content={<ChannelPopup id={comment.author.id} />} />
-                                <div>
+                                <PopoverWrapper trigger={<Link><img src={comment.author.avatar} className="avatar unselectable undraggable" /></Link>} content={<ChannelPopup id={comment.author.id} />} />
+                                <div className={style["content"]}>
                                     <p><mark>{comment.author.name}</mark> hace 1 día</p>
                                     <p>{comment.body}</p>
                                     <div className={style["button-wrapper"]}>

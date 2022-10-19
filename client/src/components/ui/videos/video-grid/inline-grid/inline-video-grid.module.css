@@ -12,7 +12,7 @@
 }
 
 .video-card > img {
-    border-radius: 3px;
+    border-radius: var(--theme-props-border-radius);
 }
 
 .video-card > .container {

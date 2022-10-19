@@ -2,15 +2,13 @@
     background: var(--theme-main-dark);
     right: 0;
     left: 0;
-    padding: 60px;
+
+    padding: 25px !important;
 
     display: grid;
     grid-template-columns: auto 1fr auto;
     grid-gap: 20px;
     align-items: center;
-
-    min-width: 800px;
-    overflow-x: scroll;
 }
 
 .header > img {
@@ -19,11 +17,11 @@
     object-fit: cover;
 }
 
-.content {
-    margin-top: 10px;
-}
-
 .container > img {
     width: 100px !important;
     height: 100px !important;
+}
+
+.container > * > p {
+    font-size: 18px;
 }
