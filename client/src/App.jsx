@@ -15,6 +15,8 @@ import {api} from "./shared/utils/token/api.js";
 import {createContext, useEffect, useState} from "react";
 import LiveChat from "./components/ui/pages/channel/stream/live-chat/live-chat";
 import {getStoredToken} from "./shared/utils/token/token.js";
+import StudioHeader from "./components/ui/main/account/studio/studio-header/studio-header";
+import VideoUpload from "./components/ui/main/account/studio/studio-header/pages/video-upload/video-upload";
 
 export const AccountContext = createContext();
 
@@ -43,6 +45,9 @@ function App() {
                         <Route path="/channel/:id" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChannel />} />} />
                         <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
                         <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<StreamView />} />} />
+                        <Route path="/studio/upload" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<StudioHeader
+                            title="Publicar vídeo" body="¡Estamos deseando ver tu maravilloso contenido por toda la plataforma!"
+                            content={<VideoUpload />} />} />} />
                         <Route path="*" element={<MainLayout content={<NotFound />} />} />
                     </Routes>
                 </AccountContext.Provider>

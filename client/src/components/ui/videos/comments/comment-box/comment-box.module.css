@@ -22,14 +22,8 @@
     margin-bottom: 20px;
 }
 
-.content {
-    margin-top: 20px;
-}
-
 .button-wrapper {
-    background: var(--theme-main-medium);
     width: min-content;
-    padding: 5px 15px;
     border-radius: 3px;
 
     display: grid;

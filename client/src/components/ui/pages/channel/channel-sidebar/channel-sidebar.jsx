@@ -24,10 +24,9 @@ export default function ChannelSidebar(props) {
                 <AccordionWrapper title="Inicio" content={
                     <Fragment>
                         <Link to={"/channel/" + id}><button className="section"><i className="fa-light fa-house" />Destacado</button></Link>
-                        <button className="section"><i className="fa-light fa-clock" />Reciente</button>
+                        <button className="section"><i className="fa-light fa-clock-two-thirty" />Reciente</button>
                         <button className="section"><i className="fa-light fa-arrow-rotate-left" />Antiguo</button>
-                        <button className="section"><i
-                            className="fa-light fa-arrow-trend-up" />Más visto</button>
+                        <button className="section"><i className="fa-light fa-arrow-trend-up" />Más visto</button>
                     </Fragment>
                 } />
                 <AccordionWrapper title="Chat" content={
@@ -35,7 +34,7 @@ export default function ChannelSidebar(props) {
                         {
                             data.chats.map((chat, key) =>
                                 <Link key={key} to={"/channel/" + id + "/" + chat.id}>
-                                    <button className="section uppercased"><i className="fa-thin fa-message" />{chat.name}</button>
+                                    <button className="section uppercased"><i className="fa-light fa-message" />{chat.name}</button>
                                 </Link>
                             )
                         }
@@ -43,7 +42,7 @@ export default function ChannelSidebar(props) {
                 } />
                 <AccordionWrapper title="Comunidad" content={
                     <Fragment>
-                        <button className="section"><i className="fa-light fa-book" />Publicaciones</button>
+                        <button className="section"><i className="fa-light fa-book-blank" />Publicaciones</button>
                     </Fragment>
                 } />
                 <AccordionWrapper title="Widdlo Studio" content={

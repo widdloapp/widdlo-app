@@ -233,8 +233,8 @@ mark.minor {
 
 .section {
   display: grid;
-  grid-template-columns: 15px 1fr;
-  grid-gap: 20px;
+  grid-template-columns: 20px 1fr;
+  grid-gap: 15px;
   align-items: center;
 }
 
