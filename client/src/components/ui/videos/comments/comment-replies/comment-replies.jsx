@@ -59,36 +59,33 @@ export default function CommentReplies(props) {
 
     if (loaded) {
         return (
-            <DrawerWrapper content={
-                <div className={style["comment-wrapper"]}>
-                    <div className={style["header"]}>
-                        <h1>{data.amount} comentarios</h1>
-                    </div>
-                    {account ? <ChatInput submit={postComment} value="Añade un comentario..." button="Comentar" /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
-                    <div className={style["content"]}>
-                        {
-                            data.comments.map((comment, key) =>
-                                <div key={key} className={style["comment-box"]}>
+            <div className={style["comment-wrapper"]}>
+                <div className={style["header"]}>
+                    <h1>{data.amount} comentarios</h1>
+                </div>
+                {account ? <ChatInput submit={postComment} value="Añade un comentario..." button="Comentar" /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
+                <div className={style["content"]}>
+                    {
+                        data.comments.map((comment, key) =>
+                            <div key={key} className={style["comment-box"]}>
 
 
 
 
 
-                                    <PopoverWrapper trigger={<Link><img src={comment.author.avatar} className="avatar unselectable undraggable" /></Link>} content={<ChannelPopup id={comment.author.id} />} />
-                                    <div className={style["content"]}>
-                                        <p><mark>{comment.author.name}</mark> hace 1 día</p>
-                                        <p>{comment.body}</p>
-                                        <div className={style["button-wrapper"]}>
-                                            <button className="paper">Responder</button>
-                                            <button className="paper">Reportar</button>
-                                        </div>
+                                <div className={style["content"]}>
+                                    <p><mark>{comment.author.name}</mark> hace 1 día</p>
+                                    <p>{comment.body}</p>
+                                    <div className={style["button-wrapper"]}>
+                                        <button className="paper">Responder</button>
+                                        <button className="paper">Reportar</button>
                                     </div>
                                 </div>
-                            )
-                        }
-                    </div>
+                            </div>
+                        )
+                    }
                 </div>
-            } />
+            </div>
         );
     }
 }

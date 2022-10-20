@@ -84,7 +84,7 @@ export default function CommentBox(props) {
                                         <button className="paper" onClick={onOpen}>Responder</button>
 
                                         <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
-                                            <DrawerWrapper content={<CommentReplies id={comment.author.id} />} />
+                                            <DrawerWrapper content={<CommentBox id={comment.author.id} />} />
                                         </Drawer>
 
                                         <button className="paper">Reportar</button>
