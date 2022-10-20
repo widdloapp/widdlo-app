@@ -28,9 +28,9 @@ export default function VideoUpload() {
                         <p>Consulta en este <a>artículo de nuestro blog</a> buenas prácticas a seguir para mejorar las estadísticas de tus vídeos.</p>
                     </div>
                     <div className="tip-box">
-                        <h1>Consigue mejores resultados</h1>
+                        <h1>Asegúrate de comuplicar la normativa</h1>
                         <hr className="spaced" />
-                        <p>Consulta en este <a>artículo de nuestro blog</a> buenas prácticas a seguir para mejorar las estadísticas de tus vídeos.</p>
+                        <p>Revisa las <a>Normativa de Comunidad</a> para asegurarte que cumples con las directrictes y evitar que tu contenido sea retirado.</p>
                     </div>
                 </div>
             } content={
