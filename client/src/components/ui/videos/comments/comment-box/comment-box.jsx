@@ -6,12 +6,13 @@ import style from "./comment-box.module.css";
 import RequiredAccountBar from "../../../main/account/required-account-bar/required-account-bar";
 import {AccountContext} from "../../../../../App.jsx";
 import ChatInput from "../../../pages/chat/chat-input/chat-input";
-import {useDisclosure, useToast} from "@chakra-ui/react";
+import {Drawer, Tab, TabList, TabPanel, TabPanels, Tabs, useDisclosure, useToast} from "@chakra-ui/react";
 import PopoverWrapper from "../../../pages/channel/sidebar/popover-wrapper/popover-wrapper";
 import ChannelPopup from "../../../pages/channel/channel-popup/channel-popup";
 import {Link} from "react-router-dom";
 import DrawerWrapper from "../../../main/account/drawer/drawer-wrapper";
 import CommentReplies from "../comment-replies/comment-replies";
+import Login from "../../../main/account/auth/forms/login.jsx";
 
 export default function CommentBox(props) {
 
@@ -76,13 +77,16 @@ export default function CommentBox(props) {
 
 
 
-                                <PopoverWrapper trigger={<Link><img src={comment.author.avatar} className="avatar unselectable undraggable" /></Link>} content={<ChannelPopup id={comment.author.id} />} />
                                 <div className={style["content"]}>
                                     <p><mark>{comment.author.name}</mark> hace 1 día</p>
                                     <p>{comment.body}</p>
                                     <div className={style["button-wrapper"]}>
                                         <button className="paper" onClick={onOpen}>Responder</button>
-                                        <DrawerWrapper isOpen={isOpen} content={<CommentReplies id={comment.author.id} />} />
+
+                                        <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
+                                            <DrawerWrapper content={<CommentReplies id={comment.author.id} />} />
+                                        </Drawer>
+
                                         <button className="paper">Reportar</button>
                                     </div>
                                 </div>
