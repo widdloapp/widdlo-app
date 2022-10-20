@@ -1,7 +1,6 @@
 import style from "./video-upload.module.css";
 import {api} from "../../../../../../../../shared/utils/token/api.js";
 import TipsSidebar from "../../../components/tips-sidebar/tips-sidebar";
-import {Fragment} from "react";
 
 export default function VideoUpload() {
 

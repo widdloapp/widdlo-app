@@ -12,7 +12,7 @@ export default function VideoPlayer(props) {
     const [video, setVideo] = useState([]);
 
     useEffect(() => {
-        api('GET', 'video/' + props.id).then(res => {
+        api('GET', `video/${props.id}`).then(res => {
             setVideo(res.video);
             setLoaded(true);
         })

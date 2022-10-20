@@ -21,7 +21,7 @@ export default function CommentBox(props) {
     const toast = useToast();
 
     useEffect(() => {
-        api('GET', 'comment/' + props.id).then(res => {
+        api('GET', `comment/${props.id}`).then(res => {
             setData(res);
             setLoaded(true);
         })

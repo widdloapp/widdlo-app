@@ -18,7 +18,7 @@ export default function MainChat() {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
-        api('GET', 'message/' + chat).then(res => {
+        api('GET', `message/${chat}`).then(res => {
             setMessages(res.messages);
             setLoaded(true);
         })

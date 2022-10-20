@@ -13,7 +13,7 @@ export default function MainChannel() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api('GET', 'channel/' + id).then(res => {
+        api('GET', `channel/${id}`).then(res => {
             setData(res.channel);
             setLoaded(true);
         })

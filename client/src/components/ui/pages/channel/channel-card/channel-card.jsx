@@ -5,7 +5,7 @@ export default function ChannelCard(props) {
 
     return (
         <div className={style["wrapper"]}>
-            <Link to={"/channel/" + props.channel.id}>
+            <Link to={`/channel/${props.channel.id}`}>
                 <img className="avatar unselectable undraggable" src={props.channel.avatar} />
             </Link>
             <div>
