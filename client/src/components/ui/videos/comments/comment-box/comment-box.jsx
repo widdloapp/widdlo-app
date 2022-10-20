@@ -17,7 +17,6 @@ export default function CommentBox(props) {
 
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState([]);
-    const [commentsData, setCommentsData] = useState({});
 
     const toast = useToast();
 

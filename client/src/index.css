@@ -216,7 +216,6 @@ input[type="submit"]:hover {
 textarea {
   font: inherit;
   background: none;
-  padding: 12px !important;
   width: 100%;
   border-bottom: 1px solid gray;
   color: white !important;

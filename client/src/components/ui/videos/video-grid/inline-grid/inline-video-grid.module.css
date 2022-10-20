@@ -8,7 +8,7 @@
     grid-gap: 10px;
     padding: 5px;
     border-radius: var(--theme-props-border-radius);
-    width: 400px;
+    width: 100%;
 }
 
 .video-card:hover {
