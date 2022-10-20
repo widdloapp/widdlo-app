@@ -311,4 +311,9 @@ a {
 
 .badge {
   text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.50);
+  width: min-content;
+  border-radius: 25px;
+  padding: 3px 15px;
+  font-size: 12px;
 }
