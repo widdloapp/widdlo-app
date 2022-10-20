@@ -291,8 +291,15 @@ button.important {
   background: var(--theme-schema-main);
   padding: 10px;
   border-radius: var(--theme-props-border-radius);
+  color: white;
 }
 
 a {
   color: var(--theme-schema-main) !important;
+}
+
+.tip-box {
+  background: var(--theme-main-dark);
+  padding: 20px;
+  border-radius: var(--theme-props-border-radius);
 }
