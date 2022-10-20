@@ -286,3 +286,9 @@ mark.minor {
 .section:hover {
   background: var(--theme-main-light);
 }
+
+button.important {
+  background: var(--theme-schema-main);
+  padding: 10px;
+  border-radius: var(--theme-props-border-radius);
+}

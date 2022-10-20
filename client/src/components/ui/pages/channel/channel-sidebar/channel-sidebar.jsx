@@ -45,14 +45,6 @@ export default function ChannelSidebar(props) {
                         <button className="section"><i className="fa-light fa-book-blank" />Publicaciones</button>
                     </Fragment>
                 } />
-                <AccordionWrapper title="Widdlo Studio" content={
-                    <Fragment>
-                        <button className="section"><i className="fa-light fa-video" /><p>Gestor de vídeos</p></button>
-                        <button className="section"><i className="fa-light fa-chart-simple" />Estadísticas</button>
-                        <button className="section"><i className="fa-light fa-signal-stream" />Emitir en directo</button>
-                        <button className="section"><i className="fa-light fa-gear" />Ajustes</button>
-                    </Fragment>
-                } />
             </div>
         );
     }

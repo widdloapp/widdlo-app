@@ -46,8 +46,8 @@ export default function Login() {
 
     return (
         <form className={style["wrapper"]} onSubmit={login}>
-            <input name="email" className="main" type="email" placeholder="Correo electrónico" />
-            <input name="password" className="main" type="password" placeholder="Contraseña" />
+            <input name="email" required={true} className="main" type="email" placeholder="Correo electrónico" />
+            <input name="password" required={true} className="main" type="password" placeholder="Contraseña" />
             <input type="submit" value="Iniciar sesión" className="main" />
         </form>
     )
