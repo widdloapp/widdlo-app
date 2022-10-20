@@ -308,3 +308,7 @@ a {
   display: grid;
   grid-gap: 10px;
 }
+
+.badge {
+  text-transform: uppercase;
+}

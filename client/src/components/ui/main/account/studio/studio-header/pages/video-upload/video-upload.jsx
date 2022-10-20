@@ -23,6 +23,7 @@ export default function VideoUpload() {
             <TipsSidebar sidebar={
                 <div className="tip-wrapper">
                     <div className="tip-box">
+                        <p className="badge">Destacado</p>
                         <h1>Consigue mejores resultados</h1>
                         <hr className="spaced" />
                         <p>Consulta en este <a>artículo de nuestro blog</a> buenas prácticas a seguir para mejorar las estadísticas de tus vídeos.</p>
