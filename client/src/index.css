@@ -292,3 +292,7 @@ button.important {
   padding: 10px;
   border-radius: var(--theme-props-border-radius);
 }
+
+a {
+  color: var(--theme-schema-main) !important;
+}
