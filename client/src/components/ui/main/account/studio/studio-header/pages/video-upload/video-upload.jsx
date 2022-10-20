@@ -21,7 +21,12 @@ export default function VideoUpload() {
     return (
         <div className={style["wrapper"]}>
             <TipsSidebar sidebar={
-                <div>
+                <div className="tip-wrapper">
+                    <div className="tip-box">
+                        <h1>Consigue mejores resultados</h1>
+                        <hr className="spaced" />
+                        <p>Consulta en este <a>artículo de nuestro blog</a> buenas prácticas a seguir para mejorar las estadísticas de tus vídeos.</p>
+                    </div>
                     <div className="tip-box">
                         <h1>Consigue mejores resultados</h1>
                         <hr className="spaced" />

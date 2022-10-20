@@ -303,3 +303,8 @@ a {
   padding: 20px;
   border-radius: var(--theme-props-border-radius);
 }
+
+.tip-wrapper {
+  display: grid;
+  grid-gap: 10px;
+}
