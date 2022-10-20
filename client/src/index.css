@@ -314,6 +314,7 @@ a {
 .tip-wrapper {
   display: grid;
   grid-gap: 10px;
+  height: min-content;
 }
 
 .badge {
@@ -323,4 +324,9 @@ a {
   border-radius: 25px;
   padding: 3px 15px;
   font-size: 12px;
+}
+
+.secondary {
+  padding: 0 10px;
+  color: white;
 }
