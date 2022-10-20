@@ -1,8 +1,9 @@
 import {
+    Drawer,
     DrawerBody,
     DrawerCloseButton,
     DrawerContent,
-    DrawerOverlay,
+    DrawerOverlay, PopoverTrigger,
 } from "@chakra-ui/react";
 import {Fragment} from "react";
 
@@ -12,14 +13,17 @@ export default function DrawerWrapper(props) {
 
     return (
         <Fragment>
-            <DrawerOverlay className={style["drawer-overlay"]} />
-            <DrawerContent className={style["drawer-content"]}>
-                <DrawerCloseButton className={style["drawer-close-button"]} />
+            {props.trigger}
+            <Drawer isOpen={props.isOpen}>
+                <DrawerOverlay className={style["drawer-overlay"]} />
+                <DrawerContent className={style["drawer-content"]}>
+                    <DrawerCloseButton className={style["drawer-close-button"]} />
 
-                <DrawerBody>
-                    {props.content}
-                </DrawerBody>
-            </DrawerContent>
+                    <DrawerBody>
+                        {props.content}
+                    </DrawerBody>
+                </DrawerContent>
+            </Drawer>
         </Fragment>
     )
 }

@@ -6,14 +6,18 @@ import style from "./comment-box.module.css";
 import RequiredAccountBar from "../../../main/account/required-account-bar/required-account-bar";
 import {AccountContext} from "../../../../../App.jsx";
 import ChatInput from "../../../pages/chat/chat-input/chat-input";
-import {useToast} from "@chakra-ui/react";
+import {useDisclosure, useToast} from "@chakra-ui/react";
 import PopoverWrapper from "../../../pages/channel/sidebar/popover-wrapper/popover-wrapper";
 import ChannelPopup from "../../../pages/channel/channel-popup/channel-popup";
 import {Link} from "react-router-dom";
+import DrawerWrapper from "../../../main/account/drawer/drawer-wrapper";
+import CommentReplies from "../comment-replies/comment-replies";
 
 export default function CommentBox(props) {
 
     const account = useContext(AccountContext).user;
+
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState([]);
@@ -77,7 +81,8 @@ export default function CommentBox(props) {
                                     <p><mark>{comment.author.name}</mark> hace 1 día</p>
                                     <p>{comment.body}</p>
                                     <div className={style["button-wrapper"]}>
-                                        <button className="paper">Responder</button>
+                                        <button className="paper" onClick={onOpen}>Responder</button>
+                                        <DrawerWrapper isOpen={isOpen} content={<CommentReplies id={comment.author.id} />} />
                                         <button className="paper">Reportar</button>
                                     </div>
                                 </div>

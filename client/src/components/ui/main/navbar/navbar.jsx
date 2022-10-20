@@ -22,7 +22,7 @@ export default function Navbar() {
                 <Tooltip label='Obtener aplicación' placement='bottom'>
                     <button className="main">App</button>
                 </Tooltip>
-                {account ? <AccountBar /> : <Auth/>}
+                {account ? <AccountBar /> : <Auth />}
             </div>
         </div>
     );
