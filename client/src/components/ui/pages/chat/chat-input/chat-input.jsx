@@ -17,7 +17,7 @@ export default function ChatInput(props) {
                     <p>200 caracteres máximo.</p>
                 </div>
                 <div>
-                    <input type="submit" value={props.button} className="main" />
+                    <input name="body" type="submit" value={props.button} className="main" />
                 </div>
             </div>
         </form>
