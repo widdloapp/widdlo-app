@@ -18,6 +18,7 @@ import {getStoredToken} from "./shared/utils/token/token.js";
 import StudioHeader from "./components/ui/main/account/studio/studio-header/studio-header";
 import VideoUpload from "./components/ui/main/account/studio/studio-header/pages/video-upload/video-upload";
 import VideoManager from "./components/ui/main/account/studio/studio-header/pages/video-manager/video-manager";
+import Loading from "./components/ui/general/skeleton/loading/loading";
 
 export const AccountContext = createContext();
 
@@ -55,6 +56,11 @@ function App() {
                 </AccountContext.Provider>
             </div>
         )
+    } else {
+        return (
+            <Loading />
+        );
+
     }
 }
 
