@@ -209,8 +209,15 @@ input[type="submit"] {
   transition: background-color .2s ease;
 }
 
+input[type="submit"] {
+  background: white;
+  color: black;
+
+  transition: background-color .2s ease;
+}
+
 input[type="submit"]:hover {
-  background: var(--theme-main-light);
+  background: lightgrey;
 }
 
 textarea {
@@ -224,6 +231,7 @@ textarea {
 }
 
 textarea.main {
+  padding: 10px;
   min-height: 150px;
 }
 

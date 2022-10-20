@@ -36,11 +36,10 @@ export default function VideoUpload() {
                 </div>
             } content={
                 <div>
-                    <p>¡Estamos deseando ver tu vídeo circulado por Widdlo!<br />Antes de nada, asegúrate que tu vídeo cumple con las <a href="https://google.es">Normas de la Comunidad</a>.</p>
                     <form className={style["wrapper"]} onSubmit={postVideo}>
                         <input required={true} name="title" className="main" type="text" placeholder="Título" />
                         <textarea name="description" className="main" placeholder="Descripción" />
-                        <input type="submit" value="Publicar" className="main" />
+                        <input type="submit" value="Publicar" className="important" />
                     </form>
                 </div>
             } />
