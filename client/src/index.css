@@ -180,7 +180,7 @@ input.main:focus {
   outline: solid var(--theme-schema-main) 1px;
 }*/
 
-input.main {
+input[type="text"], input[type="email"], [type="text"], input[type="password"].main {
   background: none;
   padding: 12px;
   width: 100%;
@@ -206,6 +206,10 @@ textarea {
   border-bottom: 1px solid gray;
   color: white !important;
   resize: none !important;
+  min-height: 40px;
+}
+
+textarea.main {
   min-height: 150px;
 }
 
