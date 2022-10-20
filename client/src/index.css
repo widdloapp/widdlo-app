@@ -198,6 +198,21 @@ input:focus {
   outline: none;
 }
 
+input[type="submit"] {
+  background: var(--theme-main-dark);
+  min-width: 150px;
+  padding: 10px;
+  color: white;
+  border-radius: var(--theme-props-border-radius);
+  cursor: pointer;
+
+  transition: background-color .2s ease;
+}
+
+input[type="submit"]:hover {
+  background: var(--theme-main-medium);
+}
+
 textarea {
   font: inherit;
   background: none;
