@@ -17,6 +17,7 @@ import LiveChat from "./components/ui/pages/channel/stream/live-chat/live-chat";
 import {getStoredToken} from "./shared/utils/token/token.js";
 import StudioHeader from "./components/ui/main/account/studio/studio-header/studio-header";
 import VideoUpload from "./components/ui/main/account/studio/studio-header/pages/video-upload/video-upload";
+import VideoManager from "./components/ui/main/account/studio/studio-header/pages/video-manager/video-manager";
 
 export const AccountContext = createContext();
 
@@ -45,9 +46,10 @@ function App() {
                         <Route path="/channel/:id" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChannel />} />} />
                         <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
                         <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<StreamView />} />} />
+                        <Route path="/studio/manage" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
+                            title="Gestionar vídeos" content={<VideoManager />} />} />} />
                         <Route path="/studio/upload" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
-                            title="Publicar vídeo" body="¡Estamos deseando ver tu maravilloso contenido por toda la plataforma!"
-                            content={<VideoUpload />} />} />} />
+                            title="Publicar vídeo" content={<VideoUpload />} />} />} />
                         <Route path="*" element={<MainLayout content={<NotFound />} />} />
                     </Routes>
                 </AccountContext.Provider>
