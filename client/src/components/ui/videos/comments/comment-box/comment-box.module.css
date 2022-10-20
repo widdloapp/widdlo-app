@@ -1,6 +1,6 @@
 .comment-box {
     padding: 10px;
-    border-radius: 3px;
+    border-radius: var(--theme-props-border-radius);
     margin: 12px 0;
 
     display: grid;
@@ -24,7 +24,6 @@
 
 .button-wrapper {
     width: min-content;
-    border-radius: 3px;
 
     display: grid;
     grid-gap: 20px;

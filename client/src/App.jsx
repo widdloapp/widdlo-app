@@ -45,7 +45,7 @@ function App() {
                         <Route path="/channel/:id" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChannel />} />} />
                         <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
                         <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<StreamView />} />} />
-                        <Route path="/studio/upload" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<StudioHeader
+                        <Route path="/studio/upload" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
                             title="Publicar vídeo" body="¡Estamos deseando ver tu maravilloso contenido por toda la plataforma!"
                             content={<VideoUpload />} />} />} />
                         <Route path="*" element={<MainLayout content={<NotFound />} />} />

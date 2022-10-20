@@ -7,10 +7,10 @@
 }
 
 .box {
-    border-radius: 3px;
+    border-radius: var(--theme-props-border-radius);
     background: var(--theme-main-dark);
     max-width: 550px;
-    padding: 20px;
+    padding: 40px;
     margin: 60px;
 }
 

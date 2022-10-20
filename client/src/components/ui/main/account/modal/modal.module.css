@@ -3,7 +3,7 @@
 }
 
 .modal-content {
-    border-radius: 3px !important;
+    border-radius: var(--theme-props-border-radius) !important;
     background: var(--theme-main-medium) !important;
 }
 

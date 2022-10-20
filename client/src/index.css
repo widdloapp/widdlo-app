@@ -164,7 +164,7 @@ hr.spaced {
   color: white;
 }
 
-input.main {
+/*input.main {
   background: var(--theme-btn-main);
   padding: 12px;
   width: 100%;
@@ -178,14 +178,42 @@ input.main {
 
 input.main:focus {
   outline: solid var(--theme-schema-main) 1px;
+}*/
+
+input.main {
+  background: none;
+  padding: 12px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 15px;
+  color: white;
 }
+
+input.main:after {
+  transition: border .2s ease-in-out;
+}
+
+input.main::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  border-bottom: 3px solid #fce38a;
+
+  transition: all 0.3s ease;
+}
+
+input.main:focus + input.main::after,
 
 ::placeholder {
   color: gray !important;
 }
 
-input[type='submit'] {
-  outline: 10px solid transparent;
+input:focus {
+  border-color: var(--theme-schema-main);
+  outline: none;
 }
 
 img.avatar {
