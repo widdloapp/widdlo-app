@@ -1,0 +1,41 @@
+.video-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 10px;
+
+    border-radius: var(--theme-props-border-radius);
+
+    background: none;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+}
+
+.img {
+    overflow: hidden;
+    border-radius: var(--theme-props-border-radius);
+    width: 150px;
+    height: 100px;
+
+    object-fit: cover;
+}
+
+.img > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.elements-wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto auto;
+    place-items: center;
+}
+
+button.element {
+    background: var(--theme-main-medium);
+    border-radius: 25px;
+    padding: 2px 20px;
+    color: white;
+}

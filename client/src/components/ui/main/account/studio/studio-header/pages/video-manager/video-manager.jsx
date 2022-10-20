@@ -1,7 +1,7 @@
 import style from "./video-manager.module.css";
 import {Link} from "react-router-dom";
-import InlineVideoGrid from "../../../../../../videos/video-grid/inline-grid/inline-video-grid";
 import TipsSidebar from "../../../components/tips-sidebar/tips-sidebar.jsx";
+import AdminGrid from "../../../../../../videos/video-grid/admin-grid/admin-grid";
 
 export default function VideoManager() {
 
@@ -23,7 +23,7 @@ export default function VideoManager() {
                 </div>
             } content={
                 <div>
-                    <InlineVideoGrid />
+                    <AdminGrid />
                 </div>
             } />
         </div>

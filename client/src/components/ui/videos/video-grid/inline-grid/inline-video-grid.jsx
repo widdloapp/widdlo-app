@@ -28,7 +28,7 @@ export default function InlineVideoGrid() {
                                 <div className={style["container"]}>
                                     <div className={style["wrapper"]}>
                                         <p>{video.title}</p>
-                                        <p>{video.views} views</p>
+                                        <p>{video.views} visualizaciones</p>
                                         <p>{video.channel.name}</p>
                                     </div>
                                 </div>
