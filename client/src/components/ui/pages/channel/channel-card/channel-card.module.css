@@ -4,7 +4,7 @@
     grid-gap: 10px;
 
     background: var(--theme-main-medium);
-    border-radius: 3px;
+    border-radius: var(--theme-props-border-radius);
     padding: 8px;
     align-items: center;
 }
