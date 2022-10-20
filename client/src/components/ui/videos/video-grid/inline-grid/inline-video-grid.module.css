@@ -1,9 +1,13 @@
+.wrapper {
+    margin-top: 10px;
+}
+
 .video-card {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-gap: 10px;
     padding: 5px;
-    border-radius: 3px;
+    border-radius: var(--theme-props-border-radius);
     width: 400px;
 }
 
