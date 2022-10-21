@@ -10,11 +10,11 @@ import {
     HttpStatus, Param, ParseFilePipeBuilder, Patch,
     Post,
     Query,
-    Res, Response, UploadedFile, UseInterceptors
+    Res, Response, UploadedFile, UploadedFiles, UseInterceptors
 } from "@nestjs/common";
 import {QueryDto} from "../dto/create/query.dto";
 import {UpdateVideoDto} from "../dto/update/update-video.dto";
-import {FileInterceptor} from "@nestjs/platform-express";
+import {FileFieldsInterceptor, FileInterceptor, FilesInterceptor} from "@nestjs/platform-express";
 import {FileUploadService} from "../file/file-upload.service";
 
 @Controller('video')
@@ -22,12 +22,17 @@ export class VideoController {
     constructor(private readonly videoService: VideoService, private readonly fileUploadService: FileUploadService) { }
 
     @Post()
-    @UseInterceptors(FileInterceptor('thumbnail'))
-    async createVideo(@UploadedFile(new ParseFilePipeBuilder().addFileTypeValidator(
-        {fileType: 'png'}
-    ).build({errorHttpStatusCode: 400})) file: Express.Multer.File, @Res() response, @Body() createVideoDto: CreateVideoDto) {
-        const thumbnail = await this.fileUploadService.uploadFile(file);
-        createVideoDto.thumbnail = thumbnail.Location;
+    @UseInterceptors(FileFieldsInterceptor([
+        { name: 'thumbnail', maxCount: 1 },
+        { name: 'source', maxCount: 1 },
+    ]))
+    async createVideo(@UploadedFiles() files: { thumbnail?: Express.Multer.File[], source?: Express.Multer.File[] },
+                      @Res() response, @Body() createVideoDto: CreateVideoDto) {
+        console.log(files.thumbnail[0])
+        const thumbnailSource = await this.fileUploadService.uploadFile(files.thumbnail[0]);
+        const videoSource = await this.fileUploadService.uploadFile(files.source[0]);
+        createVideoDto.thumbnail = thumbnailSource.Location;
+        createVideoDto.thumbnail = videoSource.Location;
 
         try {
             const video = await this.videoService.createVideo(createVideoDto);

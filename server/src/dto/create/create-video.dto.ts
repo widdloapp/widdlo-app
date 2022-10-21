@@ -19,4 +19,6 @@ export class CreateVideoDto {
     readonly channel: string;
 
     thumbnail: string;
+
+    source: string;
 }

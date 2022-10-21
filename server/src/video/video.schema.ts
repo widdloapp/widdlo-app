@@ -25,6 +25,9 @@ export class Video {
     @Prop()
     thumbnail: string;
 
+    @Prop()
+    source: string;
+
     @Prop({ default: false })
     deleted: boolean;
 }
