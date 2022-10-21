@@ -72,7 +72,7 @@ export default function CommentBox(props) {
 
 
                     <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
-                        <DrawerWrapper content={<CommentBox reply={true} id={comment} />} />
+                        <DrawerWrapper closeable={false} content={<CommentBox reply={true} id={comment} />} />
                     </Drawer>
                     {
                         data.comments.map((comment, key) =>

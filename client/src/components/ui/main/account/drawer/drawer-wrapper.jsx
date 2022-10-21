@@ -14,7 +14,7 @@ export default function DrawerWrapper(props) {
         <Fragment>
             <DrawerOverlay className={style["drawer-overlay"]} />
             <DrawerContent className={style["drawer-content"]}>
-                <DrawerCloseButton className={style["drawer-close-button"]} />
+                <DrawerCloseButton hidden={!props.closeable} className={style["drawer-close-button"]} />
 
                 <DrawerBody>
                     {props.content}
