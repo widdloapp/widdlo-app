@@ -5,6 +5,7 @@ import style from "./video-player.module.css";
 import {api} from "../../../../shared/utils/token/api.js";
 import ChannelCard from "../../pages/channel/channel-card/channel-card";
 import CommentBox from "../comments/comment-box/comment-box";
+import {useParams} from "react-router-dom";
 
 export default function VideoPlayer(props) {
 
@@ -16,7 +17,7 @@ export default function VideoPlayer(props) {
             setVideo(res.video);
             setLoaded(true);
         })
-    }, [props.id]);
+    }, []);
 
     const controls = ['play', 'progress', 'current-time', 'mute', 'volume', 'pip', 'airplay', 'fullscreen'];
     new Plyr('.video-player', { controls });

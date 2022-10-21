@@ -8,7 +8,6 @@ import {AccountContext} from "../../../../../App.jsx";
 import ChatInput from "../../../pages/chat/chat-input/chat-input";
 import {Drawer, useDisclosure, useToast} from "@chakra-ui/react";
 import DrawerWrapper from "../../../main/account/drawer/drawer-wrapper";
-import {CommentContext} from "../../video-view/video-view.jsx";
 import {Link, useParams} from "react-router-dom";
 export default function CommentBox(props) {
 
@@ -22,14 +21,18 @@ export default function CommentBox(props) {
 
     const toast = useToast();
 
+    const updateComment = () => {
+        if (!props.reply && comment) {
+            onOpen();
+        }
+    }
+
     useEffect(() => {
         api('GET', `comment/${props.id}`).then(res => {
             setData(res);
             setLoaded(true);
         })
-        if (!props.reply && comment) {
-            onOpen();
-        }
+        updateComment();
     }, [props.id]);
 
     const postComment = (event) => {
@@ -93,7 +96,7 @@ export default function CommentBox(props) {
                                     <p><mark>{comment.author.name}</mark> hace 1 día</p>
                                     <p>{comment.body}</p>
                                     <div className={style["button-wrapper"]}>
-                                        <Link to={`/watch/${id}/${comment.id}`}>
+                                        <Link onClick={updateComment} to={`/watch/${id}/${comment.id}`}>
                                             <button className="paper">Responder</button>
                                         </Link>
                                     </div>
