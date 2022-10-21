@@ -31,8 +31,8 @@ export class VideoController {
         const thumbnailSource = await this.fileUploadService.uploadFile(files.thumbnail[0]);
         const videoSource = await this.fileUploadService.uploadFile(files.source[0]);
 
-        createVideoDto.thumbnail = `http://cdn.widdlo.comt/${thumbnailSource.Key}`;
-        createVideoDto.source = `http://cdn.widdlo.com/${videoSource.Key}`;
+        createVideoDto.thumbnail = `${process.env.CDN_ENDPOINT}/${thumbnailSource.Key}`;
+        createVideoDto.source = `${process.env.CDN_ENDPOINT}/${videoSource.Key}`;
 
         try {
             const video = await this.videoService.createVideo(createVideoDto);

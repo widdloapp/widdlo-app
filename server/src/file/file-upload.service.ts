@@ -17,13 +17,13 @@ export class FileUploadService {
     constructor() {}
 
     async uploadFile(file) {
-        const fileName = file.originalname;
+        console.log(file)
 
 
         const uploadParams = {
             Bucket: "files",
             Body: file.buffer,
-            Key: uuidv4();
+            Key: `${await uuidv4()}.${file.mimetype.split('/')[1]}`,
         }
 
         const upload = await s3.upload(uploadParams).promise()
