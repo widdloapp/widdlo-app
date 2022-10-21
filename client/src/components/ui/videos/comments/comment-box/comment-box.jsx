@@ -8,15 +8,17 @@ import {AccountContext} from "../../../../../App.jsx";
 import ChatInput from "../../../pages/chat/chat-input/chat-input";
 import {Drawer, useDisclosure, useToast} from "@chakra-ui/react";
 import DrawerWrapper from "../../../main/account/drawer/drawer-wrapper";
+import CommentReplies from "../comment-replies/comment-replies";
+import {CommentContext} from "../../video-view/video-view.jsx";
 export default function CommentBox(props) {
 
     const account = useContext(AccountContext).user;
+    const comment = useContext(CommentContext);
 
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState('');
-    const [targetData, setTargetData] = useState(false);
 
     const toast = useToast();
 
@@ -25,6 +27,9 @@ export default function CommentBox(props) {
             setData(res);
             setLoaded(true);
         })
+        if (comment) {
+            onOpen();
+        }
     }, []);
 
     const postComment = (event) => {
@@ -65,8 +70,9 @@ export default function CommentBox(props) {
                 {account ? <ChatInput submit={postComment} value="Añade un comentario..." button="Comentar" /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
                 <div className={style["content"]}>
 
+
                     <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
-                        <DrawerWrapper content={<h1>{targetData}</h1>} />
+                        <DrawerWrapper content={<CommentReplies id={comment} />} />
                     </Drawer>
                     {
                         data.comments.map((comment, key) =>
@@ -80,10 +86,7 @@ export default function CommentBox(props) {
                                     <p><mark>{comment.author.name}</mark> hace 1 día</p>
                                     <p>{comment.body}</p>
                                     <div className={style["button-wrapper"]}>
-                                        <button className="paper" onClick={() => {
-                                            setTargetData(comment.id);
-                                            onOpen();
-                                        }}>Responder</button>
+                                        <button className="paper">Responder</button>
                                     </div>
                                 </div>
                             </div>

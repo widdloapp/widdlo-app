@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext, Fragment} from "react";
+import React, {useState, useEffect, useContext} from "react";
 
 import {api} from "../../../../../shared/utils/token/api.js";
 
@@ -6,18 +6,17 @@ import style from "./comment-replies.module.css";
 import RequiredAccountBar from "../../../main/account/required-account-bar/required-account-bar";
 import {AccountContext} from "../../../../../App.jsx";
 import ChatInput from "../../../pages/chat/chat-input/chat-input";
-import {Drawer, useToast} from "@chakra-ui/react";
-import PopoverWrapper from "../../../pages/channel/sidebar/popover-wrapper/popover-wrapper";
-import ChannelPopup from "../../../pages/channel/channel-popup/channel-popup";
-import {Link} from "react-router-dom";
-import DrawerWrapper from "../../../main/account/drawer/drawer-wrapper.jsx";
-
+import {Drawer, useDisclosure, useToast} from "@chakra-ui/react";
+import DrawerWrapper from "../../../main/account/drawer/drawer-wrapper";
 export default function CommentReplies(props) {
 
     const account = useContext(AccountContext).user;
 
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
     const [loaded, setLoaded] = useState(false);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState('');
+    const [targetData, setTargetData] = useState(false);
 
     const toast = useToast();
 
@@ -65,6 +64,10 @@ export default function CommentReplies(props) {
                 </div>
                 {account ? <ChatInput submit={postComment} value="Añade un comentario..." button="Comentar" /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
                 <div className={style["content"]}>
+
+                    <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
+                        <DrawerWrapper content={<CommentReplies id={targetData} />} />
+                    </Drawer>
                     {
                         data.comments.map((comment, key) =>
                             <div key={key} className={style["comment-box"]}>
@@ -77,8 +80,10 @@ export default function CommentReplies(props) {
                                     <p><mark>{comment.author.name}</mark> hace 1 día</p>
                                     <p>{comment.body}</p>
                                     <div className={style["button-wrapper"]}>
-                                        <button className="paper">Responder</button>
-                                        <button className="paper">Reportar</button>
+                                        <button className="paper" onClick={() => {
+                                            setTargetData(comment.id);
+                                            onOpen();
+                                        }}>Responder</button>
                                     </div>
                                 </div>
                             </div>

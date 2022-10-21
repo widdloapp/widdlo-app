@@ -44,6 +44,7 @@ function App() {
                         <Route path="/" element={<SidebarLayout navbar={<Navbar />} sidebar={<HomeSidebar />} content={<VideoGrid detailed={true} />} />} />
                         <Route path="/channel" element={<SidebarLayout />} />
                         <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
+                        <Route path="/watch/:id/:comment" element={<MainLayout content={<VideoView />} />} />
                         <Route path="/channel/:id" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChannel />} />} />
                         <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
                         <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<StreamView />} />} />
