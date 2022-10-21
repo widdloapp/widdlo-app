@@ -8,12 +8,12 @@ import {AccountContext} from "../../../../../App.jsx";
 import ChatInput from "../../../pages/chat/chat-input/chat-input";
 import {Drawer, useDisclosure, useToast} from "@chakra-ui/react";
 import DrawerWrapper from "../../../main/account/drawer/drawer-wrapper";
-import CommentReplies from "../comment-replies/comment-replies";
 import {CommentContext} from "../../video-view/video-view.jsx";
+import {Link, useParams} from "react-router-dom";
 export default function CommentBox(props) {
 
     const account = useContext(AccountContext).user;
-    const comment = useContext(CommentContext);
+    const { id, comment } = useParams();
 
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -27,7 +27,7 @@ export default function CommentBox(props) {
             setData(res);
             setLoaded(true);
         })
-        if (comment) {
+        if (!props.reply && comment) {
             onOpen();
         }
     }, []);
@@ -72,7 +72,7 @@ export default function CommentBox(props) {
 
 
                     <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
-                        <DrawerWrapper content={<CommentReplies id={comment} />} />
+                        <DrawerWrapper content={<CommentBox reply={true} id={comment} />} />
                     </Drawer>
                     {
                         data.comments.map((comment, key) =>
@@ -86,7 +86,9 @@ export default function CommentBox(props) {
                                     <p><mark>{comment.author.name}</mark> hace 1 día</p>
                                     <p>{comment.body}</p>
                                     <div className={style["button-wrapper"]}>
-                                        <button className="paper">Responder</button>
+                                        <Link to={`/watch/${id}/${comment.id}`}>
+                                            <button className="paper">Responder</button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
