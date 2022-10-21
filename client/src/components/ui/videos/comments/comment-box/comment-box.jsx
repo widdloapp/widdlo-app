@@ -30,7 +30,7 @@ export default function CommentBox(props) {
         if (!props.reply && comment) {
             onOpen();
         }
-    }, []);
+    }, [props.id]);
 
     const postComment = (event) => {
         event.preventDefault();

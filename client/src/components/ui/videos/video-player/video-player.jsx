@@ -16,7 +16,7 @@ export default function VideoPlayer(props) {
             setVideo(res.video);
             setLoaded(true);
         })
-    }, []);
+    }, [props.id]);
 
     const controls = ['play', 'progress', 'current-time', 'mute', 'volume', 'pip', 'airplay', 'fullscreen'];
     new Plyr('.video-player', { controls });
