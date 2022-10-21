@@ -17,9 +17,6 @@ export class FileUploadService {
     constructor() {}
 
     async uploadFile(file) {
-        console.log(file)
-
-
         const uploadParams = {
             Bucket: "files",
             Body: file.buffer,
