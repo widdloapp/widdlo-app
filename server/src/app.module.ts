@@ -37,11 +37,15 @@ import {PlaylistVideo, PlaylistVideoSchema} from "./playlist/video-playlist.sche
 import {PlaylistSchema} from "./playlist/playlist.schema";
 import {BadgeSchema} from "./badge/badge.schema";
 import {UserBadgeSchema} from "./badge/user-badge.schema";
+import {FileUploadService} from "./file/file-upload.service";
+import {FileUploadController} from "./file/file-upload.controller";
+import {FileUploadModule} from "./file/file-upload.module";
 
 require('dotenv').config()
 
 @Module({
   imports: [MongooseModule.forRoot(process.env.MONGO_URI),
+      FileUploadModule,
     MongooseModule.forFeature(
         [
             { name: 'Video', schema: VideoSchema },
@@ -59,9 +63,9 @@ require('dotenv').config()
             { name: 'UserBadge', schema: UserBadgeSchema }
         ])],
   controllers: [AppController, VideoController, UserController, LikeController, ChannelController, CommentController, StreamController, ChatController,
-  MessageController, FollowController, PlaylistController],
+  MessageController, FollowController, PlaylistController, FileUploadController],
   providers: [AppService, VideoService, UserService, LikeService, ChannelService, CommentService, StreamService, ChatService,
-  MessageService, FollowService, PlaylistService]
+  MessageService, FollowService, PlaylistService, FileUploadService]
 })
 export class AppModule implements NestModule {
   configure(middlewareConsumer: MiddlewareConsumer) {

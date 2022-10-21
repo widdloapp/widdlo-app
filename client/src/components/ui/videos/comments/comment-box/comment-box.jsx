@@ -96,7 +96,7 @@ export default function CommentBox(props) {
                                     <p><mark>{comment.author.name}</mark> hace 1 día</p>
                                     <p>{comment.body}</p>
                                     <div className={style["button-wrapper"]}>
-                                        <Link onClick={updateComment} to={`/watch/${id}/${comment.id}`}>
+                                        <Link to={`/watch/${id}/${comment.id}`} onClick={updateComment}>
                                             <button className="paper">Responder</button>
                                         </Link>
                                     </div>
