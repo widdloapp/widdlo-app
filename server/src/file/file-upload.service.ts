@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import * as AWS from 'aws-sdk';
-const fs = require("fs");
 
 const s3 = new AWS.S3({
     endpoint: 'https://gateway.storjshare.io/widdlo',

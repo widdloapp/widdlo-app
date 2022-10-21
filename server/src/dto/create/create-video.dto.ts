@@ -17,4 +17,6 @@ export class CreateVideoDto {
 
     @IsNotEmpty()
     readonly channel: string;
+
+    thumbnail: string;
 }

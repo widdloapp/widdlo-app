@@ -7,7 +7,7 @@ import {
     Body,
     Controller, Delete,
     Get,
-    HttpStatus, Param, Patch,
+    HttpStatus, Param, ParseFilePipeBuilder, Patch,
     Post,
     Query,
     Res, Response, UploadedFile, UseInterceptors
@@ -23,9 +23,11 @@ export class VideoController {
 
     @Post()
     @UseInterceptors(FileInterceptor('thumbnail'))
-    async createVideo(@UploadedFile() file: Express.Multer.File, @Res() response, @Body() createVideoDto: CreateVideoDto) {
-        console.log(file);
-        await this.fileUploadService.uploadFile(file);
+    async createVideo(@UploadedFile(new ParseFilePipeBuilder().addFileTypeValidator(
+        {fileType: 'png'}
+    ).build({errorHttpStatusCode: 400})) file: Express.Multer.File, @Res() response, @Body() createVideoDto: CreateVideoDto) {
+        const thumbnail = await this.fileUploadService.uploadFile(file);
+        createVideoDto.thumbnail = thumbnail.Location;
 
         try {
             const video = await this.videoService.createVideo(createVideoDto);

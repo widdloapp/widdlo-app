@@ -3,6 +3,7 @@ import {User} from "../user/user.schema";
 import mongoose from "mongoose";
 import {Like} from "../like/like.schema";
 import {Channel} from "../channel/channel.schema";
+import {MaxFileSizeValidator} from "@nestjs/common";
 
 @Schema({toJSON: {virtuals: true, versionKey: false, transform: function (doc, ret) { delete ret._id }} })
 export class Video {
@@ -20,6 +21,9 @@ export class Video {
 
     @Prop({ default: false })
     hidden: boolean;
+
+    @Prop()
+    thumbnail: string;
 
     @Prop({ default: false })
     deleted: boolean;
