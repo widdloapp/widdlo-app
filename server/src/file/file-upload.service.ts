@@ -3,12 +3,12 @@ import * as AWS from 'aws-sdk';
 const fs = require("fs");
 
 const s3 = new AWS.S3({
-    endpoint: 'https://gateway.storjshare.io',
+    endpoint: 'https://gateway.storjshare.io/widdlo',
     s3BucketEndpoint: true,
-    accessKeyId: "jw3oi6lrsnetskiy5tm2tyyv4idq",
-    secretAccessKey: "jzldnmkbglsfypl77vcb2mo43oxgldan7v4sewhuzouoqnygsu6jy",
+    accessKeyId: "jvegb3jzi64x5q2nyl3bcmvjxm4a",
+    secretAccessKey: "jz2ehakwpd5qxu52qmetauzb7pxrr3qdwa2yvoamqr6cyuhutqakq",
     apiVersion: '2006-03-01',
-    params: {Bucket: "files"}
+    params: {Bucket: "widdlo"}
 });
 
 @Injectable()
@@ -22,7 +22,7 @@ export class FileUploadService {
         const uploadParams = {
             Bucket: "files",
             Body: file.buffer,
-            Key: `files/tmp/${fileName}`
+            Key: `${fileName}`
         }
 
         const upload = await s3.upload(uploadParams).promise()
