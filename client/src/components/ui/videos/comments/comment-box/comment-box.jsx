@@ -6,14 +6,8 @@ import style from "./comment-box.module.css";
 import RequiredAccountBar from "../../../main/account/required-account-bar/required-account-bar";
 import {AccountContext} from "../../../../../App.jsx";
 import ChatInput from "../../../pages/chat/chat-input/chat-input";
-import {Drawer, Tab, TabList, TabPanel, TabPanels, Tabs, useDisclosure, useToast} from "@chakra-ui/react";
-import PopoverWrapper from "../../../pages/channel/sidebar/popover-wrapper/popover-wrapper";
-import ChannelPopup from "../../../pages/channel/channel-popup/channel-popup";
-import {Link} from "react-router-dom";
+import {Drawer, useDisclosure, useToast} from "@chakra-ui/react";
 import DrawerWrapper from "../../../main/account/drawer/drawer-wrapper";
-import CommentReplies from "../comment-replies/comment-replies";
-import Login from "../../../main/account/auth/forms/login.jsx";
-
 export default function CommentBox(props) {
 
     const account = useContext(AccountContext).user;
@@ -21,7 +15,8 @@ export default function CommentBox(props) {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const [loaded, setLoaded] = useState(false);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState('');
+    const [targetData, setTargetData] = useState(false);
 
     const toast = useToast();
 
@@ -71,7 +66,7 @@ export default function CommentBox(props) {
                 <div className={style["content"]}>
 
                     <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
-                        <DrawerWrapper content={<h1>a</h1>} />
+                        <DrawerWrapper content={<h1>{targetData}</h1>} />
                     </Drawer>
                     {
                         data.comments.map((comment, key) =>
@@ -85,7 +80,10 @@ export default function CommentBox(props) {
                                     <p><mark>{comment.author.name}</mark> hace 1 día</p>
                                     <p>{comment.body}</p>
                                     <div className={style["button-wrapper"]}>
-                                        <button className="paper" onClick={onOpen}>Responder</button>
+                                        <button className="paper" onClick={() => {
+                                            setTargetData(comment.id);
+                                            onOpen();
+                                        }}>Responder</button>
                                     </div>
                                 </div>
                             </div>
