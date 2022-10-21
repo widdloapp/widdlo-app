@@ -5,12 +5,14 @@ import style from "./video-player.module.css";
 import {api} from "../../../../shared/utils/token/api.js";
 import ChannelCard from "../../pages/channel/channel-card/channel-card";
 import CommentBox from "../comments/comment-box/comment-box";
-import {useParams} from "react-router-dom";
 
 export default function VideoPlayer(props) {
 
     const [loaded, setLoaded] = useState(false);
     const [video, setVideo] = useState([]);
+
+    const controls = ['play', 'progress', 'current-time', 'mute', 'volume', 'pip', 'airplay', 'fullscreen'];
+    new Plyr('.video-player', { controls });
 
     useEffect(() => {
         api('GET', `video/${props.id}`).then(res => {
@@ -18,9 +20,6 @@ export default function VideoPlayer(props) {
             setLoaded(true);
         })
     }, []);
-
-    const controls = ['play', 'progress', 'current-time', 'mute', 'volume', 'pip', 'airplay', 'fullscreen'];
-    new Plyr('.video-player', { controls });
 
     if (loaded) {
         return (

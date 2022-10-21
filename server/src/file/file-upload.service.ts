@@ -4,11 +4,12 @@ import * as AWS from 'aws-sdk';
 import { v4 as uuidv4 } from 'uuid';
 
 const s3 = new AWS.S3({
-    endpoint: `${process.env.S3_ENDPOINT}/${process.env.S3_BUCKET_NAME}`,
+    endpoint: 'https://gateway.storjshare.io/widdlo',
     s3BucketEndpoint: true,
-    accessKeyId: process.env.S3_ACCESS_SECRET_KEY,
-    secretAccessKey: process.env.S3_ACCESS_SECRET_KEY,
-    params: {Bucket: process.env.S3_BUCKET_NAME}
+    accessKeyId: "jvegb3jzi64x5q2nyl3bcmvjxm4a",
+    secretAccessKey: "jz2ehakwpd5qxu52qmetauzb7pxrr3qdwa2yvoamqr6cyuhutqakq",
+    apiVersion: '2006-03-01',
+    params: {Bucket: "widdlo"}
 });
 
 @Injectable()
