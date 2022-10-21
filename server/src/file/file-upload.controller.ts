@@ -5,13 +5,11 @@ import {FileUploadService} from "./file-upload.service";
 export class FileUploadController {
     constructor(private readonly fileUploadService: FileUploadService) {}
     @Post()
-    async create(@Req() request, @Res() response) {
+    async create(file) {
         try {
-            await this.fileUploadService.fileupload(request, response);
+            await this.fileUploadService.uploadFile(file);
         } catch (error) {
-            return response
-                .status(500)
-                .json(`Failed to upload image file: ${error.message}`);
+            return error;
         }
     }
 }

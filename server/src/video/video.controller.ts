@@ -10,7 +10,6 @@ import {
     HttpStatus, Param, Patch,
     Post,
     Query,
-    Req,
     Res, Response, UploadedFile, UseInterceptors
 } from "@nestjs/common";
 import {QueryDto} from "../dto/create/query.dto";
@@ -24,8 +23,9 @@ export class VideoController {
 
     @Post()
     @UseInterceptors(FileInterceptor('thumbnail'))
-    async createVideo(@UploadedFile() file: Express.Multer.File, @Req() req, @Res() response, @Body() createVideoDto: CreateVideoDto) {
-        await this.fileUploadService.fileupload(req, response);
+    async createVideo(@UploadedFile() file: Express.Multer.File, @Res() response, @Body() createVideoDto: CreateVideoDto) {
+        console.log(file);
+        await this.fileUploadService.uploadFile(file);
 
         try {
             const video = await this.videoService.createVideo(createVideoDto);
