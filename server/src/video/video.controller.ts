@@ -10,16 +10,18 @@ import {
     HttpStatus, Param, Patch,
     Post,
     Query,
-    Res, Response
+    Res, Response, UseInterceptors
 } from "@nestjs/common";
 import {QueryDto} from "../dto/create/query.dto";
 import {UpdateVideoDto} from "../dto/update/update-video.dto";
+import {FileInterceptor} from "@nestjs/platform-express";
 
 @Controller('video')
 export class VideoController {
     constructor(private readonly videoService: VideoService) { }
 
     @Post()
+    @UseInterceptors(FileInterceptor('thumbnail'))
     async createVideo(@Res() response, @Body() createVideoDto: CreateVideoDto) {
 
         try {
