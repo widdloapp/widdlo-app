@@ -69,6 +69,10 @@ export default function CommentBox(props) {
                 </div>
                 {account ? <ChatInput submit={postComment} value="Añade un comentario..." button="Comentar" /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
                 <div className={style["content"]}>
+
+                    <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
+                        <DrawerWrapper content={<h1>a</h1>} />
+                    </Drawer>
                     {
                         data.comments.map((comment, key) =>
                             <div key={key} className={style["comment-box"]}>
@@ -82,12 +86,6 @@ export default function CommentBox(props) {
                                     <p>{comment.body}</p>
                                     <div className={style["button-wrapper"]}>
                                         <button className="paper" onClick={onOpen}>Responder</button>
-
-                                        <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
-                                            <DrawerWrapper content={<CommentBox id={comment.author.id} />} />
-                                        </Drawer>
-
-                                        <button className="paper">Reportar</button>
                                     </div>
                                 </div>
                             </div>
