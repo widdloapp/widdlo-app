@@ -1,5 +1,7 @@
-import {Injectable, ParseFilePipeBuilder} from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import * as AWS from 'aws-sdk';
+
+import { v4 as uuidv4 } from 'uuid';
 
 const s3 = new AWS.S3({
     endpoint: 'https://gateway.storjshare.io/widdlo',
@@ -21,16 +23,10 @@ export class FileUploadService {
         const uploadParams = {
             Bucket: "files",
             Body: file.buffer,
-            Key: `${fileName}`
+            Key: uuidv4();
         }
 
         const upload = await s3.upload(uploadParams).promise()
         return upload;
-    }
-
-    async validateImage(file) {
-        new ParseFilePipeBuilder().addFileTypeValidator(
-            {fileType: /\.(jpg|jpeg|png)$/}).addMaxSizeValidator({ maxSize: 2000 })
-            .build({errorHttpStatusCode: 400});
     }
 }

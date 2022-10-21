@@ -14,7 +14,7 @@ import {
 } from "@nestjs/common";
 import {QueryDto} from "../dto/create/query.dto";
 import {UpdateVideoDto} from "../dto/update/update-video.dto";
-import {FileFieldsInterceptor, FileInterceptor, FilesInterceptor} from "@nestjs/platform-express";
+import {FileFieldsInterceptor} from "@nestjs/platform-express";
 import {FileUploadService} from "../file/file-upload.service";
 
 @Controller('video')
@@ -28,11 +28,11 @@ export class VideoController {
     ]))
     async createVideo(@UploadedFiles() files: { thumbnail?: Express.Multer.File[], source?: Express.Multer.File[] },
                       @Res() response, @Body() createVideoDto: CreateVideoDto) {
-        console.log(files.thumbnail[0])
         const thumbnailSource = await this.fileUploadService.uploadFile(files.thumbnail[0]);
         const videoSource = await this.fileUploadService.uploadFile(files.source[0]);
-        createVideoDto.thumbnail = thumbnailSource.Location;
-        createVideoDto.thumbnail = videoSource.Location;
+
+        createVideoDto.thumbnail = `http://cdn.widdlo.comt/${thumbnailSource.Key}`;
+        createVideoDto.source = `http://cdn.widdlo.com/${videoSource.Key}`;
 
         try {
             const video = await this.videoService.createVideo(createVideoDto);
