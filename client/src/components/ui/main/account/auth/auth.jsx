@@ -20,8 +20,8 @@ export default function Auth() {
         <Fragment>
             <button className="main" onClick={onOpen}>Inicia sesión o regístrate</button>
 
-            <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
-                <DrawerWrapper content={
+            <Drawer isOpen={isOpen} placement='right' onClose={onClose} >
+                <DrawerWrapper closeable={true} content={
                     <Tabs>
                         <TabList className={style["tab-list"]}>
                             <Tab className={style["tab"]}>Inciar sesión</Tab>

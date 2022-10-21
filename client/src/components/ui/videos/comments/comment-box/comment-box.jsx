@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useState, useEffect, useContext, Fragment} from "react";
 
 import {api} from "../../../../../shared/utils/token/api.js";
 
@@ -72,7 +72,14 @@ export default function CommentBox(props) {
 
 
                     <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
-                        <DrawerWrapper closeable={false} content={<CommentBox reply={true} id={comment} />} />
+                        <DrawerWrapper content={
+                            <Fragment>
+                                <Link to={`/watch/${id}`}>
+                                    <p>Volver</p>
+                                </Link>
+                                <CommentBox reply={true} id={comment} closeable={false} />
+                            </Fragment>
+                        } />
                     </Drawer>
                     {
                         data.comments.map((comment, key) =>
