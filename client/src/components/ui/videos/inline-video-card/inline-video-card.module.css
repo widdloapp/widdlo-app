@@ -1,0 +1,25 @@
+.video-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 10px;
+    padding: 5px;
+    border-radius: var(--theme-props-border-radius);
+    width: 100%;
+}
+
+.video-card:hover {
+    background: var(--theme-main-dark);
+}
+
+.video-card > img {
+    object-fit: cover;
+    width: 170px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: var(--theme-props-border-radius);
+}
+
+.video-card > .container {
+    display: flex;
+    align-items: center;
+}

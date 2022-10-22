@@ -19,7 +19,7 @@ export default function VideoPlayer(props) {
             setVideo(res.video);
             setLoaded(true);
         })
-    }, []);
+    }, [props.id]);
 
     if (loaded) {
         return (

@@ -35,7 +35,7 @@ export default function FeaturedWrapper(props) {
                     }
 
 
-                    
+
                 </div>
             </div>
         );
