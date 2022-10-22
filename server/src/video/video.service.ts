@@ -17,8 +17,16 @@ export class VideoService {
     }
 
     async getVideoFeed(videoFeedDto: VideoFeedDto, queryDto: QueryDto): Promise<Video[]> {
-        const videos = await this.videoModel.find({hidden: false, deleted: false}).select(['title', 'description', 'views', 'likes', 'thumbnail', 'source'])
+        const query = this.videoModel.find({hidden: false, deleted: false}).select(['title', 'description', 'views', 'likes', 'thumbnail', 'source'])
             .populate({path: 'channel', select: ['name', 'avatar'], populate: {path: 'followers'}}).populate('likes').limit(30).skip(queryDto.page * 30);
+
+        const sortType = 'latest';
+        switch (sortType) {
+            case 'latest': query.sort({views: -1})
+        }
+
+        const videos = await query;
+
         if (!videos || videos.length == 0) {
             throw new NotFoundException("No videos found.");
         }

@@ -10,7 +10,7 @@ import {
     HttpStatus, Param, Patch,
     Post,
     Query,
-    Res, Response, UploadedFile, UploadedFiles, UseInterceptors
+    Res, Response, UploadedFiles, UseInterceptors
 } from "@nestjs/common";
 import {QueryDto} from "../dto/create/query.dto";
 import {UpdateVideoDto} from "../dto/update/update-video.dto";
