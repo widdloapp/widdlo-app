@@ -129,6 +129,10 @@ button.icon > i {
   color: white;
 }
 
+i {
+  color: var(--theme-schema-main);
+}
+
 :-webkit-any-link {
   text-decoration: none;
 }

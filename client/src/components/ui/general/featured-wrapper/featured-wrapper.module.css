@@ -1,10 +1,35 @@
 .wrapper {
+    background: var(--theme-main-dark);
+    margin: 20px;
+    border-radius: var(--theme-props-border-radius);
+}
+
+.header {
+    margin: 15px;
+}
+
+.text-wrapper {
+    display: grid;
+    grid-template-columns: min-content auto 1fr;
+    grid-gap: 15px;
+    place-items: center;
+}
+
+.text-wrapper > i {
+    font-size: 20px;
+}
+
+.text-wrapper > p {
+    width: 100%;
+    text-align: left;
+}
+
+.scroller {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+}
 
-    background: var(--theme-main-dark);
-    padding: 5px;
-    margin: 20px;
-    border-radius: var(--theme-props-border-radius);
+.scroller > * {
+    display: inline-block;
 }

@@ -19,14 +19,24 @@ export default function FeaturedWrapper(props) {
     if (loaded) {
         return (
             <div className={style["wrapper"]}>
-                <h1>Destacado este semana</h1>
-                {
-                    videos.map((video, key) =>
-                        <Fragment key={key}>
-                            <VideoCard video={video} />
-                        </Fragment>
-                    )
-                }
+                <div className={style["header"]}>
+                    <div className={style["text-wrapper"]}>
+                        <i className="fa-solid fa-sparkles"></i>
+                        <h1>Destacado esta semana</h1>
+                    </div>
+                </div>
+                <div className={style["scroller"]}>
+                    {
+                        videos.map((video, key) =>
+                            <Fragment key={key}>
+                                <VideoCard video={video} />
+                            </Fragment>
+                        )
+                    }
+
+
+                    
+                </div>
             </div>
         );
     }
