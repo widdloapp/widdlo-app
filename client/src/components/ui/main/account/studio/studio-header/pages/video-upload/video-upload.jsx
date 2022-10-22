@@ -8,9 +8,11 @@ export default function VideoUpload() {
     const postVideo = (event) => {
         event.preventDefault();
 
-        const body = new URLSearchParams();
+        const body = new FormData();
         body.append("title", event.target[0].value);
         body.append("description", event.target[1].value);
+        body.append("thumbnail", event.target[2].files[0]);
+        body.append("source", event.target[3].files[0]);
         body.append("channel", "634c76b0b957c861d4741f28");
         api('POST', 'video', body).then(res => {
 
@@ -39,6 +41,7 @@ export default function VideoUpload() {
                     <form className={style["wrapper"]} onSubmit={postVideo}>
                         <input required={true} name="title" className="main" type="text" placeholder="Título" />
                         <textarea name="description" className="main" placeholder="Descripción" />
+                        <FileUpload />
                         <FileUpload />
                         <input type="submit" value="Publicar" className="important" />
                     </form>
