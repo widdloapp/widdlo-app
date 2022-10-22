@@ -1,8 +1,8 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, Fragment} from "react";
 
 import style from "./featured-wrapper.module.css";
-import {Link} from "react-router-dom";
 import {api} from "../../../../shared/utils/token/api.js";
+import VideoCard from "../../videos/video-card/video-card";
 
 export default function FeaturedWrapper(props) {
 
@@ -19,23 +19,12 @@ export default function FeaturedWrapper(props) {
     if (loaded) {
         return (
             <div className={style["wrapper"]}>
+                <h1>Destacado este semana</h1>
                 {
                     videos.map((video, key) =>
-                        <Link key={key} to={`/watch/${video.id}`}>
-                            <div className={style["video-card"]}>
-                                <div className={style["zoom-img"]}>
-                                    <img className="undraggable" src={video.thumbnail} />
-                                </div>
-                                <div className={style["box"]}>
-                                    <p>{video.title}</p>
-                                    <p>{video.views} visualizaciones</p>
-                                    <div hidden={!props.detailed}>
-                                        <p>{video.channel.name}</p>
-                                        <p>{video.channel.followers} seguidores</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
+                        <Fragment key={key}>
+                            <VideoCard video={video} />
+                        </Fragment>
                     )
                 }
             </div>

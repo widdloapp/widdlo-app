@@ -1,7 +1,10 @@
 .wrapper {
-    margin: 10px;
-
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
+
+    background: var(--theme-main-dark);
+    padding: 5px;
+    margin: 20px;
+    border-radius: var(--theme-props-border-radius);
 }

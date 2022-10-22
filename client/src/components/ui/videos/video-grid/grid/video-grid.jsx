@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, Fragment} from "react";
 
 import style from "./video-grid.module.css";
 import {api} from "../../../../../shared/utils/token/api.js";
@@ -21,9 +21,9 @@ export default function VideoGrid(props) {
             <div className={style["wrapper"]}>
                 {
                     videos.map((video, key) =>
-                        <div key={key}>
+                        <Fragment key={key}>
                             <VideoCard video={video} />
-                        </div>
+                        </Fragment>
                     )
                 }
             </div>
