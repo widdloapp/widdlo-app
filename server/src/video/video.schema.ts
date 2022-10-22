@@ -30,6 +30,9 @@ export class Video {
 
     @Prop({ default: false })
     deleted: boolean;
+
+    @Prop({ default: Date.now() })
+    date: Date;
 }
 
 const VideoSchema = SchemaFactory.createForClass(Video);
