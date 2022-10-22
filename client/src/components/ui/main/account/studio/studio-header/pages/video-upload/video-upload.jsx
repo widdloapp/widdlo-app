@@ -1,6 +1,7 @@
 import style from "./video-upload.module.css";
 import {api} from "../../../../../../../../shared/utils/token/api.js";
 import TipsSidebar from "../../../components/tips-sidebar/tips-sidebar";
+import FileUpload from "../../../../../../general/file-upload/file-upload";
 
 export default function VideoUpload() {
 
@@ -38,6 +39,7 @@ export default function VideoUpload() {
                     <form className={style["wrapper"]} onSubmit={postVideo}>
                         <input required={true} name="title" className="main" type="text" placeholder="Título" />
                         <textarea name="description" className="main" placeholder="Descripción" />
+                        <FileUpload />
                         <input type="submit" value="Publicar" className="important" />
                     </form>
                 </div>

@@ -1,0 +1,15 @@
+.uploader {
+    background: var(--theme-main-medium);
+    height: 100px;
+    width: 100%;
+    border-radius: var(--theme-props-border-radius);
+}
+
+.uploader::file-selector-button {
+    background: none;
+    border: none;
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
