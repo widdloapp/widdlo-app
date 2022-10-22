@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 
 import style from "./video-grid.module.css";
 import {api} from "../../../../../shared/utils/token/api.js";
-import {Link} from "react-router-dom";
+import VideoCard from "../../video-card/video-card";
 
 export default function VideoGrid(props) {
 
@@ -21,21 +21,9 @@ export default function VideoGrid(props) {
             <div className={style["wrapper"]}>
                 {
                     videos.map((video, key) =>
-                        <Link key={key} to={`/watch/${video.id}`}>
-                            <div className={style["video-card"]}>
-                                <div className={style["zoom-img"]}>
-                                    <img className="undraggable" src={video.thumbnail} />
-                                </div>
-                                <div className={style["box"]}>
-                                    <p>{video.title}</p>
-                                    <p>{video.views} visualizaciones</p>
-                                    <div hidden={!props.detailed}>
-                                        <p>{video.channel.name}</p>
-                                        <p>{video.channel.followers} seguidores</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
+                        <div key={key}>
+                            <VideoCard video={video} />
+                        </div>
                     )
                 }
             </div>

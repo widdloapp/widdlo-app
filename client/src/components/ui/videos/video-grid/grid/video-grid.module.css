@@ -2,38 +2,3 @@
     margin: 10px;
     text-align: center;
 }
-
-.video-card {
-    display: inline-block;
-
-    padding: 8px;
-    border-radius: 3px;
-
-    background: none;
-    text-align: left;
-    border: none;
-    cursor: pointer;
-}
-
-.video-card:hover {
-    background: var(--theme-main-dark);
-}
-
-.zoom-img {
-    overflow: hidden;
-    border-radius: var(--theme-props-border-radius);
-    width: 250px;
-    height: 150px;
-}
-
-.zoom-img > img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-
-    transition: transform .3s ease;
-}
-
-.zoom-img > img:hover {
-    transform: scale(1.1);
-}

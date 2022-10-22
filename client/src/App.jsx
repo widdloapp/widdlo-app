@@ -19,6 +19,7 @@ import StudioHeader from "./components/ui/main/account/studio/studio-header/stud
 import VideoUpload from "./components/ui/main/account/studio/studio-header/pages/video-upload/video-upload";
 import VideoManager from "./components/ui/main/account/studio/studio-header/pages/video-manager/video-manager";
 import Loading from "./components/ui/general/skeleton/loading/loading";
+import Home from "./components/ui/pages/home/home.jsx";
 
 export const AccountContext = createContext();
 
@@ -41,7 +42,7 @@ function App() {
             <div className="App">
                 <AccountContext.Provider value={data}>
                     <Routes>
-                        <Route path="/" element={<SidebarLayout navbar={<Navbar />} sidebar={<HomeSidebar />} content={<VideoGrid detailed={true} />} />} />
+                        <Route path="/" element={<SidebarLayout navbar={<Navbar />} sidebar={<HomeSidebar />} content={<Home />} />} />
                         <Route path="/channel" element={<SidebarLayout />} />
                         <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
                         <Route path="/watch/:id/:comment" element={<MainLayout content={<VideoView />} />} />
