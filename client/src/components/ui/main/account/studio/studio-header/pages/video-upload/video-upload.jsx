@@ -56,7 +56,9 @@ export default function VideoUpload() {
                     <form className={style["wrapper"]} onSubmit={postVideo}>
                         <input required={true} name="title" className="main" type="text" placeholder="Título" />
                         <textarea name="description" className="main" placeholder="Descripción" />
+                        <p>Miniatura</p>
                         <FileUpload />
+                        <p>Archivo de vídeo</p>
                         <FileUpload />
                         <input type="submit" value="Publicar" className="important" />
                     </form>
