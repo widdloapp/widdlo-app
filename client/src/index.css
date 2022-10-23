@@ -361,3 +361,7 @@ a {
   padding: 0 10px;
   color: white;
 }
+
+.video-player {
+  aspect-ratio: 16 / 9;
+}

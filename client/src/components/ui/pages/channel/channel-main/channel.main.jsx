@@ -18,7 +18,7 @@ export default function ChannelMain() {
             setData(res.channel);
             setLoaded(true);
         })
-    }, []);
+    }, [id]);
 
     return (
         <div className={style["header"]}>
