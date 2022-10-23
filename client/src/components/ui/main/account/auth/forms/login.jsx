@@ -2,10 +2,12 @@ import style from "./login.module.css";
 import {useToast} from "@chakra-ui/react";
 import {api} from "../../../../../../shared/utils/token/api.js";
 import {storeToken} from "../../../../../../shared/utils/token/token.js";
+import {useNavigate} from "react-router-dom";
 
 export default function Login() {
 
-    const toast = useToast()
+    const toast = useToast();
+    const navigate = useNavigate();
 
     const login = (event) => {
         event.preventDefault();
@@ -16,8 +18,10 @@ export default function Login() {
         api('POST', 'user/login', body).then(res => {
             if (res.token) {
                 storeToken(res.token);
+                //navigate('/', { token: res.token });
+                location.reload();
 
-                toast({
+                /*toast({
                     title: 'Correcto',
                     description: "Has iniciado sesión correctamente.",
                     status: 'success',
@@ -39,7 +43,7 @@ export default function Login() {
                     status: 'error',
                     position: 'bottom-right',
                     isClosable: true
-                })
+                })*/
             }
         })
     }

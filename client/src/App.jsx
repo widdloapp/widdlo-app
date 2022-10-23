@@ -35,7 +35,7 @@ function App() {
                 }
                 setLoaded(true);
             })
-    });
+    }, []);
 
     if (loaded) {
         return (
