@@ -9,6 +9,7 @@ import ChatInput from "../../../pages/chat/chat-input/chat-input";
 import {Drawer, useDisclosure, useToast} from "@chakra-ui/react";
 import DrawerWrapper from "../../../main/account/drawer/drawer-wrapper";
 import {Link, useParams} from "react-router-dom";
+import CommentDrawer from "../comment-drawer/comment-drawer";
 export default function CommentBox(props) {
 
     const account = useContext(AccountContext).user;
@@ -79,14 +80,7 @@ export default function CommentBox(props) {
 
 
                     <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
-                        <DrawerWrapper content={
-                            <Fragment>
-                                <Link to={`/watch/${id}`}>
-                                    <p>Volver</p>
-                                </Link>
-                                <CommentBox reply={true} id={comment} closeable={false} />
-                            </Fragment>
-                        } />
+                        <CommentDrawer id={id} comment={comment} />
                     </Drawer>
                     {
                         data.comments.map((comment, key) =>
