@@ -11,6 +11,10 @@ export default function FollowButton(props) {
     const [date, setDate] = useState('');
 
     useEffect(() => {
+        update();
+    }, []);
+
+    const update = () => {
         if (account) {
             api('GET', `follow/check?${new URLSearchParams({channel: props.channel})}`).then(res => {
                 if (res.follow) {
@@ -20,12 +24,27 @@ export default function FollowButton(props) {
                 setLoaded(true);
             })
         }
-    }, []);
+    }
+
+    const body = new URLSearchParams();
+    body.append("channel", props.channel);
+
+    const follow = () => {
+        api('POST', `follow`, body).then(res => {
+            setFollowing(true);
+        })
+    }
+
+    const unfollow = () => {
+        api('DELETE', `follow`, body).then(res => {
+            setFollowing(false);
+        })
+    }
 
     if (loaded) {
         return (
             <Fragment>
-                {following ? <button className="main">Dejar de seguir</button> : <button className="main">Seguir</button>}
+                {following ? <button className="main" onClick={unfollow}>Dejar de seguir</button> : <button className="main" onClick={follow}>Seguir</button>}
             </Fragment>
         );
     }
