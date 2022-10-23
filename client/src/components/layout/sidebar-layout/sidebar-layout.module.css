@@ -19,3 +19,27 @@ header.header {
     grid-row: 2;
     grid-column: 3;
 }
+
+.sidebar-left {
+    background: var(--theme-main-dark);
+}
+
+.sidebar {
+    padding: 5px;
+    background: var(--theme-main-medium);
+}
+
+@media screen and (max-width: 1300px) {
+    .sidebar {
+        visibility: hidden;
+    }
+    .sidebar-left {
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .grid {
+        grid-template-columns: 0 0 1fr;
+    }
+}
