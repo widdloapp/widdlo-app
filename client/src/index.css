@@ -189,6 +189,10 @@ input.main:focus {
   outline: solid var(--theme-schema-main) 1px;
 }*/
 
+input {
+  -webkit-appearance: none;
+}
+
 input[type="text"], input[type="email"], [type="text"], input[type="password"].main {
   background: none;
   padding: 12px;

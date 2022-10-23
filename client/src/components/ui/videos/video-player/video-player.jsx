@@ -12,7 +12,7 @@ export default function VideoPlayer(props) {
     const [video, setVideo] = useState([]);
 
     const controls = ['play', 'progress', 'current-time', 'mute', 'volume', 'pip', 'airplay', 'fullscreen'];
-    new Plyr('.video-player', { controls });
+    plyr.setup('.video-player', { controls });
 
     useEffect(() => {
         api('GET', `video/${props.id}`).then(res => {

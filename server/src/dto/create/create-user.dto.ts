@@ -5,18 +5,18 @@ const bcrypt = require('bcrypt');
 
 export class CreateUserDto {
     @IsString()
-    @MaxLength(30)
+    @MaxLength(80)
     @IsNotEmpty()
     readonly name: string;
 
     @IsString()
-    @MaxLength(30)
+    @MaxLength(80)
     @IsNotEmpty()
     @IsLowercase()
     readonly username: string;
 
     @IsEmail()
-    @MaxLength(30)
+    @MaxLength(80)
     @IsNotEmpty()
     readonly email: string;
 
