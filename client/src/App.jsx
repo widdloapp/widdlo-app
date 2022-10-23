@@ -18,6 +18,7 @@ import VideoManager from "./components/ui/main/account/studio/studio-header/page
 import Loading from "./components/ui/general/skeleton/loading/loading";
 import HomeDiscovery from "./components/ui/pages/home/home-discovery/home-discovery";
 import ChannelView from "./components/ui/pages/channel/channel-view/channel-view";
+import AccountRequired from "./components/ui/general/error/account-required/account-required";
 
 export const AccountContext = createContext();
 
@@ -36,34 +37,40 @@ function App() {
     }, []);
 
     if (loaded) {
-        return (
-            <div className="App">
-                <AccountContext.Provider value={data}>
-                    <Routes>
-                        <Route path="/" element={<HomeDiscovery order='featured' />} />
-                        <Route path="/feed/latest" element={<HomeDiscovery order='latest' />} />
-                        <Route path="/feed/older" element={<HomeDiscovery order='older' />} />
-                        <Route path="/feed/popular" element={<HomeDiscovery order='popular' />} />
+        if (data) {
+            return (
+                <div className="App">
+                    {
+                        data.user ?
+                            <AccountContext.Provider value={data}>
+                                <Routes>
+                                    <Route path="/" element={<HomeDiscovery order='featured' />} />
+                                    <Route path="/feed/latest" element={<HomeDiscovery order='latest' />} />
+                                    <Route path="/feed/older" element={<HomeDiscovery order='older' />} />
+                                    <Route path="/feed/popular" element={<HomeDiscovery order='popular' />} />
 
-                        <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
-                        <Route path="/watch/:id/:comment" element={<MainLayout content={<VideoView />} />} />
+                                    <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
+                                    <Route path="/watch/:id/:comment" element={<MainLayout content={<VideoView />} />} />
 
-                        <Route path="/channel/:id" element={<ChannelView />} />
-                        <Route path="/channel/:id/feed/latest" element={<ChannelView order='latest' />} />
-                        <Route path="/channel/:id/feed/older" element={<ChannelView order='older' />} />
-                        <Route path="/channel/:id/feed/popular" element={<ChannelView order='popular' />} />
+                                    <Route path="/channel/:id" element={<ChannelView />} />
+                                    <Route path="/channel/:id/feed/latest" element={<ChannelView order='latest' />} />
+                                    <Route path="/channel/:id/feed/older" element={<ChannelView order='older' />} />
+                                    <Route path="/channel/:id/feed/popular" element={<ChannelView order='popular' />} />
 
-                        <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
-                        <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<StreamView />} />} />
-                        <Route path="/studio/manage" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
-                            title="Gestionar vídeos" content={<VideoManager />} />} />} />
-                        <Route path="/studio/upload" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
-                            title="Publicar vídeo" content={<VideoUpload />} />} />} />
-                        <Route path="*" element={<MainLayout content={<NotFound />} />} />
-                    </Routes>
-                </AccountContext.Provider>
-            </div>
-        )
+                                    <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
+                                    <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<StreamView />} />} />
+                                    <Route path="/studio/manage" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
+                                        title="Gestionar vídeos" content={<VideoManager />} />} />} />
+                                    <Route path="/studio/upload" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
+                                        title="Publicar vídeo" content={<VideoUpload />} />} />} />
+                                    <Route path="*" element={<MainLayout content={<NotFound />} />} />
+                                </Routes>
+                            </AccountContext.Provider>
+                            : <AccountRequired />
+                    }
+                </div>
+            )
+        }
     } else {
         return (
             <Loading />

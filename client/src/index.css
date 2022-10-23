@@ -24,6 +24,8 @@
 .App {
   min-width: 500px;
   overflow-x: hidden;
+
+  background: var(--theme-main-medium);
 }
 
 html, body, .App, #root {
