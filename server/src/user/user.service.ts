@@ -1,4 +1,4 @@
-import {HttpStatus, Injectable, Param} from '@nestjs/common';
+import {ForbiddenException, HttpStatus, Injectable, Param} from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {User} from "./user.schema";
@@ -17,9 +17,14 @@ export class UserService {
     async login(loginRequestDto: LoginRequestDto) {
         const user = await this.userModel.findOne({email: loginRequestDto.email});
 
+        if (user.verified != true) {
+            throw new ForbiddenException("Account must be verified to be used.");
+        }
+
         if (!user || !await bcrypt.compare(loginRequestDto.password, user.password)) {
             throw new HttpException('Invalid credentials.', HttpStatus.UNAUTHORIZED);
         }
+        
         return await this.createToken(user._id.toString());
     }
 

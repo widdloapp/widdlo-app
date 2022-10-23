@@ -4,7 +4,7 @@ import style from "./main-chat.module.css";
 import {api} from "../../../../../shared/utils/token/api.js";
 import {Link, useParams} from "react-router-dom";
 import ChatInput from "../chat-input/chat-input";
-import RequiredAccountBar from "../../../main/account/required-account-bar/required-account-bar";
+import RequiredAccountBar from "../../../general/error/required-account-bar/required-account-bar";
 import {AccountContext} from "../../../../../App.jsx";
 import ChannelPopup from "../../channel/channel-popup/channel-popup.jsx";
 import PopoverWrapper from "../../channel/sidebar/popover-wrapper/popover-wrapper.jsx";

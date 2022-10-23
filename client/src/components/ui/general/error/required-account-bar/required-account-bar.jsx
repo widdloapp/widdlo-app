@@ -1,5 +1,5 @@
 import style from "./required-account-bar.module.css";
-import Auth from "../auth/auth.jsx";
+import Auth from "../../../main/account/auth/auth.jsx";
 
 export default function RequiredAccountBar(props) {
 

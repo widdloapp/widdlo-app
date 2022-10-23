@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import RequiredAccountBar from "../../../../main/account/required-account-bar/required-account-bar";
+import RequiredAccountBar from "../../../../general/error/required-account-bar/required-account-bar";
 
 import style from "./live-chat.module.css";
 

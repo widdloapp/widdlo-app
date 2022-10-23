@@ -43,7 +43,7 @@ export default function Register() {
             <input name="username" required={true} className="main" type="text" placeholder="Nombre de usuario" />
             <input name="email" required={true} className="main" type="email" placeholder="Correo electrónico" />
             <input name="password" required={true} className="main" type="password" placeholder="Contraseña" />
-            <input type="submit" value="Iniciar sesión" className="main" />
+            <input type="submit" value="Continuar" className="main" />
         </form>
     )
 }

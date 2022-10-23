@@ -3,7 +3,7 @@ import React, {useState, useEffect, useContext} from "react";
 import {api} from "../../../../../shared/utils/token/api.js";
 
 import style from "./comment-box.module.css";
-import RequiredAccountBar from "../../../main/account/required-account-bar/required-account-bar";
+import RequiredAccountBar from "../../../general/error/required-account-bar/required-account-bar";
 import {AccountContext} from "../../../../../App.jsx";
 import ChatInput from "../../../pages/chat/chat-input/chat-input";
 import {useToast} from "@chakra-ui/react";

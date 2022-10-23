@@ -2,7 +2,17 @@ import {UserService} from "./user.service";
 import {CreateUserDto} from "../dto/create/create-user.dto";
 import {LoginRequestDto} from "../dto/create/login-request.dto";
 import {UserInfoDto} from "../dto/get/user-info.dto";
-import {Body, Controller, Get, HttpStatus, NotFoundException, Param, Post, Res} from "@nestjs/common";
+import {
+    Body,
+    Controller,
+    ForbiddenException,
+    Get,
+    HttpStatus,
+    NotFoundException,
+    Param,
+    Post,
+    Res
+} from "@nestjs/common";
 
 @Controller('user')
 export class UserController {
@@ -21,6 +31,8 @@ export class UserController {
     async registerAccount(@Res() response, @Body() createUserDto: CreateUserDto) {
         const user = await this.userService.createUser(createUserDto);
         const token = await this.userService.createToken(user._id.toString());
+
+        throw new ForbiddenException("Account must be verified to be used.");
 
         return response.status(HttpStatus.CREATED).json({
             message: 'Registered successfully.', token
