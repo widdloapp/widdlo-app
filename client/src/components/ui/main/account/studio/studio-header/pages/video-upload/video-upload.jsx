@@ -20,11 +20,9 @@ export default function VideoUpload() {
         body.append("source", event.target[3].files[0]);
         body.append("channel", "634c76b0b957c861d4741f28");
         api('POST', 'video', body).then(res => {
-            switch (res.statusCode) {
-                case 200:
+                try {
                     navigate(`/watch/${res.video.id}`);
-                    break;
-                default:
+                } catch (error) {
                     toast({
                         title: 'Error',
                         description: "No se ha podido completar el proceso.",
@@ -32,7 +30,7 @@ export default function VideoUpload() {
                         position: 'bottom-right',
                         isClosable: true
                     });
-            }
+                }
         }
         )
     };
