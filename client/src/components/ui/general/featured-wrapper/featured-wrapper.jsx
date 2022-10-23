@@ -22,7 +22,7 @@ export default function FeaturedWrapper(props) {
                 <div className={style["header"]}>
                     <div className={style["text-wrapper"]}>
                         <i className="fa-solid fa-sparkles"></i>
-                        <h1>Destacado esta semana</h1>
+                        <h1>{props.label}</h1>
                     </div>
                 </div>
                 <div className={style["scroller"]}>

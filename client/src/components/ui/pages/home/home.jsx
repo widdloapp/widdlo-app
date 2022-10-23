@@ -7,7 +7,8 @@ export default function Home() {
 
     return (
         <div className={style["container"]}>
-            <FeaturedWrapper />
+            <FeaturedWrapper label="Destacado esta semana" />
+            <FeaturedWrapper label="No deberías perderte" />
             <VideoGrid detailed={true} />
         </div>
     );

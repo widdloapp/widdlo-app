@@ -7,7 +7,7 @@ export default function VideoCard(props) {
         <Link to={`/watch/${props.video.id}`}>
             <div className={style["video-card"]}>
                 <div className={style["zoom-img"]}>
-                    <img className="undraggable" src={props.video.thumbnail} />
+                    <img className="undraggable unselectable" src={props.video.thumbnail} />
                 </div>
                 <div className={style["box"]}>
                     <p>{props.video.title}</p>

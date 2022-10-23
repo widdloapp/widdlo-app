@@ -23,10 +23,10 @@ export default function ChannelSidebar(props) {
             <div className={style["wrapper"]}>
                 <AccordionWrapper title="Inicio" content={
                     <Fragment>
-                        <Link to={"/channel/" + id}><button className="section"><i className="fa-light fa-house" />Destacado</button></Link>
-                        <button className="section"><i className="fa-light fa-clock-two-thirty" />Reciente</button>
-                        <button className="section"><i className="fa-light fa-arrow-rotate-left" />Antiguo</button>
-                        <button className="section"><i className="fa-light fa-arrow-trend-up" />Más visto</button>
+                        <Link to={`/channel/${id}`}><button className="section"><i className="fa-light fa-house" />Destacado</button></Link>
+                        <Link to={`/channel/${id}/feed/latest`}><button className="section"><i className="fa-light fa-clock-two-thirty" />Reciente</button></Link>
+                        <Link to={`/channel/${id}/feed/older`}><button className="section"><i className="fa-light fa-arrow-rotate-left" />Antiguo</button></Link>
+                        <Link to={`/channel/${id}/feed/popular`}><button className="section"><i className="fa-light fa-arrow-trend-up" />Más visto</button></Link>
                     </Fragment>
                 } />
                 <AccordionWrapper title="Chat" content={
