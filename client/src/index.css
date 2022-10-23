@@ -318,6 +318,11 @@ button.fill:hover {
   background: lightgrey;
 }
 
+button.large {
+  min-width: 140px;
+  text-align: center;
+}
+
 a {
   color: var(--theme-schema-main) !important;
 }
