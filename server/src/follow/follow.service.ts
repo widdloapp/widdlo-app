@@ -35,4 +35,13 @@ export class FollowService {
 
         return follow;
     }
+    async getUserFollow(getFollowDto: GetFollowDto) {
+        const follow = await this.followModel.findOne({user: getFollowDto.user, channel: getFollowDto.channel}).select(["channel", "date"]);
+
+        if (!follow) {
+            throw new NotFoundException("No follow found.");
+        }
+
+        return follow;
+    }
 }

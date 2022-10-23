@@ -1,11 +1,11 @@
-import style from "./main-channel.module.css";
+import style from "./channel-main.module.css";
 import VideoGrid from "../../../videos/video-grid/grid/video-grid.jsx";
 import StreamButton from "../stream/stream-button/stream-button";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {api} from "../../../../../shared/utils/token/api.js";
 
-export default function MainChannel() {
+export default function ChannelMain() {
 
     const { id } = useParams();
 

@@ -28,6 +28,17 @@ export class FollowController {
         });
     }
 
+    @Get("check")
+    async getUserFollow(@Res() response, @Query() getFollowDto: GetFollowDto) {
+        getFollowDto.user = response.locals.user;
+
+        const follow = await this.followService.getUserFollow(getFollowDto);
+
+        return response.status(HttpStatus.OK).json({
+            message: 'Successfully retrieved follow.', follow
+        });
+    }
+
     @Get(":id")
     async getFollow(@Res() response, @Param() userInfoDto: UserInfoDto, @Query() getFollowDto: GetFollowDto) {
         const follow = await this.followService.getFollow(userInfoDto, getFollowDto);
