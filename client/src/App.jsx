@@ -43,9 +43,9 @@ function App() {
                 <AccountContext.Provider value={data}>
                     <Routes>
                         <Route path="/" element={<HomeDiscovery order='featured' />} />
-                        <Route path="/latest" element={<HomeDiscovery order='latest' />} />
-                        <Route path="/older" element={<HomeDiscovery order='older' />} />
-                        <Route path="/popular" element={<HomeDiscovery order='popular' />} />
+                        <Route path="/feed/latest" element={<HomeDiscovery order='latest' />} />
+                        <Route path="/feed/older" element={<HomeDiscovery order='older' />} />
+                        <Route path="/feed/popular" element={<HomeDiscovery order='popular' />} />
                         <Route path="/channel" element={<SidebarLayout />} />
                         <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
                         <Route path="/watch/:id/:comment" element={<MainLayout content={<VideoView />} />} />
