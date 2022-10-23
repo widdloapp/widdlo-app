@@ -6,8 +6,8 @@ headers.append("authorization", getStoredToken() ? 'Bearer ' + getStoredToken() 
 
 const defaults = {
     endpoints: {
-        api: "http://localhost:443/api/v1/",
-        streams: "http://localhost:8888/"
+        api: 'https://api.widdlo.com',
+        streams: 'https://api.widdlo.com'
     }
 }
 
