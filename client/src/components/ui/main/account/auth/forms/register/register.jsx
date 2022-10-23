@@ -13,22 +13,17 @@ export default function Register() {
         event.preventDefault();
 
         const body = new URLSearchParams();
-        body.append("email", event.target[0].value);
-        body.append("password", event.target[1].value);
-        api('POST', 'user/login', body).then(res => {
+        body.append("name", event.target[0].value);
+        body.append("username", event.target[1].value);
+        body.append("email", event.target[2].value);
+        body.append("password", event.target[3].value);
+
+        api('POST', 'user/register', body).then(res => {
             if (res.token) {
                 storeToken(res.token);
                 //navigate('/', { token: res.token });
 
                 location.reload();
-            } else if (res.statusCode == 401) {
-                toast({
-                    title: 'Credenciales inválidas',
-                    description: "Revisa los datos e inténtalo de nuevo.",
-                    status: 'error',
-                    position: 'bottom-right',
-                    isClosable: true
-                })
             } else {
                 toast({
                     title: 'Error',
@@ -44,6 +39,8 @@ export default function Register() {
     return (
         <form className={style["wrapper"]} onSubmit={login}>
             <h1>Comencemos</h1>
+            <input name="name" required={true} className="main" type="text" placeholder="Nombre completo" />
+            <input name="username" required={true} className="main" type="text" placeholder="Nombre de usuario" />
             <input name="email" required={true} className="main" type="email" placeholder="Correo electrónico" />
             <input name="password" required={true} className="main" type="password" placeholder="Contraseña" />
             <input type="submit" value="Iniciar sesión" className="main" />

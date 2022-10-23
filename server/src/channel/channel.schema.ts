@@ -22,6 +22,9 @@ export class Channel {
     @Prop()
     description: string;
 
+    @Prop()
+    avatar: string;
+
     _id: string;
 }
 

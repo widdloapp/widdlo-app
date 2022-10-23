@@ -31,11 +31,7 @@ export default function CommentList(props) {
                 {props.data.comments.length > 0 ?
                     props.data.comments.map((comment, key) =>
                         <div key={key} className={style["comment-box"]}>
-
-
-
-
-
+                            <img className="avatar" src={comment.author.avatar} />
                             <div className={style["content"]}>
                                 <p><mark>{comment.author.name}</mark> hace 1 día</p>
                                 <p>{comment.body}</p>
