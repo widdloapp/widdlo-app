@@ -19,15 +19,8 @@ export default function Login() {
             if (res.token) {
                 storeToken(res.token);
                 //navigate('/', { token: res.token });
-                location.reload();
 
-                /*toast({
-                    title: 'Correcto',
-                    description: "Has iniciado sesión correctamente.",
-                    status: 'success',
-                    position: 'bottom-right',
-                    isClosable: true
-                })
+                location.reload();
             } else if (res.statusCode == 401) {
                 toast({
                     title: 'Credenciales inválidas',
@@ -43,7 +36,7 @@ export default function Login() {
                     status: 'error',
                     position: 'bottom-right',
                     isClosable: true
-                })*/
+                })
             }
         })
     }
