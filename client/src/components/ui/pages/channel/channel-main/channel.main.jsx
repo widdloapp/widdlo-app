@@ -4,6 +4,7 @@ import StreamButton from "../stream/stream-button/stream-button";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {api} from "../../../../../shared/utils/token/api.js";
+import FollowButton from "../components/follow-button/follow-button";
 
 export default function ChannelMain() {
 
@@ -30,7 +31,7 @@ export default function ChannelMain() {
                 </div>
                 <div className={style["buttons-wrapper"]}>
                     <StreamButton id={id} />
-                    <button className="main">Seguir</button>
+                    <FollowButton channel={id} />
                     <button className="main">Apoyar</button>
                     <button className="main">Reportar</button>
                 </div>

@@ -1,11 +1,9 @@
 import SidebarLayout from "./components/layout/sidebar-layout/sidebar-layout.jsx";
 import {Route, Routes} from "react-router-dom";
 import MainLayout from "./components/layout/main-layout/main-layout.jsx";
-import Navbar from "./components/ui/main/navbar/navbar.jsx";
 import HomeSidebar from "./components/ui/pages/home/sidebar/home-sidebar.jsx";
 import VideoView from "./components/ui/videos/video-view/video-view";
 import NotFound from "./components/ui/general/error/not-found/not-found";
-import MainChannel from "./components/ui/pages/channel/main/main-channel.jsx";
 import StreamLayout from "./components/layout/stream-layout/stream-layout";
 import StreamView from "./components/ui/pages/channel/stream/stream-view/stream-view";
 import ChannelSidebar from "./components/ui/pages/channel/channel-sidebar/channel-sidebar.jsx";
@@ -18,7 +16,6 @@ import StudioHeader from "./components/ui/main/account/studio/studio-header/stud
 import VideoUpload from "./components/ui/main/account/studio/studio-header/pages/video-upload/video-upload";
 import VideoManager from "./components/ui/main/account/studio/studio-header/pages/video-manager/video-manager";
 import Loading from "./components/ui/general/skeleton/loading/loading";
-import Home from "./components/ui/pages/home/home.jsx";
 import HomeDiscovery from "./components/ui/pages/home/home-discovery/home-discovery";
 import ChannelView from "./components/ui/pages/channel/channel-view/channel-view";
 
