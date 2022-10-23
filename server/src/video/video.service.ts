@@ -32,9 +32,9 @@ export class VideoService {
 
         const videos = await query;
 
-        if (!videos || videos.length == 0) {
+        /*if (!videos || videos.length == 0) {
             throw new NotFoundException("No videos found.");
-        }
+        }*/
 
         return videos;
     }

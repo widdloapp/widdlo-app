@@ -22,6 +22,7 @@ export class CommentService {
         /*if (!comments || comments.length == 0) {
             throw new NotFoundException("No comments found.");
         }*/
+        
         return comments;
     }
     async getCommentAmount(getCommentsDto: GetCommentsDto, queryDto: QueryDto) {
