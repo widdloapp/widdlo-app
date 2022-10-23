@@ -79,7 +79,7 @@ export default function CommentBox(props) {
                 <div className={style["content"]}>
 
 
-                    <Drawer isOpen={isOpen} placement='right' onClose={onClose}>
+                    <Drawer isOpen={isOpen} placement='right'>
                         <CommentDrawer id={id} comment={comment} />
                     </Drawer>
                     {
