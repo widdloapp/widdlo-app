@@ -2,7 +2,7 @@
     background: var(--theme-main-medium);
     border-radius: var(--theme-props-border-radius);
     padding: 12px;
-    
+
     grid-template-columns: 1fr auto;
 }
 

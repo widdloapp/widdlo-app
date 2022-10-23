@@ -6,7 +6,7 @@ headers.append("authorization", getStoredToken() ? 'Bearer ' + getStoredToken() 
 
 const defaults = {
     endpoints: {
-        api: "http://localhost:3004/api/v1/",
+        api: "http://localhost:443/api/v1/",
         streams: "http://localhost:8888/"
     }
 }
