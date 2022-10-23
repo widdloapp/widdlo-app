@@ -19,7 +19,7 @@ export class VideoService {
     async getVideoFeed(videoFeedDto: VideoFeedDto, queryDto: QueryDto): Promise<Video[]> {
         const query = this.videoModel.find({hidden: false, deleted: false}).select(['title', 'description', 'views', 'likes', 'thumbnail', 'source'])
             .populate({path: 'channel', select: ['name', 'avatar'], populate: {path: 'followers'}}).populate('likes').limit(30).skip(queryDto.page * 30);
-        
+
         switch (queryDto.order) {
             case 'latest': query.sort({date: -1});
                 break;

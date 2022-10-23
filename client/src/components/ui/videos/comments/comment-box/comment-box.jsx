@@ -35,6 +35,10 @@ export default function CommentBox(props) {
         updateComment();
     }, [props.id]);
 
+    useEffect(() => {
+        updateComment();
+    }, [comment]);
+
     const postComment = (event) => {
         event.preventDefault();
 
