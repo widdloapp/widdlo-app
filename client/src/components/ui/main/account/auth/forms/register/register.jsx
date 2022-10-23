@@ -25,13 +25,25 @@ export default function Register() {
 
                 location.reload();
             } else {
-                toast({
-                    title: 'Error',
-                    description: "No se ha podido completar el proceso.",
-                    status: 'error',
-                    position: 'bottom-right',
-                    isClosable: true
-                })
+                switch (res.statusCode) {
+                    case 403:
+                        toast({
+                            title: 'Hecho',
+                            description: "Completa la verificación para finalizar.",
+                            status: 'success',
+                            position: 'bottom-right',
+                            isClosable: true
+                        });
+                        break;
+                    default:
+                        toast({
+                            title: 'Error',
+                            description: "No se ha podido completar el proceso.",
+                            status: 'error',
+                            position: 'bottom-right',
+                            isClosable: true
+                        });
+                }
             }
         })
     }

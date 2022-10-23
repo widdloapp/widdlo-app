@@ -21,22 +21,35 @@ export default function Login() {
                 //navigate('/', { token: res.token });
 
                 location.reload();
-            } else if (res.statusCode == 401) {
-                toast({
-                    title: 'Credenciales inválidas',
-                    description: "Revisa los datos e inténtalo de nuevo.",
-                    status: 'error',
-                    position: 'bottom-right',
-                    isClosable: true
-                })
             } else {
-                toast({
-                    title: 'Error',
-                    description: "No se ha podido completar el proceso.",
-                    status: 'error',
-                    position: 'bottom-right',
-                    isClosable: true
-                })
+                switch (res.statusCode) {
+                    case 401:
+                        toast({
+                            title: 'Credenciales inválidas',
+                            description: "Revisa los datos e inténtalo de nuevo.",
+                            status: 'error',
+                            position: 'bottom-right',
+                            isClosable: true
+                        })
+                        break;
+                    case 403:
+                        toast({
+                            title: 'Debe ser verificada',
+                            description: "Completa la verificación para continuar.",
+                            status: 'error',
+                            position: 'bottom-right',
+                            isClosable: true
+                        })
+                        break;
+                    default:
+                        toast({
+                            title: 'Error',
+                            description: "No se ha podido completar el proceso.",
+                            status: 'error',
+                            position: 'bottom-right',
+                            isClosable: true
+                        });
+                }
             }
         })
     }

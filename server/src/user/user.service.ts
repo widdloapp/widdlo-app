@@ -24,7 +24,7 @@ export class UserService {
         if (!user || !await bcrypt.compare(loginRequestDto.password, user.password)) {
             throw new HttpException('Invalid credentials.', HttpStatus.UNAUTHORIZED);
         }
-        
+
         return await this.createToken(user._id.toString());
     }
 
