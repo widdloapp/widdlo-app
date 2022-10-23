@@ -16,10 +16,11 @@ import {QueryDto} from "../dto/create/query.dto";
 import {UpdateVideoDto} from "../dto/update/update-video.dto";
 import {FileFieldsInterceptor} from "@nestjs/platform-express";
 import {FileUploadService} from "../file/file-upload.service";
+import {ChannelService} from "../channel/channel.service";
 
 @Controller('video')
 export class VideoController {
-    constructor(private readonly videoService: VideoService, private readonly fileUploadService: FileUploadService) { }
+    constructor(private readonly videoService: VideoService, private readonly channelService: ChannelService, private readonly fileUploadService: FileUploadService) { }
 
     @Post()
     @UseInterceptors(FileFieldsInterceptor([
@@ -28,6 +29,8 @@ export class VideoController {
     ]))
     async createVideo(@UploadedFiles() files: { thumbnail?: Express.Multer.File[], source?: Express.Multer.File[] },
                       @Res() response, @Body() createVideoDto: CreateVideoDto) {
+        createVideoDto.channel = channelService.find
+
         const thumbnailSource = await this.fileUploadService.uploadFile(files.thumbnail[0]);
         const videoSource = await this.fileUploadService.uploadFile(files.source[0]);
 

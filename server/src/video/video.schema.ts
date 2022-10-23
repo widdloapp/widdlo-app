@@ -1,9 +1,7 @@
 import {Prop, Schema, SchemaFactory} from "@nestjs/mongoose"
-import {User} from "../user/user.schema";
-import mongoose from "mongoose";
 import {Like} from "../like/like.schema";
 import {Channel} from "../channel/channel.schema";
-import {MaxFileSizeValidator} from "@nestjs/common";
+import mongoose from "mongoose";
 
 @Schema({toJSON: {virtuals: true, versionKey: false, transform: function (doc, ret) { delete ret._id }} })
 export class Video {

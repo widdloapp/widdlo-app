@@ -15,8 +15,7 @@ export class CreateVideoDto {
     @IsBooleanString()
     readonly hidden: boolean;
 
-    @IsNotEmpty()
-    readonly channel: string;
+    channel: string;
 
     thumbnail: string;
 
