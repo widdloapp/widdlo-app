@@ -14,8 +14,8 @@ export default function HomeSidebar() {
                 <Fragment>
                     <Link to="/"><button className="section"><i className="fa-light fa-house" />Destacado</button></Link>
                     <Link to="/latest"><button className="section"><i className="fa-light fa-clock-two-thirty" />Reciente</button></Link>
-                    <button className="section"><i className="fa-light fa-arrow-rotate-left" />Antiguo</button>
-                    <button className="section"><i className="fa-light fa-arrow-trend-up" />Más visto</button>
+                    <Link to="/older"><button className="section"><i className="fa-light fa-arrow-rotate-left" />Antiguo</button></Link>
+                    <Link to="/popular"><button className="section"><i className="fa-light fa-arrow-trend-up" />Más visto</button></Link>
                 </Fragment>
             } />
             <div hidden={!account}>
