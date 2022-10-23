@@ -7,12 +7,13 @@ import {HttpException} from "@nestjs/common/exceptions/http.exception";
 import {LoginRequestDto} from "../dto/create/login-request.dto";
 import * as jwt from 'jsonwebtoken';
 import {UserInfoDto} from "../dto/get/user-info.dto";
+import {Channel} from "../channel/channel.schema";
 
 const bcrypt = require('bcrypt');
 
 @Injectable()
 export class UserService {
-    constructor(@InjectModel('User') private userModel: Model<User>) { }
+    constructor(@InjectModel('User') private userModel: Model<User>, @InjectModel('Channel') private channelModel: Model<Channel>) { }
 
     async login(loginRequestDto: LoginRequestDto) {
         const user = await this.userModel.findOne({email: loginRequestDto.email});
@@ -34,9 +35,14 @@ export class UserService {
 
     async createUser(createUserDto: CreateUserDto) {
         try {
-            return await this.userModel.create(createUserDto);
+            const user = await this.userModel.create(createUserDto);
+
+            const channel = await new this.channelModel({user: user.id, name: createUserDto.name});
+            await channel.save();
+
+            return await user.save();
         } catch (error) {
-            throw new HttpException("An account with that username or email already exists.", HttpStatus.CONFLICT);
+            throw new HttpException("An error ocurred. Maybe an account with that username or email already exists?", HttpStatus.CONFLICT);
         }
     }
 
