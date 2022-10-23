@@ -2,8 +2,11 @@ import style from "./video-upload.module.css";
 import {api} from "../../../../../../../../shared/utils/token/api.js";
 import TipsSidebar from "../../../components/tips-sidebar/tips-sidebar";
 import FileUpload from "../../../../../../general/file-upload/file-upload";
+import {useNavigate} from "react-router-dom";
 
 export default function VideoUpload() {
+
+    const navigate = useNavigate();
 
     const postVideo = (event) => {
         event.preventDefault();
@@ -15,7 +18,7 @@ export default function VideoUpload() {
         body.append("source", event.target[3].files[0]);
         body.append("channel", "634c76b0b957c861d4741f28");
         api('POST', 'video', body).then(res => {
-
+            navigate(`/watch/${res.video.id}`);
             }
         )
     };

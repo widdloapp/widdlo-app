@@ -8,7 +8,6 @@ export class CreateVideoDto {
 
     @IsString()
     @MaxLength(300)
-    @IsNotEmpty()
     readonly description: string;
 
     @IsOptional()

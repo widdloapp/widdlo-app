@@ -29,7 +29,8 @@ export class VideoController {
     ]))
     async createVideo(@UploadedFiles() files: { thumbnail?: Express.Multer.File[], source?: Express.Multer.File[] },
                       @Res() response, @Body() createVideoDto: CreateVideoDto) {
-        createVideoDto.channel = channelService.find
+        const channel = await this.channelService.getUserChannel(response.locals.user);
+        createVideoDto.channel = channel.id;
 
         const thumbnailSource = await this.fileUploadService.uploadFile(files.thumbnail[0]);
         const videoSource = await this.fileUploadService.uploadFile(files.source[0]);

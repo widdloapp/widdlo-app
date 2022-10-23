@@ -29,6 +29,9 @@ export class ChannelService {
     async checkExists(channel: string) {
         return this.channelModel.exists({_id: channel});
     }
+    async getUserChannel(user: string) {
+        return this.channelModel.findOne({user: user});
+    }
     async updateChannel(user: string, updateChannelDto: UpdateChannelDto) {
         const channel = await this.channelModel.findOneAndUpdate({_id: updateChannelDto.id, user: user}, updateChannelDto, {new: true});
 
