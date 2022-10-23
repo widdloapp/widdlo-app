@@ -3,9 +3,11 @@ import {api} from "../../../../../../../../shared/utils/token/api.js";
 import TipsSidebar from "../../../components/tips-sidebar/tips-sidebar";
 import FileUpload from "../../../../../../general/file-upload/file-upload";
 import {useNavigate} from "react-router-dom";
+import {useToast} from "@chakra-ui/react";
 
 export default function VideoUpload() {
 
+    const toast = useToast();
     const navigate = useNavigate();
 
     const postVideo = (event) => {
@@ -18,8 +20,20 @@ export default function VideoUpload() {
         body.append("source", event.target[3].files[0]);
         body.append("channel", "634c76b0b957c861d4741f28");
         api('POST', 'video', body).then(res => {
-            navigate(`/watch/${res.video.id}`);
+            switch (res.statusCode) {
+                case 200:
+                    navigate(`/watch/${res.video.id}`);
+                    break;
+                default:
+                    toast({
+                        title: 'Error',
+                        description: "No se ha podido completar el proceso.",
+                        status: 'error',
+                        position: 'bottom-right',
+                        isClosable: true
+                    });
             }
+        }
         )
     };
 
