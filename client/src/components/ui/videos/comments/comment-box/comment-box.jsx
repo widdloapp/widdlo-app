@@ -55,7 +55,7 @@ export default function CommentBox(props) {
 
     if (loaded) {
         return (
-            <div className={style["comment-wrapper"]}>
+            <div className={style["wrapper"]}>
                 <div className={style["header"]}>
                     <h1>{data.amount} comentarios</h1>
                 </div>
