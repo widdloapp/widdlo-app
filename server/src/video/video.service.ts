@@ -21,10 +21,13 @@ export class VideoService {
             .populate({path: 'channel', select: ['name', 'avatar'], populate: {path: 'followers'}}).populate('likes').limit(30).skip(queryDto.page * 30);
 
         switch (queryDto.order) {
+            case 'featured': query.sort({date: -1, views: -1, likes: -1});
+                break;
             case 'latest': query.sort({date: -1});
                 break;
-            case 'views': query.sort({views: -1});
+            case 'older': query.sort({views: 1});
                 break;
+            case 'popular': query.sort({views: -1});
         }
 
         const videos = await query;
