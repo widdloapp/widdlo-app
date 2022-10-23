@@ -1,4 +1,4 @@
-import {IsEmail, IsLowercase, IsNotEmpty, IsString, Length, MaxLength, MinLength} from "class-validator";
+import {IsEmail, IsNotEmpty, IsString, Length, MaxLength} from "class-validator";
 import {Transform} from "class-transformer";
 
 const bcrypt = require('bcrypt');
@@ -12,7 +12,6 @@ export class CreateUserDto {
     @IsString()
     @MaxLength(80)
     @IsNotEmpty()
-    @IsLowercase()
     readonly username: string;
 
     @IsEmail()
