@@ -17,6 +17,9 @@ export class User {
     @Prop()
     password: string;
 
+    @Prop({default: "https://widdlo.global.ssl.fastly.net/avatar/default.png"})
+    avatar: string;
+
     @Prop({default: false})
     verified: boolean;
 }

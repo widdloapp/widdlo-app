@@ -22,7 +22,7 @@ export class Channel {
     @Prop()
     description: string;
 
-    @Prop()
+    @Prop({default: "https://widdlo.global.ssl.fastly.net/avatar/default.png"})
     avatar: string;
 
     _id: string;
