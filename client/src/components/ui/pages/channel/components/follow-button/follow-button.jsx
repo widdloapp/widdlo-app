@@ -1,6 +1,7 @@
 import {Fragment, useContext, useEffect, useState} from "react";
 import {api} from "../../../../../../shared/utils/token/api.js";
 import {AccountContext} from "../../../../../../App.jsx";
+import AccountRequired from "../../../../general/error/account-required/account-required";
 
 export default function FollowButton(props) {
 
@@ -15,15 +16,15 @@ export default function FollowButton(props) {
     }, []);
 
     const update = () => {
-        if (account) {
             api('GET', `follow/check?${new URLSearchParams({channel: props.channel})}`).then(res => {
-                if (res.follow) {
-                    setFollowing(true);
-                    setDate(res.follow.date);
+                if (account) {
+                    if (res.follow) {
+                        setFollowing(true);
+                        setDate(res.follow.date);
+                    }
                 }
                 setLoaded(true);
             })
-        }
     }
 
     const body = new URLSearchParams();
@@ -44,7 +45,9 @@ export default function FollowButton(props) {
     if (loaded) {
         return (
             <Fragment>
-                {following ? <button className="main fill large" onClick={unfollow}>Dejar de seguir</button> : <button className="main important large" onClick={follow}>Seguir</button>}
+                {account ?
+                    following ? <button className="main fill large" onClick={unfollow}>Dejar de seguir</button> : <button className="main important large" onClick={follow}>Seguir</button> :
+                    <button className="main disabled">Seguir</button>}
             </Fragment>
         );
     }

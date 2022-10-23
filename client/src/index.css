@@ -323,6 +323,9 @@ button.large {
   text-align: center;
 }
 
+button.disabled {
+}
+
 a {
   color: var(--theme-schema-main) !important;
 }

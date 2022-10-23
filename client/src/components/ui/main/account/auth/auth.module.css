@@ -11,3 +11,7 @@
     border: none !important;
     text-align: center;
 }
+
+.header {
+    margin: 20px;
+}

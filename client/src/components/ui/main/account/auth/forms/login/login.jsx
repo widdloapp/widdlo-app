@@ -1,8 +1,8 @@
 import style from "./login.module.css";
 import {useToast} from "@chakra-ui/react";
-import {api} from "../../../../../../shared/utils/token/api.js";
-import {storeToken} from "../../../../../../shared/utils/token/token.js";
 import {useNavigate} from "react-router-dom";
+import {api} from "../../../../../../../shared/utils/token/api.js";
+import {storeToken} from "../../../../../../../shared/utils/token/token.js";
 
 export default function Login() {
 
@@ -43,6 +43,7 @@ export default function Login() {
 
     return (
         <form className={style["wrapper"]} onSubmit={login}>
+            <h1>Iniciar sesión</h1>
             <input name="email" required={true} className="main" type="email" placeholder="Correo electrónico" />
             <input name="password" required={true} className="main" type="password" placeholder="Contraseña" />
             <input type="submit" value="Iniciar sesión" className="main" />
