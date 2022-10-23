@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext, Fragment} from "react";
+import React, {useState, useEffect, useContext} from "react";
 
 import {api} from "../../../../../shared/utils/token/api.js";
 
@@ -7,10 +7,11 @@ import RequiredAccountBar from "../../../main/account/required-account-bar/requi
 import {AccountContext} from "../../../../../App.jsx";
 import ChatInput from "../../../pages/chat/chat-input/chat-input";
 import {Drawer, useDisclosure, useToast} from "@chakra-ui/react";
-import DrawerWrapper from "../../../main/account/drawer/drawer-wrapper";
-import {Link, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import CommentDrawer from "../comment-drawer/comment-drawer";
 export default function CommentBox(props) {
+
+    const navigate = useNavigate();
 
     const account = useContext(AccountContext).user;
     const { id, comment } = useParams();
@@ -79,7 +80,7 @@ export default function CommentBox(props) {
                 <div className={style["content"]}>
 
 
-                    <Drawer isOpen={isOpen} placement='right'>
+                    <Drawer isOpen={isOpen} placement='right' onClose={() => navigate(`/watch/${id}`)}>
                         <CommentDrawer id={id} comment={comment} />
                     </Drawer>
                     {
