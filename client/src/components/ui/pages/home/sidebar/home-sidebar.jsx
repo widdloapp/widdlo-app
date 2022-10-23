@@ -13,7 +13,7 @@ export default function HomeSidebar() {
             <AccordionWrapper title="Inicio" content={
                 <Fragment>
                     <Link to="/"><button className="section"><i className="fa-light fa-house" />Destacado</button></Link>
-                    <button className="section"><i className="fa-light fa-clock-two-thirty" />Reciente</button>
+                    <Link to="/latest"><button className="section"><i className="fa-light fa-clock-two-thirty" />Reciente</button></Link>
                     <button className="section"><i className="fa-light fa-arrow-rotate-left" />Antiguo</button>
                     <button className="section"><i className="fa-light fa-arrow-trend-up" />Más visto</button>
                 </Fragment>

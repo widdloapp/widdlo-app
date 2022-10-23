@@ -3,9 +3,9 @@ import {useState, useEffect, Fragment, useContext} from "react";
 import style from "./video-grid.module.css";
 import {api} from "../../../../../shared/utils/token/api.js";
 import VideoCard from "../../video-card/video-card";
-import {OrderContext} from "../../../pages/home/home.jsx";
+import {OrderContext} from "../../../pages/home/home-discovery/home-discovery.jsx";
 
-export default function VideoGrid(props) {
+export default function VideoGrid() {
 
     const [loaded, setLoaded] = useState(false);
     const [videos, setVideos] = useState([]);
@@ -17,7 +17,7 @@ export default function VideoGrid(props) {
             setVideos(res.videos);
             setLoaded(true);
         })
-    }, []);
+    }, [order]);
 
     if (loaded) {
         return (
