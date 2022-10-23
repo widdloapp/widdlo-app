@@ -1,5 +1,6 @@
 import style from "./channel-card.module.css";
 import {Link} from "react-router-dom";
+import FollowButton from "../components/follow-button/follow-button";
 
 export default function ChannelCard(props) {
 
@@ -13,7 +14,7 @@ export default function ChannelCard(props) {
                 <p>{props.channel.followers} seguidores</p>
             </div>
             <div>
-                <button className="main">Seguir</button>
+                <FollowButton channel={props.channel.id} />
             </div>
         </div>
     );
