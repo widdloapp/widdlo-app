@@ -2,7 +2,6 @@ import SidebarLayout from "./components/layout/sidebar-layout/sidebar-layout.jsx
 import {Route, Routes} from "react-router-dom";
 import MainLayout from "./components/layout/main-layout/main-layout.jsx";
 import Navbar from "./components/ui/main/navbar/navbar.jsx";
-import VideoGrid from "./components/ui/videos/video-grid/grid/video-grid.jsx";
 import HomeSidebar from "./components/ui/pages/home/sidebar/home-sidebar.jsx";
 import VideoView from "./components/ui/videos/video-view/video-view";
 import NotFound from "./components/ui/general/error/not-found/not-found";
@@ -43,6 +42,7 @@ function App() {
                 <AccountContext.Provider value={data}>
                     <Routes>
                         <Route path="/" element={<SidebarLayout navbar={<Navbar />} sidebar={<HomeSidebar />} content={<Home />} />} />
+                        <Route path="/latest" element={<SidebarLayout navbar={<Navbar />} sidebar={<HomeSidebar />} content={<Home order='latest' />} />} />
                         <Route path="/channel" element={<SidebarLayout />} />
                         <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
                         <Route path="/watch/:id/:comment" element={<MainLayout content={<VideoView />} />} />

@@ -1,16 +1,19 @@
-import {useState, useEffect, Fragment} from "react";
+import {useState, useEffect, Fragment, useContext} from "react";
 
 import style from "./video-grid.module.css";
 import {api} from "../../../../../shared/utils/token/api.js";
 import VideoCard from "../../video-card/video-card";
+import {OrderContext} from "../../../pages/home/home.jsx";
 
 export default function VideoGrid(props) {
 
     const [loaded, setLoaded] = useState(false);
     const [videos, setVideos] = useState([]);
 
+    const order = useContext(OrderContext);
+
     useEffect(() => {
-        api('GET', 'video').then(res => {
+        api('GET', `video?${new URLSearchParams({order: order})}`).then(res => {
             setVideos(res.videos);
             setLoaded(true);
         })
