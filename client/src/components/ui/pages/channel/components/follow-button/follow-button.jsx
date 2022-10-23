@@ -7,7 +7,7 @@ export default function FollowButton(props) {
     const [following, setFollowing] = useState(false);
 
     useEffect(() => {
-        api('GET', `follow/${props.user}`).then(res => {
+        api('GET', `follow/${props.channel}`).then(res => {
             if () {
                 setFollowing(res.channel);
             }

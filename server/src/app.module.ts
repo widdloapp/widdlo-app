@@ -83,6 +83,7 @@ export class AppModule implements NestModule {
         { path: 'message', method: RequestMethod.PATCH },
         { path: 'message', method: RequestMethod.DELETE },
         { path: 'follow', method: RequestMethod.GET },
+        { path: 'follow/check', method: RequestMethod.GET },
         { path: 'follow', method: RequestMethod.POST },
         { path: 'follow', method: RequestMethod.DELETE },
         { path: 'video', method: RequestMethod.POST },
