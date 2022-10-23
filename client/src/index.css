@@ -54,6 +54,15 @@ header {
   border-bottom: solid 1px black;
 }
 
+.sidebar-left {
+  background: var(--theme-main-dark);
+}
+
+.sidebar {
+  padding: 5px;
+  background: var(--theme-main-medium);
+}
+
 button {
   cursor: pointer;
 }

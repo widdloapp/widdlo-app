@@ -10,11 +10,11 @@ export default function SidebarLayout(props) {
                 <Navbar />
             </header>
 
-            <aside className={style["sidebar-left"]}>
+            <aside className="sidebar-left">
                 <ChannelList />
             </aside>
 
-            <aside className={style["sidebar"]}>
+            <aside className="sidebar">
                 {props.sidebar}
             </aside>
 
