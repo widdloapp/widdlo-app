@@ -44,7 +44,7 @@ export default function FollowButton(props) {
     if (loaded) {
         return (
             <Fragment>
-                {following ? <button className="main" onClick={unfollow}>Dejar de seguir</button> : <button className="main" onClick={follow}>Seguir</button>}
+                {following ? <button className="main fill" onClick={unfollow}>Dejar de seguir</button> : <button className="main important" onClick={follow}>Seguir</button>}
             </Fragment>
         );
     }

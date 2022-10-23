@@ -13,6 +13,8 @@
   --theme-main: #212121;
 
   --theme-schema-main: #f38e5b;
+  --theme-schema-main-dark: #c7754b;
+
   --theme-btn-main: #3a3a3a;
   --theme-props-border-radius: 5px;
 
@@ -301,9 +303,19 @@ mark.minor {
 
 button.important {
   background: var(--theme-schema-main);
-  padding: 10px;
-  border-radius: var(--theme-props-border-radius);
-  color: white;
+}
+
+button.important:hover {
+  background: var(--theme-schema-main-dark);
+}
+
+button.fill {
+  background: white;
+  color: black;
+}
+
+button.fill:hover {
+  background: lightgrey;
 }
 
 a {

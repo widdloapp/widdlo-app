@@ -10,7 +10,7 @@ export default function VideoManager() {
             <TipsSidebar sidebar={
                 <div className="tip-wrapper">
                     <Link to="/studio/upload">
-                        <button className="important full">Nuevo vídeo</button>
+                        <button className="main important full">Nuevo vídeo</button>
                     </Link>
                     <Link to="/studio/upload">
                         <button className="secondary full">Asesoría para creadores</button>
