@@ -6,40 +6,23 @@ import style from "./comment-box.module.css";
 import RequiredAccountBar from "../../../main/account/required-account-bar/required-account-bar";
 import {AccountContext} from "../../../../../App.jsx";
 import ChatInput from "../../../pages/chat/chat-input/chat-input";
-import {Drawer, useDisclosure, useToast} from "@chakra-ui/react";
-import {Link, useNavigate, useParams} from "react-router-dom";
-import CommentDrawer from "../comment-drawer/comment-drawer";
+import {useToast} from "@chakra-ui/react";
+import CommentList from "./comment-list/comment-list.jsx";
+import NoComments from "./no-comments/no-comments.jsx";
 export default function CommentBox(props) {
 
-    const navigate = useNavigate();
-
     const account = useContext(AccountContext).user;
-    const { id, comment } = useParams();
-
-    const { isOpen, onOpen, onClose } = useDisclosure()
-
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState('');
 
     const toast = useToast();
-
-    const updateComment = () => {
-        if (!props.reply && comment) {
-            onOpen();
-        }
-    }
 
     useEffect(() => {
         api('GET', `comment/${props.id}`).then(res => {
             setData(res);
             setLoaded(true);
         })
-        updateComment();
     }, [props.id]);
-
-    useEffect(() => {
-        updateComment();
-    }, [comment]);
 
     const postComment = (event) => {
         event.preventDefault();
@@ -78,30 +61,8 @@ export default function CommentBox(props) {
                 </div>
                 {account ? <ChatInput submit={postComment} value="Añade un comentario..." button="Comentar" /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
                 <div className={style["content"]}>
-
-
-                    <Drawer isOpen={isOpen} placement='right' onClose={() => navigate(`/watch/${id}`)}>
-                        <CommentDrawer id={id} comment={comment} />
-                    </Drawer>
                     {
-                        data.comments.map((comment, key) =>
-                            <div key={key} className={style["comment-box"]}>
-
-
-
-
-
-                                <div className={style["content"]}>
-                                    <p><mark>{comment.author.name}</mark> hace 1 día</p>
-                                    <p>{comment.body}</p>
-                                    <div className={style["button-wrapper"]}>
-                                        <Link to={`/watch/${id}/${comment.id}`} onClick={updateComment}>
-                                            <button className="paper">Responder</button>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        )
+                        data.comments.length > 0 ? <CommentList reply={props.reply} data={data} /> : <NoComments />
                     }
                 </div>
             </div>

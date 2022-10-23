@@ -1,0 +1,31 @@
+.comment-box {
+    padding: 10px;
+    border-radius: var(--theme-props-border-radius);
+    margin: 12px 0;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 10px;
+}
+
+.comment-box:hover {
+    background: var(--theme-main-medium);
+}
+
+.comment-box > .content {
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: 3px;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.button-wrapper {
+    width: min-content;
+
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: min-content min-content;
+}
