@@ -22,7 +22,7 @@
 }
 
 .App {
-  min-width: 400px;
+  min-width: 350px;
   overflow-y: hidden;
 
   background: var(--theme-main-medium);

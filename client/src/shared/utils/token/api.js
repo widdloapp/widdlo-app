@@ -3,6 +3,7 @@ import {getStoredToken} from "./token.js";
 const headers = new Headers();
 headers.append("authorization", getStoredToken() ? 'Bearer ' + getStoredToken() : undefined);
 /*headers.append("content-type", "multipart/form-data");*/
+headers.append("Transfer-Encoding", "chunked");
 
 const defaults = {
     endpoints: {
