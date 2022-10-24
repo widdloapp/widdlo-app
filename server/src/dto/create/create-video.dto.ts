@@ -1,7 +1,9 @@
 import {IsBooleanString, IsNotEmpty, IsOptional, IsString, MaxLength} from "class-validator";
 
 export class CreateVideoDto {
-    @IsOptional()
+    @IsString()
+    @MaxLength(80)
+    @IsNotEmpty()
     readonly title: string;
 
     @IsString()
