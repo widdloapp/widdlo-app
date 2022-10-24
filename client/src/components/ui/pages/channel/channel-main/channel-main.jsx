@@ -26,7 +26,7 @@ export default function ChannelMain() {
             <div className={style["container"]}>
                 <img className="avatar unselectable undraggable" src={data.avatar} />
                 <div>
-                    <p><mark>{data.name}</mark></p>
+                    <p><mark>{data.username}</mark></p>
                     <p>{data.followers} seguidores</p>
                 </div>
                 <div className={style["buttons-wrapper"]}>

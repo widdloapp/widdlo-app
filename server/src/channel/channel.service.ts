@@ -15,7 +15,7 @@ export class ChannelService {
     }
 
     async getChannelInfo(channelInfoDto: ChannelInfoDto): Promise<Channel> {
-        const channel = await this.channelModel.findById(channelInfoDto.channel).select(["user", "name", "username", "avatar", "description", "views", "date"])
+        const channel = await this.channelModel.findById(channelInfoDto.channel).select(["user", "username", "username", "avatar", "description", "views", "date"])
             .populate("followers").populate("stream").populate("chats", ["name"]);
 
         if (!channel) {

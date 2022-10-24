@@ -3,13 +3,17 @@ import {AppModule} from './app.module';
 import {SwaggerModule, DocumentBuilder} from '@nestjs/swagger';
 import {ValidationPipe} from "@nestjs/common";
 import {NestExpressApplication} from "@nestjs/platform-express";
+import compression from '@fastify/compress';
 
 async function start() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, { bodyParser: true, cors: true });
   app.setGlobalPrefix('api/v1');
   app.disable('x-powered-by')
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
-  //app.use(compression());
+  app.use(compression({
+    filter: () => { return true },
+    threshold: 0
+  }));
 
   const config = new DocumentBuilder()
       .setTitle('Widdlo API')
