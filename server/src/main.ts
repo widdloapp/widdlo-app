@@ -10,6 +10,7 @@ async function start() {
   app.disable('x-powered-by')
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
 
+
   const config = new DocumentBuilder()
       .setTitle('Widdlo API')
       .setBasePath('api/v1')

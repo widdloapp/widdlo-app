@@ -9,7 +9,7 @@ import {
     Get,
     HttpStatus, Param, Patch,
     Post,
-    Query,
+    Query, Req,
     Res, Response, UploadedFiles, UseInterceptors
 } from "@nestjs/common";
 import {QueryDto} from "../dto/create/query.dto";
