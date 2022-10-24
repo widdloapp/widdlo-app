@@ -10,7 +10,7 @@ export default function ChannelCard(props) {
                 <img className="avatar unselectable undraggable" src={props.channel.avatar} />
             </Link>
             <div>
-                <a href={`/channel/${props.channel.id}`}><mark>{props.channel.name}</mark></a>
+                <a href={`/channel/${props.channel.id}`}><mark>{props.channel.username}</mark></a>
                 <p>{props.channel.followers} seguidores</p>
             </div>
             <div>

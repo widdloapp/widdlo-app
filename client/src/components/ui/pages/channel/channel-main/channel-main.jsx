@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {api} from "../../../../../shared/utils/token/api.js";
 import FollowButton from "../components/follow-button/follow-button";
+import ChannelGrid from "../../../videos/video-grid/channel-grid/channel-grid";
 
 export default function ChannelMain() {
 
@@ -37,7 +38,7 @@ export default function ChannelMain() {
                 </div>
             </div>
             <div className={style["content"]}>
-                <VideoGrid detailed={false} />
+                <ChannelGrid channel={data} />
             </div>
         </div>
     );

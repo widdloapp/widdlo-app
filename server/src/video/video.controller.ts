@@ -17,6 +17,7 @@ import {UpdateVideoDto} from "../dto/update/update-video.dto";
 import {FileFieldsInterceptor} from "@nestjs/platform-express";
 import {FileUploadService} from "../file/file-upload.service";
 import {ChannelService} from "../channel/channel.service";
+import {ChannelContentQueryDto} from "../dto/get/channel-content-query.dto";
 
 @Controller('video')
 export class VideoController {
@@ -59,6 +60,15 @@ export class VideoController {
     @Get(":id")
     async getVideo(@Response() response, @Param() getVideoDto: GetVideoDto) {
         const video = await this.videoService.getVideo(getVideoDto);
+
+        return response.status(HttpStatus.OK).json({
+            message: 'Video data found successfully.', video,
+        });
+    }
+
+    @Get("channel/:channel")
+    async getChannelVideos(@Response() response, @Param() channelContentQueryDto: ChannelContentQueryDto, @Query() queryDto: QueryDto) {
+        const video = await this.videoService.getChannelVideoFeed(channelContentQueryDto, queryDto);
 
         return response.status(HttpStatus.OK).json({
             message: 'Video data found successfully.', video,
