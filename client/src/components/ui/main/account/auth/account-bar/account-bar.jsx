@@ -19,7 +19,7 @@ export default function AccountBar() {
     return (
         <div className={style["container"]}>
             <div className={style["wrapper"]}>
-                <p>¡Hola, {account.name}!</p>
+                <p>¡Hola, {account.username}!</p>
                 <button onClick={logout} className="main">Salir</button>
             </div>
         </div>

@@ -17,7 +17,7 @@ export class CommentService {
     }
 
     async getComments(getCommentsDto: GetCommentsDto, queryDto: QueryDto): Promise<Comment[]> {
-        const comments = await this.commentModel.find({target: getCommentsDto.target}).populate("author", ["name", "avatar"]).limit(20).skip(queryDto.page * 20);
+        const comments = await this.commentModel.find({target: getCommentsDto.target}).populate("author", ["username", "avatar"]).limit(20).skip(queryDto.page * 20);
 
         /*if (!comments || comments.length == 0) {
             throw new NotFoundException("No comments found.");

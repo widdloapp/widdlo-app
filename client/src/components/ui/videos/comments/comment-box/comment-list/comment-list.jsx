@@ -35,7 +35,7 @@ export default function CommentList(props) {
                         <div key={key} className={style["comment-box"]}>
                             <PopoverWrapper trigger={<Link><img className="avatar undraggable unselectable" src={comment.author.avatar} /></Link>} content={<ChannelPopup id={comment.author.id} />} />
                             <div className={style["content"]}>
-                                <p><mark>{comment.author.name}</mark> hace 1 día</p>
+                                <p><mark>{comment.author.username}</mark> hace 1 día</p>
                                 <p>{comment.body}</p>
                                 <div className={style["button-wrapper"]}>
                                     <Link to={`/watch/${id}/${comment.id}`} onClick={updateComment}>

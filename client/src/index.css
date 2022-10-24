@@ -22,8 +22,8 @@
 }
 
 .App {
-  min-width: 500px;
-  overflow-x: hidden;
+  min-width: 400px;
+  overflow-y: hidden;
 
   background: var(--theme-main-medium);
 }
@@ -364,4 +364,5 @@ a {
 
 .video-player {
   aspect-ratio: 16 / 9;
+  width: 100%;
 }
