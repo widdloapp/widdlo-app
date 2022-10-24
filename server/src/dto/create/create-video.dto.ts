@@ -2,6 +2,14 @@ import {IsBooleanString, IsNotEmpty, IsOptional, IsString, MaxLength} from "clas
 
 export class CreateVideoDto {
     @IsOptional()
+    readonly title: string;
+
+    @IsString()
+    @MaxLength(300)
+    @IsOptional()
+    readonly description: string;
+
+    @IsOptional()
     @IsBooleanString()
     readonly hidden: boolean;
 
