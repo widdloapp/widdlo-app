@@ -37,7 +37,7 @@ export class UserService {
         try {
             const user = await this.userModel.create(createUserDto);
 
-            const channel = await new this.channelModel({user: user.id, name: createUserDto.name});
+            const channel = await new this.channelModel({user: user.id, username: createUserDto.username});
             await channel.save();
 
             return await user.save();

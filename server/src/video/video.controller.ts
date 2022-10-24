@@ -68,10 +68,10 @@ export class VideoController {
 
     @Get("channel/:channel")
     async getChannelVideos(@Response() response, @Param() channelContentQueryDto: ChannelContentQueryDto, @Query() queryDto: QueryDto) {
-        const video = await this.videoService.getChannelVideoFeed(channelContentQueryDto, queryDto);
+        const videos = await this.videoService.getChannelVideoFeed(channelContentQueryDto, queryDto);
 
         return response.status(HttpStatus.OK).json({
-            message: 'Video data found successfully.', video,
+            message: 'Channel videos found successfully.', videos,
         });
     }
 

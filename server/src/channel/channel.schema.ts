@@ -13,9 +13,6 @@ export class Channel {
     @Prop()
     username: string;
 
-    @Prop()
-    name: string;
-
     @Prop({default: 0})
     views: number;
 
