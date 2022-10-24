@@ -17,7 +17,7 @@ export default function ChannelGrid(props) {
             setVideos(res.videos);
             setLoaded(true);
         })
-    }, [order]);
+    }, [props.channel.id, order]);
 
     if (loaded) {
         return (
