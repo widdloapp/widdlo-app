@@ -8,12 +8,14 @@ import {LoginRequestDto} from "../dto/create/login-request.dto";
 import * as jwt from 'jsonwebtoken';
 import {UserInfoDto} from "../dto/get/user-info.dto";
 import {Channel} from "../channel/channel.schema";
+import {Stream} from "../stream/stream.schema";
 
 const bcrypt = require('bcrypt');
 
 @Injectable()
 export class UserService {
-    constructor(@InjectModel('User') private userModel: Model<User>, @InjectModel('Channel') private channelModel: Model<Channel>) { }
+    constructor(@InjectModel('User') private userModel: Model<User>, @InjectModel('Channel') private channelModel: Model<Channel>,
+                @InjectModel('Stream') private streamModel: Model<Stream>) { }
 
     async login(loginRequestDto: LoginRequestDto) {
         const user = await this.userModel.findOne({email: loginRequestDto.email});
@@ -40,6 +42,11 @@ export class UserService {
             const channel = await new this.channelModel({user: user.id, username: createUserDto.username});
             await channel.save();
 
+            console.log(generatePassword())
+            const stream = await new this.streamModel({user: user.id, key: generatePassword()});
+            await stream.save();
+            console.log(stream)
+
             return await user.save();
         } catch (error) {
             throw new HttpException("An error ocurred. Maybe an account with that username or email already exists?", HttpStatus.CONFLICT);
@@ -60,4 +67,14 @@ export class UserService {
 
         return user;
     }
+}
+
+function generatePassword() {
+    let length = 32,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (let i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
 }

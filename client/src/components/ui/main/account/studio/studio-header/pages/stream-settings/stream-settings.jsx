@@ -26,7 +26,7 @@ export default function StreamSettings() {
                     <InputGroup size='md'>
                         <Input disabled={true} type={show ? 'text' : 'password'} value={"a"} />
                         <InputRightElement>
-                            <button onClick={handleClick}>{show ? 'Ocultar' : 'Mostrar'}</button>
+                            <button className="tool" onClick={handleClick}>{show ? 'Ocultar' : 'Mostrar'}</button>
                         </InputRightElement>
                     </InputGroup>
                 </div>
