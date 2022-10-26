@@ -18,7 +18,7 @@ export default function ChannelPopup(props) {
     if (loaded) {return (
         <div className={style["wrapper"]}>
             <div className={style["wrapper"]}>
-                <h1><mark>{data.name}</mark></h1>
+                <h1><mark>{data.username}</mark></h1>
                 <p hidden={!data.channels[0]}>{data.channels[0].followers} seguidores</p>
             </div>
             <hr className="spaced" />

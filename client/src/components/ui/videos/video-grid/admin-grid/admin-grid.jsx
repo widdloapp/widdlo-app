@@ -11,7 +11,7 @@ export default function AdminGrid(props) {
     const [videos, setVideos] = useState([]);
 
     useEffect(() => {
-        api('GET', 'video').then(res => {
+        api('GET', `video/channel/${props.channel.id}`).then(res => {
             setVideos(res.videos);
             setLoaded(true);
         })

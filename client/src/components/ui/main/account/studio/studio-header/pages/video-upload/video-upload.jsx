@@ -18,7 +18,6 @@ export default function VideoUpload() {
         body.append("description", event.target[1].value);
         body.append("thumbnail", event.target[2].files[0]);
         body.append("source", event.target[3].files[0]);
-        body.append("channel", "634c76b0b957c861d4741f28");
         api('POST', 'video', body).then(res => {
                 try {
                     navigate(`/watch/${res.video.id}`);
