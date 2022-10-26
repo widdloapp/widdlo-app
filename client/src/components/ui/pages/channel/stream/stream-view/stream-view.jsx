@@ -1,18 +1,24 @@
 import Plyr from "plyr";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {api} from "../../../../../../shared/utils/token/api.js";
 
 import style from "./stream-view.module.css";
 
 export default function StreamView() {
 
+    const controls = ['play', 'rewind', 'restart', 'mute', 'volume', 'pip', 'airplay', 'fullscreen'];
+    
+    const [data, setData] = useState([]);
+
     useEffect(() => {
         api('GET', 'video/').then(res => {
+            setData(data);
         })
     }, []);
 
-    const controls = ['play', 'rewind', 'restart', 'mute', 'volume', 'pip', 'airplay', 'fullscreen'];
-    new Plyr('.video-player', { controls });
+    useEffect(() => {
+        new Plyr('.video-player', { controls });
+    }, [data]);
 
     return (
         <div className={style["wrapper"]}>
