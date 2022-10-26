@@ -1,6 +1,6 @@
 import DrawerWrapper from "../../../main/account/drawer/drawer-wrapper.jsx";
 import CommentBox from "../comment-box/comment-box.jsx";
-import {Fragment} from "react";
+import React, {Fragment} from "react";
 
 export default function CommentDrawer(props) {
 

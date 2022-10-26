@@ -19,6 +19,8 @@ import Loading from "./components/ui/general/skeleton/loading/loading";
 import HomeDiscovery from "./components/ui/pages/home/home-discovery/home-discovery";
 import ChannelView from "./components/ui/pages/channel/channel-view/channel-view";
 import AccountRequired from "./components/ui/general/error/account-required/account-required";
+import ProfileSettings from "./components/ui/main/account/studio/studio-header/pages/profile-settings/profile-settings";
+import StreamSettings from "./components/ui/main/account/studio/studio-header/pages/stream-settings/stream-settings";
 
 export const AccountContext = createContext();
 
@@ -63,6 +65,10 @@ function App() {
                                         title="Gestionar vídeos" content={<VideoManager />} />} />} />
                                     <Route path="/studio/upload" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
                                         title="Publicar vídeo" content={<VideoUpload />} />} />} />
+                                    <Route path="/studio/streams" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
+                                        title="Emisiones en directo" content={<StreamSettings />} />} />} />
+                                    <Route path="/studio/profile" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
+                                        title="Gestionar perfil" content={<ProfileSettings />} />} />} />
                                     <Route path="*" element={<MainLayout content={<NotFound />} />} />
                                 </Routes>
                             </AccountContext.Provider>
