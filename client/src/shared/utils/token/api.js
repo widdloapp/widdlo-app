@@ -8,7 +8,7 @@ headers.append("Transfer-Encoding", "chunked");
 const defaults = {
     endpoints: {
         api: 'https://api.widdlo.com/api/v1/',
-        streams: 'http://localhost:8888/'
+        streams: 'https://streams.widdlo.com/'
     }
 }
 

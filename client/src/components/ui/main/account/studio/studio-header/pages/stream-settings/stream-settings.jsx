@@ -31,12 +31,21 @@ export default function StreamSettings() {
                 } content={
                     <div>
                         <p>Comienza una retransmisión en directo e impresiona al público. Comparte con ellos momentos únicos con interacción en tiempo real.</p>
-                        <h1>Clave de retransmisión</h1>
-                        <p>IMPORTANTE: No la compartas con nadie en quien no confíes, cualquiera con esta clave podrá comenzar a retransmitir en tu canal.</p>
                         <hr className="spaced" />
-                        <p>https://stream.widdlo.com/{data.stream.id}</p>
+                        <h1>Servidor RTMP</h1>
+                        <p>https://stream.widdlo.com</p>
+                        <hr className="spaced" />
+                        <h1>Clave de retransimisión</h1>
+                        <p>IMPORTANTE: No la compartas con nadie en quien no confíes, cualquiera con esta clave podrá comenzar a retransmitir en tu canal.</p>
                         <InputGroup size='md'>
                             <Input className={style["key"]} disabled={true} type={show ? 'text' : 'password'} value={data.stream.key} />
+                            <InputRightElement>
+                                <button className="tool" onClick={handleClick}>{show ? 'Ocultar' : 'Mostrar'}</button>
+                            </InputRightElement>
+                        </InputGroup>
+                        <h1>Obs Studio:</h1>
+                        <InputGroup size='md'>
+                            <Input className={style["key"]} disabled={true} type={show ? 'text' : 'password'} value={`${data.stream.id}?pass=${data.stream.key}`} />
                             <InputRightElement>
                                 <button className="tool" onClick={handleClick}>{show ? 'Ocultar' : 'Mostrar'}</button>
                             </InputRightElement>
