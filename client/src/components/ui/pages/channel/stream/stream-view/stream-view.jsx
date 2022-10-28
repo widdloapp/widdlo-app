@@ -14,12 +14,19 @@ export default function StreamView() {
     const controls = ['play', 'rewind', 'restart', 'mute', 'volume', 'pip', 'airplay', 'fullscreen'];
 
     const [loaded, setLoaded] = useState(false);
+    const [live, setLive] = useState(false);
     const [data, setData] = useState([]);
 
     useEffect(() => {
         api('GET', `stream/${id}`).then(res => {
             setData(res.stream);
             setLoaded(true);
+
+            stream(res.stream.id).then(res => {
+                if (res.status == 200) {
+                    setLive(true);
+                }
+            })
         })
     }, [id]);
 
@@ -31,10 +38,9 @@ export default function StreamView() {
         return (
             <div className={style["wrapper"]}>
                 <div className={style["video-wrapper"]}>
-                    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css"/>
                     <ReactHlsPlayer className="video-player" autoPlay={true} src={streamPath(data.id)} />
                 </div>
-                <h1>{streamPath(data.id)}</h1>
+                <h1>a</h1>
             </div>
         );
     } else {

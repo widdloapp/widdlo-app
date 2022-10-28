@@ -22,9 +22,9 @@ export const api = async (method, url, body) => {
     return request.json();
 }
 
-export const stream = async (url) => {
-    const request = await fetch(defaults.endpoints.streams + url)
-    return request.json();
+export const stream = async (id) => {
+    const request = await fetch(defaults.endpoints.streams + id)
+    return request;
 }
 
 export const streamPath = (id) => {

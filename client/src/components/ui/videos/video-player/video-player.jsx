@@ -29,7 +29,6 @@ export default function VideoPlayer(props) {
             <div>
                 <div className={style["container"]}>
                     <div className={style["video-wrapper"]}>
-                        <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css"/>
                         <video className="video-player" autoPlay playsInline controls src={video.source}/>
                     </div>
                     <div className={style["wrapper"]}>
