@@ -33,6 +33,8 @@ export default function StreamSettings() {
                         <p>Comienza una retransmisión en directo e impresiona al público. Comparte con ellos momentos únicos con interacción en tiempo real.</p>
                         <h1>Clave de retransmisión</h1>
                         <p>IMPORTANTE: No la compartas con nadie en quien no confíes, cualquiera con esta clave podrá comenzar a retransmitir en tu canal.</p>
+                        <hr className="spaced" />
+                        <p>https://stream.widdlo.com/{data.stream.id}</p>
                         <InputGroup size='md'>
                             <Input className={style["key"]} disabled={true} type={show ? 'text' : 'password'} value={data.stream.key} />
                             <InputRightElement>
