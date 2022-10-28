@@ -33,7 +33,7 @@ export default function StreamView() {
 
     useEffect(() => {
         new Plyr('.video-player', { controls });
-    }, [data]);
+    }, [live]);
 
     if (loaded) {
         if (live) {
