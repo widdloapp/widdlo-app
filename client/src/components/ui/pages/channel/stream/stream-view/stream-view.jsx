@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 
 import style from "./stream-view.module.css";
 import ReactHlsPlayer from "react-hls-player";
-import {api} from "../../../../../../shared/utils/token/api.js";
+import {api, stream, streamPath} from "../../../../../../shared/utils/token/api.js";
 import {useParams} from "react-router-dom";
 import Loading from "../../../../general/skeleton/loading/loading";
 
@@ -17,8 +17,8 @@ export default function StreamView() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api('GET', `channel/${id}`).then(res => {
-            setData(res.channel);
+        api('GET', `stream/${id}`).then(res => {
+            setData(res.stream);
             setLoaded(true);
         })
     }, [id]);
@@ -32,9 +32,9 @@ export default function StreamView() {
             <div className={style["wrapper"]}>
                 <div className={style["video-wrapper"]}>
                     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css"/>
-                    <ReactHlsPlayer className="video-player" autoPlay={true} src={`http://localhost:8888/${data.stream[0].id}/index.m3u8`} />
+                    <ReactHlsPlayer className="video-player" autoPlay={true} src={streamPath(data.id)} />
                 </div>
-                <h1>aaaa</h1>
+                <h1>{streamPath(data.id)}</h1>
             </div>
         );
     } else {

@@ -8,7 +8,7 @@ headers.append("Transfer-Encoding", "chunked");
 const defaults = {
     endpoints: {
         api: 'https://api.widdlo.com/api/v1/',
-        streams: 'https://localhost:8888/'
+        streams: 'http://localhost:8888/'
     }
 }
 
@@ -25,4 +25,8 @@ export const api = async (method, url, body) => {
 export const stream = async (url) => {
     const request = await fetch(defaults.endpoints.streams + url)
     return request.json();
+}
+
+export const streamPath = (id) => {
+    return `${defaults.endpoints.streams}${id}/index.m3u8`;
 }
