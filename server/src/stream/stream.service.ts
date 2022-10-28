@@ -11,8 +11,8 @@ export class StreamService {
     async getUserStream(keyQueryDto: KeyQueryDto): Promise<Stream> {
         const stream = await this.streamModel.findOne({channel: keyQueryDto.id}).select("key");
 
-        if (!stream) {
-            await this.createStream(keyQueryDto);
+        if (stream == null) {
+            return await this.createStream(keyQueryDto);
         }
 
         return stream;
@@ -25,7 +25,7 @@ export class StreamService {
 
     async createStream(keyQueryDto: KeyQueryDto) {
         return await this.streamModel.create({
-            user: keyQueryDto.id,
+            channel: keyQueryDto.id,
             key: generatePassword(),
         });
     }

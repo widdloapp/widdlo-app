@@ -11,4 +11,4 @@ export class Stream {
     key: string;
 }
 
-export const StreamSchema = SchemaFactory.createForClass(Stream).index({user: 1}, { unique: true });
+export const StreamSchema = SchemaFactory.createForClass(Stream).index({channel: 1}, { unique: true });
