@@ -12,7 +12,6 @@ import {api} from "./shared/utils/token/api.js";
 import {createContext, useEffect, useState} from "react";
 import LiveChat from "./components/ui/pages/channel/stream/live-chat/live-chat";
 import {getStoredToken} from "./shared/utils/token/token.js";
-import StudioHeader from "./components/ui/main/account/studio/studio-header/studio-header";
 import VideoUpload from "./components/ui/main/account/studio/studio-header/pages/video-upload/video-upload";
 import VideoManager from "./components/ui/main/account/studio/studio-header/pages/video-manager/video-manager";
 import Loading from "./components/ui/general/skeleton/loading/loading";
@@ -21,6 +20,7 @@ import ChannelView from "./components/ui/pages/channel/channel-view/channel-view
 import AccountRequired from "./components/ui/general/error/account-required/account-required";
 import ProfileSettings from "./components/ui/main/account/studio/studio-header/pages/profile-settings/profile-settings";
 import StreamSettings from "./components/ui/main/account/studio/studio-header/pages/stream-settings/stream-settings";
+import PageHeader from "./components/ui/main/page-header/page-header";
 
 export const AccountContext = createContext();
 
@@ -61,13 +61,13 @@ function App() {
 
                                     <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
                                     <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<StreamView />} />} />
-                                    <Route path="/studio/manage" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
+                                    <Route path="/studio/manage" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
                                         title="Gestionar vídeos" content={<VideoManager />} />} />} />
-                                    <Route path="/studio/upload" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
+                                    <Route path="/studio/upload" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
                                         title="Publicar vídeo" content={<VideoUpload />} />} />} />
-                                    <Route path="/studio/streams" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
+                                    <Route path="/studio/streams" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
                                         title="Emisiones en directo" content={<StreamSettings />} />} />} />
-                                    <Route path="/studio/profile" element={<SidebarLayout sidebar={<HomeSidebar />} content={<StudioHeader
+                                    <Route path="/studio/profile" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
                                         title="Gestionar perfil" content={<ProfileSettings />} />} />} />
                                     <Route path="*" element={<MainLayout content={<NotFound />} />} />
                                 </Routes>

@@ -13,11 +13,11 @@ export default function ChannelGrid(props) {
     const order = useContext(OrderContext);
 
     useEffect(() => {
-        api('GET', `video/channel/${props.channel.id}?${new URLSearchParams({order: order})}`).then(res => {
+        api('GET', `video/channel/${props.channel}?${new URLSearchParams({order: order})}`).then(res => {
             setVideos(res.videos);
             setLoaded(true);
         })
-    }, [props.channel.id, order]);
+    }, [props.channel, order]);
 
     if (loaded) {
         return (

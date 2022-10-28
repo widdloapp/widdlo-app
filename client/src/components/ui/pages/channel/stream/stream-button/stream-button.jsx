@@ -1,23 +1,26 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 
-import {stream} from "../../../../../../shared/utils/token/api.js";
+import {api, stream} from "../../../../../../shared/utils/token/api.js";
 
 export default function StreamButton(props) {
 
     const [live, setLive] = useState(false);
 
     useEffect(() => {
-        stream(props.id).then(res => {
-            if (res.status == 200) {
-                setLive(true)
-            }
+        setLive(false);
+        api('GET', `stream/${props.id}`).then(res => {
+            stream(res.stream.id).then(res => {
+                if (res.status == 200) {
+                    setLive(true);
+                }
+            })
         })
-    }, []);
+    }, [props.id]);
 
     if (live) {
         return (
-            <button>En directo</button>
+            <Link to={"/channel/" + props.id + "/stream"}><button className="main live">En directo</button></Link>
         );
     } else {
         return (

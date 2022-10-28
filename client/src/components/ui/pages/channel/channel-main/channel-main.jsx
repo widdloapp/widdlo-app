@@ -39,7 +39,7 @@ export default function ChannelMain() {
                     </div>
                 </div>
                 <div className={style["content"]}>
-                    <ChannelGrid channel={data} />
+                    <ChannelGrid channel={data.id} />
                 </div>
             </div>
         );

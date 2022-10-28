@@ -36,19 +36,20 @@ export default function StreamView() {
     }, [data]);
 
     if (loaded) {
-        return (
-            <div className={style["wrapper"]}>
-                <div className={style["video-wrapper"]}>
-                    <div hidden={!live}>
+        if (data) {
+            return (
+                <div className={style["wrapper"]}>
+                    <div className={style["video-wrapper"]}>
                         <ReactHlsPlayer hidden={!live} className="video-player" autoPlay={true} src={streamPath(data.id)} />
                         <h1>a</h1>
                     </div>
-                    <div hidden={live}>
-                        <OfflineStream channel={data} />
-                    </div>
                 </div>
-            </div>
-        );
+            );
+        } else {
+            return (
+                <OfflineStream channel={id} />
+            )
+        }
     } else {
         return (
             <Loading />

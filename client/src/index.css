@@ -18,6 +18,9 @@
   --theme-btn-main: #3a3a3a;
   --theme-props-border-radius: 5px;
 
+  --theme-schema-live-main: #c52626;
+  --theme-schema-live-dark: #981616;
+
   --plyr-color-main: var(--theme-schema-main);
 }
 
@@ -80,8 +83,16 @@ button.main {
   color: white;
 }
 
+button.live {
+  background: var(--theme-schema-live-main);
+}
+
 button.main:hover {
   background: #474747;
+}
+
+button.live:hover {
+  background: var(--theme-schema-live-dark);
 }
 
 button.tool {

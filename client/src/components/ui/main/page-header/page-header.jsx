@@ -1,9 +1,9 @@
-import style from "./studio-header.module.css";
+import style from "./page-header.module.css";
 import {useContext} from "react";
-import {AccountContext} from "../../../../../../App.jsx";
-import AccountRequired from "../../../../general/error/account-required/account-required";
+import {AccountContext} from "../../../../App.jsx";
+import AccountRequired from "../../general/error/account-required/account-required.jsx";
 
-export default function StudioHeader(props) {
+export default function PageHeader(props) {
 
     const account = useContext(AccountContext).user;
 
