@@ -1,10 +1,9 @@
-import {IsMongoId, IsNotEmpty} from "class-validator";
+import {IsMongoId, IsNotEmpty, IsOptional} from "class-validator";
 
 export class CheckStreamDto {
     @IsNotEmpty()
-    @IsMongoId({message: "invalid id"})
     path: string;
 
-    @IsNotEmpty()
+    @IsOptional()
     password: string;
 }

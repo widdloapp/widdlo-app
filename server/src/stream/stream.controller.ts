@@ -31,6 +31,10 @@ export class StreamController {
 
     @Post()
     async checkStreamKey(@Response() response, @Body() checkStreamDto: CheckStreamDto) {
+        const credentials = checkStreamDto.path;
+        checkStreamDto.path = credentials.split("/")[0]
+        checkStreamDto.password = credentials.split("/")[1]
+
         const stream = await this.streamService.getStream(checkStreamDto.path);
 
 
