@@ -4,13 +4,14 @@ import {
     BadRequestException,
     Body,
     Controller,
-    Get,
+    Get, HttpCode,
     HttpStatus,
     NotFoundException,
     Post,
     Res,
     Response
 } from "@nestjs/common";
+import {HttpException} from "@nestjs/common/exceptions/http.exception";
 
 @Controller('stream')
 export class StreamController {
@@ -30,10 +31,10 @@ export class StreamController {
     }
 
     @Post()
-    async checkStreamKey(@Response() response, @Body() checkStreamDto: CheckStreamDto) {
-        const credentials = checkStreamDto.path;
-        checkStreamDto.path = credentials.split("/")[0]
-        checkStreamDto.password = credentials.split("/")[1]
+    async checkStreamKey(@Response() response, @Body() checkStreamDto) {
+        if (checkStreamDto.action == 'read') {
+            throw new HttpException("Read approved.", HttpStatus.OK);
+        }
 
         const stream = await this.streamService.getStream(checkStreamDto.path);
 

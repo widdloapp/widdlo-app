@@ -1,5 +1,4 @@
 import style from "./channel-main.module.css";
-import VideoGrid from "../../../videos/video-grid/grid/video-grid.jsx";
 import StreamButton from "../stream/stream-button/stream-button";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
