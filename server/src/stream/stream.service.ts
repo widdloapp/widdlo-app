@@ -9,16 +9,11 @@ import {KeyQueryDto} from "../dto/get/key-query.dto";
 export class StreamService {
     constructor(@InjectModel('Stream') private streamModel: Model<Stream>) { }
     async getUserStream(keyQueryDto: KeyQueryDto): Promise<Stream> {
-        const stream = await this.streamModel.findOne({channel: keyQueryDto.id}).select("key");
+        const stream = this.getStream(keyQueryDto.id);
 
         if (stream == null) {
             return await this.createStream(keyQueryDto);
         }
-
-        return stream;
-    }
-    async getStreamKey(keyQueryDto: KeyQueryDto): Promise<Stream> {
-        const stream = await this.streamModel.findOne({channel: keyQueryDto.id}).select(["key"]);
 
         return stream;
     }
@@ -28,5 +23,15 @@ export class StreamService {
             channel: keyQueryDto.id,
             key: generatePassword(),
         });
+    }
+    async getStreamChannel(id: string) {
+        const stream = await this.streamModel.findOne({channel: id});
+
+        return stream;
+    }
+    async getStream(id: string) {
+        const stream = await this.streamModel.findById(id);
+
+        return stream;
     }
 }

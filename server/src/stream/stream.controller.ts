@@ -6,8 +6,8 @@ import {
     Controller,
     Get,
     HttpStatus,
-    NotFoundException,
-    Post,
+    NotFoundException, Param,
+    Post, Query,
     Res,
     Response
 } from "@nestjs/common";
@@ -18,8 +18,8 @@ export class StreamController {
     constructor(private readonly streamService: StreamService) { }
 
     @Get()
-    async getStreamKey(@Res() response) {
-        const stream = await this.streamService.getUserStream(response.locals.user);
+    async getStreamKey(@Res() response, @Query() keyQueryDto: KeyQueryDto) {
+        const stream = await this.streamService.getStreamChannel(keyQueryDto.id);
 
         if (!stream) {
             throw new NotFoundException('Stream could not found!');
@@ -31,8 +31,8 @@ export class StreamController {
     }
 
     @Post()
-    async checkStreamKey(@Response() response, @Body() checkStreamDto: CheckStreamDto, @Body() keyQueryDto: KeyQueryDto) {
-        const stream = await this.streamService.getStreamKey(keyQueryDto);
+    async checkStreamKey(@Response() response, @Body() checkStreamDto: CheckStreamDto) {
+        const stream = await this.streamService.getStream(checkStreamDto.path);
 
 
         if (!stream) {
@@ -42,7 +42,7 @@ export class StreamController {
         // @ts-ignore
         if (stream.key == checkStreamDto.password) {
             return response.status(HttpStatus.OK).json({
-                message: 'Valid stream key.', stream
+                message: 'Valid stream key.'
             });
         }
 
