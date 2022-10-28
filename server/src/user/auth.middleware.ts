@@ -23,6 +23,7 @@ export class AuthMiddleware implements NestMiddleware {
                 }
 
                 res.locals.user = user.id.toString();
+                res.locals.channel = user["channels"][0].id;
                 next();
             } catch (error) {
                 throw new UnprocessableEntityException('Invalid token.');

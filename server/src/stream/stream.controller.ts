@@ -6,20 +6,19 @@ import {
     Controller,
     Get,
     HttpStatus,
-    NotFoundException, Param,
-    Post, Query,
+    NotFoundException,
+    Post,
     Res,
     Response
 } from "@nestjs/common";
-import {KeyQueryDto} from "../dto/get/key-query.dto";
 
 @Controller('stream')
 export class StreamController {
     constructor(private readonly streamService: StreamService) { }
 
     @Get()
-    async getStreamKey(@Res() response, @Query() keyQueryDto: KeyQueryDto) {
-        const stream = await this.streamService.getStreamChannel(keyQueryDto.id);
+    async getStreamKey(@Res() response) {
+        const stream = await this.streamService.getStreamChannel(response.locals.channel);
 
         if (!stream) {
             throw new NotFoundException('Stream could not found!');
