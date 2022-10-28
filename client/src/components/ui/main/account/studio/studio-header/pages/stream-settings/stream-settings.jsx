@@ -1,21 +1,24 @@
 import style from "./stream-settings.module.css";
 import TipsSidebar from "../../../components/tips-sidebar/tips-sidebar";
-import {Button, Input, InputGroup, InputRightElement} from "@chakra-ui/react";
-import {useState} from "react";
+import {Input, InputGroup, InputRightElement} from "@chakra-ui/react";
+import {useEffect, useState} from "react";
 import {api} from "../../../../../../../../shared/utils/token/api.js";
 
 export default function StreamSettings() {
 
     const [loaded, setLoaded] = useState(false);
     const [show, setShow] = useState(false);
-    const handleClick = () => setShow(!show);
     const [data, setData] = useState({});
 
-    api('GET', 'stream').then(res => {
-            setData(res);
-            setLoaded(true);
-        }
-    )
+    const handleClick = () => setShow(!show);
+
+    useEffect(() => {
+        api('GET', 'stream').then(res => {
+                setData(res);
+                setLoaded(true);
+            }
+        )
+    }, []);
 
     if (loaded) {
         return (
