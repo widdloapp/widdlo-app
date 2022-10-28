@@ -36,7 +36,7 @@ export default function StreamView() {
     }, [data]);
 
     if (loaded) {
-        if (data) {
+        if (live) {
             return (
                 <div className={style["wrapper"]}>
                     <div className={style["video-wrapper"]}>
