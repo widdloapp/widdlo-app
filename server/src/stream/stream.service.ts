@@ -8,7 +8,7 @@ import {KeyQueryDto} from "../dto/get/key-query.dto";
 @Injectable()
 export class StreamService {
     constructor(@InjectModel('Stream') private streamModel: Model<Stream>) { }
-    async getUserStream(keyQueryDto: KeyQueryDto): Promise<Stream> {
+    /*async getUserStream(keyQueryDto: KeyQueryDto): Promise<Stream> {
         const stream = this.getStream(keyQueryDto.id);
 
         if (stream == null) {
@@ -16,7 +16,7 @@ export class StreamService {
         }
 
         return stream;
-    }
+    }*/
 
     async createStream(keyQueryDto: KeyQueryDto) {
         return await this.streamModel.create({
@@ -26,6 +26,11 @@ export class StreamService {
     }
     async getStreamChannel(id: string) {
         const stream = await this.streamModel.findOne({channel: id});
+
+        return stream;
+    }
+    async getPublicChannelStream(id: string) {
+        const stream = await this.streamModel.findOne({channel: id}).select("id");
 
         return stream;
     }

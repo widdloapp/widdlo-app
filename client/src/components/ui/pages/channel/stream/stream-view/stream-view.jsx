@@ -34,7 +34,7 @@ export default function StreamView() {
                     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css"/>
                     <ReactHlsPlayer className="video-player" autoPlay={true} src={`http://localhost:8888/${data.stream[0].id}/index.m3u8`} />
                 </div>
-                <h1>{JSON.stringify(data.stream[0].id)}aaaa</h1>
+                <h1>aaaa</h1>
             </div>
         );
     } else {
