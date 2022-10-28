@@ -33,7 +33,7 @@ export default function StreamSettings() {
                         <p>Comienza una retransmisión en directo e impresiona al público. Comparte con ellos momentos únicos con interacción en tiempo real.</p>
                         <hr className="spaced" />
                         <h1>Servidor RTMP</h1>
-                        <p>https://stream.widdlo.com</p>
+                        <p>rtmp://stream.widdlo.com</p>
                         <hr className="spaced" />
                         <h1>Clave de retransimisión</h1>
                         <p>IMPORTANTE: No la compartas con nadie en quien no confíes, cualquiera con esta clave podrá comenzar a retransmitir en tu canal.</p>
