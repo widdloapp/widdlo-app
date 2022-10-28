@@ -3,8 +3,6 @@ import {Link} from "react-router-dom";
 
 import {stream} from "../../../../../../shared/utils/token/api.js";
 
-import style from "./stream-button.module.css";
-
 export default function StreamButton(props) {
 
     const [live, setLive] = useState(false);

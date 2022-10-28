@@ -6,6 +6,7 @@ import ReactHlsPlayer from "react-hls-player";
 import {api, stream, streamPath} from "../../../../../../shared/utils/token/api.js";
 import {useParams} from "react-router-dom";
 import Loading from "../../../../general/skeleton/loading/loading";
+import OfflineStream from "./offline-stream/offline-stream";
 
 export default function StreamView() {
 
@@ -38,9 +39,14 @@ export default function StreamView() {
         return (
             <div className={style["wrapper"]}>
                 <div className={style["video-wrapper"]}>
-                    <ReactHlsPlayer className="video-player" autoPlay={true} src={streamPath(data.id)} />
+                    <div hidden={!live}>
+                        <ReactHlsPlayer hidden={!live} className="video-player" autoPlay={true} src={streamPath(data.id)} />
+                        <h1>a</h1>
+                    </div>
+                    <div hidden={live}>
+                        <OfflineStream channel={data} />
+                    </div>
                 </div>
-                <h1>a</h1>
             </div>
         );
     } else {
