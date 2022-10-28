@@ -30,7 +30,7 @@ const ChannelSchema = SchemaFactory.createForClass(Channel).index({user: 1, user
 ChannelSchema.virtual('stream', {
     ref: 'Stream',
     localField: '_id',
-    foreignField: 'user'
+    foreignField: 'channel'
 });
 
 ChannelSchema.virtual('chats', {

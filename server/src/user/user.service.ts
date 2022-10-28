@@ -42,11 +42,6 @@ export class UserService {
             const channel = await new this.channelModel({user: user.id, username: createUserDto.username});
             await channel.save();
 
-            console.log(generatePassword())
-            const stream = await new this.streamModel({user: user.id, key: generatePassword()});
-            await stream.save();
-            console.log(stream)
-
             return await user.save();
         } catch (error) {
             throw new HttpException("An error ocurred. Maybe an account with that username or email already exists?", HttpStatus.CONFLICT);
@@ -67,14 +62,4 @@ export class UserService {
 
         return user;
     }
-}
-
-function generatePassword() {
-    let length = 32,
-        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-        retVal = "";
-    for (let i = 0, n = charset.length; i < length; ++i) {
-        retVal += charset.charAt(Math.floor(Math.random() * n));
-    }
-    return retVal;
 }
