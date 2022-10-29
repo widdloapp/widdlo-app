@@ -13,12 +13,12 @@ export default function VideoUpload() {
     const postVideo = (event) => {
         event.preventDefault();
 
-        const body = new FormData();
-        body.append("title", event.target[0].value);
-        body.append("description", event.target[1].value);
-        body.append("thumbnail", event.target[2].files[0]);
-        body.append("source", event.target[3].files[0]);
-        api('POST', 'video', body).then(res => {
+        api('POST', 'video', JSON.stringify({
+            title: event.target[0].value,
+            description: event.target[1].value,
+            thumbnail: event.target[2].files[0],
+            source: event.target[3].files[0]
+        })).then(res => {
                 try {
                     navigate(`/watch/${res.video.id}`);
                 } catch (error) {

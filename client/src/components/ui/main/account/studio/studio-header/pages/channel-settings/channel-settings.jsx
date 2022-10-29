@@ -13,10 +13,10 @@ export default function ChannelSettings() {
     const postVideo = (event) => {
         event.preventDefault();
 
-        const body = new FormData();
-        body.append("username", event.target[0].value);
-        try {
-            api('PATCH', 'channel', body).then(res => {
+        api('PATCH', 'channel', JSON.stringify(
+            {username: event.target[0].value}
+        )).then(res => {
+            if (res.channel) {
                 toast({
                     title: 'Hecho',
                     description: "Completado.",
@@ -24,16 +24,18 @@ export default function ChannelSettings() {
                     position: 'bottom-right',
                     isClosable: true
                 });
-            });
-        } catch (error) {
-            toast({
-                title: 'Error',
-                description: "No se ha podido completar el proceso.",
-                status: 'error',
-                position: 'bottom-right',
-                isClosable: true
-            });
-        }
+
+                location.reload();
+            } else {
+                toast({
+                    title: 'Error',
+                    description: "No se ha podido completar el proceso.",
+                    status: 'error',
+                    position: 'bottom-right',
+                    isClosable: true
+                });
+            }
+        });
     };
 
     return (
