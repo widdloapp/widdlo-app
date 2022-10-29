@@ -9,8 +9,8 @@ export default function ChannelPopup(props) {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        api('GET', `user/${props.id}`).then(res => {
-            setData(res.user);
+        api('GET', `channel/${props.id}`).then(res => {
+            setData(res.channel);
             setLoaded(true);
         })
     }, []);
@@ -19,7 +19,7 @@ export default function ChannelPopup(props) {
         <div className={style["wrapper"]}>
             <div className={style["wrapper"]}>
                 <h1><mark>{data.username}</mark></h1>
-                <p hidden={!data.channels[0]}>{data.channels[0].followers} seguidores</p>
+                <p>{data.followers} seguidores</p>
             </div>
             <hr className="spaced" />
             <div className={style["wrapper"]}>
@@ -33,7 +33,7 @@ export default function ChannelPopup(props) {
             </div>
             <hr className="spaced" />
             <div className={style["footer"]}>
-                <Link hidden={!data.channels[0]} to={`/channel/${data.channels[0].id}`} className="styled-text">
+                <Link to={`/channel/${data.id}`} className="styled-text">
                     <button className="main full">Ir a su canal</button>
                 </Link>
             </div>

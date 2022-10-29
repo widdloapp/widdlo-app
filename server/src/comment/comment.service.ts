@@ -17,7 +17,8 @@ export class CommentService {
     }
 
     async getComments(getCommentsDto: GetCommentsDto, queryDto: QueryDto): Promise<Comment[]> {
-        const comments = await this.commentModel.find({target: getCommentsDto.target}).populate("author", ["username", "avatar"]).limit(20).skip(queryDto.page * 20);
+        const comments = await this.commentModel.find({target: getCommentsDto.target})
+            .populate({path: 'author', select: ['avatar', 'username'], populate: {path: 'followers'}}).limit(20).skip(queryDto.page * 20);
 
         /*if (!comments || comments.length == 0) {
             throw new NotFoundException("No comments found.");
@@ -29,8 +30,8 @@ export class CommentService {
         const amount = await this.commentModel.count({target: getCommentsDto.target});
         return amount;
     }
-    async updateComment(user: string, updateCommentDto: UpdateCommentDto) {
-        const comment = await this.commentModel.findOneAndUpdate({_id: updateCommentDto.id, author: user}, updateCommentDto, {new: true});
+    async updateComment(channel: string, updateCommentDto: UpdateCommentDto) {
+        const comment = await this.commentModel.findOneAndUpdate({_id: updateCommentDto.id, author: channel}, updateCommentDto, {new: true});
 
         if (!comment) {
             throw new NotFoundException("Unknown comment or invalid authentication.");

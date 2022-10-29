@@ -1,17 +1,15 @@
-import {Progress} from "@chakra-ui/react";
 import {useGlobal} from "reactn";
 
-import style from "./loading-bar.module.css";
+import {useEffect, useRef} from "react";
 
 export default function LoadingBar() {
 
     const [loading, setLoading] = useGlobal("loading");
+    /*const ref = useRef(null);
 
-    if (loading) {
-        return (
-            <div className={style["container"]}>
-                <Progress className={style["bar"]} isIndeterminate />
-            </div>
-        );
-    }
+    return (
+        <LoadingBar ref={ref} />
+    );
+    useEffect(() => ref.current.continuousStart());*/
+
 }

@@ -12,7 +12,7 @@ export class CommentController {
 
     @Post()
     async postComment(@Res() response, @Body() createCommentDto: CreateCommentDto) {
-        createCommentDto.author = response.locals.user;
+        createCommentDto.author = response.locals.channel;
 
         try {
             const comment = await this.commentService.createComment(createCommentDto);
@@ -34,6 +34,7 @@ export class CommentController {
             message: 'Comments successfully found.', amount, comments, pages: {current: queryDto.page},
         });
     }
+
     @Patch()
     async updateComment(@Res() response, @Body() updateCommentDto: UpdateCommentDto) {
         const comment = await this.commentService.updateComment(response.locals.user, updateCommentDto);
