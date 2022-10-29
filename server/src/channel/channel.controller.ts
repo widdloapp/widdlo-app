@@ -17,8 +17,6 @@ export class ChannelController {
         try {
             const channel = await this.channelService.createChannel(createChannelDto);
 
-            await this.streamService.createStream(keyQueryDto);
-
             return response.status(HttpStatus.OK).json({
                 message: 'Channel successfully created.', channel
             });
@@ -40,7 +38,6 @@ export class ChannelController {
     async updateChannel(@Res() response, @Body() updateChannelDto: UpdateChannelDto) {
         updateChannelDto.id = response.locals.channel;
 
-        console.log(updateChannelDto)
         const channel = await this.channelService.updateChannel(response.locals.channel, updateChannelDto);
 
         return response.status(HttpStatus.OK).json({

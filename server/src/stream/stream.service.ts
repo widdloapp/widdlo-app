@@ -3,7 +3,6 @@ import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
 import {Stream} from "stream";
 import generatePassword from "../password";
-import {KeyQueryDto} from "../dto/get/key-query.dto";
 
 @Injectable()
 export class StreamService {
@@ -17,17 +16,20 @@ export class StreamService {
 
         return stream;
     }*/
-
-    async createStream(keyQueryDto: KeyQueryDto) {
-        return await this.streamModel.create({
-            channel: keyQueryDto.id,
-            key: generatePassword(),
-        });
-    }
     async getStreamChannel(id: string) {
         const stream = await this.streamModel.findOne({channel: id});
 
+        if (!stream) {
+            return await this.createStream(id);
+        }
+
         return stream;
+    }
+    async createStream(id: string) {
+        return await this.streamModel.create({
+            channel: id,
+            key: generatePassword(),
+        });
     }
     async getPublicChannelStream(id: string) {
         const stream = await this.streamModel.findOne({channel: id}).select("id");
