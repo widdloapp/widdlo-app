@@ -21,15 +21,13 @@ import AccountRequired from "./components/ui/general/error/account-required/acco
 import ProfileSettings from "./components/ui/main/account/studio/studio-header/pages/profile-settings/profile-settings";
 import StreamSettings from "./components/ui/main/account/studio/studio-header/pages/stream-settings/stream-settings";
 import PageHeader from "./components/ui/main/page-header/page-header";
-import {Progress} from "@chakra-ui/react";
-import {useGlobal} from "reactn";
+import LoadingBar from "./components/ui/general/skeleton/loading-bar/loading-bar";
 
 export const AccountContext = createContext();
 
 function App() {
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState({});
-    const [loading, setLoading] = useGlobal("loading");
 
     useEffect(() => {
             api('GET', 'user').then(res => {
@@ -47,7 +45,7 @@ function App() {
                     {
                         data.user ?
                                 <AccountContext.Provider value={data}>
-                                    <Progress hidden={!loading} size='xs' isIndeterminate />
+                                    <LoadingBar />
                                     <Routes>
                                         <Route path="/" element={<HomeDiscovery order='featured' />} />
                                         <Route path="/feed/latest" element={<HomeDiscovery order='latest' />} />
