@@ -51,7 +51,7 @@ export default function ChannelSettings() {
             } content={
                 <div>
                     <form className={style["wrapper"]} onSubmit={postVideo}>
-                        <input required={true} name="username" className="main" type="text" autoComplete={false} placeholder="Nombre de usuario" />
+                        <input required={true} name="username" className="main" type="text" placeholder="Nombre de usuario" />
                         <p>Avatar</p>
                         <FileUpload />
                         <input type="submit" value="Continuar" className="important" />
