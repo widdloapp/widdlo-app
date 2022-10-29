@@ -27,7 +27,7 @@ export default function VideoManager() {
                 </div>
             } content={
                 <div>
-                    <AdminGrid channel={account.channels[0].id} />
+                    <AdminGrid channel={account.channel.id} />
                 </div>
             } />
         </div>
