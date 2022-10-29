@@ -14,8 +14,7 @@ export default function ChannelSettings() {
         event.preventDefault();
 
         const body = new FormData();
-        body.append("name", event.target[0].value);
-        body.append("avatar", event.target[1].files[0]);
+        body.append("username", event.target[0].value);
         try {
             api('PATCH', 'channel', body).then(res => {
                 toast({
@@ -50,7 +49,7 @@ export default function ChannelSettings() {
             } content={
                 <div>
                     <form className={style["wrapper"]} onSubmit={postVideo}>
-                        <input required={true} name="name" className="main" type="text" placeholder="Nombre" />
+                        <input required={true} name="username" className="main" type="text" autoComplete={false} placeholder="Nombre de usuario" />
                         <p>Avatar</p>
                         <FileUpload />
                         <input type="submit" value="Continuar" className="important" />
