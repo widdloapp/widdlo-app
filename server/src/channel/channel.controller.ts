@@ -38,6 +38,8 @@ export class ChannelController {
 
     @Patch()
     async updateChannel(@Res() response, @Body() updateChannelDto: UpdateChannelDto) {
+        updateChannelDto.id = response.locals.channel;
+
         const channel = await this.channelService.updateChannel(response.locals.channel, updateChannelDto);
 
         return response.status(HttpStatus.OK).json({

@@ -16,9 +16,15 @@ export default function ChannelSettings() {
         const body = new FormData();
         body.append("name", event.target[0].value);
         body.append("avatar", event.target[1].files[0]);
-        api('POST', 'video', body).then(res => {
+        api('PATCH', 'channel', body).then(res => {
                 try {
-                    navigate(`/watch/${res.video.id}`);
+                    toast({
+                        title: 'Hecho',
+                        description: "Completado.",
+                        status: 'success',
+                        position: 'bottom-right',
+                        isClosable: true
+                    });
                 } catch (error) {
                     toast({
                         title: 'Error',
@@ -48,7 +54,7 @@ export default function ChannelSettings() {
                         <input required={true} name="name" className="main" type="text" placeholder="Nombre" />
                         <p>Avatar</p>
                         <FileUpload />
-                        <input type="submit" value="Publicar" className="important" />
+                        <input type="submit" value="Continuar" className="important" />
                     </form>
                 </div>
             } />

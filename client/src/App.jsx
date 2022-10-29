@@ -18,10 +18,11 @@ import Loading from "./components/ui/general/skeleton/loading/loading";
 import HomeDiscovery from "./components/ui/pages/home/home-discovery/home-discovery";
 import ChannelView from "./components/ui/pages/channel/channel-view/channel-view";
 import AccountRequired from "./components/ui/general/error/account-required/account-required";
-import ChannelSettings from "./components/ui/main/account/studio/studio-header/pages/profile-settings/channel-settings.jsx";
 import StreamSettings from "./components/ui/main/account/studio/studio-header/pages/stream-settings/stream-settings";
 import PageHeader from "./components/ui/main/page-header/page-header";
 import LoadingBar from "./components/ui/general/skeleton/loading-bar/loading-bar";
+import ChannelSettings
+    from "./components/ui/main/account/studio/studio-header/pages/channel-settings/channel-settings.jsx";
 
 export const AccountContext = createContext();
 
