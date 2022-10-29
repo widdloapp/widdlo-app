@@ -2,6 +2,7 @@ import style from "./home-sidebar.module.css";
 import {Link} from "react-router-dom";
 import React, {Fragment} from "react";
 import AccordionWrapper from "../../channel/sidebar/accordion-wrapper/accordion-wrapper.jsx";
+import StudioSidebar from "../../../main/account/studio/studio-sidebar/studio-sidebar.jsx";
 
 export default function HomeSidebar() {
 
@@ -15,6 +16,7 @@ export default function HomeSidebar() {
                     <Link to="/feed/popular"><button className="section"><i className="fa-light fa-arrow-trend-up" />Más visto</button></Link>
                 </Fragment>
             } />
+            <StudioSidebar />
         </div>
     );
 }

@@ -10,11 +10,13 @@ export default function StreamButton(props) {
     useEffect(() => {
         setLive(false);
         api('GET', `stream/${props.id}`).then(res => {
-            stream(res.stream.id).then(res => {
-                if (res.status == 200) {
-                    setLive(true);
-                }
-            })
+            if (res.stream) {
+                stream(res.stream.id).then(res => {
+                    if (res.status == 200) {
+                        setLive(true);
+                    }
+                })
+            }
         })
     }, [props.id]);
 
