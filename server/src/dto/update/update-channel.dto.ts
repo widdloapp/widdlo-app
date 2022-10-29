@@ -9,4 +9,7 @@ export class UpdateChannelDto extends PickType(CreateChannelDto, ['name', 'usern
 
     @IsOptional()
     name: string;
+
+    @IsOptional()
+    username: string;
 }

@@ -18,7 +18,7 @@ import Loading from "./components/ui/general/skeleton/loading/loading";
 import HomeDiscovery from "./components/ui/pages/home/home-discovery/home-discovery";
 import ChannelView from "./components/ui/pages/channel/channel-view/channel-view";
 import AccountRequired from "./components/ui/general/error/account-required/account-required";
-import ProfileSettings from "./components/ui/main/account/studio/studio-header/pages/profile-settings/profile-settings";
+import ChannelSettings from "./components/ui/main/account/studio/studio-header/pages/profile-settings/channel-settings.jsx";
 import StreamSettings from "./components/ui/main/account/studio/studio-header/pages/stream-settings/stream-settings";
 import PageHeader from "./components/ui/main/page-header/page-header";
 import LoadingBar from "./components/ui/general/skeleton/loading-bar/loading-bar";
@@ -69,7 +69,7 @@ function App() {
                                         <Route path="/studio/streams" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
                                             title="Emisiones en directo" content={<StreamSettings />} />} />} />
                                         <Route path="/studio/profile" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
-                                            title="Gestionar perfil" content={<ProfileSettings />} />} />} />
+                                            title="Gestionar perfil" content={<ChannelSettings />} />} />} />
                                         <Route path="*" element={<MainLayout content={<NotFound />} />} />
                                     </Routes>
                                 </AccountContext.Provider>

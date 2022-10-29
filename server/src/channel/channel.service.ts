@@ -43,8 +43,9 @@ export class ChannelService {
     async getUserChannel(user: string) {
         return this.channelModel.findOne({user: user});
     }
-    async updateChannel(user: string, updateChannelDto: UpdateChannelDto) {
-        const channel = await this.channelModel.findOneAndUpdate({_id: updateChannelDto.id, user: user}, updateChannelDto, {new: true});
+    async updateChannel(id: string, updateChannelDto: UpdateChannelDto) {
+        // @ts-ignore
+        const channel = await this.channelModel.findOneAndUpdate(id, updateChannelDto, {new: true});
 
         if (!channel) {
             throw new NotFoundException("Unknown channel or invalid authentication.");
