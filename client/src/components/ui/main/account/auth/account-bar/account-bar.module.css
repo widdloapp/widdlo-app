@@ -5,9 +5,17 @@
 
 .wrapper {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto auto;
     place-items: center;
     margin: 0 10px;
+    grid-gap: 10px;
+}
+
+.account-data {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    place-items: center;
+    grid-gap: 10px;
 }
 
 .wrapper > p {
