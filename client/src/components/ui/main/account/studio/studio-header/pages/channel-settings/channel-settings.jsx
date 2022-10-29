@@ -16,26 +16,25 @@ export default function ChannelSettings() {
         const body = new FormData();
         body.append("name", event.target[0].value);
         body.append("avatar", event.target[1].files[0]);
-        api('PATCH', 'channel', body).then(res => {
-                try {
-                    toast({
-                        title: 'Hecho',
-                        description: "Completado.",
-                        status: 'success',
-                        position: 'bottom-right',
-                        isClosable: true
-                    });
-                } catch (error) {
-                    toast({
-                        title: 'Error',
-                        description: "No se ha podido completar el proceso.",
-                        status: 'error',
-                        position: 'bottom-right',
-                        isClosable: true
-                    });
-                }
-            }
-        )
+        try {
+            api('PATCH', 'channel', body).then(res => {
+                toast({
+                    title: 'Hecho',
+                    description: "Completado.",
+                    status: 'success',
+                    position: 'bottom-right',
+                    isClosable: true
+                });
+            });
+        } catch (error) {
+            toast({
+                title: 'Error',
+                description: "No se ha podido completar el proceso.",
+                status: 'error',
+                position: 'bottom-right',
+                isClosable: true
+            });
+        }
     };
 
     return (
