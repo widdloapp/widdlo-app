@@ -20,9 +20,9 @@ import ChannelView from "./components/ui/pages/channel/channel-view/channel-view
 import AccountRequired from "./components/ui/general/error/account-required/account-required";
 import StreamSettings from "./components/ui/main/account/studio/studio-header/pages/stream-settings/stream-settings";
 import PageHeader from "./components/ui/main/page-header/page-header";
-import LoadingBar from "./components/ui/general/skeleton/loading-bar/loading-bar";
 import ChannelSettings
     from "./components/ui/main/account/studio/studio-header/pages/channel-settings/channel-settings.jsx";
+import ProgressBar from "./components/ui/general/skeleton/progress-bar/progress-bar";
 
 export const AccountContext = createContext();
 
@@ -46,7 +46,7 @@ function App() {
                     {
                         data.user ?
                                 <AccountContext.Provider value={data}>
-                                    <LoadingBar />
+                                    <ProgressBar />
                                     <Routes>
                                         <Route path="/" element={<HomeDiscovery order='featured' />} />
                                         <Route path="/feed/latest" element={<HomeDiscovery order='latest' />} />
