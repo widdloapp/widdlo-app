@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom";
 
 export default function AccountBar() {
 
-    const account = useContext(AccountContext).user;
+    const channel = useContext(AccountContext).channel;
 
     const navigate = useNavigate();
 
@@ -19,7 +19,8 @@ export default function AccountBar() {
     return (
         <div className={style["container"]}>
             <div className={style["wrapper"]}>
-                <p>¡Hola, {account.username}!</p>
+                <img className="avatar" src={channel.avatar} />
+                <p>{channel.username}</p>
                 <button onClick={logout} className="main">Salir</button>
             </div>
         </div>

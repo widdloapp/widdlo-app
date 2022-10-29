@@ -5,8 +5,9 @@
 
 .wrapper {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 1fr auto;
     place-items: center;
+    margin: 0 10px;
 }
 
 .wrapper > p {

@@ -54,7 +54,6 @@ export class UserController {
     }
     @Get()
     async getUser(@Res() response) {
-        console.log(response.locals.channel)
         const user = await this.userService.getData(response.locals.user);
         const channel = await this.channelService.getChannel(response.locals.channel);
 
