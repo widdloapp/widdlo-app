@@ -13,10 +13,11 @@ import {
     Post,
     Res
 } from "@nestjs/common";
+import {ChannelService} from "../channel/channel.service";
 
 @Controller('user')
 export class UserController {
-    constructor(private readonly userService: UserService) { }
+    constructor(private readonly userService: UserService, private readonly channelService: ChannelService) { }
 
     @Post("login")
     async loginAccount(@Res() response, @Body() loginRequestDto: LoginRequestDto) {
@@ -53,14 +54,16 @@ export class UserController {
     }
     @Get()
     async getUser(@Res() response) {
+        console.log(response.locals.channel)
         const user = await this.userService.getData(response.locals.user);
+        const channel = await this.channelService.getChannel(response.locals.channel);
 
         if (!user) {
             throw new NotFoundException('User could not found!');
         }
 
         return response.status(HttpStatus.OK).json({
-            message: 'User data retrieved successfully.', user
+            message: 'User data retrieved successfully.', channel, user
         });
     }
 }

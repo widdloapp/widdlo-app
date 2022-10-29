@@ -7,7 +7,7 @@ import {AccountContext} from "../../../../../../../../App.jsx";
 
 export default function VideoManager() {
 
-    const account = useContext(AccountContext).user;
+    const account = useContext(AccountContext);
 
     return (
         <div className={style["wrapper"]}>

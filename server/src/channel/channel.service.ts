@@ -26,6 +26,17 @@ export class ChannelService {
 
         return channel;
     }
+
+    async getChannel(id: string): Promise<Channel> {
+        const channel = await this.channelModel.findById(id).populate("followers").populate("stream", ["id"]).populate("chats", ["name"]);
+
+        if (!channel) {
+            throw new NotFoundException('Channel could not found!');
+        }
+
+        return channel;
+    }
+
     async checkExists(channel: string) {
         return this.channelModel.exists({_id: channel});
     }
