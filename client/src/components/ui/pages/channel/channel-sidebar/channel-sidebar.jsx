@@ -1,10 +1,13 @@
 import style from "./channel-sidebar.module.css";
 import AccordionWrapper from "../sidebar/accordion-wrapper/accordion-wrapper";
-import React, {Fragment, useEffect, useState} from "react";
+import React, {Fragment, useContext, useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
 import {api} from "../../../../../shared/utils/token/api.js";
+import {AccountContext} from "../../../../../App.jsx";
 
-export default function ChannelSidebar(props) {
+export default function ChannelSidebar() {
+
+    const channel = useContext(AccountContext).channel;
 
     const { id } = useParams();
 
@@ -45,6 +48,22 @@ export default function ChannelSidebar(props) {
                         <button className="section"><i className="fa-light fa-book-blank" />Publicaciones</button>
                     </Fragment>
                 } />
+                <div hidden={channel.id != id}>
+                    <AccordionWrapper title="Widdlo Studio" content={
+                        <Fragment>
+                            <Link to="/studio/manage">
+                                <button className="section"><i className="fa-light fa-video" /><p>Gestor de vídeos</p></button>
+                            </Link>
+                            <button className="section"><i className="fa-light fa-chart-simple" />Estadísticas</button>
+                            <Link to="/studio/streams">
+                                <button className="section"><i className="fa-light fa-signal-stream" />Emitir en directo</button>
+                            </Link>
+                            <Link to="/studio/profile">
+                                <button className="section"><i className="fa-light fa-gear" />Ajustes</button>
+                            </Link>
+                        </Fragment>
+                    } />
+                </div>
             </div>
         );
     }
