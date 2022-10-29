@@ -2,8 +2,12 @@ import style from "./video-manager.module.css";
 import {Link} from "react-router-dom";
 import TipsSidebar from "../../../components/tips-sidebar/tips-sidebar.jsx";
 import AdminGrid from "../../../../../../videos/video-grid/admin-grid/admin-grid";
+import {useContext} from "react";
+import {AccountContext} from "../../../../../../../../App.jsx";
 
 export default function VideoManager() {
+
+    const account = useContext(AccountContext).user;
 
     return (
         <div className={style["wrapper"]}>
@@ -23,7 +27,7 @@ export default function VideoManager() {
                 </div>
             } content={
                 <div>
-                    <AdminGrid />
+                    <AdminGrid channel={account.channels[0].id} />
                 </div>
             } />
         </div>
