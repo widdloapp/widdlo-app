@@ -1,4 +1,5 @@
 import {getStoredToken} from "./token.js";
+import { setGlobal } from "reactn";
 
 const headers = new Headers();
 headers.append("authorization", getStoredToken() ? 'Bearer ' + getStoredToken() : undefined);
@@ -13,12 +14,14 @@ const defaults = {
 }
 
 export const api = async (method, url, body) => {
+    await setGlobal({loading: true});
 
     const request = await fetch(defaults.endpoints.api + url, {
         method: method,
         headers: headers,
         body: body,
     })
+    await setGlobal({loading: false});
     return request.json();
 }
 

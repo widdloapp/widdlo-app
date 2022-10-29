@@ -21,13 +21,15 @@ import AccountRequired from "./components/ui/general/error/account-required/acco
 import ProfileSettings from "./components/ui/main/account/studio/studio-header/pages/profile-settings/profile-settings";
 import StreamSettings from "./components/ui/main/account/studio/studio-header/pages/stream-settings/stream-settings";
 import PageHeader from "./components/ui/main/page-header/page-header";
+import {Progress} from "@chakra-ui/react";
+import {useGlobal} from "reactn";
 
 export const AccountContext = createContext();
 
 function App() {
-
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState({});
+    const [loading, setLoading] = useGlobal("loading");
 
     useEffect(() => {
             api('GET', 'user').then(res => {
@@ -44,34 +46,35 @@ function App() {
                 <div className="App">
                     {
                         data.user ?
-                            <AccountContext.Provider value={data}>
-                                <Routes>
-                                    <Route path="/" element={<HomeDiscovery order='featured' />} />
-                                    <Route path="/feed/latest" element={<HomeDiscovery order='latest' />} />
-                                    <Route path="/feed/older" element={<HomeDiscovery order='older' />} />
-                                    <Route path="/feed/popular" element={<HomeDiscovery order='popular' />} />
+                                <AccountContext.Provider value={data}>
+                                    <Progress hidden={!loading} size='xs' isIndeterminate />
+                                    <Routes>
+                                        <Route path="/" element={<HomeDiscovery order='featured' />} />
+                                        <Route path="/feed/latest" element={<HomeDiscovery order='latest' />} />
+                                        <Route path="/feed/older" element={<HomeDiscovery order='older' />} />
+                                        <Route path="/feed/popular" element={<HomeDiscovery order='popular' />} />
 
-                                    <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
-                                    <Route path="/watch/:id/:comment" element={<MainLayout content={<VideoView />} />} />
+                                        <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
+                                        <Route path="/watch/:id/:comment" element={<MainLayout content={<VideoView />} />} />
 
-                                    <Route path="/channel/:id" element={<ChannelView />} />
-                                    <Route path="/channel/:id/feed/latest" element={<ChannelView order='latest' />} />
-                                    <Route path="/channel/:id/feed/older" element={<ChannelView order='older' />} />
-                                    <Route path="/channel/:id/feed/popular" element={<ChannelView order='popular' />} />
+                                        <Route path="/channel/:id" element={<ChannelView />} />
+                                        <Route path="/channel/:id/feed/latest" element={<ChannelView order='latest' />} />
+                                        <Route path="/channel/:id/feed/older" element={<ChannelView order='older' />} />
+                                        <Route path="/channel/:id/feed/popular" element={<ChannelView order='popular' />} />
 
-                                    <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
-                                    <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<StreamView />} />} />
-                                    <Route path="/studio/manage" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
-                                        title="Gestionar vídeos" content={<VideoManager />} />} />} />
-                                    <Route path="/studio/upload" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
-                                        title="Publicar vídeo" content={<VideoUpload />} />} />} />
-                                    <Route path="/studio/streams" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
-                                        title="Emisiones en directo" content={<StreamSettings />} />} />} />
-                                    <Route path="/studio/profile" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
-                                        title="Gestionar perfil" content={<ProfileSettings />} />} />} />
-                                    <Route path="*" element={<MainLayout content={<NotFound />} />} />
-                                </Routes>
-                            </AccountContext.Provider>
+                                        <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
+                                        <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<StreamView />} />} />
+                                        <Route path="/studio/manage" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
+                                            title="Gestionar vídeos" content={<VideoManager />} />} />} />
+                                        <Route path="/studio/upload" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
+                                            title="Publicar vídeo" content={<VideoUpload />} />} />} />
+                                        <Route path="/studio/streams" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
+                                            title="Emisiones en directo" content={<StreamSettings />} />} />} />
+                                        <Route path="/studio/profile" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
+                                            title="Gestionar perfil" content={<ProfileSettings />} />} />} />
+                                        <Route path="*" element={<MainLayout content={<NotFound />} />} />
+                                    </Routes>
+                                </AccountContext.Provider>
                             : <AccountRequired />
                     }
                 </div>
@@ -85,4 +88,4 @@ function App() {
     }
 }
 
-export default App
+export default App;
