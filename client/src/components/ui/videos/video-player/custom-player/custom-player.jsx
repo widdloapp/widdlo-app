@@ -39,7 +39,6 @@ export default function CustomPlayer(props) {
         setVideoVolume(document.getElementById('video-volume'));
     }, []);
 
-
     return (
         <div className={style["container"]}>
             <video id="video-player" className={style["player"]} src={props.source} />
@@ -49,7 +48,10 @@ export default function CustomPlayer(props) {
                 </div>
                 <div className={style["controls"]}>
                     <button onClick={() => alterPlay()} className={style["control"]}>{playing ? <i className="fa-solid fa-pause" /> : <i className="fa-solid fa-play" />}</button>
-                    <input className={style["video-range"]} id="video-range" type="range" onChange={() => updateVideoProgress()} />
+                    <input value={0} className={style["video-range"]} id="video-range" type="range" onChange={() => updateVideoProgress()} />
+                    <button onClick={() => alterFullScreen()} className={style["control"]}>{videoVolume == 0 ?
+                        <i className="fa-solid fa-volume-xmark" /> :
+                        <i className="fa-solid fa-volume" />}</button>
                     <input className={style["video-range"]} id="video-volume" type="range" onChange={() => updateVideoVolume()} />
                     <button onClick={() => alterPictureInPicture()} className={style["control"]}>
                         <i className="fa-sharp fa-solid fa-share-from-square" />
