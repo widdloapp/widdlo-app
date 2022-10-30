@@ -33,6 +33,7 @@ export default function CustomPlayer(props) {
                 <div className={style["controls"]}>
                     <button onClick={() => alterPlay()} className={style["control"]}>{playing ? <i className="fa-solid fa-pause" /> : <i className="fa-solid fa-play" />}</button>
                     <input className={style["video-range"]} id="video-range" type="range" onChange={() => setVideoProgress()} />
+                    <button onClick={() => alterPlay()} className={style["control"]}>{playing ? <i className="fa-solid fa-pause" /> : <i className="fa-solid fa-play" />}</button>
                 </div>
             </div>
         </div>
