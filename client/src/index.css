@@ -26,13 +26,13 @@
 
 .App {
   min-width: 350px;
-  overflow-y: hidden;
 
   background: var(--theme-main-medium);
 }
 
 html, body, .App, #root {
   height: 100vh;
+  overflow-y: hidden;
 }
 
 * {
