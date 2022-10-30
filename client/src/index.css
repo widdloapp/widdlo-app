@@ -263,6 +263,7 @@ textarea {
   color: white !important;
   resize: none !important;
   min-height: 40px;
+  -webkit-border-radius: 0;
 }
 
 textarea.main {
