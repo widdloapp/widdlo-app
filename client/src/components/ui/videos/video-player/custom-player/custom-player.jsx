@@ -18,13 +18,17 @@ export default function CustomPlayer(props) {
         player.requestPictureInPicture();
     }
 
-    const setVideoProgress = () => {
+    const updateVideoProgress = () => {
         player.currentTime = videoRange.value * player.duration / 100;
+    }
+
+    const updateVideoVolume = () => {
+        player.volume = videoVolume.value / 100;
     }
 
     const [player, setPlayer] = useState(null);
     const [videoRange, setVideoRange] = useState(null);
-
+    const [videoVolume, setVideoVolume] = useState(0);
     const [playing, setPlaying] = useState(false);
     const [fullScreen, setFullScreen] = useState(false);
     /*const [pictureInPicture, setPictureInPicture] = useState(false);*/
@@ -32,6 +36,7 @@ export default function CustomPlayer(props) {
     useEffect(() => {
         setPlayer(document.getElementById('video-player'));
         setVideoRange(document.getElementById('video-range'));
+        setVideoVolume(document.getElementById('video-volume'));
     }, []);
 
 
@@ -44,8 +49,8 @@ export default function CustomPlayer(props) {
                 </div>
                 <div className={style["controls"]}>
                     <button onClick={() => alterPlay()} className={style["control"]}>{playing ? <i className="fa-solid fa-pause" /> : <i className="fa-solid fa-play" />}</button>
-                    <input className={style["video-range"]} id="video-range" type="range" onChange={() => setVideoProgress()} />
-                    <input className={style["video-range"]} id="video-volume" type="range" onChange={() => setVideoProgress()} />
+                    <input className={style["video-range"]} id="video-range" type="range" onChange={() => updateVideoProgress()} />
+                    <input className={style["video-range"]} id="video-volume" type="range" onChange={() => updateVideoVolume()} />
                     <button onClick={() => alterPictureInPicture()} className={style["control"]}>
                         <i className="fa-sharp fa-solid fa-share-from-square" />
                     </button>
