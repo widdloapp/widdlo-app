@@ -9,7 +9,7 @@ export default function CustomPlayer(props) {
     }
 
     const setVideoProgress = () => {
-        
+        player.currentTime = videoRange.value * player.duration / 100;
     }
 
     const [player, setPlayer] = useState(null);
