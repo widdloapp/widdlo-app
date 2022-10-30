@@ -8,12 +8,18 @@ export default function CustomPlayer(props) {
         playing ? player.pause() : player.play();
     }
 
+    const setVideoProgress = () => {
+        
+    }
+
     const [player, setPlayer] = useState(null);
+    const [videoRange, setVideoRange] = useState(null);
 
     const [playing, setPlaying] = useState(false);
 
     useEffect(() => {
         setPlayer(document.getElementById('video-player'));
+        setVideoRange(document.getElementById('video-range'));
     }, []);
 
 
@@ -26,6 +32,7 @@ export default function CustomPlayer(props) {
                 </div>
                 <div className={style["controls"]}>
                     <button onClick={() => alterPlay()} className={style["control"]}>{playing ? <i className="fa-solid fa-pause" /> : <i className="fa-solid fa-play" />}</button>
+                    <input id="video-range" type="range" onChange={() => setVideoProgress()} />
                 </div>
             </div>
         </div>
