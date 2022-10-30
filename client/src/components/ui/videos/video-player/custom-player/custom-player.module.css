@@ -60,3 +60,22 @@ button.control > i {
 
     color: white;
 }
+
+.video-range {
+    background: rgba(128, 128, 128, 0.80);
+    border-radius: 25px;
+    height: 6px;
+}
+
+.video-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 12px;
+    height: 12px;
+    border-radius: 25px;
+    background: white;
+    cursor: pointer;
+
+    border: solid 1px gray;
+}
