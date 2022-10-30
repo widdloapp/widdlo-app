@@ -23,7 +23,7 @@ export default function CustomPlayer(props) {
                     <h1>a</h1>
                 </div>
                 <div className={style["controls"]}>
-                    <button onClick={() => alterPlay()} className={style["control"]}><i className="fa-solid fa-play" /></button>
+                    <button onClick={() => alterPlay()} className={style["control"]}>{playing ? <i className="fa-solid fa-play" /> : <i className="fa-solid fa-pause" />}</button>
                 </div>
             </div>
         </div>
