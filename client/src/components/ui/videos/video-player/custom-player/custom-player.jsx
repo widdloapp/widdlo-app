@@ -1,10 +1,19 @@
 import style from "./custom-player.module.css";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 export default function CustomPlayer(props) {
 
-    let player;
-    useEffect(() => player = document.getElementById('video-player'));
+    const alterPlay = () => {
+        setPlaying(!playing);
+        playing ? player.play() : player.pause();
+    }
+
+    const [player, setPlayer] = useState(null);
+
+    const [playing, setPlaying] = useState(false);
+
+    useEffect(() => setPlayer(document.getElementById('video-player')));
+
 
     return (
         <div className={style["container"]}>
@@ -14,7 +23,7 @@ export default function CustomPlayer(props) {
                     <h1>a</h1>
                 </div>
                 <div className={style["controls"]}>
-                    <button onClick={() => player.play()} className={style["control"]}><i className="fa-solid fa-play" /></button>
+                    <button onClick={() => alterPlay()} className={style["control"]}><i className="fa-solid fa-play" /></button>
                 </div>
             </div>
         </div>
