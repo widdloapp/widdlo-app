@@ -1,0 +1,23 @@
+.container {
+    aspect-ratio: 16 / 9;
+    background: black;
+    overflow-y: hidden;
+    position: relative;
+}
+
+.wrapper {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+}
+
+.controls {
+    position: absolute;
+    bottom: 0;
+}
+
+.player {
+    object-fit: contain;
+    max-height: 100%;
+}

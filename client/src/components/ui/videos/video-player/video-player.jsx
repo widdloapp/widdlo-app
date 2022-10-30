@@ -1,10 +1,11 @@
-import {useState, useEffect} from "react";
+import {useEffect} from "react";
 
 import Plyr from 'plyr';
 import style from "./video-player.module.css";
 import ChannelCard from "../../pages/channel/channel-card/channel-card";
 import CommentBox from "../comments/comment-box/comment-box";
 import ErrorBoundary from "../../main/error/error-boundary/error-boundary";
+import CustomPlayer from "./custom-player/custom-player";
 
 export default function VideoPlayer(props) {
 
@@ -19,7 +20,7 @@ export default function VideoPlayer(props) {
             <div>
                 <div className={style["container"]}>
                     <div className={style["video-wrapper"]}>
-                        <video className="video-player" autoPlay playsInline controls src={props.video.source}/>
+                        <CustomPlayer source={props.video.source} />
                     </div>
                     <div className={style["wrapper"]}>
                         <div className={style["left"]}>
