@@ -31,7 +31,7 @@
     width: 100%;
 
     display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto 1fr 80px auto auto;
     grid-gap: 5px;
     align-items: center;
 
