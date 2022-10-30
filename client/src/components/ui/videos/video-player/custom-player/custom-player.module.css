@@ -10,14 +10,51 @@
 
     top: 0;
     bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .controls {
-    position: absolute;
     bottom: 0;
 }
 
 .player {
     object-fit: contain;
     max-height: 100%;
+}
+
+.controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    display: grid;
+    grid-gap: 5px;
+
+    padding: 5px;
+}
+
+button.control {
+    width: 30px;
+    height: 30px;
+    position: relative;
+
+    padding: 10px;
+    border-radius: var(--theme-props-border-radius-min);
+    border: none;
+    transition: background .3s ease;
+}
+
+button.control:hover {
+    background: var(--theme-schema-main);
+}
+
+button.control > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 20px;
+
+    color: white;
 }

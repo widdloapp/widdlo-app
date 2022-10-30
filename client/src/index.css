@@ -17,6 +17,7 @@
 
   --theme-btn-main: #3a3a3a;
   --theme-props-border-radius: 5px;
+  --theme-props-border-radius-min: 2px;
 
   --theme-schema-live-main: #c52626;
   --theme-schema-live-dark: #981616;

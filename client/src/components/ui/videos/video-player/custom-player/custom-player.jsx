@@ -10,7 +10,7 @@ export default function CustomPlayer(props) {
                     <h1>a</h1>
                 </div>
                 <div className={style["controls"]}>
-                    <h1>aaa</h1>
+                    <button className={style["control"]}><i className="fa-solid fa-play" /></button>
                 </div>
             </div>
         </div>
