@@ -5,14 +5,16 @@ export default function CustomPlayer(props) {
 
     const alterPlay = () => {
         setPlaying(!playing);
-        playing ? player.play() : player.pause();
+        playing ? player.pause() : player.play();
     }
 
     const [player, setPlayer] = useState(null);
 
     const [playing, setPlaying] = useState(false);
 
-    useEffect(() => setPlayer(document.getElementById('video-player')));
+    useEffect(() => {
+        setPlayer(document.getElementById('video-player'));
+    }, []);
 
 
     return (
@@ -23,7 +25,7 @@ export default function CustomPlayer(props) {
                     <h1>a</h1>
                 </div>
                 <div className={style["controls"]}>
-                    <button onClick={() => alterPlay()} className={style["control"]}>{playing ? <i className="fa-solid fa-play" /> : <i className="fa-solid fa-pause" />}</button>
+                    <button onClick={() => alterPlay()} className={style["control"]}>{playing ? <i className="fa-solid fa-pause" /> : <i className="fa-solid fa-play" />}</button>
                 </div>
             </div>
         </div>
