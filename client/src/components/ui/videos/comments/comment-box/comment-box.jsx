@@ -9,6 +9,8 @@ import ChatInput from "../../../pages/chat/chat-input/chat-input";
 import {useToast} from "@chakra-ui/react";
 import CommentList from "./comment-list/comment-list.jsx";
 import NoComments from "./no-comments/no-comments.jsx";
+import NoContent from "../../video-grid/no-content/no-content";
+import NotFound from "../../../general/error/not-found/not-found";
 export default function CommentBox(props) {
 
     const account = useContext(AccountContext).user;
@@ -54,18 +56,24 @@ export default function CommentBox(props) {
 
 
     if (loaded) {
-        return (
-            <div className={style["wrapper"]}>
-                <div className={style["header"]}>
-                    <h1>{data.amount} comentarios</h1>
+        if (data.comments) {
+            return (
+                <div className={style["wrapper"]}>
+                    <div className={style["header"]}>
+                        <h1>{data.amount} comentarios</h1>
+                    </div>
+                    {account ? <ChatInput submit={postComment} value="Añade un comentario..." button="Comentar" /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
+                    <div className={style["content"]}>
+                        {
+                            data.comments.length > 0 ? <CommentList reply={props.reply} data={data} /> : <NoComments />
+                        }
+                    </div>
                 </div>
-                {account ? <ChatInput submit={postComment} value="Añade un comentario..." button="Comentar" /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
-                <div className={style["content"]}>
-                    {
-                        data.comments.length > 0 ? <CommentList reply={props.reply} data={data} /> : <NoComments />
-                    }
-                </div>
-            </div>
-        );
+            );
+        } else {
+            return(
+                <NotFound />
+            )
+        }
     }
 }
