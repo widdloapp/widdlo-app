@@ -4,6 +4,8 @@ import style from "./channel-grid.module.css";
 import {api} from "../../../../../shared/utils/token/api.js";
 import VideoCard from "../../video-card/video-card";
 import {OrderContext} from "../../../pages/home/home-discovery/home-discovery.jsx";
+import Loading from "../../../general/skeleton/loading/loading";
+import NoContent from "../no-content/no-content";
 
 export default function ChannelGrid(props) {
 
@@ -20,16 +22,26 @@ export default function ChannelGrid(props) {
     }, [props.channel, order]);
 
     if (loaded) {
-        return (
-            <div className={style["wrapper"]}>
-                {
-                    videos.map((video, key) =>
-                        <Fragment key={key}>
-                            <VideoCard video={video} />
-                        </Fragment>
-                    )
-                }
-            </div>
-        );
+        if (videos.length > 0) {
+            return (
+                <div className={style["wrapper"]}>
+                    {
+                        videos.map((video, key) =>
+                            <Fragment key={key}>
+                                <VideoCard video={video} />
+                            </Fragment>
+                        )
+                    }
+                </div>
+            );
+        } else {
+            return(
+                <NoContent />
+            )
+        }
+    } else {
+        return(
+            <Loading />
+        )
     }
 }
