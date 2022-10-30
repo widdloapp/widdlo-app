@@ -21,6 +21,8 @@
 .player {
     object-fit: contain;
     max-height: 100%;
+
+    margin: auto;
 }
 
 .controls {
