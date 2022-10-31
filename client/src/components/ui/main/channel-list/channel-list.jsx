@@ -36,7 +36,7 @@ export default function ChannelList() {
                             data.following.map((follow, key) =>
                                 <div key={key} className={style["channel-wrap"]}>
                                     <Link to={`/channel/${follow.channel.id}`}>
-                                        <DynamicAvatar size={20} source={follow.channel.avatar} id={follow.channel.id} />
+                                        <DynamicAvatar size={25} source={follow.channel.avatar} id={follow.channel.id} />
                                     </Link>
                                 </div>
                             )
@@ -46,7 +46,7 @@ export default function ChannelList() {
                             data.videos.map((video, key) =>
                                 <div key={key} className={style["channel-wrap"]}>
                                     <Link to={`/channel/${video.channel.id}`}>
-                                        <DynamicAvatar size={30} source={video.channel.avatar} id={video.channel.id} />
+                                        <DynamicAvatar size={25} source={video.channel.avatar} id={video.channel.id} />
                                     </Link>
                                 </div>
                             )
