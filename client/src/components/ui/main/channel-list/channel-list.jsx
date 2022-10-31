@@ -4,6 +4,7 @@ import style from "./channel-list.module.css";
 import {api} from "../../../../shared/utils/token/api.js";
 import {AccountContext} from "../../../../App.jsx";
 import {Link} from "react-router-dom";
+import DynamicAvatar from "../../general/avatar/dynamic-avatar.jsx";
 
 export default function ChannelList() {
 
@@ -35,7 +36,7 @@ export default function ChannelList() {
                             data.following.map((follow, key) =>
                                 <div key={key} className={style["channel-wrap"]}>
                                     <Link to={`/channel/${follow.channel.id}`}>
-                                        <img className="undraggable unselectable" src={follow.channel.avatar} />
+                                        <DynamicAvatar size={20} source={follow.channel.avatar} id={follow.channel.id} />
                                     </Link>
                                 </div>
                             )
@@ -45,7 +46,7 @@ export default function ChannelList() {
                             data.videos.map((video, key) =>
                                 <div key={key} className={style["channel-wrap"]}>
                                     <Link to={`/channel/${video.channel.id}`}>
-                                        <img className="undraggable unselectable" src={video.channel.avatar} />
+                                        <DynamicAvatar size={30} source={video.channel.avatar} id={video.channel.id} />
                                     </Link>
                                 </div>
                             )

@@ -4,7 +4,7 @@
     margin: 12px 0;
 }
 
-.channel-wrap > * > img {
+.channel-wrap > * > * {
     margin: 0 auto;
 
     border-radius: 50px;

@@ -2,7 +2,7 @@ import Avatar from "boring-avatars";
 
 export default function DynamicAvatar(props) {
 
-    if (props.source) {
+    if (!props.source) {
         return (
             <img className="avatar undraggable unselectable" height={props.size} width={props.size} src={props.source} />
         );
