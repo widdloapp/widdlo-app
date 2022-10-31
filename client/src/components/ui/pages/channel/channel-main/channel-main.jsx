@@ -6,6 +6,7 @@ import {api} from "../../../../../shared/utils/token/api.js";
 import FollowButton from "../components/follow-button/follow-button";
 import ChannelGrid from "../../../videos/video-grid/channel-grid/channel-grid";
 import Loading from "../../../general/skeleton/loading/loading";
+import DynamicAvatar from "../../../general/avatar/dynamic-avatar.jsx";
 
 export default function ChannelMain() {
 
@@ -26,7 +27,7 @@ export default function ChannelMain() {
             <div className={style["header"]}>
                 <img className={"undraggable unselectable"} src={`https://lf3-static.bytednsdoc.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/abstract-big.png`} />
                 <div className={style["container"]}>
-                    <img className="avatar unselectable undraggable" src={data.avatar} />
+                    <DynamicAvatar size={40} source={data.avatar} id={data.id} />
                     <div>
                         <p><mark>{data.username}</mark></p>
                         <p>{data.followers} seguidores</p>
