@@ -9,7 +9,7 @@ import StreamView from "./components/ui/pages/channel/stream/stream-view/stream-
 import ChannelSidebar from "./components/ui/pages/channel/channel-sidebar/channel-sidebar.jsx";
 import MainChat from "./components/ui/pages/chat/main-chat/main-chat";
 import {api} from "./shared/utils/token/api.js";
-import {createContext, useEffect, useState} from "react";
+import {createContext, Fragment, useEffect, useState} from "react";
 import LiveChat from "./components/ui/pages/channel/stream/live-chat/live-chat";
 import {getStoredToken} from "./shared/utils/token/token.js";
 import VideoUpload from "./components/ui/main/account/studio/studio-header/pages/video-upload/video-upload";

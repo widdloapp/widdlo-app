@@ -9,8 +9,8 @@ import ChatInput from "../../../pages/chat/chat-input/chat-input";
 import {useToast} from "@chakra-ui/react";
 import CommentList from "./comment-list/comment-list.jsx";
 import NoComments from "./no-comments/no-comments.jsx";
-import NoContent from "../../video-grid/no-content/no-content";
 import NotFound from "../../../general/error/not-found/not-found";
+import Loading from "../../../general/skeleton/loading/loading";
 export default function CommentBox(props) {
 
     const account = useContext(AccountContext).user;
@@ -75,5 +75,9 @@ export default function CommentBox(props) {
                 <NotFound />
             )
         }
+    } else {
+        return(
+            <Loading />
+        )
     }
 }

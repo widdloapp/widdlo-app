@@ -27,9 +27,17 @@ export default function CustomPlayer(props) {
         player.volume = videoVolume.value / 100;
     }
 
+    const alterVolume = () => {
+        setCacheVolume(volume);
+        volume == 0.01 ? setVolume(cacheVolume) : setVolume(0.01);
+        player.volume = volume;
+    }
+
+    const [volume, setVolume] = useState(100);
+    const [cacheVolume, setCacheVolume] = useState(100);
+
     const [player, setPlayer] = useState(null);
     const [videoRange, setVideoRange] = useState(null);
-    const [volume, setVolume] = useState(100);
     const [videoVolume, setVideoVolume] = useState(null);
     const [playing, setPlaying] = useState(false);
     const [fullScreen, setFullScreen] = useState(false);
@@ -51,7 +59,7 @@ export default function CustomPlayer(props) {
                 <div className={style["controls"]}>
                     <button onClick={() => alterPlay()} className={style["control"]}>{playing ? <i className="fa-solid fa-pause" /> : <i className="fa-solid fa-play" />}</button>
                     <input value={0} className={style["video-range"]} id="video-range" type="range" onChange={() => updateVideoProgress()} />
-                    <button onClick={() => alterFullScreen()} className={style["control"]}>{volume == 0.01 ?
+                    <button onClick={() => alterVolume()} className={style["control"]}>{volume == 0.01 ?
                         <i className="fa-solid fa-volume-xmark" /> :
                         <i className="fa-solid fa-volume" />}</button>
                     <input className={style["video-range"]} id="video-volume" type="range" onChange={() => updateVideoVolume()} />
