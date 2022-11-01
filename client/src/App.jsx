@@ -50,9 +50,8 @@ function App() {
                         data.user ?
                                 <AccountContext.Provider value={data}>
                                     <ProgressBar />
-
-                                        <TransitionGroup>
-                                            <CSSTransition key={location.pathname} classNames="page" timeout={1200}>
+                                    {/*<TransitionGroup>
+                                            <CSSTransition key={location.pathname} classNames="page" timeout={1200}>*/}
                                                 <Routes>
                                                     <Route path="/" element={<HomeDiscovery order='featured' />} />
                                                     <Route path="/feed/latest" element={<HomeDiscovery order='latest' />} />
@@ -79,8 +78,8 @@ function App() {
                                                         title="Gestionar perfil" content={<ChannelSettings />} />} />} />
                                                     <Route path="*" element={<MainLayout content={<NotFound />} />} />
                                                 </Routes>
-                                            </CSSTransition>
-                                        </TransitionGroup>
+                                    {/*</CSSTransition>
+                                        </TransitionGroup>*/}
 
                                 </AccountContext.Provider>
                             : <AccountRequired />
