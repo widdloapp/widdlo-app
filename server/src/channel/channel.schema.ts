@@ -18,7 +18,7 @@ export class Channel {
 
     @Prop()
     description: string;
-    
+
     avatar: string;
 
     _id: string;

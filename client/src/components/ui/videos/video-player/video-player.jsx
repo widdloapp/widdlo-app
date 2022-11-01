@@ -20,7 +20,8 @@ export default function VideoPlayer(props) {
             <div>
                 <div className={style["container"]}>
                     <div className={style["video-wrapper"]}>
-                        <CustomPlayer source={props.video.source} />
+                        {/*<CustomPlayer source={props.video.source}*/}
+                        <video className="video-player" autoPlay playsInline controls src={props.video.source}/>
                     </div>
                     <div className={style["wrapper"]}>
                         <div className={style["left"]}>
