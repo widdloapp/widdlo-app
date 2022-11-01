@@ -1,12 +1,16 @@
 .drawer-overlay {
     background: rgba(0, 0, 0, 0.85) !important;
     text-align: center;
+
+    width: 100% !important;
 }
 
 .drawer-content {
-    min-width: 450px !important;
     padding: 20px;
     background: var(--theme-main-medium) !important;
+    min-width: 340px !important;
+    width: 100% !important;
+    max-width: 500px !important;
 }
 
 .drawer-close-button {
