@@ -3,8 +3,7 @@ import { setGlobal } from "reactn";
 
 const headers = new Headers();
 headers.append("authorization", getStoredToken() ? 'Bearer ' + getStoredToken() : undefined);
-/*headers.append("Content-Type", "x-www-form-urlencoded");*/
-headers.append("Content-Type", "application/json");
+/*headers.append("Content-Type", "application/json");*/
 headers.append("Transfer-Encoding", "chunked");
 
 const defaults = {

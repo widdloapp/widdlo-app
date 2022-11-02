@@ -2,7 +2,6 @@
 import style from "./main-layout.module.css";
 import Navbar from "../../ui/main/navbar/navbar.jsx";
 import ChannelList from "../../ui/main/channel-list/channel-list";
-import {CSSTransition, SwitchTransition, TransitionGroup} from "react-transition-group";
 import {useLocation} from "react-router-dom";
 
 export default function MainLayout(props) {
