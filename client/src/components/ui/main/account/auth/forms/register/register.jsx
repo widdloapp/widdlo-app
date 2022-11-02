@@ -12,12 +12,14 @@ export default function Register() {
     const login = (event) => {
         event.preventDefault();
 
-        api('POST', 'user/register', JSON.stringify({
-            name: event.target[0].value,
-            username: event.target[1].value,
-            email: event.target[2].value,
-            password: event.target[3].value
-        })).then(res => {
+
+        const body = new URLSearchParams();
+        body.append("name", event.target[0].value);
+        body.append("username", event.target[1].value);
+        body.append("email", event.target[2].value);
+        body.append("password", event.target[3].value);
+
+        api('POST', 'user/register', body).then(res => {
             if (res.token) {
                 storeToken(res.token);
                 //navigate('/', { token: res.token });

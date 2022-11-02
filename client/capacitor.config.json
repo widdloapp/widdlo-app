@@ -1,0 +1,6 @@
+{
+  "appId": "com.widdlo.widdlo",
+  "appName": "client",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

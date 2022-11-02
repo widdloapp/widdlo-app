@@ -14,7 +14,7 @@ const defaults = {
     }
 }
 
-export const api = async (method, url, body) => {
+export const api = async (method, url, ) => {
     await setGlobal({loading: true});
 
     const request = await fetch(defaults.endpoints.api + url, {

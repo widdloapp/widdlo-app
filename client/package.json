@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor/android": "^4.4.0",
+    "@capacitor/cli": "^4.4.0",
+    "@capacitor/core": "^4.4.0",
     "@chakra-ui/react": "^2.3.5",
     "@douyinfe/semi-ui": "^2.20.8",
     "@emotion/react": "^11.10.4",
