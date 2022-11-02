@@ -23,7 +23,6 @@ import PageHeader from "./components/ui/main/page-header/page-header";
 import ChannelSettings
     from "./components/ui/main/account/studio/studio-header/pages/channel-settings/channel-settings.jsx";
 import ProgressBar from "./components/ui/general/skeleton/progress-bar/progress-bar";
-import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 export const AccountContext = createContext();
 

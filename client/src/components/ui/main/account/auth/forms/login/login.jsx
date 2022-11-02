@@ -12,10 +12,10 @@ export default function Login() {
     const login = (event) => {
         event.preventDefault();
 
-        api('POST', 'user/login', JSON.stringify({
-            email: event.target[0].value,
-            password: event.target[1].value
-        })).then(res => {
+        const body = new URLSearchParams();
+        body.append("email", event.target[0].value);
+        body.append("password", event.target[1].value);
+        api('POST', 'user/login', body).then(res => {
             if (res.token) {
                 storeToken(res.token);
                 //navigate('/', { token: res.token });
