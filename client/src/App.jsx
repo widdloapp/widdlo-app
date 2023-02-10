@@ -1,5 +1,5 @@
 import SidebarLayout from "./components/layout/sidebar-layout/sidebar-layout.jsx";
-import {BrowserRouter, Route, Routes, useLocation} from "react-router-dom";
+import {Route, Routes, useLocation} from "react-router-dom";
 import MainLayout from "./components/layout/main-layout/main-layout.jsx";
 import HomeSidebar from "./components/ui/pages/home/sidebar/home-sidebar.jsx";
 import VideoView from "./components/ui/videos/video-view/video-view";
@@ -23,6 +23,8 @@ import PageHeader from "./components/ui/main/page-header/page-header";
 import ChannelSettings
     from "./components/ui/main/account/studio/studio-header/pages/channel-settings/channel-settings.jsx";
 import ProgressBar from "./components/ui/general/skeleton/progress-bar/progress-bar";
+import WiddloOne from "./components/ui/main/account/studio/studio-header/pages/special/one/widdlo-one";
+import ChannelPosts from "./components/ui/main/account/studio/studio-header/pages/posts/channel-posts/channel-posts";
 
 export const AccountContext = createContext();
 
@@ -30,16 +32,18 @@ function App() {
     const [loaded, setLoaded] = useState(false);
     const [data, setData] = useState({});
 
+    const root = document.documentElement;
+
     useEffect(() => {
             api('GET', 'user').then(res => {
                 if (getStoredToken()) {
                     setData(res);
+
+                    root.style.setProperty('--theme-schema-main', '#818ee7');
                 }
                 setLoaded(true);
             })
     }, []);
-
-    const location = useLocation();
 
     if (loaded) {
         if (data) {
@@ -65,6 +69,9 @@ function App() {
                                                     <Route path="/channel/:id/feed/older" element={<ChannelView order='older' />} />
                                                     <Route path="/channel/:id/feed/popular" element={<ChannelView order='popular' />} />
 
+                                                    <Route path="/channel/:id/posts" element={<ChannelPosts />} />
+                                                    <Route path="/post/:id/:comment" element={<ChannelPosts />} />
+
                                                     <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
                                                     <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<StreamView />} />} />
                                                     <Route path="/studio/manage" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
@@ -76,10 +83,11 @@ function App() {
                                                     <Route path="/studio/profile" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
                                                         title="Gestionar perfil" content={<ChannelSettings />} />} />} />
                                                     <Route path="*" element={<MainLayout content={<NotFound />} />} />
+
+                                                    <Route path="/one" element={<SidebarLayout sidebar={<HomeSidebar />} content={<WiddloOne />} />} />
                                                 </Routes>
                                     {/*</CSSTransition>
                                         </TransitionGroup>*/}
-
                                 </AccountContext.Provider>
                             : <AccountRequired />
                     }

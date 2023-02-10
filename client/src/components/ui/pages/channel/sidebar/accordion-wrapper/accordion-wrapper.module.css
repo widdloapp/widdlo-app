@@ -12,9 +12,8 @@
     grid-gap: 5px;
 }
 
-.accordion-button > * {
-    display: grid;
-    grid-template-columns: 100vw auto !important;
+.accordion-button {
+    justify-content: space-between;
 }
 
 .accordion-button, .accordion-panel {

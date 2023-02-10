@@ -1,5 +1,5 @@
 .wrapper {
-    background: var(--theme-main-dark);
+    /*background: var(--theme-main-dark);*/
     border-radius: var(--theme-props-border-radius);
     padding: 20px;
 }

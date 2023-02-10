@@ -41,14 +41,14 @@ export default function StreamSettings() {
                         <h1>Clave de retransimisión</h1>
                         <p>IMPORTANTE: No la compartas con nadie en quien no confíes, cualquiera con esta clave podrá comenzar a retransmitir en tu canal.</p>
                         <InputGroup size='md'>
-                            <Input className={style["key"]} disabled={true} type={show ? 'text' : 'password'} value={data.stream.key} />
+                            <input className={style["key"]} disabled={true} type={show ? 'text' : 'password'} value={data.stream.key} />
                             <InputRightElement>
                                 <button className="tool" onClick={handleClick}>{show ? 'Ocultar' : 'Mostrar'}</button>
                             </InputRightElement>
                         </InputGroup>
-                        <h1>Obs Studio:</h1>
+                        <h1>Obs Studio</h1>
                         <InputGroup size='md'>
-                            <Input className={style["key"]} disabled={true} type={show ? 'text' : 'password'} value={`${data.stream.id}?pass=${data.stream.key}`} />
+                            <input className={style["key"]} disabled={true} type={show ? 'text' : 'password'} value={`${data.stream.id}?pass=${data.stream.key}`} />
                             <InputRightElement>
                                 <button className="tool" onClick={handleClick}>{show ? 'Ocultar' : 'Mostrar'}</button>
                             </InputRightElement>

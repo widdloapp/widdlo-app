@@ -24,13 +24,13 @@ export default function CommentList(props) {
 
     return (
         <div className={style["comment-wrapper"]}>
-                <Drawer isOpen={isOpen} placement='right' onClose={() => navigate(`/watch/${id}`)}>
+                <Drawer isOpen={isOpen} placement='right' onClose={() => navigate(props.isComment ? `/watch/${id}` : `/channel/${id}/posts`)}>
                     <CommentDrawer id={id} comment={comment} />
                 </Drawer>
                 {props.data.comments.length > 0 ?
                     props.data.comments.map((comment, key) =>
                         <div key={key} className={style["comment-box"]}>
-                            <CommentElement updateComment={updateComment} id={id} comment={comment} />
+                            <CommentElement updateComment={updateComment} id={id} isComment={props.isComment} comment={comment} />
                         </div>
                     ) :
                     <NoComments />

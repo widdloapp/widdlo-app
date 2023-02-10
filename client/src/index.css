@@ -12,8 +12,11 @@
   --theme-main-light: #252525;
   --theme-main: #212121;
 
-  --theme-schema-main: #f38e5b;
-  --theme-schema-main-dark: #c7754b;
+  --theme-schema-main: #b2baec;
+  --theme-schema-medium: #a5addc;
+  --theme-schema-main-dark: #818eef;
+
+  --theme-schema-main-gradient: linear-gradient(330deg, var(--theme-schema-main), var(--theme-schema-main-dark));
 
   --theme-btn-main: #3a3a3a;
   --theme-props-border-radius: 5px;
@@ -43,11 +46,18 @@ html, body, .App, #root {
   box-sizing: border-box;
   text-align: left;
 
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 
 h1, h2, h3, p, a {
   color: white;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 a {
@@ -73,12 +83,17 @@ header {
 
 button {
   cursor: pointer;
+
+  font-weight: 500;
+}
+
+.forbidden {
+  cursor: not-allowed;
 }
 
 button.main {
   background: var(--theme-btn-main);
   border-radius: var(--theme-props-border-radius);
-  margin: 4px;
   padding: 10px;
   border: none;
   color: white;
@@ -99,14 +114,14 @@ button.live:hover {
 button.tool {
   background: white;
   color: black;
-  border-radius: 25%;
+  border-radius: var(--theme-props-border-radius);
   padding: 5px 10px;
   font-size: 10px;
-  margin: 10px;
 }
 
 button.section {
   width: 100%;
+
   box-sizing: border-box;
   border: none;
   padding: 6px;
@@ -131,7 +146,7 @@ button.section {
 }
 
 ::selection {
-  background-color: var(--theme-schema-main);
+  background: var(--theme-schema-main);
   -webkit-text-fill-color: white;
 }
 
@@ -288,7 +303,7 @@ h1 {
 }
 
 mark {
-  color: var(--theme-schema-main);
+  color: var(--theme-schema-medium);
   background: none;
 }
 
@@ -407,4 +422,48 @@ a {
 .page-exit-active {
   opacity: 0;
   transition: opacity 200ms;
+}
+
+.active > button {
+  background: var(--theme-schema-main-dark);
+}
+
+.active > button:hover {
+  background: var(--theme-schema-main);
+}
+
+.active > button > i {
+  color: white;
+}
+
+.text-icon {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 10px;
+  align-items: center;
+}
+
+.text-icon > i {
+  color: white;
+}
+
+.element {
+  /*background: var(--theme-main-dark);*/
+  border-radius: var(--theme-props-border-radius);
+  font-size: 12px;
+  color: lightgrey;
+  width: min-content;
+
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 5px;
+  place-items: center;
+}
+
+.element > p {
+  color: lightgrey;
+}
+
+#disabled {
+  color: gray;
 }

@@ -17,8 +17,17 @@
 .zoom-img {
     overflow: hidden;
     border-radius: var(--theme-props-border-radius);
-    width: 250px;
-    height: 150px;
+
+    aspect-ratio: 16 /9;
+}
+
+@media screen and (min-width: 600px) {
+    .video-card {
+        width: auto;
+    }
+    .zoom-img {
+        max-height: 150px;
+    }
 }
 
 .zoom-img > img {

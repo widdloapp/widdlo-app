@@ -4,8 +4,8 @@
 
 .wrapper {
     display: grid;
-    grid-template-columns: 1fr min-content;
-    padding: 12px;
+    grid-template-columns: 1fr auto;
+    padding: 8px;
 }
 
 .left {

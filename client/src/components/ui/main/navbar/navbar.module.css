@@ -2,7 +2,9 @@
     display: grid;
     grid-template-columns: auto 1fr auto;
     place-items: center;
-    margin: 0px 10px 0px 10px;
+    margin: 0 10px;
+
+    overflow: hidden;
 }
 
 .navbar > a {
@@ -13,7 +15,22 @@
 }
 
 @media screen and (max-width: 500px) {
-    .buttons-wrapper {
+    .buttons-wrapper, .search-bar-wrapper {
         visibility: hidden;
     }
+}
+
+#selection {
+    background: var(--theme-main-dark);
+
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    max-width: 200px;
+    margin: auto;
+}
+
+.buttons-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 4px;
 }

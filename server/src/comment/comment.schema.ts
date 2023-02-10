@@ -17,4 +17,20 @@ export class Comment {
     target: string;
 }
 
-export const CommentSchema = SchemaFactory.createForClass(Comment).index({author: 1, target: 1}, { unique: true });
+const CommentSchema = SchemaFactory.createForClass(Comment).index({author: 1, target: 1}, { unique: true });
+
+CommentSchema.virtual('likes', {
+    ref: 'Like',
+    localField: '_id',
+    foreignField: 'target',
+    count: true
+});
+
+CommentSchema.virtual('comments', {
+    ref: 'Comment',
+    localField: '_id',
+    foreignField: 'target',
+    count: true
+});
+
+export { CommentSchema };

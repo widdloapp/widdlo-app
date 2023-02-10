@@ -3,6 +3,7 @@ import {useToast} from "@chakra-ui/react";
 import {useNavigate} from "react-router-dom";
 import {api} from "../../../../../../../shared/utils/token/api.js";
 import {storeToken} from "../../../../../../../shared/utils/token/token.js";
+import {ReCAPTCHA} from "react-google-recaptcha";
 
 export default function Login() {
 
@@ -59,6 +60,7 @@ export default function Login() {
             <h1>Iniciar sesión</h1>
             <input name="email" required={true} className="main" type="email" placeholder="Correo electrónico" />
             <input name="password" required={true} className="main" type="password" placeholder="Contraseña" />
+            <ReCAPTCHA sitekey="6LdkkBgjAAAAALVWf9rmXOnh42PZXS3IEcFKWid6" />
             <input type="submit" value="Iniciar sesión" className="main" />
         </form>
     )

@@ -8,3 +8,32 @@
 .box > p {
     color: white;
 }
+
+.tab-list {
+    justify-content: center !important;
+    color: white;
+    border: none !important;
+}
+
+.tab {
+    color: white;
+}
+
+.tab[aria-selected="true"] {
+    color: var(--theme-schema-main) !important;
+}
+
+.tab:hover {
+    background: none !important;
+}
+
+.container {
+    padding: 20px 0;
+}
+
+.featured-content {
+    background: var(--theme-main-medium);
+    margin: 20px 30px;
+    padding: 20px;
+    border-radius: var(--theme-props-border-radius);
+}

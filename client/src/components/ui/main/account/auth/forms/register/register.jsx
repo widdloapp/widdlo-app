@@ -11,7 +11,7 @@ export default function Register() {
 
     const login = (event) => {
         event.preventDefault();
-        
+
         const body = new URLSearchParams();
         body.append("name", event.target[0].value);
         body.append("username", event.target[1].value);

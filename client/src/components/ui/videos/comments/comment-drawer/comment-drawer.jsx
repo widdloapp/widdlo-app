@@ -8,7 +8,7 @@ export default function CommentDrawer(props) {
         return (
             <DrawerWrapper content={
                 <Fragment>
-                    <CommentBox reply={true} id={props.comment} closeable={false} />
+                    <CommentBox isComment={true} reply={true} id={props.comment} closeable={false} />
                 </Fragment>
             } />
         );

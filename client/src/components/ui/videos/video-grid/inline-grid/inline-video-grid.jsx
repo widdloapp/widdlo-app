@@ -1,7 +1,6 @@
 import {useState, useEffect, Fragment} from "react";
 
 import {api} from "../../../../../shared/utils/token/api.js";
-import {Link} from "react-router-dom";
 
 import style from "./inline-video-grid.module.css";
 import InlineVideoCard from "../../inline-video-card/inline-video-card";

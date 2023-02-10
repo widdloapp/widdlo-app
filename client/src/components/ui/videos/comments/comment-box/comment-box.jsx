@@ -65,7 +65,7 @@ export default function CommentBox(props) {
                     {account ? <ChatInput submit={postComment} value="Añade un comentario..." button="Comentar" /> : <RequiredAccountBar value="¡Inicia sesión o regístrate para comentar!" />}
                     <div className={style["content"]}>
                         {
-                            data.comments.length > 0 ? <CommentList reply={props.reply} data={data} /> : <NoComments />
+                            data.comments.length > 0 ? <CommentList isComment={props.isComment} reply={props.reply} data={data} /> : <NoComments />
                         }
                     </div>
                 </div>

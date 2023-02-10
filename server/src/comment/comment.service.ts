@@ -18,6 +18,9 @@ export class CommentService {
 
     async getComments(getCommentsDto: GetCommentsDto, queryDto: QueryDto): Promise<Comment[]> {
         const comments = await this.commentModel.find({target: getCommentsDto.target})
+            //.populate({path: 'comments', select: ['name', 'auth'], populate: {path: 'author', select: ['username', 'avatar']}})
+            .populate('comments')
+            .populate('likes')
             .populate({path: 'author', select: ['avatar', 'username'], populate: {path: 'followers'}}).limit(20).skip(queryDto.page * 20);
 
         /*if (!comments || comments.length == 0) {

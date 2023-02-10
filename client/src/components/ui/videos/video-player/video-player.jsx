@@ -5,7 +5,7 @@ import style from "./video-player.module.css";
 import ChannelCard from "../../pages/channel/channel-card/channel-card";
 import CommentBox from "../comments/comment-box/comment-box";
 import ErrorBoundary from "../../main/error/error-boundary/error-boundary";
-import CustomPlayer from "./custom-player/custom-player";
+import LikeButton from "./like-button/like-button.jsx";
 
 export default function VideoPlayer(props) {
 
@@ -29,15 +29,13 @@ export default function VideoPlayer(props) {
                             <p>{props.video.views} visualizaciones • hace 1 día</p>
                         </div>
                         <div className={style["right"]}>
-                            <button className="icon">
-                                <i className="fa-duotone fa-thumbs-up"></i>
-                            </button>
+                            <LikeButton video={props.video} />
                         </div>
                     </div>
                     <ChannelCard channel={props.video.channel} />
                 </div>
                 <hr className="spaced" />
-                <CommentBox id={props.video.id} />
+                <CommentBox isComment={true} id={props.video.id} />
             </div>
         } />
     );

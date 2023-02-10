@@ -1,5 +1,28 @@
+.header {
+    position: relative;
+    padding: 40px;
+}
+
+.header-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: linear-gradient(rgba(54, 199, 187), rgba(66, 92, 187));
+    opacity: 40%;
+}
+
+.channel-wrap {
+    position: relative;
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
 .container {
-    background: var(--theme-main-dark);
+    background: var(--theme-main-medium);
     right: 0;
     left: 0;
 
@@ -11,7 +34,7 @@
     align-items: center;
 }
 
-.header > img {
+.channel-wrap > img {
     width: 100%;
     aspect-ratio: 4 / 1;
     object-fit: cover;

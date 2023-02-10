@@ -1,6 +1,6 @@
 import {CreateVideoDto} from "../dto/create/create-video.dto";
 import {VideoService} from 'src/video/video.service';
-import {VideoFeedDto} from "../dto/create/video-feed.dto";
+import {VideoFeedDto} from "../dto/get/video-feed.dto";
 import {GetVideoDto} from "../dto/get/get-video.dto";
 import {
     BadRequestException,
@@ -9,7 +9,7 @@ import {
     Get,
     HttpStatus, Param, Patch,
     Post,
-    Query, Req,
+    Query,
     Res, Response, UploadedFiles, UseInterceptors
 } from "@nestjs/common";
 import {QueryDto} from "../dto/create/query.dto";

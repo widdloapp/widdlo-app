@@ -13,9 +13,9 @@ export class LikeService {
         return like.save();
     }
     async checkExists(likeVideoDto: LikeVideoDto) {
-        return this.likeModel.exists({video: likeVideoDto.video});
+        return this.likeModel.exists({target: likeVideoDto.target, author: likeVideoDto.author});
     }
     async unlikeVideo(likeVideoDto: LikeVideoDto) {
-        return this.likeModel.deleteOne({video: likeVideoDto.video});
+        return this.likeModel.deleteOne({target: likeVideoDto.target, author: likeVideoDto.author});
     }
 }

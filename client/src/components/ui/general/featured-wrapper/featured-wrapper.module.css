@@ -2,6 +2,8 @@
     background: var(--theme-main-dark);
     margin: 20px;
     border-radius: var(--theme-props-border-radius);
+
+    overflow: hidden;
 }
 
 .header {
