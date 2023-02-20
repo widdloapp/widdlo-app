@@ -1,7 +1,0 @@
-.container {
-    margin: 5px;
-}
-
-.container > * {
-    margin-bottom: 5px;
-}
