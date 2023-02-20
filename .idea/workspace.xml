@@ -2,87 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6358592f-73a4-48a2-be3a-07a0b6bf8664" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/widdlo-2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/App.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/layout/main-layout/main-layout.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/layout/main-layout/main-layout.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/layout/sidebar-layout/sidebar-layout.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/layout/sidebar-layout/sidebar-layout.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/input/search-bar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/input/search-bar.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/main/channel-list/channel-list.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/main/channel-list/channel-list.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/main/navbar/navbar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/main/navbar/navbar.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/pages/channel/main/main-channel.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/pages/channel/main/main-channel.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/pages/channel/sidebar/channel-sidebar/channel-sidebar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/pages/channel/sidebar/channel-sidebar/channel-sidebar.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/pages/home/home.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/pages/home/home.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/pages/home/sidebar/home-sidebar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/pages/home/sidebar/home-sidebar.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/videos/video-grid/video-grid.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/components/ui/videos/video-grid/video-grid.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/main.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/shared/utils/token/api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/src/shared/utils/token/token.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-2/vite.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/App.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/layout/main-layout/main-layout.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/layout/main-layout/main-layout.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/layout/sidebar-layout/sidebar-layout.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/layout/sidebar-layout/sidebar-layout.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/account/modal/login/login-modal.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/account/modal/login/login-modal.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/input/search-bar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/input/search-bar.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/main/navbar/navbar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/main/navbar/navbar.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/pages/channel/main/main-channel.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/pages/channel/main/main-channel.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/pages/channel/sidebar/channel-sidebar/channel-sidebar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/pages/channel/sidebar/channel-sidebar/channel-sidebar.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/pages/home/home.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/pages/home/home.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/videos/video-grid/video-grid.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/components/ui/videos/video-grid/video-grid.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/main.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/shared/utils/token/api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/src/shared/utils/token/token.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client-3/vite.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serversrc/schema.gql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streams/rtsp-simple-server" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streams/rtsp-simple-server.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/public/vite.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/src/App.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/src/assets/react.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/src/main.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/vite.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/shared/utils/token/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/shared/utils/token/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +47,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1676906216650</updated>
-      <workItem from="1676906217835" duration="161000" />
+      <workItem from="1676906217835" duration="282000" />
     </task>
     <servers />
   </component>
