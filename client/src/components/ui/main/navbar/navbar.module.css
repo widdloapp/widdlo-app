@@ -14,7 +14,7 @@
     color: var(--theme-schema-main);
 }
 
-@media screen and (max-width: 500px) {
+ screen and (max-width: 500px) {
     .buttons-wrapper, .search-bar-wrapper {
         visibility: hidden;
     }

@@ -87,6 +87,7 @@ require('dotenv').config()
   providers: [AppService, VideoService, UserService, LikeService, ChannelService, CommentService, StreamService, ChatService,
   MessageService, FollowService, PlaylistService, FileUploadService, PostService, VideoResolver]
 })
+
 export class AppModule implements NestModule {
   configure(middlewareConsumer: MiddlewareConsumer) {
     middlewareConsumer.apply(AuthMiddleware).forRoutes(

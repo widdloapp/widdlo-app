@@ -35,68 +35,71 @@ function App() {
     const root = document.documentElement;
 
     useEffect(() => {
-            api('GET', 'user').then(res => {
-                if (getStoredToken()) {
-                    setData(res);
+        api('GET', 'user').then(res => {
+            if (getStoredToken()) {
+                setData(res);
 
-                    root.style.setProperty('--theme-schema-main', '#818ee7');
-                }
-                setLoaded(true);
-            })
+                root.style.setProperty('--theme-schema-main', '#818ee7');
+            }
+            setLoaded(true);
+        })
     }, []);
 
     if (loaded) {
         if (data) {
             return (
                 <div className="App">
-                    {
-                        data.user ?
-                                <AccountContext.Provider value={data}>
-                                    <ProgressBar />
-                                    {/*<TransitionGroup>
+                    <AccountContext.Provider value={data}>
+                        <ProgressBar/>
+                        {/*<TransitionGroup>
                                             <CSSTransition key={location.pathname} classNames="page" timeout={1200}>*/}
-                                                <Routes>
-                                                    <Route path="/" element={<HomeDiscovery order='featured' />} />
-                                                    <Route path="/feed/latest" element={<HomeDiscovery order='latest' />} />
-                                                    <Route path="/feed/older" element={<HomeDiscovery order='older' />} />
-                                                    <Route path="/feed/popular" element={<HomeDiscovery order='popular' />} />
+                        <Routes>
+                            <Route path="/" element={<HomeDiscovery order='featured'/>}/>
+                            <Route path="/feed/latest" element={<HomeDiscovery order='latest'/>}/>
+                            <Route path="/feed/older" element={<HomeDiscovery order='older'/>}/>
+                            <Route path="/feed/popular" element={<HomeDiscovery order='popular'/>}/>
 
-                                                    <Route path="/watch/:id" element={<MainLayout content={<VideoView />} />} />
-                                                    <Route path="/watch/:id/:comment" element={<MainLayout content={<VideoView />} />} />
+                            <Route path="/watch/:id" element={<MainLayout content={<VideoView/>}/>}/>
+                            <Route path="/watch/:id/:comment" element={<MainLayout content={<VideoView/>}/>}/>
 
-                                                    <Route path="/channel/:id" element={<ChannelView />} />
-                                                    <Route path="/channel/:id/feed/latest" element={<ChannelView order='latest' />} />
-                                                    <Route path="/channel/:id/feed/older" element={<ChannelView order='older' />} />
-                                                    <Route path="/channel/:id/feed/popular" element={<ChannelView order='popular' />} />
+                            <Route path="/channel/:id" element={<ChannelView/>}/>
+                            <Route path="/channel/:id/feed/latest" element={<ChannelView order='latest'/>}/>
+                            <Route path="/channel/:id/feed/older" element={<ChannelView order='older'/>}/>
+                            <Route path="/channel/:id/feed/popular" element={<ChannelView order='popular'/>}/>
 
-                                                    <Route path="/channel/:id/posts" element={<ChannelPosts />} />
-                                                    <Route path="/post/:id/:comment" element={<ChannelPosts />} />
+                            <Route path="/channel/:id/posts" element={<ChannelPosts/>}/>
+                            <Route path="/post/:id/:comment" element={<ChannelPosts/>}/>
 
-                                                    <Route path="/channel/:id/:chat" element={<SidebarLayout sidebar={<ChannelSidebar />} content={<MainChat />} />} />
-                                                    <Route path="/channel/:id/stream" element={<StreamLayout sidebar={<LiveChat />} content={<StreamView />} />} />
-                                                    <Route path="/studio/manage" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
-                                                        title="Gestionar vídeos" content={<VideoManager />} />} />} />
-                                                    <Route path="/studio/upload" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
-                                                        title="Publicar vídeo" content={<VideoUpload />} />} />} />
-                                                    <Route path="/studio/streams" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
-                                                        title="Emisiones en directo" content={<StreamSettings />} />} />} />
-                                                    <Route path="/studio/profile" element={<SidebarLayout sidebar={<HomeSidebar />} content={<PageHeader
-                                                        title="Gestionar perfil" content={<ChannelSettings />} />} />} />
-                                                    <Route path="*" element={<MainLayout content={<NotFound />} />} />
+                            <Route path="/channel/:id/:chat"
+                                   element={<SidebarLayout sidebar={<ChannelSidebar/>} content={<MainChat/>}/>}/>
+                            <Route path="/channel/:id/stream"
+                                   element={<StreamLayout sidebar={<LiveChat/>} content={<StreamView/>}/>}/>
+                            <Route path="/studio/manage"
+                                   element={<SidebarLayout sidebar={<HomeSidebar/>} content={<PageHeader
+                                       title="Gestionar vídeos" content={<VideoManager/>}/>}/>}/>
+                            <Route path="/studio/upload"
+                                   element={<SidebarLayout sidebar={<HomeSidebar/>} content={<PageHeader
+                                       title="Publicar vídeo" content={<VideoUpload/>}/>}/>}/>
+                            <Route path="/studio/streams"
+                                   element={<SidebarLayout sidebar={<HomeSidebar/>} content={<PageHeader
+                                       title="Emisiones en directo" content={<StreamSettings/>}/>}/>}/>
+                            <Route path="/studio/profile"
+                                   element={<SidebarLayout sidebar={<HomeSidebar/>} content={<PageHeader
+                                       title="Gestionar perfil" content={<ChannelSettings/>}/>}/>}/>
+                            <Route path="*" element={<MainLayout content={<NotFound/>}/>}/>
 
-                                                    <Route path="/one" element={<SidebarLayout sidebar={<HomeSidebar />} content={<WiddloOne />} />} />
-                                                </Routes>
-                                    {/*</CSSTransition>
+                            <Route path="/one"
+                                   element={<SidebarLayout sidebar={<HomeSidebar/>} content={<WiddloOne/>}/>}/>
+                        </Routes>
+                        {/*</CSSTransition>
                                         </TransitionGroup>*/}
-                                </AccountContext.Provider>
-                            : <AccountRequired />
-                    }
+                    </AccountContext.Provider>
                 </div>
             )
         }
     } else {
         return (
-            <Loading />
+            <Loading/>
         );
 
     }
